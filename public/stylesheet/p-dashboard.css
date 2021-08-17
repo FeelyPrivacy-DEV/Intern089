@@ -1,0 +1,64 @@
+body {
+    background-color: #f8f9fa !important;
+}
+
+
+/* nav */
+.nav .active {
+    color: #20c0f3 !important;
+    border-bottom: 4px solid #20c0f3 !important;
+    background-color: transparent !important;
+}
+.nav button {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    border-radius: none !important;
+}
+
+/* table */ 
+.table {
+    overflow-x: auto !important;
+}
+.table .pat img {
+    border-radius: 50% !important;
+}
+.table a {
+    color: #000;
+    text-decoration: none !important;
+}
+.table a:hover {
+    color: #20c0f3 !important;
+}
+.table .badge-td .confirmed {
+    color: #26af48 !important;
+    background-color: #26af4836 !important;
+    font-weight: 700 !important;
+}
+.table .badge-td .pending {
+    color: #f39c12  !important;
+    background-color: #e9ff1f31 !important;
+    font-weight: 700 !important;
+}
+.table .badge-td .cancelled {
+    color: #e20606 !important;
+    background-color: #b91d1d2a !important;
+    font-weight: 700 !important;
+}
+
+.table .action .btn1 {
+    color: #1db9aa !important;
+    background-color: #1db9a941 !important;
+    font-weight: 600 !important;
+}
+.table .action .btn2 {
+    color: #0056b3  !important;
+    background-color: #2195f34f !important;
+    font-weight: 600 !important;
+}
+
+.show {
+    display: block !important;
+}
+.hide {
+    display: none !important;
+}

@@ -1,0 +1,33 @@
+body {
+    background-color: #f8f9fa !important;
+}
+
+.d-appo-content .pat-det h5 {
+    font-weight: 400 !important;
+    font-size: 17px !important;
+}
+.d-appo-content .pat-det h5 a {
+    text-decoration: none !important;
+}
+.d-appo-content .pat-det p {
+    font-weight: 400 !important;
+    font-size: 13px !important;
+    padding: 2px 0 !important;
+}
+
+
+.pet-action .action .btn1 {
+    color: #1db9aa !important;
+    background-color: #1db9a941 !important;
+    font-weight: 600 !important;
+}
+.pet-action .action .btn2 {
+    color: #26af48 !important;
+    background-color: #26af4836 !important;
+    font-weight: 600 !important;
+}
+.pet-action .action .btn3 {
+    color: #e63c3c !important;
+    background-color: #e63c3c3d !important;
+    font-weight: 600 !important;
+}

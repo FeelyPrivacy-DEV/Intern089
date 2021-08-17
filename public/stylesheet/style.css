@@ -1,0 +1,212 @@
+
+body .btn-close, .btn, .form-control, .form-select {
+    outline: none !important;
+    box-shadow: none !important;
+}
+/* body { 
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none;
+            user-select: none; 
+} */
+
+
+/* breadcrumb */
+.breadc {
+    padding: 10px 0 !important;
+    height: auto !important;
+    background-color: #000 !important;
+}
+.breadc .breadcrumb p {
+    color: #fff !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+}
+.breadc .breadcrumb h5 {
+    color: #fff !important;
+    font-weight: 700 !important;
+}
+
+
+.navbar .nav-btn-modal {
+    background: none !important;
+}
+
+.e_log_form {
+    max-width: 235px !important;
+}
+.e-log img {
+    border-radius: 10px !important;
+}
+
+.modal-dialog {
+    max-width: 500px !important;
+}
+
+
+
+
+/* slider */
+
+
+.slider-main .slider-btn {
+    background: transparent;
+}
+.slider .form-control, .form-select {
+    max-width: 300px !important;
+}
+/* .slider::-webkit-scrollbar {
+    width: 0 !important;
+} */
+.slider {
+    max-width: fit-content !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    background: #fff;
+}
+.slider a {
+    color: rgb(97, 97, 97);
+    text-decoration: none;
+    cursor: pointer;
+}
+.slider h5 {
+    font-weight: 400 !important;
+}
+.slider small {
+    color: rgb(0, 209, 10);
+    font-size: small;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+
+/* doctor card */
+
+.card-body {
+    background: #fff;
+    max-width: fit-content !important;
+    border-radius: 10px;
+}
+.card-body a {
+    color: rgb(0, 131, 253) !important;
+    text-decoration: none;
+}
+.card-body img {
+    border-radius: 10px;
+}
+.card-body h4 {
+    font-size: large;
+}
+
+
+/* day and date strip */
+.bookingrange .form-control {
+    max-width: 70px !important;
+}
+.bookingrange .form-control::after {
+    font-size: 90px;
+    color: brown;
+}
+
+.time-slots {
+    display: flex !important;
+    flex-direction: column !important;
+}
+.time-slots button i{
+    font-weight: 200px !important;
+    background: none !important;
+}
+.time-slots button {
+    background: rgba(228, 228, 228, 0.699) ;
+}
+.time-slots button:hover {
+    background: #fff;
+    border: 1px solid rgba(228, 228, 228, 0.699) ;
+}
+.time-slots .time-slot-av {
+    background: rgb(0, 131, 253);
+}
+
+
+
+/* pro to pay */
+.protopay button {
+    font-size: 19px ;
+}
+
+
+
+/* success card */
+.success-cont {
+    margin: 100px 0 !important;
+}
+.success-cont i {
+    font-size: 50px !important;
+}
+
+
+/* doc-dashboard */
+.doc-dash {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+/* side profile */
+.side-profile {
+    background-color: #fff !important;
+}
+.side-profile img { 
+    border-radius: 50% 50%;
+}
+.side-profile a {
+    font-size: 19px;
+    color: rgb(0, 131, 253) !important;
+    text-decoration: none;
+}
+
+.side-nav ul li a {
+    color: rgb(87, 87, 87) !important;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+}
+.side-nav ul li{
+    padding: 12px 0;
+    list-style: none;
+}
+.side-nav ul li a:hover {
+    color: rgb(0, 131, 253) !important;
+}
+.side-nav ul li i{
+    padding-right: 15px !important;
+}
+.side-nav li .s-active {
+    font-size: 16px;
+    color: rgb(0, 131, 253) !important;
+}
+
+/* days row */
+.days-row {
+    width: 100% !important;
+    overflow-x: auto !important;
+}
+.days-row button {
+    text-transform: uppercase;
+    border: 1px solid rgb(218, 218, 218);
+}
+.days-row  .b-active {
+    color: #fff !important;
+    background: rgb(81, 157, 255);
+}
+
+
+/* slots */
+.edit_slots .modal-dialog {
+    max-width: 500px !important;
+}
+.edit_slots .form-control {
+    width: 175px !important;
+}
