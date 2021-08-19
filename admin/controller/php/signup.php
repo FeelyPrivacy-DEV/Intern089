@@ -7,7 +7,7 @@ $con = new MongoDB\Client( 'mongodb://localhost:27017' );
 $db = $con->php_mongo; 
 
 
-if(isset($_POST['employee_signup'])) {
+if(isset($_POST['ad_signup'])) {
     $collection = $db->admin;
 
     $pass = $_POST['pass'];

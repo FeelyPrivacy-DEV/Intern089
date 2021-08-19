@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #f8f9fa !important;
+}
+
+
+
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.Sidebar {
+    height: 100% !important;
+    width: 200px !important;
+    position: fixed !important;
+    box-shadow: 3px 15px 15px rgba(184, 184, 184, 0.918) !important;
+}
+.Sidebar .nav .nav-link {
+    font-size: small     !important;
+    font-weight: 500 !important;
+}
+.Sidebar .nav li {
+    padding: 5px 0 !important;
+}
+.Sidebar .nav-item .active-sn {
+    color: blue !important;
+    background: #002fff36 !important;
+    font-size: medium !important;
+    font-weight: 500 !important;
+}
+.navbar {
+    box-shadow: 15px -2px 25px rgba(184, 184, 184, 0.918) !important;
+    margin-left: 200px !important;
+}
+.navbar .container-fluid input:focus {
+    outline: none !important;
+    width: 500px !important;
+}
+.body-main {
+    
+    margin-left: 200px !important;
+    padding: 0px 20px ;
+}
+
+@media screen and (max-width: 800px) {
+    .Sidebar {
+        display: none !important;
+    }
+    .body-main {
+        margin-left: 0px !important;
+    }
+    .navbar {
+        margin-left: 0px !important;
+    }
+    .apps-list {
+        width: 100% !important;
+        overflow-x: auto !important;
+    }
+}
+
+
+
+
+
+/* .body-content {
+    width: 100% !important;
+    overflow-x: auto !important;
+} */
+
+/* card */
+.card {
+    border: 1px solid #f0f0f0 !important;
+    margin-bottom: 1.875rem !important;
+}
+.card-body {
+    padding: 1.5rem !important;
+}
+.dash-widget-header {
+    align-items: center !important;
+    display: flex !important;
+    margin-bottom: 15px !important;
+}
+.dash-widget-icon {
+    align-items: center !important;
+    display: inline-flex !important;
+    font-size: 1.4rem !important;
+    height: 50px !important;
+    justify-content: center !important;
+    line-height: 48px !important;
+    text-align: center !important;
+    width: 50px !important;
+    border: 3px solid !important;
+    border-radius: 50px !important;
+    padding: 28px !important;
+}
+.border-primary {
+    border-color: #00d0f1!important;
+}
+.progress-bar, .progress {
+    height: 8px !important;
+}
+.progress .d {
+    background: #00d0f1 !important;
+}
+.text-primary,  .dropdown-menu > li > a.text-primary {
+    color: #00d0f1 !important;
+}
+@media only screen and (max-width: 767.98px) {
+    .dash-count {
+        font-size: 16px !important;
+    }
+}
+.dash-count {
+    font-size: 18px !important;
+    margin-left: auto !important;
+}
+
+
+
+
+
+/* table */
+
+.card .card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #eaeaea !important;
+}
+.card-header {
+    border-bottom: 1px solid #e6e6e6;
+    padding: 1rem 1.5rem !important;
+}
+.card .card-header .card-title {
+    margin-bottom: 0 !important;
+}
+.card-table .card-body {
+    padding: 0 !important;
+}
+
+.table-responsive {
+    white-space: nowrap;
+}
+.table {
+    color: #333 !important;
+    max-width: 100% !important;
+    max-width: 30px !important;
+    margin: auto !important;
+    width: 100% !important;
+}
+.table thead {
+    background-color: #f8f9fa !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03) !important;
+}
+.card-table .card-body .table tr *, .card-table .card-body .table tr th *{
+    padding-left: 15px !important;
+}
+.card-table .card-body .table > thead > tr > th * {
+    border-top: 0 !important;
+}
+.card-table .table td, .card-table .table th * {
+    border-top: 1px solid #e2e5e8 !important;
+    padding: 1rem 0 !important;
+    white-space: nowrap !important;
+}
+.table.table-center td, .table.table-center th * {
+    vertical-align: middle !important;
+}
+.table thead tr th {
+    font-weight: 600 !important;
+    border: 0 !important;
+}
+.table tbody tr td, img {
+    padding-left: 0 !important;
+    font-weight: 600 !important;
+    border: 0 !important;
+}
+.table tbody tr td a {
+    color: #333 !important;
+    font-size: 14px !important;
+}
+.table tbody tr td a:hover {
+    color: #00d0f1 !important;
+}
+
+
+
+
+

@@ -1,3 +1,13 @@
+<?php
+
+    error_reporting(0);
+    session_start();
+
+
+?>
+
+
+
 <!doctype html>
 <html lang="en">
 
@@ -22,17 +32,23 @@
 
                             <!-- Form -->
                             <form action="http://localhost/s/s/admin/controller/php/signup.php" method="POST">
-                                <div class="form-group my-2">
-                                    <input class="form-control" type="text" name="fname" placeholder="Full Name">
+                                <div class="row my-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input class="form-control py-3" type="text" name="fname" placeholder="Full Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input class="form-control py-3" type="text" name="uname" placeholder="Username">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group my-3">
+                                    <input class="form-control py-3" type="email" name="email" placeholder="Email Address">
                                 </div>
                                 <div class="form-group my-2">
-                                    <input class="form-control" type="email" name="email" placeholder="Email Address">
-                                </div>
-                                <div class="form-group my-2">
-                                    <input class="form-control" type="text" name="uname" placeholder="Username">
-                                </div>
-                                <div class="form-group my-2">
-                                    <input class="form-control" type="password" name="pass" placeholder="Password">
+                                    <input class="form-control py-3" type="password" name="pass" placeholder="Password">
                                 </div>
                                 <div class="form-group d-grid gap-2 my-4">
                                     <button class="btn btn-primary btn-block py-2" name="ad_signup" type="submit">Register for Admin</button>
@@ -55,7 +71,7 @@
                             </div>
                             <!-- /Social Login -->
 
-                            <div class="text-center dont-have" >Already have an account? <a href="http://localhost/s/s/admin/index.php">Login</a>
+                            <div class="text-center dont-have" >Already have an account? <a href="http://localhost/s/s/admin/index">Login</a>
                             </div>
                         </div>
                     </div>

@@ -16,7 +16,9 @@ if(isset($_POST['manager_login'])) {
     if($record) {
         if(password_verify( $pass, $record['password'])) {
             session_start();
+            $_SESSION['loggedin'] = true;
             $_SESSION['docid'] = $record['_id'];
+            $_SESSION['email'] = $record['email'];
             $_SESSION['d_unid'] = $record['d_unid'];
             $_SESSION['fname'] = $record['fname'];
             $_SESSION['sname'] = $record['sname'];
@@ -30,7 +32,7 @@ if(isset($_POST['manager_login'])) {
     else {
         header('location: ../../?auth=failed');
     }
-
+ 
 }
 else if(isset($_POST['employee_login'])) {
     $collection = $db->employee;
@@ -44,6 +46,7 @@ else if(isset($_POST['employee_login'])) {
         if(password_verify( $pass, $record['password'])) {
             session_start();
             $_SESSION['eid'] = $record['_id'];
+            $_SESSION['email'] = $record['email'];
             $_SESSION['fname'] = $record['fname'];
             $_SESSION['sname'] = $record['sname'];
             $_SESSION['p_unid'] = $record['p_unid'];

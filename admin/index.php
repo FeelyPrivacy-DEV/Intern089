@@ -1,6 +1,6 @@
 <?php 
 
-    // error_reporting(0);
+    error_reporting(0);
     session_start();
     require '../vendor/autoload.php';
     $con = new MongoDB\Client( 'mongodb://localhost:27017' );
@@ -34,6 +34,7 @@
 </head>
 
 <body>
+    <?php echo $auth_msg; ?>
 
     <div class="main-wrapper login-body">
         <div class="login-wrapper">
@@ -48,15 +49,15 @@
                             <p class="account-subtitle">Access to our dashboard</p>
 
                             <!-- Form -->
-                            <form action="#">
-                                <div class="form-group my-2">
-                                    <input class="form-control" type="text" placeholder="Username">
+                            <form action="http://localhost/s/s/admin/controller/php/login.php" method="POST">
+                                <div class="form-group my-3">
+                                    <input class="form-control p-3" type="email" name="email" placeholder="Email Address">
                                 </div>
                                 <div class="form-group my-2">
-                                    <input class="form-control" type="password" placeholder="Password">
+                                    <input class="form-control p-3" type="password" name="pass" placeholder="Password">
                                 </div>
                                 <div class="form-group d-grid gap-2 my-4">
-                                    <button class="btn btn-primary btn-block py-2" type="submit">Login as Admin</button>
+                                    <button class="btn btn-primary btn-block py-2" name="a_login" type="submit">Login as Admin</button>
                                 </div>
                             </form>
                             <!-- /Form -->
