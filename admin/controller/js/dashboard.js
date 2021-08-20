@@ -2,48 +2,59 @@
 function disableIt(i) {
     if($(`#check${i}`).val() == 1) {
         $(`#check${i}`).val('0');
-        let pre_p_details = true;
+        let check1 = true;
         var xhr = new XMLHttpRequest();
-        var url = "http://localhost/s/s/controller/php/add_m.php";
+        var url = "http://test.com/s/s/admin/controller/php/dashboard.php";
 
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-            if (xhr.responseText == "") {
-                $("#p_details").html(
-                '<h5 class="text-danger text-center">No slots found</h5>'
-                );
-            } else {
-                $("#p_details").html(xhr.responseText);
-            }
+
             }
         };
-        xhr.send(`pre_p_details=${pre_p_details}`);
+        xhr.send(`check1=${check1}&id=${i}`);
     }
     else {
         $(`#check${i}`).val('1');
-        let pre_p_details = true;
+        let check2 = true;
         var xhr = new XMLHttpRequest();
-        var url = "http://localhost/s/s/controller/php/add_m.php";
+        var url = "http://test.com/s/s/admin/controller/php/dashboard.php";
 
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-            if (xhr.responseText == "") {
-                $("#p_details").html(
-                '<h5 class="text-danger text-center">No slots found</h5>'
-                );
-            } else {
-                $("#p_details").html(xhr.responseText);
-            }
+
             }
         };
-        xhr.send(`pre_p_details=${pre_p_details}`);
+        xhr.send(`check2=${check2}&id=${i}`);
     }   
 
 } 
+
+// allow it
+
+function AllowIt(i) {
+    $(`#checkAllow${i}`).val('1');
+    $(`#trid${i}`).fadeOut(2000, function() {
+        $(`#trid${i}`).remove();
+        // $(".pend_doc_table").load(location.href + " .pend_doc_table");
+    });
+
+    let allowit = true;
+    var xhr = new XMLHttpRequest();
+    var url = "http://test.com/s/s/admin/controller/php/dashboard.php";
+
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(xhr.responseText);
+        }
+    };
+    xhr.send(`allowit=${allowit}&id=${i}`);
+}
 
 
 $(document).on('click', '#btn_side', function() {

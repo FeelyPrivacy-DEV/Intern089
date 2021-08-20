@@ -4,9 +4,9 @@
     // session_start();
     require './vendor/autoload.php';
     // if($_SESSION['docid'] == '') {
-    //     header('location: http://localhost/s/s/index');
+    //     header('location: http://test.com/s/s/index');
     // }
-    $con = new MongoDB\Client( 'mongodb://localhost:27017' );
+    $con = new MongoDB\Client( 'mongodb://test.com:27017' );
     $db = $con->php_mongo;
     $collection = $db->manager;
 
@@ -17,7 +17,7 @@
 
 <head>
     <?php include './assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://localhost/s/s/public/stylesheet/index.css?ver=1.2">
+    <link rel="stylesheet" href="http://test.com/s/s/public/stylesheet/index.css?ver=1.3">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -72,7 +72,7 @@
 
 
     <?php include './assest/bottom_links.php'; ?>
-    <script src='http://localhost/s/s/controller/js/index.js?ver=1.5'></script>
+    <script src='http://test.com/s/s/controller/js/index.js?ver=1.5'></script>
 
 </body>
 

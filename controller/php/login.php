@@ -2,7 +2,7 @@
 
 require '../../vendor/autoload.php';
 
-$con = new MongoDB\Client( 'mongodb://localhost:27017' );
+$con = new MongoDB\Client( 'mongodb://test.com:27017' );
 $db = $con->php_mongo;
 
 if(isset($_POST['manager_login'])) {
@@ -15,27 +15,32 @@ if(isset($_POST['manager_login'])) {
 
     if($record) {
         if(password_verify( $pass, $record['password'])) {
-            if($record['login_able'] == true) {
-                session_start();
-                $_SESSION['loggedin'] = true;
-                $_SESSION['docid'] = $record['_id'];
-                $_SESSION['email'] = $record['email'];
-                $_SESSION['d_unid'] = $record['d_unid'];
-                $_SESSION['fname'] = $record['fname'];
-                $_SESSION['sname'] = $record['sname'];
-                header('location: http://localhost/s/s/view/d/index');
-                exit();
+            if($record['approved'] == true) {
+                if($record['login_able'] == true) {
+                    session_start();
+                    $_SESSION['loggedin'] = true;
+                    $_SESSION['docid'] = $record['_id'];
+                    $_SESSION['email'] = $record['email'];
+                    $_SESSION['d_unid'] = $record['d_unid'];
+                    $_SESSION['fname'] = $record['fname'];
+                    $_SESSION['sname'] = $record['sname'];
+                    header('location: http://test.com/s/s/view/d/index');
+                    exit();
+                }
+                else {
+                    header('location: http://test.com/s/s/d?login=disable');
+                }
             }
             else {
-                header('location: ../../?auth=disable');
+                header('location: http://test.com/s/s/d?auth=disable');
             }
         }
         else {
-            header('location: ../../?auth=failed');
+            header('location: http://test.com/s/s/d?auth=failed');
         }
     }
     else {
-        header('location: ../../?auth=failed');
+        header('location: http://test.com/s/s/d?auth=failed');
     }
  
 }
@@ -55,15 +60,15 @@ else if(isset($_POST['employee_login'])) {
             $_SESSION['fname'] = $record['fname'];
             $_SESSION['sname'] = $record['sname'];
             $_SESSION['p_unid'] = $record['p_unid'];
-            header('location: http://localhost/s/s/view/p/index');
+            header('location: http://test.com/s/s/view/p/index');
             exit();
         }
         else {
-            header('location: ../../?auth=failed');
+            header('location: http://test.com/s/s/p?auth=failed');
         }
     }
     else {
-        header('location: ../../?auth=failed');
+        header('location: http://test.com/s/s/p?auth=failed');
     }
 
 

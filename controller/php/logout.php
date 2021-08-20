@@ -13,7 +13,7 @@
         unset($_SESSION['loggedin']);
         session_unset();
         session_destroy(); 
-        header("location: http://localhost/s/s/");
+        header("location: http://test.com/s/s/");
         exit();
 
     }

@@ -6,20 +6,20 @@ var day,
 // adding new slots field
 $(document).on("click", "#addMoreSlots", function () {
   $("#editing").append(`
-                                <div class="d-flex justify-content-start" id="addno${flag1}">
-                                    <div class='my-3 mx-2'>
-                                        <label for='' class='form-label'>Start Time</label>
-                                        <input type='time' name='s_time[]' class='form-control' id='meet_date'>
-                                    </div>
-                                    <div class='my-3 mx-2'>
-                                        <label for='' class='form-label'>End Time</label>
-                                        <input type='time' name='e_time[]' class='form-control' id='meet_time'>
-                                    </div>
-                                    <div class="my-3 mx-2 d-flex align-items-end">
-                                        <button class="btn btn-danger" onclick="deleteSlot(${flag1})" id="del${flag1}"><i class="bi bi-trash-fill"></i>  </button>
-                                    </div>
-                                </div>
-                    `);
+      <div class="d-flex justify-content-start" id="addno${flag1}">
+          <div class='my-3 mx-2'>
+              <label for='' class='form-label'>Start Time</label>
+              <input type='time' name='s_time[]' class='form-control' id='meet_date'>
+          </div>
+          <div class='my-3 mx-2'>
+              <label for='' class='form-label'>End Time</label>
+              <input type='time' name='e_time[]' class='form-control' id='meet_time'>
+          </div>
+          <div class="my-3 mx-2 d-flex align-items-end">
+              <button class="btn btn-danger" onclick="deleteSlot(${flag1})" id="del${flag1}"><i class="bi bi-trash-fill"></i>  </button>
+          </div>
+      </div>
+  `);
   flag1++;
 });
 
@@ -29,11 +29,21 @@ function deleteSlot(i) {
 }
 
 function display(ind) {
+
+  if(ind >= $('#edit_modal_btn_val').val()) {
+    $('#edit_modal_btn').attr('hidden', false);
+    console.log('gt');
+  }
+  else {
+    $('#edit_modal_btn').attr('hidden', true);
+    console.log('lt');
+  }
+
   day_date = $("#dt").val(ind);
   day = ind;
   let next_date = true;
   var xhr = new XMLHttpRequest();
-  var url = "http://localhost/s/s/controller/php/add_m.php";
+  var url = "http://test.com/s/s/controller/php/add_m.php";
 
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -57,7 +67,7 @@ function slotdelete(d, i) {
   let index = i;
   let slotdelete = true;
   var xhr = new XMLHttpRequest();
-  var url = "http://localhost/s/s/controller/php/add_m.php";
+  var url = "http://test.com/s/s/controller/php/add_m.php";
 
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -74,7 +84,7 @@ function get_time_dur() {
   let dur_time = true;
   dur_time = toString(dur_time);
   var xhr = new XMLHttpRequest();
-  var url = "http://localhost/s/s/controller/php/add_m.php";
+  var url = "http://test.com/s/s/controller/php/add_m.php";
 
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

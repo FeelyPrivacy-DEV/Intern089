@@ -6,7 +6,7 @@
     if($_SESSION['docid'] == '') {
         header('location: ../index.php');
     }
-    $con = new MongoDB\Client( 'mongodb://localhost:27017' );
+    $con = new MongoDB\Client( 'mongodb://test.com:27017' );
     $db = $con->php_mongo;
     $collection = $db->manager;
     $msg = '';
@@ -78,10 +78,10 @@
                 <div class="d-flex justify-content-center mb-4">
                     <?php
                         if($record['profile_image'] != '') {
-                            echo '<img src="http://localhost/s/s/public/image/doc-img/doc-img/'.$record['profile_image'].'" class="rounded" height="160" alt="User Image">';
+                            echo '<img src="http://test.com/s/s/public/image/doc-img/doc-img/'.$record['profile_image'].'" class="rounded" height="160" alt="User Image">';
                         }
                         else {
-                            echo '<img src="http://localhost/s/s/public/image/doc-img/doc-img/default-doc.jpg" height="160" alt="User Image">';
+                            echo '<img src="http://test.com/s/s/public/image/doc-img/doc-img/default-doc.jpg" height="160" alt="User Image">';
                         }
                     ?>
                 </div>
@@ -90,14 +90,14 @@
             </div>
             <div class="side-nav my-4">
             <ul class="px-0">
-                    <li class=""><a href="http://localhost/s/s/view/d/index"><i class="bi bi-speedometer"></i>Dashboard</a></li>
-                    <li class=""><a href="http://localhost/s/s/view/d/appointments"><i class="bi bi-calendar-check-fill"></i>Appointments</a></li>
+                    <li class=""><a href="http://test.com/s/s/view/d/index"><i class="bi bi-speedometer"></i>Dashboard</a></li>
+                    <li class=""><a href="http://test.com/s/s/view/d/appointments"><i class="bi bi-calendar-check-fill"></i>Appointments</a></li>
                     <li class=""><a href="#"><i class="bi bi-person-lines-fill"></i>My Patients</a></li>
-                    <li class=""><a href="http://localhost/s/s/view/d/schedule-timings" class="s-active"><i class="bi bi-hourglass-split"></i>Schedule Timimg</a></li>
+                    <li class=""><a href="http://test.com/s/s/view/d/schedule-timings" class="s-active"><i class="bi bi-hourglass-split"></i>Schedule Timimg</a></li>
                     <li class=""><a href="#"><i class="bi bi-receipt-cutoff"></i>Invoice</a></li>
                     <li class=""><a href="#"><i class="bi bi-star-fill"></i>Review</a></li>
                     <li class=""><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li>
-                    <li class=""><a href="http://localhost/s/s/view/d/profile-settings"><i class="bi bi-gear-fill"></i>Profile Setting</a></li>
+                    <li class=""><a href="http://test.com/s/s/view/d/profile-settings"><i class="bi bi-gear-fill"></i>Profile Setting</a></li>
                     <li class=""><a href="#"><i class="bi bi-share-fill"></i>Social Media</a></li>
                     <li class=""><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
                     <li class=""><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
@@ -133,9 +133,10 @@
                 <div class="slots-view my-5">
                     <div class="d-flex justify-content-between">
                         <h5>Time Slots</h5>
-                        <button class='btn text-primary' type='button' data-bs-toggle='modal' data-bs-target='#edit_slots'>
+                        <button class="btn text-primary" type="button" data-bs-toggle="modal" data-bs-target="#edit_slots" id="edit_modal_btn">
                             <h5><i class="bi bi-pencil-square px-2"></i>Edit</h5>
                         </button>
+                        <input type="date" hidden id="edit_modal_btn_val" value="<?php echo date('Y-m-d'); ?>">
                     </div>
                     <div class="slots-btn" id="slots-div">
                         <?php
@@ -206,7 +207,7 @@
                     <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'><i class="bi bi-x"></i></button>
                 </div>
                 <div class='modal-body'>
-                    <form action="http://localhost/s/s/controller/php/add_m.php" method="POST">
+                    <form action="http://test.com/s/s/controller/php/add_m.php" method="POST">
                         <input type="text"  name="slotDate" hidden id="dt" value="<?php echo date('Y-m-d'); ?>">
                         <div class="editing" id="editing">
                             <div class="d-flex justify-content-start">
@@ -233,7 +234,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://localhost/s/s/controller/js/d-schedule-timings.js?ver=2.0'></script>
+    <script src='http://test.com/s/s/controller/js/d-schedule-timings.js?ver=2.3'></script>
     
 </body>
 

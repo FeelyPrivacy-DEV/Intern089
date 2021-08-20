@@ -4,13 +4,18 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['eid'] == '') {
-        header('location: http://localhost/s/s/index');
+        header('location: http://test.com/s/s/index');
     }
-    $con = new MongoDB\Client( 'mongodb://localhost:27017' );
+    $con = new MongoDB\Client( 'mongodb://test.com:27017' );
     $db = $con->php_mongo;
 
     $collection = $db->employee;
     $record = $collection->findOne( [ '_id' =>$_SESSION['eid']] );
+
+    if($_GET['id'] == '') {
+        echo 'please select doc';
+    }
+
 
 ?>
 
@@ -19,7 +24,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://localhost/s/s/public/stylesheet/p-checkout.css?ver=1.0">
+    <link rel="stylesheet" href="http://test.com/s/s/public/stylesheet/p-checkout.css?ver=1.2">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -37,7 +42,7 @@
     </nav>
 
     <!-- personal information -->
-    <div class="container">
+    <div class="container my-4">
         <div class="row">
             <div class="col-md-8">
                 <div class="per_info my-4">
@@ -46,13 +51,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="my-2">Firat Name</label>
-                                <input type="text" name="fname" class="form-control p-2 ">
+                                <input type="text" name="fname" class="form-control p-2 " disabled value="<?php echo $record['fname']; ?>">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="my-2">Last Name</label>
-                                <input type="text" name="sname" class="form-control p-2 ">
+                                <input type="text" name="sname" class="form-control p-2 " disabled value="<?php echo $record['sname']; ?>">
                             </div>
                         </div>
                     </div>
@@ -60,19 +65,19 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="my-2">Email</label>
-                                <input type="text" name="email" class="form-control p-2 ">
+                                <input type="text" name="email" class="form-control p-2 " disabled value="<?php echo $record['email']; ?>"> 
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="my-2">Phone No</label>
-                                <input type="number" name="phone_no" maxlength="10" class="form-control p-2 ">
+                                <input type="number" name="phone_no" maxlength="10" class="form-control p-2 " disabled value="<?php echo $record['gen_info']['phone_no']; ?>">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="pay_method my-4">
-                    <h4 class="card-title">Personal Information</h4>
+                    <h4 class="card-title">Payment</h4>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -120,8 +125,53 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 my-4">
+                <?php
+                    $collection = $db->manager;
+                    $record = $collection->findOne( [ 'd_unid' =>$_GET['id']] );
 
+
+                ?>
+                <div class="summary">
+                    <h4 class="card-title">Booking Summary</h4>
+                    <div class="d-flex justify-content-start my-3">
+                        <img src="http://test.com/s/s/public/image/doc-img/doc-img/default-doc.jpg" height="70" alt="User Image">
+                        <div class="mx-2">
+                            <h5 class="card-title">Dr. <?php echo $record['fname'].' '.$record['sname']; ?></h5>
+                            <div class="d-flex">
+                                <i class="bi bi-star-fill text-warning "></i>
+                                <i class="bi bi-star-fill text-warning px-2"></i>
+                                <i class="bi bi-star-fill text-warning "></i>
+                            </div>
+                            <p><i class="bi bi-geo-alt-fill text-primary"></i> Hyderabad, India</p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between py-1">
+                        <h6>Date</h6>
+                        <p></p>
+                    </div>
+                    <div class="d-flex justify-content-between py-1">
+                        <h6>Time</h6>
+                        <p></p>
+                    </div>
+                    <div class="d-flex justify-content-between py-1">
+                        <h6>Consulting Fee</h6>
+                        <p></p>
+                    </div>
+                    <div class="d-flex justify-content-between py-1">
+                        <h6>DaBooking Feete</h6>
+                        <p></p>
+                    </div>
+                    <div class="d-flex justify-content-between py-1">
+                        <h6>Video Call</h6>
+                        <p></p>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <h5>Total</h5>
+                        <p>$</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -144,7 +194,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://localhost/s/s/controller/js/p-checkout.js?ver=1.2'></script>
+    <script src='http://test.com/s/s/controller/js/p-checkout.js?ver=1.2'></script>
 
 </body>
 

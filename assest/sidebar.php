@@ -2,7 +2,7 @@
 <div class="col-md-3 side-profile p-2 ">
     <div class="">
         <div class="d-flex justify-content-center mb-4">
-            <img src="http://localhost/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded-circle" alt="">
+            <img src="http://test.com/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded-circle" alt="">
         </div>
         <h4 class="text-center"><a href="#">Dr. Vanitha</a></h4>
         <small class="text-center">BDS, MDS - Oral & Maxillofacial Surgery</small>
@@ -16,7 +16,7 @@
             <li class=""><a href="#"><i class="bi bi-receipt-cutoff"></i>Invoice</a></li>
             <li class=""><a href="#"><i class="bi bi-star-fill"></i>Review</a></li>
             <li class=""><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li>
-            <li class=""><a href="http://localhost/s/s/view/d/doctor-profile-settings"><i class="bi bi-gear-fill"></i>Profile Setting</a></li>
+            <li class=""><a href="http://test.com/s/s/view/d/doctor-profile-settings"><i class="bi bi-gear-fill"></i>Profile Setting</a></li>
             <li class=""><a href="#"><i class="bi bi-share-fill"></i>Social Media</a></li>
             <li class=""><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
             <li class=""><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>

@@ -4,9 +4,9 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['aid'] == '') {
-        header('location: http://localhost/s/s/admin/index');
+        header('location: http://test.com/s/s/admin/index');
     }
-    $con = new MongoDB\Client( 'mongodb://localhost:27017' );
+    $con = new MongoDB\Client( 'mongodb://test.com:27017' );
     $db = $con->php_mongo;
     $collection = $db->admin;
 
@@ -21,7 +21,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://localhost/s/s/admin/public/stylesheet/dashboard.css?ver=2.5">
+    <link rel="stylesheet" href="http://test.com/s/s/admin/public/stylesheet/dashboard.css?ver=2.5">
     <title>Admin | Dashboard</title>
 </head>
 
@@ -31,45 +31,45 @@
 
         <!-- sidebar -->
         <div class="Sidebar d-flex flex-column flex-shrink-0 p-3 bg-light" id="sidebar">
-            <a href="http://localhost/s/s/admin/view/index"
+            <a href="http://test.com/s/s/admin/view/index"
                 class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                <img src="http://localhost/s/s/admin/public/image/logo.png" height="40" class="mx-auto " alt="">
+                <img src="http://test.com/s/s/admin/public/image/logo.png" height="40" class="mx-auto " alt="">
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="">
-                    <a href="http://localhost/s/s/admin/view/index" class="nav-link link-dark">
+                    <a href="http://test.com/s/s/admin/view/index" class="nav-link link-dark">
                         <i class="bi bi-speedometer bi me-2"></i>
                         Dashboard
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost/s/s/admin/view/appoinment" class="nav-link link-dark">
+                    <a href="http://test.com/s/s/admin/view/appoinment" class="nav-link link-dark">
                         <i class="bi bi-calendar-check-fill bi me-2"></i>
                         Appointments
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost/s/s/admin/view/specialities" class="nav-link link-dark">
+                    <a href="http://test.com/s/s/admin/view/specialities" class="nav-link link-dark">
                         <i class="bi bi-megaphone-fill bi me-2"></i>
                         Specialities
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost/s/s/admin/view/doctor" class="nav-link link-dark">
+                    <a href="http://test.com/s/s/admin/view/doctor" class="nav-link link-dark">
                         <i class="bi bi-speedometer bi me-2"></i>
                         Doctor
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="http://localhost/s/s/admin/view/pending_doc" class="nav-link active-sn"
+                    <a href="http://test.com/s/s/admin/view/pending_doc" class="nav-link text-nowrap active-sn"
                         aria-current="page">
                         <i class="bi bi-person-dash-fill  bi me-2"></i>
-                        Pending Doc
+                        Pending Doc  <span class="text-end text-danger"><?php echo count($record['pendingDoc_ids']); ?></span>
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost/s/s/admin/view/patient" class="nav-link link-dark">
+                    <a href="http://test.com/s/s/admin/view/patient" class="nav-link link-dark">
                         <i class="bi bi-file-person bi me-2"></i>
                         Patients
                     </a>
@@ -92,17 +92,22 @@
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <?php echo $_SESSION['fname']; ?>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">My Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li>
+                            <form action='http://test.com/s/s/admin/controller/php/logout.php' method='POST'>
+                                <button type='submit' name='logout'
+                                    class='btn btn-sm  text-nowrap text-danger px-4 mx-1'>Logout</button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
 
-        <div class="my-5 body-main">
+        <div class="my-5 body-main ">
             <div class="my-5 mx-4">
                 <h3 class="h3">Pending Approval Doctor</h3>
                 <p>Dashboard / Pending Approval Doctor</p>
@@ -124,17 +129,21 @@
 
                             foreach($record_doc as $each) {
                                 if($each['approved'] == false) {
+                                    echo '<tr id="trid'.$each['d_unid'].'">';
                                     echo '<td>Dr. '.$each['fname'].' '.$each['sname'].'</td>
                                             <td>'.$each['gen_info']['member_since'].'</td>
-                                            <td>'.$each['email'].'</td>
-                                            <td>
-                                                <div class="switch_box box_1">
-                                                    <input type="checkbox" class="switch_1" checked>
-                                                </div>
-                                        </td>';
+                                            <td>'.$each['email'].'</td>';
+                                        
+                                                echo '<td>
+                                                        <div class="switch_box box_1">
+                                                            <input type="checkbox" class="switch_1"  onchange="AllowIt(\''.$each['d_unid'].'\')" id="checkAllow'.$each['d_unid'].'"  value="0">
+                                                        </div>
+                                                    </td>';
+                                            
+                                            
+                                    echo '</tr>';
                                 }
-                            }
-                                    
+                            }        
                         ?>
                     </tbody>
                 </table>
@@ -147,7 +156,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://localhost/s/s/admin/controller/js/dashboard.js?ver=1.6  '></script>
+    <script src='http://test.com/s/s/admin/controller/js/dashboard.js?ver=1.7  '></script>
 
 </body>
 

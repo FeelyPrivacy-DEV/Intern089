@@ -4,7 +4,7 @@
     session_start();
     require '../../vendor/autoload.php';
     
-    $con = new MongoDB\Client( 'mongodb://localhost:27017' );
+    $con = new MongoDB\Client( 'mongodb://test.com:27017' );
     $db = $con->php_mongo;
     $collection = $db->manager;
 
@@ -19,7 +19,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://localhost/s/s/public/stylesheet/p-doctor-profile.css?ver=1.1">
+    <link rel="stylesheet" href="http://test.com/s/s/public/stylesheet/p-doctor-profile.css?ver=1.1">
     <title>Feely | Doc Profile</title>
 </head>
 
@@ -39,7 +39,7 @@
     <div class="container my-5">
         <div class="p-2 d-flex justify-content-between">
             <div class="left d-flex">
-                <img src="http://localhost/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded"
+                <img src="http://test.com/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded"
                     height="160" alt="User Image">
                 <div class="mx-3">
                     <h5>Dr. <?php echo $record['fname'].' '.$record['sname'] ?></h5>
@@ -55,7 +55,7 @@
                     <p class=""><i class="bi bi-geo-alt-fill"></i> <?php echo $record['contact_detail']['city'].', '.$record['contact_detail']['state'] ?> - <a href="#">Get Directions</a>
                     </p>
                     <div class="d-flex">
-                        <img src="http://localhost/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="px-2"
+                        <img src="http://test.com/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="px-2"
                             height="40" alt="User Image">
                     </div>
                     <div class="d-flex my-2">
@@ -210,7 +210,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://localhost/s/s/controller/js/d-patient-profile.js?ver=1.2'></script>
+    <script src='http://test.com/s/s/controller/js/d-patient-profile.js?ver=1.2'></script>
 
 </body>
 
