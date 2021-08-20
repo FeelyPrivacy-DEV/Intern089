@@ -1,7 +1,9 @@
 
 
+
+
+
 $(document).on('click', '#today', function() {
-  console.log('cli');
   let next_p_details = true;
   var xhr = new XMLHttpRequest();
   var url = "http://localhost/s/s/controller/php/add_m.php";

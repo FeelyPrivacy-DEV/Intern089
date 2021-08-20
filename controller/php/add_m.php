@@ -180,8 +180,14 @@ require '../../vendor/autoload.php';
             if($date_key == $del_date) {
                 foreach($val as $ind=>$v) {
                     if($ind == $index) {
-                        $r = $collection->updateOne([" _id"=> $_SESSION['email']],
-                            ['$pull'=>['datetime.'.$del_date => $index[0]]]
+                        $r = $collection->updateOne([" _id"=> $_SESSION['docid']],
+                            [array( '$pull' => 
+                            array(
+                                "datetime" => array(
+                                    $del_date => $index )
+                                )
+                            )
+                        ]
                         );
                         print_r($r);
                     }
@@ -326,7 +332,7 @@ require '../../vendor/autoload.php';
                 foreach($perticular_pat['datetime'] as $single=>$singleVal) {
                     if($single == $_SESSION['d_unid']) {
                         foreach($singleVal as $date=>$val) {
-                            if($date > date('Y-m-d')) {
+                            if($date >= date('Y-m-d')) {
                                 foreach($val as $k=>$v) {
                                     // print_r($v);
                                     
@@ -412,5 +418,6 @@ require '../../vendor/autoload.php';
             }
         }    
     }
+
     
 ?>

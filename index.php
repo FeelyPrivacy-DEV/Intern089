@@ -17,7 +17,7 @@
 
 <head>
     <?php include './assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://localhost/s/s/public/stylesheet/index.css?ver=1.0">
+    <link rel="stylesheet" href="http://localhost/s/s/public/stylesheet/index.css?ver=1.2">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -41,13 +41,18 @@
                             <input type="text" class="form-control" placeholder="Search Location">
                             <span class="form-text">Based on your Location</span>
                         </div>
-                        <div class="form-group search-info">
-                            <input type="text" class="form-control"
-                                placeholder="Search Doctors, Clinics, Hospitals, Diseases Etc">
-                            <span class="form-text">Ex : Dental or Sugar Check up etc</span>
+                        <div class="form-group search-info d-flex flex-column">
+                            <div class="">
+                                <input type="text" class="form-control search_doc" id="search_doc" placeholder="Search Doctors, Clinics, Hospitals, Diseases Etc">
+                                <span class="form-text">Ex : Dental or Sugar Check up etc</span>
+                            </div>
+                            <div class="">
+                                <div class="searches border" id="searches">
+                                </div>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary search-btn"><i class="fas fa-search"></i>
-                            <span>Search</span></button>
+                            <span>Search</span><i class="bi bi-search"></i></button>
                     </form>
                 </div>
                 <!-- /Search -->
@@ -67,7 +72,7 @@
 
 
     <?php include './assest/bottom_links.php'; ?>
-    <script src='http://localhost/s/s/controller/js/index.js?ver=1.2'></script>
+    <script src='http://localhost/s/s/controller/js/index.js?ver=1.5'></script>
 
 </body>
 

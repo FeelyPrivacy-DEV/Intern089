@@ -1,0 +1,82 @@
+.footer {
+    background-color: #060d0d;
+}
+@media only screen and (max-width: 991.98px) {
+    .footer .footer-top {
+        padding-bottom: 10px;
+    }
+}
+.footer .footer-top {
+    padding: 40px 0;
+}
+@media only screen and (max-width: 1199px){
+.container-fluid {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+}
+
+.container-fluid {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+@media only screen and (max-width: 991.98px){
+.footer-widget {
+    margin-bottom: 30px;
+}
+}
+
+.footer .footer-widget .footer-logo {
+    margin-bottom: 30px;
+}
+.footer .footer-widget .footer-about-content p {
+    color: #fff;
+}
+@media only screen and (max-width: 991.98px){
+.footer-widget {
+    margin-bottom: 30px;
+}
+}
+.footer-title {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+}
+.footer .footer-widget.footer-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+.footer .footer-menu ul li {
+    margin-bottom: 10px;
+    position: relative;
+}
+.footer .footer-menu ul li a {
+    color: #fff;
+    font-size: 15px;
+    padding-left: 20px;
+    position: relative;
+    transition: all 0.4s ease 0s;
+}
+input, button, a {
+    transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
+}
+.footer-contact-info {
+    color: #fff;
+    font-size: 15px;
+}
+.footer-contact-info .footer-address {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.footer-contact-info .footer-address span {
+    margin-right: 20px;
+}

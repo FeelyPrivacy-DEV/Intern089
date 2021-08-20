@@ -33,11 +33,11 @@ body {
 .table .pat img {
     border-radius: 50% !important;
 }
-.table .pat a {
+.table .pat button {
     color: #000;
     text-decoration: none !important;
 }
-.table .pat a:hover {
+.table .pat button:hover {
     color: #20c0f3 !important;
 }
 .table .action .btn1 {
@@ -55,3 +55,4 @@ body {
     background-color: #e63c3c3d !important;
     font-weight: 600 !important;
 }
+

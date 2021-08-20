@@ -1,6 +1,6 @@
 <?php
 
-    // error_reporting(0);
+    error_reporting(0);
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['aid'] == '') {
@@ -44,7 +44,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost/s/s/admin/view/Appoinment" class="nav-link link-dark">
+                    <a href="http://localhost/s/s/admin/view/appoinment" class="nav-link link-dark">
                         <i class="bi bi-calendar-check-fill bi me-2"></i>
                         Appointments
                     </a>
@@ -107,71 +107,74 @@
                 <p>Dashboard / Doctor</p>
             </div>
 
-            <!-- cards -->
-            
+
             <!-- doc and patient list -->
             <div class="row">
-                <div class="col-md-12 d-flex">
-                    <!-- Recent Orders -->
-                    <div class="card card-table flex-fill">
-                        <div class="card-header">
-                            <h4 class="card-title">Doctors List</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover table-center mb-0" id="doc_table">
-                                    <thead>
-                                        <tr>
-                                            <th>Doctor Name</th>
-                                            <th>Speciality</th>
-                                            <th>Member Since</th>
-                                            <th>Earned</th>
-                                            <th>Account Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                                $collection = $db->manager;
-                                                $record_doc = $collection->find();
-
-                                                foreach($record_doc as $key) {
-                                                    if($key['approved'] == true) {
-                                                        echo '<tr>
-                                                                <td>
-                                                                    <h2 class="table-avatar">';
-                                                                    if($key['profile_image'] != '') {
-                                                                        echo '<a href="#" class="avatar avatar-sm mr-2"><img
-                                                                                    class="avatar-img rounded-circle"
-                                                                                    src="http://localhost/s/s/public/image/doc-img/doc-img/'.$key['profile_image'].'"
-                                                                                    height="40" alt="User Image"></a>
-                                                                            <a href="#">Dr. '.$key['fname'].' '.$key['sname'].'</a>';
-                                                                    }
-                                                                    else {
-                                                                        echo '<a href="#" class="avatar avatar-sm mr-2"><img
-                                                                                    class="avatar-img rounded-circle"
-                                                                                    src="http://localhost/s/s/public/image/doc-img/doc-img/default-doc.jpg"
-                                                                                    height="40" alt="User Image"></a>
-                                                                            <a href="#">Dr. '.$key['fname'].' '.$key['sname'].'</a>';
-                                                                    }
-                                                            echo '</h2>
-                                                                </td>
-                                                                <td>Dental</td>
-                                                                <td>Member Since</td>
-                                                                <td>$'.$key['total_earn'].'</td>
-                                                                <td class="text-warning">
-                                                                    <div class="form-check form-switch d-flex justify-content-center">
-                                                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>';
-                                                    }
-                                                }
-                                            ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                <div class="col-md-12">
+                    <div class="card-header">
+                        <h4 class="card-title">Doctors List</h4>
                     </div>
+                    <table class="table table-hover table-responsive table-center mb-0" id="doc_table">
+                        <thead>
+                            <tr class="text-center">
+                                <th>Doctor Name</th>
+                                <th>Speciality</th>
+                                <th>Member Since</th>
+                                <th>Earned</th>
+                                <th>Account Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                $collection = $db->manager;
+                                $record_doc = $collection->find();
+
+                                foreach($record_doc as $key) {
+                                    if($key['approved'] == true) {
+                                        echo '<tr>
+                                                <td>
+                                                    <h2 class="table-avatar">';
+                                                    if($key['profile_image'] != '') {
+                                                        echo '<a href="#" class="avatar avatar-sm mr-2"><img
+                                                                    class="avatar-img rounded-circle"
+                                                                    src="http://localhost/s/s/public/image/doc-img/doc-img/'.$key['profile_image'].'"
+                                                                    height="40" alt="User Image"></a>
+                                                            <a href="#">Dr. '.$key['fname'].' '.$key['sname'].'</a>';
+                                                    }
+                                                    else {
+                                                        echo '<a href="#" class="avatar avatar-sm mr-2"><img
+                                                                    class="avatar-img rounded-circle"
+                                                                    src="http://localhost/s/s/public/image/doc-img/doc-img/default-doc.jpg"
+                                                                    height="40" alt="User Image"></a>
+                                                            <a href="#">Dr. '.$key['fname'].' '.$key['sname'].'</a>';
+                                                    }
+                                            echo '</h2>
+                                                </td>
+                                                <td>Dental</td>
+                                                <td>Member Since</td>
+                                                <td>$'.$key['total_earn'].'</td>';
+
+                                                if($key['login_able'] == true) {
+                                                    echo '<td>
+                                                            <div class="switch_box box_1">
+                                                                <input type="checkbox" class="switch_1" checked onchange="disableIt(\''.$key['d_unid'].'\')" id="check'.$key['d_unid'].'"  value="1">
+                                                            </div>
+                                                        </td>';
+                                                }
+                                                else {
+                                                    echo '<td>
+                                                            <div class="switch_box box_1">
+                                                                <input type="checkbox" class="switch_1" onchange="disableIt(\''.$key['d_unid'].'\')" id="check'.$key['d_unid'].'" value="0">
+                                                            </div>
+                                                        </td>';
+                                                }
+
+                                            echo '</tr>';
+                                    }
+                                }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -182,7 +185,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://localhost/s/s/admin/controller/js/dashboard.js?ver=1.5'></script>
+    <script src='http://localhost/s/s/admin/controller/js/dashboard.js?ver=2.0'></script>
 
 </body>
 

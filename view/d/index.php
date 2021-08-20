@@ -30,7 +30,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://localhost/s/s/public/stylesheet/d-dashboard.css?ver=1.0">
+    <link rel="stylesheet" href="http://localhost/s/s/public/stylesheet/d-dashboard.css?ver=1.1">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -162,17 +162,20 @@
                                         foreach($perticular_pat['datetime'] as $single=>$singleVal) {
                                             if($single == $_SESSION['d_unid']) {
                                                 foreach($singleVal as $date=>$val) {
-                                                    if($date > date('Y-m-d')) {
+                                                    if($date >= date('Y-m-d')) {
                                                         foreach($val as $k=>$v) {
                                                             // print_r($v);
                                                             
                                                             echo'<tr class="py-5">
                                                                     <td class="d-flex pat">
                                                                         <img src="http://localhost/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
-                                                                        <a href="" class="px-2 my-auto text-nowrap">
+                                                                        <form action="http://localhost/s/s/view/d/patient-profile" method="POST">
+                                                                        <button class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
                                                                             '.$perticular_pat['fname'].' '.$perticular_pat['sname'].'
-                                                                            <p class="text-muted my-auto">#PT00'.$c.'</p>
-                                                                        </a>
+                                                                            <p class="text-muted  text-left my-auto">#PT00'.$c.'</p>
+                                                                        </button>
+                                                                        <input type="text" hidden name="pat_profile_id" value="'.$punid_key.'" id="pat_profile_id">
+                                                                        </form>
                                                                     </td>';
                                                             echo '<td class="">
                                                                         <p class="m-0 text-nowrap">'.$date.'</p>';
@@ -263,9 +266,9 @@
 
 
 
-
     <?php include '../../assest/bottom_links.php'; ?>
     <script src='http://localhost/s/s/controller/js/d-dashboard.js?ver=1.2'></script>
+    <!-- <script src='http://localhost/s/s/controller/js/d-temp.js?ver=1.1'></script> -->
 
 </body>
 

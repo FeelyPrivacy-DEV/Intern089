@@ -80,28 +80,28 @@ else if($_GET['login'] == 'now') {
                     <form class="container" action="http://localhost/s/s/controller/php/signup.php" method="POST">
                         <div class="d-flex justify-content-between">
                             <div class="mb-3 mx-1">
-                                <label for="email" class="form-label">First Name</label>
-                                <input type="text" class="form-control" name="fname" id="fname">
+                                <!-- <label for="email" class="form-label">First Name</label> -->
+                                <input type="text" class="form-control py-2" name="fname" id="fname" placeholder="First Name">
                             </div>
                             <div class="mb-3 mx-1">
-                                <label for="email" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" name="sname" id="sname">
+                                <!-- <label for="email" class="form-label">Last Name</label> -->
+                                <input type="text" class="form-control py-2" name="sname" id="sname" placeholder="Last Name">
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="number" class="form-label">Patient ID</label>
-                            <input type="number" name="empid" class="form-control" id="empsid" aria-describedby="empid">
+                            <!-- <label for="number" class="form-label">Patient ID</label> -->
+                            <input type="text" name="empid" class="form-control py-2" id="empsid" aria-describedby="empid" placeholder="Create Username ">
                             <small class="small" id="empsid_small"></small>
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" name="email" class="form-control" id="empsemail"
+                            <!-- <label for="email" class="form-label">Email Address</label> -->
+                            <input type="email" name="email" class="form-control py-2" id="empsemail" placeholder="Enter Email Address"
                                 aria-describedby="email">
                             <small class="small" id="empsemail_small"></small>
                         </div>
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" name="pass" class="form-control" id="empspass"
+                            <!-- <label for="password" class="form-label">Password</label> -->
+                            <input type="password" name="pass" class="form-control py-2" id="empspass" placeholder="Create Password"
                                 aria-describedby="password">
                             <small class="small" id="empspass_small"></small>
                         </div>
@@ -125,13 +125,13 @@ else if($_GET['login'] == 'now') {
                     <form class=" container e_log_form" action="http://localhost/s/s/controller/php/login.php"
                         method="POST">
                         <div class="mb-3">
-                            <label for="number" class="form-label">Patient ID</label>
-                            <input type="number" name="empid" class="form-control" id="log_empid"
+                            <!-- <label for="number" class="form-label">Patient ID</label> -->
+                            <input type="number" name="empid" class="form-control py-3" id="log_empid" placeholder="Username"
                                 aria-describedby="empid">
                         </div>
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" name="pass" class="form-control" id="log_pass"
+                            <!-- <label for="password" class="form-label">Password</label> -->
+                            <input type="password" name="pass" class="form-control py-3" id="log_pass" placeholder="Password"
                                 aria-describedby="password">
                         </div>
                         <button class="btn m-0 p-0 text-primary al-p" type="button" >Don't Have an account ?</button>

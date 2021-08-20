@@ -19,5 +19,6 @@
 <link rel="stylesheet" href="http://localhost/s/s/assest/bootstrap-tagsinput/css/bootstrap-tagsinput.css">
 <link rel="stylesheet" href="http://localhost/s/s/assest/DataTables/datatables.min.css">
 <link rel="stylesheet" href="http://localhost/s/s/assest/dropzone/dropzone.min.css">
-<link rel="stylesheet" href="http://localhost/s/s/public/stylesheet/style.css?ver=2.6">
+<link rel="stylesheet" href="http://localhost/s/s/public/stylesheet/style.css?ver=2.7">
 <link rel="stylesheet" href="http://localhost/s/s/public/stylesheet/navbar.css?ver=1.1">
+<link rel="stylesheet" href="http://localhost/s/s/public/stylesheet/footer.css?ver=3.5">

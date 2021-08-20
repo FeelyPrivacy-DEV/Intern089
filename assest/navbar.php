@@ -41,7 +41,7 @@
     else {
         ?>
 <!-- navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top fixed-top">
     <div class="container-fluid">
         <a class='navbar-brand text-light mx-4' href='http://localhost/s/s/'>
             <img src="http://localhost/s/s/public/image/logo.png" height="60" alt="" srcset="">

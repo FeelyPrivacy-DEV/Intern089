@@ -15,15 +15,20 @@ if(isset($_POST['manager_login'])) {
 
     if($record) {
         if(password_verify( $pass, $record['password'])) {
-            session_start();
-            $_SESSION['loggedin'] = true;
-            $_SESSION['docid'] = $record['_id'];
-            $_SESSION['email'] = $record['email'];
-            $_SESSION['d_unid'] = $record['d_unid'];
-            $_SESSION['fname'] = $record['fname'];
-            $_SESSION['sname'] = $record['sname'];
-            header('location: http://localhost/s/s/view/d/index');
-            exit();
+            if($record['login_able'] == true) {
+                session_start();
+                $_SESSION['loggedin'] = true;
+                $_SESSION['docid'] = $record['_id'];
+                $_SESSION['email'] = $record['email'];
+                $_SESSION['d_unid'] = $record['d_unid'];
+                $_SESSION['fname'] = $record['fname'];
+                $_SESSION['sname'] = $record['sname'];
+                header('location: http://localhost/s/s/view/d/index');
+                exit();
+            }
+            else {
+                header('location: ../../?auth=disable');
+            }
         }
         else {
             header('location: ../../?auth=failed');

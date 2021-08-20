@@ -57,9 +57,9 @@ body .btn-close, .btn, .form-control, .form-select {
     background: none !important;
 }
 
-.e_log_form {
+/* .e_log_form {
     max-width: 235px !important;
-}
+} */
 .e-log img {
     border-radius: 10px !important;
 }

@@ -151,7 +151,7 @@
                                                 echo '<div class="btn-group mx-2 my-1" role="group" aria-label="Basic mixed styles example">
                                                         <button type="button" class="btn btn-danger px-2">'.date('h:i', strtotime($val[0])).' AM - '.date('h:i', strtotime($val[1])).' AM</button>';
                                                         ?>
-                                                        <!-- <button type="button" class="btn btn-danger" onclick="slotdelete('<?php echo $index; ?>', <?php echo $key; ?>)"><i class="bi bi-x"></i></button> -->
+                                                        <button type="button" class="btn btn-danger" onclick="slotdelete('<?php echo $index; ?>', <?php echo $key; ?>)"><i class="bi bi-x"></i></button>
                                                 <?php    
                                                         echo '</div>';
                                             }
@@ -159,7 +159,7 @@
                                                 echo '<div class="btn-group mx-2 my-1" role="group" aria-label="Basic mixed styles example">
                                                         <button type="button" class="btn btn-danger px-2">'.date('h:i', strtotime($val[0])).' PM - '.date('h:i', strtotime($val[1])).' PM</button>';
                                                         ?>
-                                                        <!-- <button type="button" class="btn btn-danger" onclick="slotdelete('<?php echo $index; ?>', <?php echo $key; ?>)"><i class="bi bi-x"></i></button> -->
+                                                        <button type="button" class="btn btn-danger" onclick="slotdelete('<?php echo $index; ?>', <?php echo $key; ?>)"><i class="bi bi-x"></i></button>
                                                 <?php    
                                                         echo '</div>';
                                             }

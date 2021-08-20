@@ -1,9 +1,9 @@
 <?php
 
-    // error_reporting(0);
+    error_reporting(0);
     session_start();
     require '../../vendor/autoload.php';
-    if($_SESSION['adi'] == '') {
+    if($_SESSION['aid'] == '') {
         header('location: http://localhost/s/s/admin/index');
     }
     $con = new MongoDB\Client( 'mongodb://localhost:27017' );
@@ -13,7 +13,6 @@
     $record = $collection->findOne( [ '_id' =>$_SESSION['aid']] );
 
 
-
 ?>
 
 <!doctype html>
@@ -21,7 +20,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://localhost/s/s/admin/public/stylesheet/dashboard.css?ver=1.2">
+    <link rel="stylesheet" href="http://localhost/s/s/admin/public/stylesheet/dashboard.css?ver=1.6">
     <title>Admin | Dashboard</title>
 </head>
 
@@ -38,13 +37,14 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li>
-                    <a href="http://localhost/s/s/admin/view/index" class="nav-link link-dark" >
+                    <a href="http://localhost/s/s/admin/view/index" class="nav-link link-dark">
                         <i class="bi bi-speedometer bi me-2"></i>
                         Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="http://localhost/s/s/admin/view/Appoinment" class="nav-link active-sn " aria-current="page">
+                    <a href="http://localhost/s/s/admin/view/appoinment" class="nav-link active-sn "
+                        aria-current="page">
                         <i class="bi bi-calendar-check-fill bi me-2"></i>
                         Appointments
                     </a>
@@ -111,90 +111,82 @@
             <!-- Feed Activity -->
             <div class="row apps-list">
                 <div class="col-md-12">
-
-                    <!-- Recent Orders -->
-                    <div class="card card-table">
-                        <div class="card-header">
-                            <h4 class="card-title">Appointment List</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover table-center mb-0" id="app_table">
-                                    <thead class="px-auto">
-                                        <tr>
-                                            <th class="">Doctor Name</th>
-                                            <th class="mx-5">Speciality</th>
-                                            <th>Patient Name</th>
-                                            <th>Apointment Time</th>
-                                            <th>Status</th>
-                                            <th class="text-right">Amount</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="px-auto">
-                                        <?php
-                                                    $collection = $db->employee;
-                                                    $record_pat_app = $collection->find();                        
-                                                    $c = 0;
-                                                    foreach($record_pat_app as $keyOfPat) {
-                                                        foreach($keyOfPat['datetime'] as $docId=>$date_obj) {
-                                                            foreach($date_obj as $date=>$dateValues) {
-                                                                foreach($dateValues as $key=>$val) { 
-                                                                        $collection = $db->manager;
-                                                                        $record_doc_app = $collection->findOne(['d_unid' => strval($docId)]);
-                                                                        
-                                                                        echo '<tr class="px-auto">
-                                                                                <td>
-                                                                                    <h2 class="table-avatar">
-                                                                                        <a href="profile.html" class="avatar avatar-sm mr-2"><img
-                                                                                                class="avatar-img rounded-circle"';
-                                                                                                if($record_doc_app['profile_image'] != '') {
-                                                                                                    echo 'src="http://localhost/s/s/public/image/doc-img/doc-img/'.$record_doc_app['profile_image'].'"';
-                                                                                                }
-                                                                                                else {
-                                                                                                    echo 'src="http://localhost/s/s/public/image/doc-img/doc-img/default-doc.jpg"';
-                                                                                                }
-                                                                                        echo 'height="40"
-                                                                                                alt="User Image"></a>
-                                                                                        <a href="profile.html">Dr. '.$record_doc_app['fname'].' '.$record_doc_app['sname'].'</a>
-                                                                                    </h2>
-                                                                                </td>
-                                                                                <td class="px-auto">Dental</td>
-                                                                                <td>
-                                                                                    <h2 class="table-avatar">
-                                                                                        <a href="profile.html" class="avatar avatar-sm mr-2"><img
-                                                                                                class="avatar-img rounded-circle"
-                                                                                                src="http://localhost/s/s/admin/public/image/ad.jpg"
-                                                                                                height="40"
-                                                                                                alt="User Image"></a>
-                                                                                        <a href="profile.html">'.$keyOfPat['fname'].' '.$keyOfPat['sname'].'</a>
-                                                                                    </h2>
-                                                                                </td>';
-                                                                                if($val['book_t'][0] <= 12) { 
-                                                                                    echo '<td>'.$date.' <span class="text-primary d-block">'.date('h:i', strtotime($val['book_t'][0])).' AM - '.date('h:i', strtotime($val['book_t'][1])).' AM</span></td>';
+                    <div class="card-header">
+                        <h4 class="card-title">Appointment List</h4>
+                    </div>
+                    <table class="table table-hover table-responsive table-center mb-0" id="app_table">
+                        <thead class="px-auto">
+                            <tr class="text-center">
+                                <th class="">Doctor Name</th>
+                                <th class="mx-5">Speciality</th>
+                                <th>Patient Name</th>
+                                <th>Apointment Time</th>
+                                <th>Status</th>
+                                <th class="text-right">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody class="px-auto">
+                            <?php
+                                    $collection = $db->employee;
+                                    $record_pat_app = $collection->find();                        
+                                    $c = 0;
+                                    foreach($record_pat_app as $keyOfPat) {
+                                        foreach($keyOfPat['datetime'] as $docId=>$date_obj) {
+                                            foreach($date_obj as $date=>$dateValues) {
+                                                foreach($dateValues as $key=>$val) { 
+                                                        $collection = $db->manager;
+                                                        $record_doc_app = $collection->findOne(['d_unid' => strval($docId)]);
+                                                        
+                                                        echo '<tr class="px-auto">
+                                                                <td>
+                                                                    <h2 class="table-avatar">
+                                                                        <a href="profile.html" class="avatar avatar-sm mr-2"><img
+                                                                                class="avatar-img rounded-circle"';
+                                                                                if($record_doc_app['profile_image'] != '') {
+                                                                                    echo 'src="http://localhost/s/s/public/image/doc-img/doc-img/'.$record_doc_app['profile_image'].'"';
                                                                                 }
                                                                                 else {
-                                                                                    echo '<td>'.$date.' <span class="text-primary d-block">'.date('h:i', strtotime($val['book_t'][0])).' PM - '.date('h:i', strtotime($val['book_t'][1])).' PM</span></td>';
+                                                                                    echo 'src="http://localhost/s/s/public/image/doc-img/doc-img/default-doc.jpg"';
                                                                                 }
-                                                                                echo '<td>    
-                                                                                    <div class="form-check form-switch d-flex justify-content-center">
-                                                                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                                                                                    </div>
-                                                                                </td>
-                                                                                <td class="text-right">
-                                                                                    '.$val['amt'].'
-                                                                                </td>
-                                                                            </tr>';
-                                                                        $c++; 
+                                                                        echo 'height="40"
+                                                                                alt="User Image"></a>
+                                                                        <a href="profile.html">Dr. '.$record_doc_app['fname'].' '.$record_doc_app['sname'].'</a>
+                                                                    </h2>
+                                                                </td>
+                                                                <td class="py-auto my-auto text-center">Dental</td>
+                                                                <td>
+                                                                    <h2 class="table-avatar">
+                                                                        <a href="profile.html" class="avatar avatar-sm mr-2"><img
+                                                                                class="avatar-img rounded-circle"
+                                                                                src="http://localhost/s/s/admin/public/image/ad.jpg"
+                                                                                height="40"
+                                                                                alt="User Image"></a>
+                                                                        <a href="profile.html">'.$keyOfPat['fname'].' '.$keyOfPat['sname'].'</a>
+                                                                    </h2>
+                                                                </td>';
+                                                                if($val['book_t'][0] <= 12) { 
+                                                                    echo '<td>'.$date.' <span class="text-primary d-block">'.date('h:i', strtotime($val['book_t'][0])).' AM - '.date('h:i', strtotime($val['book_t'][1])).' AM</span></td>';
                                                                 }
-                                                            }
-                                                        }                            
-                                                    }                
-                                                ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                                                                else {
+                                                                    echo '<td>'.$date.' <span class="text-primary d-block">'.date('h:i', strtotime($val['book_t'][0])).' PM - '.date('h:i', strtotime($val['book_t'][1])).' PM</span></td>';
+                                                                }
+                                                                echo '<td>    
+                                                                        <div class="switch_box box_1">
+                                                                            <input type="checkbox" class="switch_1" checked>
+                                                                        </div>
+                                                                    </td>
+                                                                <td class="text-right">
+                                                                    '.$val['amt'].'
+                                                                </td>
+                                                            </tr>';
+                                                        $c++; 
+                                                }
+                                            }
+                                        }                            
+                                    }                
+                                ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

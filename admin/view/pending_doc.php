@@ -1,6 +1,6 @@
 <?php
 
-    error_reporting(0);
+    error_reporting(0); 
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['aid'] == '') {
@@ -21,7 +21,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://localhost/s/s/admin/public/stylesheet/dashboard.css?ver=1.2">
+    <link rel="stylesheet" href="http://localhost/s/s/admin/public/stylesheet/dashboard.css?ver=2.5">
     <title>Admin | Dashboard</title>
 </head>
 
@@ -37,7 +37,7 @@
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
+                <li class="">
                     <a href="http://localhost/s/s/admin/view/index" class="nav-link link-dark">
                         <i class="bi bi-speedometer bi me-2"></i>
                         Dashboard
@@ -57,18 +57,19 @@
                 </li>
                 <li>
                     <a href="http://localhost/s/s/admin/view/doctor" class="nav-link link-dark">
-                        <i class="bi bi-person-lines-fill bi me-2"></i>
+                        <i class="bi bi-speedometer bi me-2"></i>
                         Doctor
                     </a>
                 </li>
-                <li>
-                    <a href="http://localhost/s/s/admin/view/pending_doc" class="nav-link link-dark">
+                <li class="nav-item">
+                    <a href="http://localhost/s/s/admin/view/pending_doc" class="nav-link active-sn"
+                        aria-current="page">
                         <i class="bi bi-person-dash-fill  bi me-2"></i>
                         Pending Doc
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="http://localhost/s/s/admin/view/patient" class="nav-link active-sn" aria-current="page">
+                <li>
+                    <a href="http://localhost/s/s/admin/view/patient" class="nav-link link-dark">
                         <i class="bi bi-file-person bi me-2"></i>
                         Patients
                     </a>
@@ -103,57 +104,40 @@
 
         <div class="my-5 body-main">
             <div class="my-5 mx-4">
-                <h3 class="h3">Patient</h3>
-                <p>Dashboard / Patient</p>
+                <h3 class="h3">Pending Approval Doctor</h3>
+                <p>Dashboard / Pending Approval Doctor</p>
             </div>
+            <div class="col-md-12">
+                <table class="table table-hover table-responsive mb-0" id="doc_table">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Doctor Name</th>
+                            <th>Member Since</th>
+                            <th>Contact Email</th>
+                            <th>Approval Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $collection = $db->manager;
+                            $record_doc = $collection->find();
 
-
-            <!-- doc and patient list -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card-header">
-                        <h4 class="card-title">Patients List</h4>
-                    </div>
-                    <table class="table table-hover table-responsive table-center mb-0" id="pat_table">
-                        <thead>
-                            <tr class="text-center">
-                                <th>Patiend ID</th>
-                                <th>Patient Name</th>
-                                <th>Age</th>
-                                <th>Phone</th>
-                                <th>Address</th>
-                                <th>Last Visit</th>
-                                <th>Paid</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                                $collection = $db->employee;
-                                                $record_pat = $collection->find();
-                                                $c = 1;
-                                                foreach($record_pat as $key) {
-                                                    echo '<tr>
-                                                            <td>#PT00'.$c.'</>
-                                                            <td>
-                                                                <h2 class="table-avatar">
-                                                                    <a href="#" class="avatar avatar-sm mr-2"><img
-                                                                            class="avatar-img rounded-circle"
-                                                                            src="http://localhost/s/s/public/image/pat-img/default_user.png"
-                                                                            height="40" alt="User Image"></a>
-                                                                    <a href="#">'.$key['fname'].' '.$key['sname'].'</a>
-                                                                </h2>
-                                                            </td>
-                                                            <td>45</td>
-                                                            <td>8286329170</td>
-                                                            <td>Address</td>
-                                                            <td>20 Oct 2019</td>
-                                                            <td class="text-right">$100.00</td>
-                                                        </tr>';
-                                                }
-                                            ?>
-                        </tbody>
-                    </table>
-                </div>
+                            foreach($record_doc as $each) {
+                                if($each['approved'] == false) {
+                                    echo '<td>Dr. '.$each['fname'].' '.$each['sname'].'</td>
+                                            <td>'.$each['gen_info']['member_since'].'</td>
+                                            <td>'.$each['email'].'</td>
+                                            <td>
+                                                <div class="switch_box box_1">
+                                                    <input type="checkbox" class="switch_1" checked>
+                                                </div>
+                                        </td>';
+                                }
+                            }
+                                    
+                        ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -163,7 +147,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://localhost/s/s/admin/controller/js/dashboard.js?ver=1.5'></script>
+    <script src='http://localhost/s/s/admin/controller/js/dashboard.js?ver=1.6  '></script>
 
 </body>
 

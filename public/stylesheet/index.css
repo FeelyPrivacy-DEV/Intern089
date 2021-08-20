@@ -128,3 +128,8 @@ body {
     display: none;
     font-weight: 500;
 }
+
+/* searches */
+.searches p {
+    background: rgb(255, 255, 255) !important;
+}

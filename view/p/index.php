@@ -33,7 +33,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://localhost/s/s/public/stylesheet/p-dashboard.css?ver=1.0">
+    <link rel="stylesheet" href="http://localhost/s/s/public/stylesheet/p-dashboard.css?ver=1.4">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -129,10 +129,13 @@
                                                                     else {
                                                                         echo '<img src="http://localhost/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="User Image">';
                                                                     }
-                                                            echo '<a href="" class="px-2 my-auto text-nowrap">
-                                                                    '.$doc_detail['fname'].' '.$doc_detail['sname'].'
-                                                                    <p class="text-muted my-auto">Dental</p>
-                                                                </a>
+                                                            echo '<form action="http://localhost/s/s/view/p/doctor-profile" method="POST">
+                                                                    <button class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
+                                                                        '.$doc_detail['fname'].' '.$doc_detail['sname'].'
+                                                                        <p class="text-muted  text-left my-auto">#PT00'.$c.'</p>
+                                                                    </button>
+                                                                    <input type="text" hidden name="doc_profile_id" value="'.$d.'" id="pat_profile_id">
+                                                                </form>
                                                             </td>';
                                                     echo '<td class="">
                                                                 <p class="m-0 text-nowrap">'.$key.'</p>';

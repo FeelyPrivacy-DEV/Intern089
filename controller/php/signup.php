@@ -27,6 +27,7 @@ if(isset($_POST['manager_signup'])) {
             'gender' => '', 
             'DOB' => '',
             'biography' => '',
+            'member_since' => date('Y-m-d')
         ],
         'clinic_info' => [
             'clinic_name' => '', 
@@ -64,8 +65,18 @@ if(isset($_POST['manager_signup'])) {
         'reg_name' => [],
         'custom_price'=> '',
         'profile_image'=> '',
+        'approved'=> false,
+        'login_able'=> false,
+        'total_earn'=> '',
         'datetime'=> $datetime
     ]);
+
+    $collection = $db->admin;
+    $collection->insertOne(
+        ['a_unid' => '970913346'], 
+        ['$push' =>['pendingDoc_ids' => $d_unid]]
+    );
+
     
     header('location: http://localhost/s/s/index?login=now');
     // echo 'Account created success';
@@ -88,6 +99,12 @@ else if(isset($_POST['employee_signup'])) {
         'sname' =>$_POST['sname'], 
         'empid' =>$_POST['empid'], 
         'email' =>$_POST['email'], 
+        'gen_info' => [
+            'phone_no' => '', 
+            'gender' => '', 
+            'DOB' => '',
+            'member_since' => date('Y-m-d')
+        ],
         'password' =>$hash, 
         'datetime'=>$datetime
     ] );

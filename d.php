@@ -80,22 +80,22 @@
                     <form class="container" action="http://localhost/s/s/controller/php/signup.php" method="POST">
                         <div class="d-flex justify-content-between">
                             <div class="mb-3 mx-1">
-                                <label for="email" class="form-label">First Name</label>
-                                <input type="text" class="form-control" name="fname" id="fname">
+                                <!-- <label for="email" class="form-label">First Name</label> -->
+                                <input type="text" class="form-control py-2" name="fname" id="fname" placeholder="First Name">
                             </div>
-                            <div class="mb-3 mx-1">
-                                <label for="email" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" name="sname" id="sname">
+                            <div class="mb-4 mx-1">
+                                <!-- <label for="email" class="form-label">Last Name</label> -->
+                                <input type="text" class="form-control py-2" name="sname" id="sname" placeholder="Last Name">
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" class="form-control" name="email" id="msemail" aria-describedby="email">
+                        <div class="mb-4">
+                            <!-- <label for="email" class="form-label">Email Address</label> -->
+                            <input type="email" class="form-control py-2" name="email" id="msemail" aria-describedby="email" placeholder="Email Address"> 
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="pass" id="mspass"
+                        <div class="mb-4">
+                            <!-- <label for="password" class="form-label">Password</label> -->
+                            <input type="password" class="form-control py-2" name="pass" id="mspas" placeholder="Create Password "
                                 aria-describedby="password">
                         </div>
                         <button class="btn m-0 p-0 text-primary al-r" type="button">Already Have an account ?</button>
@@ -117,14 +117,14 @@
                     </div>
                     <form class="container e_log_form" action="http://localhost/s/s/controller/php/login.php"
                         method="POST">
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" name="email" class="form-control" id="log_empid"
+                        <div class="mb-4">
+                            <!-- <label for="email" class="form-label">Email Address</label> -->
+                            <input type="email" name="email" class="form-control py-3" id="log_empid" placeholder="Email Address"
                                 aria-describedby="empid">
                         </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" name="pass" class="form-control" id="log_pass"
+                        <div class="mb-4">
+                            <!-- <label for="password" class="form-label">Password</label> -->
+                            <input type="password" name="pass" class="form-control py-3" id="log_pass" placeholder="Enter Password"
                                 aria-describedby="password">
                         </div>
                         <button class="btn m-0 p-0 text-primary al-r" type="button" >Don't Have an account ?</button>
