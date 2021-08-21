@@ -1,7 +1,9 @@
-<?php include './footer.php'; ?>
 
-<script src="http://test.com/s/s/assest/bootstrap/js/jquery.js"></script>
-<script src="http://test.com/s/s/assest/bootstrap/js/bootstrap.js"></script>
-<script src="http://test.com/s/s/assest/bootstrap-tagsinput/js/bootstrap-tagsinput.js"></script>
-<script src="http://test.com/s/s/assest/DataTables/datatables.min.js"></script>
-<script src="http://test.com/s/s/assest/dropzone/dropzone.min.js"></script>
+
+<script src="http://128.199.27.158/s/assest/bootstrap/js/jquery.js"></script>
+<script src="http://128.199.27.158/s/assest/bootstrap/js/bootstrap.js"></script>
+<script src="http://128.199.27.158/s/assest/bootstrap-tagsinput/js/bootstrap-tagsinput.js"></script>
+<script src="http://128.199.27.158/s/assest/DataTables/datatables.min.js"></script>
+<script src="http://128.199.27.158/s/assest/dropzone/dropzone.min.js"></script>
+<script src="http://128.199.27.158/s/assest/bootstrap/jquery-ui/jquery-ui/jquery-ui.js"></script>
+<script src="http://128.199.27.158/s/assest/bootstrap/jquery-ui/jquery-ui/jquery-ui.min.js"></script>

@@ -46,7 +46,20 @@ else if(isset($_POST['allowit'])) {
 
 
 }
+else if(isset($_POST['del'])) {
 
+    $i = $_POST['id'];
+    $d = strval('2021-08-20');
+
+    $r = $collection->deleteOne(
+        ['d_unid'=> strval($i)],
+        ['datetime.'.$d =>['0' => '1']]
+    );
+
+    echo '<pre>';
+    print_r($r);
+
+}
 
 
 

@@ -21,7 +21,7 @@ if(isset($_POST['a_login'])) {
             $_SESSION['aid'] = $record['_id'];
             $_SESSION['a_unid'] = $record['a_unid'];
             $_SESSION['fname'] = $record['fname'];
-            header('location: http://test.com/s/s/admin/view/index');
+            header('location: http://128.199.27.158/s/admin/view/index');
             exit();
         }
         else {

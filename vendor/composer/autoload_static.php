@@ -9,8 +9,8 @@ class ComposerStaticInit9d67bc113c8dde9c980b273c4dedde09
     public static $files = array (
         'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
-        '3a37ebac017bc098e9a86b35401e7a68' => __DIR__ . '/..' . '/mongodb/mongodb/src/functions.php',
         '8592c7b0947d8a0965a9e8c3d16f9c24' => __DIR__ . '/..' . '/elasticsearch/elasticsearch/src/autoload.php',
+        '3a37ebac017bc098e9a86b35401e7a68' => __DIR__ . '/..' . '/mongodb/mongodb/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -28,6 +28,7 @@ class ComposerStaticInit9d67bc113c8dde9c980b273c4dedde09
         ),
         'M' => 
         array (
+            'Monolog\\' => 8,
             'MongoDB\\' => 8,
         ),
         'J' => 
@@ -57,6 +58,10 @@ class ComposerStaticInit9d67bc113c8dde9c980b273c4dedde09
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
         'MongoDB\\' => 
         array (

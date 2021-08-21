@@ -15,20 +15,37 @@ require '../../vendor/autoload.php';
         $s_time = $_POST['s_time'];
         $e_time = $_POST['e_time'];
         
-        $record = $collection->updateOne(
-            ['_id' => $_SESSION['eid']],
-            ['$push' =>['datetime.'.$doc_id.'.'.$date=> ['d_stamp' => date('Y-m-d'), 'status' => '', 'amt' => '$120', 'p_name' => $_SESSION['fname'], 'book_t' =>[$s_time, $e_time]]]]
-        );
-        $collection = $db->manager;
-        $record = $collection->updateOne(
-            ['d_unid' => $doc_id], 
-            ['$addToSet' =>['p_unid' => $_SESSION['p_unid']]]
-        );
-        $collection = $db->check;
-        $record = $collection->updateOne(
-            ['c_unid' => '429570412'],
-            ['$push' =>['datetime.'.$date => [$s_time, $e_time]]]
-        );
+        // $record = $collection->updateOne(
+        //     ['_id' => $_SESSION['eid']],
+        //     ['$push' =>['datetime.'.$doc_id.'.'.$date=> ['d_stamp' => date('Y-m-d'), 'status' => '', 'amt' => '$120', 'p_name' => $_SESSION['fname'], 'book_t' =>[$s_time, $e_time]]]]
+        // );
+        // $collection = $db->manager;
+        // $record = $collection->updateOne(
+        //     ['d_unid' => $doc_id], 
+        //     ['$addToSet' =>['p_unid' => $_SESSION['p_unid']]]
+        // );
+        // $collection = $db->check;
+        // $record = $collection->updateOne(
+        //     ['c_unid' => '429570412'],
+        //     ['$push' =>['datetime.'.$date => [$s_time, $e_time]]]
+        // );
+
+        // clear SEO
+        function seourl($phrase, $maxLength = 100000000000000) {
+            $result = strtolower($phrase);
+    
+            $result = preg_replace("~[^A-Za-z0-9-\s]~", "", $result);
+            $result = trim(preg_replace("~[\s-]+~", " ", $result));
+            $result = trim(substr($result, 0, $maxLength));
+            $result = preg_replace("~\s~", "-", $result);
+    
+            return $result;
+        }
+
+        echo seourl("/view/p/checkout?date=".$date);
+
+        header('location: http://128.199.27.158/s/view/p/checkout');
+
     }
     else if(isset($_POST['selected_sch'])) {
         echo $_POST['meeting_date'];

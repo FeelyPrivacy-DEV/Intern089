@@ -13,22 +13,32 @@ $(document).on('click', '.al-p', function() {
     
 });
 
+var s = [];
 
 $(document).on('keyup', '#search_doc', function() {
     let sq = $(this).val();
     let search = true;
-  var xhr = new XMLHttpRequest();
-  var url = "http://test.com/s/s/controller/php/index.php";
+    var xhr = new XMLHttpRequest();
+    var url = "http://128.199.27.158/s/controller/php/index.php";
 
-  xhr.open("POST", url, true);
-  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhr.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        $("#searches").html(xhr.responseText);
-    }
-  };
-  xhr.send(`search=${search}&sq=${sq}`);
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+          s.push(xhr.responseText);
+      }
+    };
+    xhr.send(`search=${search}&sq=${sq}`);
 })
 
-
-
+console.log(s);
+    
+// $(document).ready(function(){
+//   $("#search_doc").autocomplete({
+//       source: function(req, res) {
+        
+//       },
+//       minLength:1,
+//       selectFirst: true
+//   });
+// });

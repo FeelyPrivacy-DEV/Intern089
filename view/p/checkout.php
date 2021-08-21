@@ -4,7 +4,7 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['eid'] == '') {
-        header('location: http://test.com/s/s/index');
+        header('location: http://128.199.27.158/s/index');
     }
     $con = new MongoDB\Client( 'mongodb://test.com:27017' );
     $db = $con->php_mongo;
@@ -24,7 +24,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://test.com/s/s/public/stylesheet/p-checkout.css?ver=1.2">
+    <link rel="stylesheet" href="http://128.199.27.158/s/public/stylesheet/p-checkout.css?ver=1.2">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -135,7 +135,7 @@
                 <div class="summary">
                     <h4 class="card-title">Booking Summary</h4>
                     <div class="d-flex justify-content-start my-3">
-                        <img src="http://test.com/s/s/public/image/doc-img/doc-img/default-doc.jpg" height="70" alt="User Image">
+                        <img src="http://128.199.27.158/s/public/image/doc-img/doc-img/default-doc.jpg" height="70" alt="User Image">
                         <div class="mx-2">
                             <h5 class="card-title">Dr. <?php echo $record['fname'].' '.$record['sname']; ?></h5>
                             <div class="d-flex">
@@ -194,7 +194,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://test.com/s/s/controller/js/p-checkout.js?ver=1.2'></script>
+    <script src='http://128.199.27.158/s/controller/js/p-checkout.js?ver=2.4'></script>
 
 </body>
 

@@ -4,7 +4,7 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['eid'] == '') {
-        header('location: http://test.com/s/s/index');
+        header('location: http://128.199.27.158/s/index');
     }
 
 ?>
@@ -43,8 +43,8 @@
     </div>
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <!-- <script src='http://test.com/s/s/controller/js/employee.js'></script> -->
-    <script src='http://test.com/s/s/controller/js/success.js'></script>
+    <!-- <script src='http://128.199.27.158/s/controller/js/employee.js'></script> -->
+    <script src='http://128.199.27.158/s/controller/js/success.js'></script>
 </body>
 
 </html>
