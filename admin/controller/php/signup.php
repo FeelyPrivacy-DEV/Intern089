@@ -29,7 +29,7 @@ if(isset($_POST['ad_signup'])) {
         'doc_ids' => $doc_ids,
     ] );
     
-    header('location: http://128.199.27.158/s/admin/index?login=now');
+    header('location: http://143.110.176.130/s/admin/index?login=now');
     // echo 'Account created success';
 
 }

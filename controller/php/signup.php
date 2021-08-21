@@ -91,11 +91,11 @@ if(isset($_POST['manager_signup'])) {
         );
     
         
-        header('location: http://128.199.27.158/s/d?login=now');
+        header('location: http://143.110.176.130/s/d?login=now');
         // echo 'Account created success';
     } 
     else {
-        header('location: http://128.199.27.158/s/d?c=e');
+        header('location: http://143.110.176.130/s/d?c=e');
         // print_r($responseData);
         
     }
@@ -150,10 +150,10 @@ else if(isset($_POST['employee_signup'])) {
         );
 
         
-        header('location: http://128.199.27.158/s/p?login=now');
+        header('location: http://143.110.176.130/s/p?login=now');
     }
     else {
-        header('location: http://128.199.27.158/s/p?c=e');
+        header('location: http://143.110.176.130/s/p?c=e');
 
     }
     // echo 'Account created success';

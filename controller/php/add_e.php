@@ -44,7 +44,7 @@ require '../../vendor/autoload.php';
 
         echo seourl("/view/p/checkout?date=".$date);
 
-        header('location: http://128.199.27.158/s/view/p/checkout');
+        header('location: http://143.110.176.130/s/view/p/checkout');
 
     }
     else if(isset($_POST['selected_sch'])) {

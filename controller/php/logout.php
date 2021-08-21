@@ -13,7 +13,7 @@
         unset($_SESSION['loggedin']);
         session_unset();
         session_destroy(); 
-        header("location: http://128.199.27.158/s/");
+        header("location: http://143.110.176.130/s/");
         exit();
 
     }

@@ -19,7 +19,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://128.199.27.158/s/public/stylesheet/p-doctor-profile.css?ver=1.1">
+    <link rel="stylesheet" href="http://143.110.176.130/s/public/stylesheet/p-doctor-profile.css?ver=1.1">
     <title>Feely | Doc Profile</title>
 </head>
 
@@ -39,7 +39,7 @@
     <div class="container my-5">
         <div class="p-2 d-flex justify-content-between">
             <div class="left d-flex">
-                <img src="http://128.199.27.158/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded"
+                <img src="http://143.110.176.130/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded"
                     height="160" alt="User Image">
                 <div class="mx-3">
                     <h5>Dr. <?php echo $record['fname'].' '.$record['sname'] ?></h5>
@@ -55,7 +55,7 @@
                     <p class=""><i class="bi bi-geo-alt-fill"></i> <?php echo $record['contact_detail']['city'].', '.$record['contact_detail']['state'] ?> - <a href="#">Get Directions</a>
                     </p>
                     <div class="d-flex">
-                        <img src="http://128.199.27.158/s/public/image/doc-img/doc-img/default-doc.jpg" class="px-2"
+                        <img src="http://143.110.176.130/s/public/image/doc-img/doc-img/default-doc.jpg" class="px-2"
                             height="40" alt="User Image">
                     </div>
                     <div class="d-flex my-2">
@@ -210,7 +210,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://128.199.27.158/s/controller/js/d-patient-profile.js?ver=1.2'></script>
+    <script src='http://143.110.176.130/s/controller/js/d-patient-profile.js?ver=1.2'></script>
 
 </body>
 

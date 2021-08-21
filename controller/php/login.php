@@ -24,23 +24,23 @@ if(isset($_POST['manager_login'])) {
                     $_SESSION['d_unid'] = $record['d_unid'];
                     $_SESSION['fname'] = $record['fname'];
                     $_SESSION['sname'] = $record['sname'];
-                    header('location: http://128.199.27.158/s/view/d/index');
+                    header('location: http://143.110.176.130/s/view/d/index');
                     exit();
                 }
                 else {
-                    header('location: http://128.199.27.158/s/d?login=disable');
+                    header('location: http://143.110.176.130/s/d?login=disable');
                 }
             }
             else {
-                header('location: http://128.199.27.158/s/d?auth=disable');
+                header('location: http://143.110.176.130/s/d?auth=disable');
             }
         }
         else {
-            header('location: http://128.199.27.158/s/d?auth=failed');
+            header('location: http://143.110.176.130/s/d?auth=failed');
         }
     }
     else {
-        header('location: http://128.199.27.158/s/d?auth=failed');
+        header('location: http://143.110.176.130/s/d?auth=failed');
     }
  
 }
@@ -60,15 +60,15 @@ else if(isset($_POST['employee_login'])) {
             $_SESSION['fname'] = $record['fname'];
             $_SESSION['sname'] = $record['sname'];
             $_SESSION['p_unid'] = $record['p_unid'];
-            header('location: http://128.199.27.158/s/view/p/index');
+            header('location: http://143.110.176.130/s/view/p/index');
             exit();
         }
         else {
-            header('location: http://128.199.27.158/s/p?auth=failed');
+            header('location: http://143.110.176.130/s/p?auth=failed');
         }
     }
     else {
-        header('location: http://128.199.27.158/s/p?auth=failed');
+        header('location: http://143.110.176.130/s/p?auth=failed');
     }
 
 

@@ -19,7 +19,7 @@ require '../../vendor/autoload.php';
             );
         }
 
-        header('location: http://128.199.27.158/s/view/d/schedule-timings?slot=submit');
+        header('location: http://143.110.176.130/s/view/d/schedule-timings?slot=submit');
 
     }
     else if(isset($_POST['update_profile'])) {
@@ -96,7 +96,7 @@ require '../../vendor/autoload.php';
             );
         }
 
-        header('location: http://128.199.27.158/s/view/d/profile-settings');
+        header('location: http://143.110.176.130/s/view/d/profile-settings');
 
     }
     else if(isset($_POST['next_date'])) {
@@ -238,7 +238,7 @@ require '../../vendor/autoload.php';
                                     
                                     echo'<tr class="py-5">
                                             <td class="d-flex pat">
-                                                <img src="http://128.199.27.158/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
+                                                <img src="http://143.110.176.130/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
                                                 <a href="" class="px-2 my-auto text-nowrap">
                                                     '.$perticular_pat['fname'].' '.$perticular_pat['sname'].'
                                                     <p class="text-muted my-auto">#PT00'.$c.'</p>
@@ -289,7 +289,7 @@ require '../../vendor/autoload.php';
                                                             <div class="p-3 d-flex justify-content-between my-2 ">
                                                                 <div class="d-flex pet-info">
                                                                     <div class="pat-img">
-                                                                        <img src="http://128.199.27.158/s/public/image/pat-img/default_user.png" height="110" width="110"
+                                                                        <img src="http://143.110.176.130/s/public/image/pat-img/default_user.png" height="110" width="110"
                                                                             alt="" srcset="">
                                                                     </div>
                                                                     <div class="pat-det mx-4">
@@ -338,7 +338,7 @@ require '../../vendor/autoload.php';
                                     
                                     echo'<tr class="py-5">
                                             <td class="d-flex pat">
-                                                <img src="http://128.199.27.158/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
+                                                <img src="http://143.110.176.130/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
                                                 <a href="" class="px-2 my-auto text-nowrap">
                                                     '.$perticular_pat['fname'].' '.$perticular_pat['sname'].'
                                                     <p class="text-muted my-auto">#PT00'.$c.'</p>
@@ -389,7 +389,7 @@ require '../../vendor/autoload.php';
                                                             <div class="p-3 d-flex justify-content-between my-2 ">
                                                                 <div class="d-flex pet-info">
                                                                     <div class="pat-img">
-                                                                        <img src="http://128.199.27.158/s/public/image/pat-img/default_user.png" height="110" width="110"
+                                                                        <img src="http://143.110.176.130/s/public/image/pat-img/default_user.png" height="110" width="110"
                                                                             alt="" srcset="">
                                                                     </div>
                                                                     <div class="pat-det mx-4">

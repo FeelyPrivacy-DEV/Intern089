@@ -4,7 +4,7 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['eid'] == '') {
-        header('location: http://128.199.27.158/s/index');
+        header('location: http://143.110.176.130/s/index');
     }
 
     $con = new MongoDB\Client( 'mongodb://test.com:27017' );
@@ -57,7 +57,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://128.199.27.158/s/public/stylesheet/p-booking.css?ver=1.1">
+    <link rel="stylesheet" href="http://143.110.176.130/s/public/stylesheet/p-booking.css?ver=1.1">
     <title>Patient | Booking</title>
 </head>
 
@@ -85,7 +85,7 @@
                     $record = $collection->findOne( ['_id' =>$_SESSION['eid']] );
                 ?>
                 <div class="d-flex justify-content-center mb-4">
-                    <img src="http://128.199.27.158/s/public/image/pat-img/default_user.png" height="150"
+                    <img src="http://143.110.176.130/s/public/image/pat-img/default_user.png" height="150"
                         class="rounded-circle" alt="">
                 </div>
                 <h4 class="text-center"><a href="#"><?php echo $record['fname'].' '.$record['sname']; ?></a></h4>
@@ -94,13 +94,13 @@
             </div>
             <div class="side-nav my-4">
                 <ul class="px-0">
-                    <li class="px-4"><a href="http://128.199.27.158/s/view/p/index"><i
+                    <li class="px-4"><a href="http://143.110.176.130/s/view/p/index"><i
                                 class="bi bi-speedometer"></i>Dashboard</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-bookmark-fill"></i></i>Favouriate</a></li>
-                    <li class="px-4"><a href="http://128.199.27.158/s/view/p/booking"  class="s-active"><i
+                    <li class="px-4"><a href="http://143.110.176.130/s/view/p/booking"  class="s-active"><i
                                 class="bi bi-chat-left-dots-fill"></i>Booking</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li>
-                    <li class="px-4"><a href="http://128.199.27.158/s/view/p/profile-settings"><i
+                    <li class="px-4"><a href="http://143.110.176.130/s/view/p/profile-settings"><i
                                 class="bi bi-gear-fill"></i>Profile Setting</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
@@ -167,8 +167,8 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src="http://128.199.27.158/s/controller/js/p-booking.js?ver=2.4"></script>
-    <script src="http://128.199.27.158/s/controller/js/success.js?ver=2.0"></script>
+    <script src="http://143.110.176.130/s/controller/js/p-booking.js?ver=2.4"></script>
+    <script src="http://143.110.176.130/s/controller/js/success.js?ver=2.0"></script>
 </body>
 
 </html>

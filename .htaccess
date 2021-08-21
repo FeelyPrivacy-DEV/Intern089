@@ -6,4 +6,4 @@ ErrorDocument 404 /error/404.php
 
 IndexIgnore *
 
-
+RewriteRule ^(.+)\.html$ $1.php
