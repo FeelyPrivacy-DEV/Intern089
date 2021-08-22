@@ -1,17 +1,17 @@
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self';
-                                                    font-src 'self';
-                                                    frame-src 'self' https://hcaptcha.com https://*.hcaptcha.com;
-                                                    manifest-src 'self';
-                                                    media-src 'self';
-                                                    object-src 'self';
-                                                    script-src 'self' 'unsafe-inline' https://hcaptcha.com https://*.hcaptcha.com;
-                                                    style-src 'self' https://hcaptcha.com https://*.hcaptcha.com;
-                                                    worker-src 'self'; 
-                                                    img-src 'self'; 
-                                                    child-src 'self';
-                                                    form-action 'self';
-                                                    connect-src 'self' https://hcaptcha.com https://*.hcaptcha.com
+<meta http-equiv="Content-Security-Policy" content="default-src '143.244.135.9';
+                                                    font-src '143.244.135.9';
+                                                    frame-src '143.244.135.9' https://hcaptcha.com https://*.hcaptcha.com;
+                                                    manifest-src '143.244.135.9';
+                                                    media-src '143.244.135.9';
+                                                    object-src '143.244.135.9';
+                                                    script-src '143.244.135.9' 'unsafe-inline' https://hcaptcha.com https://*.hcaptcha.com;
+                                                    style-src '143.244.135.9' https://hcaptcha.com https://*.hcaptcha.com;
+                                                    worker-src '143.244.135.9'; 
+                                                    img-src '143.244.135.9'; 
+                                                    child-src '143.244.135.9';
+                                                    form-action '143.244.135.9';
+                                                    connect-src '143.244.135.9' https://hcaptcha.com https://*.hcaptcha.com
                                                     ">
 
 <!-- hCaptcha -->
