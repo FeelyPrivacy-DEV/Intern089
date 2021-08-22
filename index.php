@@ -1,6 +1,6 @@
 <?php
 
-    // error_reporting(0);
+    error_reporting(0);
     // session_start();
     require './vendor/autoload.php';
     // if($_SESSION['docid'] == '') {
