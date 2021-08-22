@@ -10,7 +10,8 @@
     $db = $con->php_mongo;
     $collection = $db->manager;
 
-?>
+?> 
+<!-- coment -->
 
 <!doctype html>
 <html lang='en'>
