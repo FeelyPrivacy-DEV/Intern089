@@ -5,6 +5,10 @@ require '../../vendor/autoload.php';
 $con = new MongoDB\Client( 'mongodb://test.com:27017' );
 $db = $con->php_mongo; 
 
+try {
+    
+
+
 if(isset($_POST['manager_signup'])) {
     $collection = $db->manager;
 
@@ -164,5 +168,13 @@ else if(isset($_POST['employee_signup'])) {
 // foreach ( $record as $manager ) {
 //     echo $manager['email'], ': ', $manager['password'].'<br>';
 // }
+
+
+
+
+
+} catch (\Throwable $th) {
+    print_r($th)   ;
+}
 
 ?>
