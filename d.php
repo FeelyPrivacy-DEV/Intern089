@@ -115,6 +115,7 @@
                             <!-- <label for="password" class="form-label">Password</label> -->
                             <input type="password" class="form-control py-2" name="pass" id="mspas" placeholder="Create Password " required
                                 aria-describedby="password">
+                                
                         </div>
                         <div class="d-flex justify-content-center">
                             <div class="h-captcha" data-sitekey="8840d1d7-bfeb-4979-b86b-5223d5ad79f9" required></div>
