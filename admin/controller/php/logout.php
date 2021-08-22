@@ -8,7 +8,7 @@
         unset($_SESSION['aid']);
         session_unset();
         session_destroy(); 
-        header("location: http://143.244.135.9/s/admin/index");
+        header("location: http://143.244.139.242/s/admin/index");
         exit();
 
     }

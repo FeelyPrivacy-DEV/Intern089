@@ -5,7 +5,7 @@ use MongoDB\Exception\Exception;
 
 require '../../../vendor/autoload.php';
 
-$con = new MongoDB\Client( 'mongod://143.244.135.9:27017' );
+$con = new MongoDB\Client( 'mongod://143.244.139.242:27017' );
 $db = $con->php_mongo; 
 
 try {
@@ -32,7 +32,7 @@ try {
             'doc_ids' => $doc_ids,
         ] );
         
-        header('location: http://143.244.135.9/s/admin/index?login=now');
+        header('location: http://143.244.139.242/s/admin/index?login=now');
         // echo 'Account created success';
 
     }

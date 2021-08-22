@@ -3,7 +3,9 @@
     error_reporting(0);
     session_start();
     require './vendor/autoload.php';
-    $con = new MongoDB\Client( 'mongodb://143.244.135.9:27017' );
+    $con = new MongoDB\Client( 'mongodb://143.244.139.242:27017' );
+
+
     $db = $con->php_mongo;
     $auth_msg = ''; 
     
@@ -54,8 +56,8 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class='navbar-brand text-light mx-4' href='http://143.244.135.9/s/'>
-                <img src="http://143.244.135.9/s/public/image/logo.png" height="60" alt="" srcset="">
+            <a class='navbar-brand text-light mx-4' href='http://143.244.139.242/s/'>
+                <img src="http://143.244.139.242/s/public/image/logo.png" height="60" alt="" srcset="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -65,16 +67,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://143.244.135.9/s/index">Home</a>
+                        <a class="nav-link active" aria-current="page" href="http://143.244.139.242/s/index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://143.244.135.9/s/d">Doctor</a>
+                        <a class="nav-link active" aria-current="page" href="http://143.244.139.242/s/d">Doctor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://143.244.135.9/s/p">Patient</a>
+                        <a class="nav-link active" aria-current="page" href="http://143.244.139.242/s/p">Patient</a>
                     </li>
                 </ul>
-                <a href="http://143.244.135.9/s/d" class='btn btn-outline-primary text-primary px-3 py-2 mx-5'>LOGIN
+                <a href="http://143.244.139.242/s/d" class='btn btn-outline-primary text-primary px-3 py-2 mx-5'>LOGIN
                     /
                     SIGNUP</a>
             </div>
@@ -87,15 +89,15 @@
     <div class="container  my-5">
         <div class="reg_cont d-flex justify-content-center">
             <div class="img my-auto mx-4">
-                <img src="http://143.244.135.9/s/public/image/login-banner.png" height="300" alt="" srcset="">
+                <img src="http://143.244.139.242/s/public/image/login-banner.png" height="300" alt="" srcset="">
             </div>
             <div class="forms mx-4">
                 <div class="reg" id="docreg">
                     <div class="d-flex justify-content-between px-3 pb-2">
                         <h5>Doctor Register</h5>
-                        <a href="http://143.244.135.9/s/p">Not a Doctor ?</a>
+                        <a href="http://143.244.139.242/s/p">Not a Doctor ?</a>
                     </div>
-                    <form class="container needs-validation" action="http://143.244.135.9/s/controller/php/signup.php" method="POST">
+                    <form class="container needs-validation" action="http://143.244.139.242/s/controller/php/signup.php" method="POST">
                         <div class="d-flex justify-content-between">
                             <div class="mb-3 mx-1">
                                 <!-- <label for="email" class="form-label">First Name</label> -->
@@ -135,9 +137,9 @@
                 <div class="log" id="doclog">
                     <div class="d-flex justify-content-between px-3 pb-2">
                         <h5>Doctor Login</h5>
-                        <a href="http://143.244.135.9/s/p">Not a Doctor ?</a>
+                        <a href="http://143.244.139.242/s/p">Not a Doctor ?</a>
                     </div>
-                    <form class="container e_log_form" action="http://143.244.135.9/s/controller/php/login.php"
+                    <form class="container e_log_form" action="http://143.244.139.242/s/controller/php/login.php"
                         method="POST">
                         <div class="mb-4">
                             <!-- <label for="email" class="form-label">Email Address</label> -->
@@ -162,7 +164,7 @@
 
 
     <?php include './assest/bottom_links.php'; ?>
-    <script src='http://143.244.135.9/s/controller/js/index.js?ver=1.3'></script>
+    <script src='http://143.244.139.242/s/controller/js/index.js?ver=1.3'></script>
 </body>
 
 </html>

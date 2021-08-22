@@ -4,9 +4,9 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['docid'] == '') {
-        header('location:  http://143.244.135.9/s/index');
+        header('location:  http://143.244.139.242/s/index');
     }
-    $con = new MongoDB\Client( 'mongodb://143.244.135.9:27017' );
+    $con = new MongoDB\Client( 'mongodb://143.244.139.242:27017' );
     $db = $con->php_mongo; $collection = $db->manager;
     $record = $collection->findOne( [ '_id' =>$_SESSION['docid']] );
 
@@ -25,7 +25,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://143.244.135.9/s/public/stylesheet/d-profile-settings.css?ver=1.0">
+    <link rel="stylesheet" href="http://143.244.139.242/s/public/stylesheet/d-profile-settings.css?ver=1.0">
     <title>Feely | Doc Profile Settings</title>
 </head>
 
@@ -51,10 +51,10 @@
                 <div class="d-flex justify-content-center mb-4">
                     <?php
                         if($record['profile_image'] != '') {
-                            echo '<img src="http://143.244.135.9/s/public/image/doc-img/doc-img/'.$record['profile_image'].'" class="rounded" height="70" alt="User Image">';
+                            echo '<img src="http://143.244.139.242/s/public/image/doc-img/doc-img/'.$record['profile_image'].'" class="rounded" height="70" alt="User Image">';
                         }
                         else {
-                            echo '<img src="http://143.244.135.9/s/public/image/doc-img/doc-img/default-doc.jpg" height="70" alt="User Image">';
+                            echo '<img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" height="70" alt="User Image">';
                         }
                     ?>
                 </div>                
@@ -63,17 +63,17 @@
             </div>
             <div class="side-nav my-4">
             <ul class="px-0">
-                    <li class="px-4"><a href="http://143.244.135.9/s/view/d/index"><i
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/d/index"><i
                                 class="bi bi-speedometer"></i>Dashboard</a></li>
-                    <li class="px-4"><a href="http://143.244.135.9/s/view/d/appointments"><i
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/d/appointments"><i
                                 class="bi bi-calendar-check-fill"></i>Appointments</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-person-lines-fill"></i>My Patients</a></li>
-                    <li class="px-4"><a href="http://143.244.135.9/s/view/d/schedule-timings"><i
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/d/schedule-timings"><i
                                 class="bi bi-hourglass-split"></i>Schedule Timimg</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-receipt-cutoff"></i>Invoice</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-star-fill"></i>Review</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li>
-                    <li class="px-4"><a href="http://143.244.135.9/s/view/d/profile-settings"  class="s-active"><i
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/d/profile-settings"  class="s-active"><i
                                 class="bi bi-gear-fill"></i>Profile Setting</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-share-fill"></i>Social Media</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
@@ -83,7 +83,7 @@
         </div>
         <!-- body content -->
         <div class="col-md-9 content">
-            <form action="http://143.244.135.9/s/controller/php/add_m.php" method="POST" enctype="multipart/form-data">
+            <form action="http://143.244.139.242/s/controller/php/add_m.php" method="POST" enctype="multipart/form-data">
                 <div class="">
                     <h4 class="card-title">Basic Information</h4>
                 </div>
@@ -93,10 +93,10 @@
                         <div class="profile-img">
                             <?php
                                 if($record['profile_image'] != '') {
-                                    echo '<img src="http://143.244.135.9/s/public/image/doc-img/doc-img/'.$record['profile_image'].'" height="70" alt="User Image">';
+                                    echo '<img src="http://143.244.139.242/s/public/image/doc-img/doc-img/'.$record['profile_image'].'" height="70" alt="User Image">';
                                 }
                                 else {
-                                    echo '<img src="http://143.244.135.9/s/public/image/doc-img/doc-img/default-doc.jpg" height="70" alt="User Image">';
+                                    echo '<img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" height="70" alt="User Image">';
                                 }
                             ?>
                         </div>
@@ -226,12 +226,12 @@
                     </div>
                     <div class="clinic-img d-flex justify-content-start my-2">
                         <div class="upload-images m-1">
-                            <img src="http://143.244.135.9/s/public/image/doc-img/clinic-img/feature-01.jpg" class="m-2"
+                            <img src="http://143.244.139.242/s/public/image/doc-img/clinic-img/feature-01.jpg" class="m-2"
                                 height="80" alt="">
                             <a href="#" class="btn btn-icon btn-sm btn-danger"><i class="bi bi-trash"></i></a>
                         </div>
                         <div class="upload-images m-1">
-                            <img src="http://143.244.135.9/s/public/image/doc-img/clinic-img/feature-02.jpg" class="m-2"
+                            <img src="http://143.244.139.242/s/public/image/doc-img/clinic-img/feature-02.jpg" class="m-2"
                                 height="80" alt="">
                             <a href="#" class="btn btn-icon btn-sm btn-danger"><i class="bi bi-trash"></i></a>
                         </div>
@@ -476,7 +476,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://143.244.135.9/s/controller/js/d-profile-settings.js?ver=1.2'></script>
+    <script src='http://143.244.139.242/s/controller/js/d-profile-settings.js?ver=1.2'></script>
 
 </body>
 

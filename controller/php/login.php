@@ -2,7 +2,7 @@
 
 require '../../vendor/autoload.php';
 
-$con = new MongoDB\Client( 'mongodb://143.244.135.9:27017' );
+$con = new MongoDB\Client( 'mongodb://143.244.139.242:27017' );
 $db = $con->php_mongo;
 
 if(isset($_POST['manager_login'])) {
@@ -24,23 +24,23 @@ if(isset($_POST['manager_login'])) {
                     $_SESSION['d_unid'] = $record['d_unid'];
                     $_SESSION['fname'] = $record['fname'];
                     $_SESSION['sname'] = $record['sname'];
-                    header('location: http://143.244.135.9/s/view/d/index');
+                    header('location: http://143.244.139.242/s/view/d/index');
                     exit();
                 }
                 else {
-                    header('location: http://143.244.135.9/s/d?login=disable');
+                    header('location: http://143.244.139.242/s/d?login=disable');
                 }
             }
             else {
-                header('location: http://143.244.135.9/s/d?auth=disable');
+                header('location: http://143.244.139.242/s/d?auth=disable');
             }
         }
         else {
-            header('location: http://143.244.135.9/s/d?auth=failed');
+            header('location: http://143.244.139.242/s/d?auth=failed');
         }
     }
     else {
-        header('location: http://143.244.135.9/s/d?auth=failed');
+        header('location: http://143.244.139.242/s/d?auth=failed');
     }
  
 }
@@ -60,15 +60,15 @@ else if(isset($_POST['employee_login'])) {
             $_SESSION['fname'] = $record['fname'];
             $_SESSION['sname'] = $record['sname'];
             $_SESSION['p_unid'] = $record['p_unid'];
-            header('location: http://143.244.135.9/s/view/p/index');
+            header('location: http://143.244.139.242/s/view/p/index');
             exit();
         }
         else {
-            header('location: http://143.244.135.9/s/p?auth=failed');
+            header('location: http://143.244.139.242/s/p?auth=failed');
         }
     }
     else {
-        header('location: http://143.244.135.9/s/p?auth=failed');
+        header('location: http://143.244.139.242/s/p?auth=failed');
     }
 
 

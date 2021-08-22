@@ -4,9 +4,9 @@
     // session_start();
     require './vendor/autoload.php';
     // if($_SESSION['docid'] == '') {
-    //     header('location: http://143.244.135.9/s/index');
+    //     header('location: http://143.244.139.242/s/index');
     // }
-    $con = new MongoDB\Client( 'mongodb://143.244.135.9:27017' );
+    $con = new MongoDB\Client( 'mongodb://143.244.139.242:27017' );
     $db = $con->php_mongo;
     $collection = $db->manager;
 
@@ -18,7 +18,7 @@
 
 <head>
     <?php include './assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://143.244.135.9/s/public/stylesheet/index.css?ver=1.3">
+    <link rel="stylesheet" href="http://143.244.139.242/s/public/stylesheet/index.css?ver=1.3">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -37,14 +37,14 @@
 
                 <!-- Search -->
                 <div class="search-box">
-                    <form action="http://143.244.135.9/s/controller/php/index.php" method="GET">
+                    <form action="http://143.244.139.242/s/controller/php/index.php" method="GET">
                         <div class="form-group search-location">
                             <input type="text" class="form-control" placeholder="Search Location">
                             <span class="form-text">Based on your Location</span>
                         </div>
                         <div class="form-group search-info d-flex flex-column">
                             <div class="">
-                                <!-- <form class="m-0 p-0" action="http://143.244.135.9/s/controller/php/index.php" method="POST"> -->
+                                <!-- <form class="m-0 p-0" action="http://143.244.139.242/s/controller/php/index.php" method="POST"> -->
                                     <input type="text" class="form-control search_doc" id="search_doc" placeholder="Search Doctors, Clinics, Hospitals, Diseases Etc">
                                     <span class="form-text">Ex : Dental or Sugar Check up etc</span>
                                 <!-- </form> -->
@@ -75,7 +75,7 @@
 
 
     <?php include './assest/bottom_links.php'; ?>
-    <script src='http://143.244.135.9/s/controller/js/index.js?ver=1.6'></script>
+    <script src='http://143.244.139.242/s/controller/js/index.js?ver=1.6'></script>
 
 </body>
 
