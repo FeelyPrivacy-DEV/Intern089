@@ -2,7 +2,7 @@
 
 session_start();
 require '../../vendor/autoload.php';
-    $con = new MongoDB\Client( 'mongodb://test.com:27017' );
+    $con = new MongoDB\Client( 'mongodb://143.244.135.9:27017' );
     $db = $con->php_mongo;
 
 

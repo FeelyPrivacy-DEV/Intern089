@@ -21,14 +21,14 @@ function proccedtopay() {
     let prodtopay_check = true;
     console.log(doc_id);
     var xhr = new XMLHttpRequest();
-    var url = 'http://143.110.176.130/s/controller/php/add_e.php';
+    var url = 'http://143.244.135.9/s/controller/php/add_e.php';
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
             $('#warn').text(xhr.responseText);
-            // window.location.href = `http://143.110.176.130/s/view/p/checkout?date=${doc_id}&time=${s_time}&${date}`;
+            // window.location.href = `http://143.244.135.9/s/view/p/checkout?date=${doc_id}&time=${s_time}&${date}`;
         }
     };
     xhr.send(`prodtopay_check=${prodtopay_check}&date=${date}&doc_id=${doc_id}&s_time=${s_time}&e_time=${e_time}`);
@@ -39,7 +39,7 @@ $(document).on('change', '#doc-select', function() {
     
     let d_sel = 'd_sel';
     var xhr = new XMLHttpRequest();
-    var url = 'http://143.110.176.130/s/controller/php/add_e.php';
+    var url = 'http://143.244.135.9/s/controller/php/add_e.php';
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

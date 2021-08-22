@@ -2,7 +2,7 @@
 
 require '../../vendor/autoload.php';
 
-$con = new MongoDB\Client( 'mongodb://test.com:27017' );
+$con = new MongoDB\Client( 'mongodb://143.244.135.9:27017' );
 $db = $con->php_mongo; 
 
 try {
@@ -95,11 +95,11 @@ if(isset($_POST['manager_signup'])) {
         );
     
         
-        header('location: http://143.110.176.130/s/d?login=now');
+        header('location: http://143.244.135.9/s/d?login=now');
         // echo 'Account created success';
     } 
     else {
-        header('location: http://143.110.176.130/s/d?c=e');
+        header('location: http://143.244.135.9/s/d?c=e');
         // print_r($responseData);
         
     }
@@ -154,10 +154,10 @@ else if(isset($_POST['employee_signup'])) {
         );
 
         
-        header('location: http://143.110.176.130/s/p?login=now');
+        header('location: http://143.244.135.9/s/p?login=now');
     }
     else {
-        header('location: http://143.110.176.130/s/p?c=e');
+        header('location: http://143.244.135.9/s/p?c=e');
 
     }
     // echo 'Account created success';

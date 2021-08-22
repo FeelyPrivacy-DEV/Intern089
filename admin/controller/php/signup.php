@@ -3,7 +3,7 @@
 
 require '../../../vendor/autoload.php';
 
-$con = new MongoDB\Client( 'mongodb://test.com:27017' );
+$con = new MongoDB\Client( 'mongodb://143.244.135.9:27017' );
 $db = $con->php_mongo; 
 
 
@@ -29,7 +29,7 @@ if(isset($_POST['ad_signup'])) {
         'doc_ids' => $doc_ids,
     ] );
     
-    header('location: http://143.110.176.130/s/admin/index?login=now');
+    header('location: http://143.244.135.9/s/admin/index?login=now');
     // echo 'Account created success';
 
 }

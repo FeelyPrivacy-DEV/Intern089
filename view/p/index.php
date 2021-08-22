@@ -4,9 +4,9 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['eid'] == '') {
-        header('location: http://143.110.176.130/s/index');
+        header('location: http://143.244.135.9/s/index');
     }
-    $con = new MongoDB\Client( 'mongodb://test.com:27017' );
+    $con = new MongoDB\Client( 'mongodb://143.244.135.9:27017' );
     $db = $con->php_mongo;
     // $msg = '';
     
@@ -33,7 +33,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://143.110.176.130/s/public/stylesheet/p-dashboard.css?ver=1.4">
+    <link rel="stylesheet" href="http://143.244.135.9/s/public/stylesheet/p-dashboard.css?ver=1.4">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -57,7 +57,7 @@
         <div class="col-md-3 side-profile p-2 border">
             <div class="">
                 <div class="d-flex justify-content-center mb-4">
-                    <img src="http://143.110.176.130/s/public/image/pat-img/default_user.png" height="150" class="rounded-circle"
+                    <img src="http://143.244.135.9/s/public/image/pat-img/default_user.png" height="150" class="rounded-circle"
                         alt="">
                 </div>  
                 <h4 class="text-center"><a href="#"><?php echo $record['fname'].' '.$record['sname']; ?></a></h4>
@@ -66,11 +66,11 @@
             </div>
             <div class="side-nav my-4">
                 <ul class="px-0">
-                    <li class="px-4"><a href="http://143.110.176.130/s/view/p/index"  class="s-active"><i class="bi bi-speedometer"></i>Dashboard</a></li>
+                    <li class="px-4"><a href="http://143.244.135.9/s/view/p/index"  class="s-active"><i class="bi bi-speedometer"></i>Dashboard</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-bookmark-fill"></i></i>Favouriate</a></li>
-                    <li class="px-4"><a href="http://143.110.176.130/s/view/p/booking"><i class="bi bi-chat-left-dots-fill"></i>Booking</a></li>
+                    <li class="px-4"><a href="http://143.244.135.9/s/view/p/booking"><i class="bi bi-chat-left-dots-fill"></i>Booking</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li>
-                    <li class="px-4"><a href="http://143.110.176.130/s/view/p/profile-settings"><i class="bi bi-gear-fill"></i>Profile Setting</a></li>
+                    <li class="px-4"><a href="http://143.244.135.9/s/view/p/profile-settings"><i class="bi bi-gear-fill"></i>Profile Setting</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
                 </ul>   
@@ -124,12 +124,12 @@
                                                     echo'<tr class="py-5">
                                                             <td class="d-flex pat">';
                                                                     if($doc_detail['profile_image'] != '') {
-                                                                        echo '<img src="http://143.110.176.130/s/public/image/doc-img/doc-img/'.$doc_detail['profile_image'].'" class="my-auto" height="40" alt="User Image">';
+                                                                        echo '<img src="http://143.244.135.9/s/public/image/doc-img/doc-img/'.$doc_detail['profile_image'].'" class="my-auto" height="40" alt="User Image">';
                                                                     }
                                                                     else {
-                                                                        echo '<img src="http://143.110.176.130/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="User Image">';
+                                                                        echo '<img src="http://143.244.135.9/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="User Image">';
                                                                     }
-                                                            echo '<form action="http://143.110.176.130/s/view/p/doctor-profile" method="POST">
+                                                            echo '<form action="http://143.244.135.9/s/view/p/doctor-profile" method="POST">
                                                                     <button class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
                                                                         '.$doc_detail['fname'].' '.$doc_detail['sname'].'
                                                                         <p class="text-muted  text-left my-auto">#PT00'.$c.'</p>
@@ -212,7 +212,7 @@
                                 <td class="text-nowrap">14 Nov 2019 </td>
                                 <td class="text-f">Prescription 1</td>
                                 <td class="d-flex pat">
-                                    <img src="http://143.110.176.130/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
+                                    <img src="http://143.244.135.9/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
                                     <a href="" class="px-2 my-auto text-nowrap">                    
                                             Dr. Ruby Perrin
                                         <p class="text-muted my-auto">Dental</p>
@@ -249,7 +249,7 @@
                                 <td class="text-center">Dental Filling</td>
                                 <td class="text-center"><a href="#">dental-test.pdf</a></td>
                                 <td class="d-flex pat">
-                                    <img src="http://143.110.176.130/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
+                                    <img src="http://143.244.135.9/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
                                     <a href="" class="px-2 my-auto text-nowrap">                    
                                             Dr. Ruby Perrin
                                         <p class="text-muted my-auto">Dental</p>
@@ -283,7 +283,7 @@
                                 <td class="text-nowrap"><a href="#">#INV-0010</a></td>
                                 
                                 <td class="d-flex pat">
-                                    <img src="http://143.110.176.130/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
+                                    <img src="http://143.244.135.9/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
                                     <a href="" class="px-2 my-auto text-nowrap">                    
                                             Dr. Ruby Perrin
                                         <p class="text-muted my-auto">Dental</p>
@@ -315,7 +315,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://143.110.176.130/s/controller/js/p-dashboard.js?ver=1.2'></script>
+    <script src='http://143.244.135.9/s/controller/js/p-dashboard.js?ver=1.2'></script>
 
 </body>
 

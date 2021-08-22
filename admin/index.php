@@ -3,7 +3,7 @@
     error_reporting(0);
     session_start();
     require '../vendor/autoload.php';
-    $con = new MongoDB\Client( 'mongodb://test.com:27017' );
+    $con = new MongoDB\Client( 'mongodb://143.244.135.9:27017' );
     $db = $con->php_mongo;
 
     if($_GET['auth'] == 'failed') {
@@ -29,7 +29,7 @@
 
 <head>
     <?php include '../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://143.110.176.130/s/admin/public/stylesheet/login.css?ver=1.1">
+    <link rel="stylesheet" href="http://143.244.135.9/s/admin/public/stylesheet/login.css?ver=1.1">
     <title>Admin </title>
 </head>
 
@@ -41,7 +41,7 @@
             <div class="container">
                 <div class="loginbox">
                     <div class="login-left">
-                        <img class="img-fluid" src="http://143.110.176.130/s/admin/public/image/logo.png" alt="Logo">
+                        <img class="img-fluid" src="http://143.244.135.9/s/admin/public/image/logo.png" alt="Logo">
                     </div>
                     <div class="login-right">
                         <div class="login-right-wrap">
@@ -49,7 +49,7 @@
                             <p class="account-subtitle">Access to our dashboard</p>
 
                             <!-- Form -->
-                            <form action="http://143.110.176.130/s/admin/controller/php/login.php" method="POST">
+                            <form action="http://143.244.135.9/s/admin/controller/php/login.php" method="POST">
                                 <div class="form-group my-3">
                                     <input class="form-control p-3" type="email" name="email" placeholder="Email Address">
                                 </div>
@@ -77,7 +77,7 @@
                             </div>
                             <!-- /Social Login -->
 
-                            <div class="text-center dont-have" >Don’t have an account? <a href="http://143.110.176.130/s/admin/register">Register</a>
+                            <div class="text-center dont-have" >Don’t have an account? <a href="http://143.244.135.9/s/admin/register">Register</a>
                             </div>
                         </div>
                     </div>

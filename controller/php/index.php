@@ -14,7 +14,7 @@ $client = ClientBuilder::create()       // Instantiate a new ClientBuilder
             ->build();
     $client = ClientBuilder::create()->build();
 
-    $con = new MongoDB\Client( 'mongodb://test.com:27017' );
+    $con = new MongoDB\Client( 'mongodb://143.244.135.9:27017' );
     $db = $con->php_mongo; $collection = $db->manager;
 
     $result = [];
