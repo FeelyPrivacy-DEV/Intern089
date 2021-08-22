@@ -1,4 +1,4 @@
-.vscode
+.vscode/
 composer.json
 composer.lock
-vendor
+vendor/
