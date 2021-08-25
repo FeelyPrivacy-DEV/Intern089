@@ -62,3 +62,34 @@ body {
 .hide {
     display: none !important;
 }
+
+
+
+/* select doctor */
+.container {
+    background: #fff !important;
+}
+.left h5    {
+    color: rgb(0, 199, 199);
+}
+.left p    {
+    font-size: 14px !important;
+}
+.left a    {
+    text-decoration: none !important;
+    color: rgb(0, 199, 199);
+}
+.right .btn-primary {
+    border-color: rgb(0, 215, 253);
+    background: rgb(0, 215, 253);
+}
+.right .btn-outline-primary {
+    border-color: rgb(0, 215, 253) !important;
+    background: transparent !important;
+    color: rgb(0, 215, 253) !important;
+}
+.right .btn-outline-primary:hover {
+    border-color: rgb(0, 215, 253) !important;
+    background: rgb(0, 215, 253) !important;
+    color: #fff !important;
+}

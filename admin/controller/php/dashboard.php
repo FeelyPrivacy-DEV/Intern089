@@ -2,7 +2,7 @@
 
 require '../../../vendor/autoload.php';
 
-$con = new MongoDB\Client( 'mongodb://143.244.139.242:27017' );
+$con = new MongoDB\Client( 'mongodb://pavan.co:27017' );
 $db = $con->php_mongo;
 $collection = $db->manager;
 

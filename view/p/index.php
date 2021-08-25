@@ -4,9 +4,9 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['eid'] == '') {
-        header('location: http://143.244.139.242/s/index');
+        header('location: http://pavan.co/s/s/index');
     }
-    $con = new MongoDB\Client( 'mongodb://143.244.139.242:27017' );
+    $con = new MongoDB\Client( 'mongodb://pavan.co:27017' );
     $db = $con->php_mongo;
     // $msg = '';
     
@@ -33,7 +33,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://143.244.139.242/s/public/stylesheet/p-dashboard.css?ver=1.4">
+    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/p-dashboard.css?ver=1.5">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -44,8 +44,8 @@
     <nav class='breadc navbar-expand-lg'>
         <div class='container-fluid'>
             <div class="breadcrumb d-flex flex-column mx-4 my-auto">
-                <p class=" my-auto py-1">Home / Dashboard</p>
-                <h5 class="my-auto py-1">Dashboard</h5>
+                <p class=" my-auto py-1">Home / Select Doctor</p>
+                <h5 class="my-auto py-1">Select Doctor</h5>
             </div>
         </div>
     </nav>
@@ -57,266 +57,124 @@
         <div class="col-md-3 side-profile p-2 border">
             <div class="">
                 <div class="d-flex justify-content-center mb-4">
-                    <img src="http://143.244.139.242/s/public/image/pat-img/default_user.png" height="150" class="rounded-circle"
-                        alt="">
-                </div>  
+                    <img src="http://pavan.co/s/s/public/image/pat-img/default_user.png" height="150"
+                        class="rounded-circle" alt="">
+                </div>
                 <h4 class="text-center"><a href="#"><?php echo $record['fname'].' '.$record['sname']; ?></a></h4>
                 <p class="text-center">24 Jul 1983, 38 years</p>
                 <p class="text-center"> Newyork, USA</p>
             </div>
             <div class="side-nav my-4">
                 <ul class="px-0">
-                    <li class="px-4"><a href="http://143.244.139.242/s/view/p/index"  class="s-active"><i class="bi bi-speedometer"></i>Dashboard</a></li>
+                    <li class="px-4"><a href="http://pavan.co/s/s/view/p/index" class="s-active"><i
+                                class="bi bi-person-bounding-box"></i>Select Doctor</a></li>
+                    <li class="px-4"><a href="http://pavan.co/s/s/view/p/dashboard"><i
+                                class="bi bi-speedometer"></i>Dashboard</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-bookmark-fill"></i></i>Favouriate</a></li>
-                    <li class="px-4"><a href="http://143.244.139.242/s/view/p/booking"><i class="bi bi-chat-left-dots-fill"></i>Booking</a></li>
+                    <li class="px-4"><a href="http://pavan.co/s/s/view/p/booking"><i
+                                class="bi bi-chat-left-dots-fill"></i>Booking</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li>
-                    <li class="px-4"><a href="http://143.244.139.242/s/view/p/profile-settings"><i class="bi bi-gear-fill"></i>Profile Setting</a></li>
+                    <li class="px-4"><a href="http://pavan.co/s/s/view/p/profile-settings"><i
+                                class="bi bi-gear-fill"></i>Profile Setting</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
-                </ul>   
+                </ul>
             </div>
         </div>
-        
+
         <!-- body content -->
         <div class="col-md-9 d-dash-content pl-5">
-            <div class="my-4">
-                <nav class="nav d-flex justify-content-around ">
-                    <button class="btn text-dark px-4 pb-3 active ">Appointments</button>
-                    <button class="btn text-dark px-4 pb-3 ">Prescriptions</button>
-                    <button class="btn text-dark px-4 pb-3 ">Medical_Records</button>
-                    <button class="btn text-dark px-4 pb-3 ">Billing</button>
-                </nav>
-            </div>
-            <div class="my-4 all-table">
+            <h4 class="container my-3">Select Doctor</h4>
+            <?php
+                $collection = $db->manager;
+                $doc = $collection->find();
 
-                <!-- Appointments -->
-                <div class="row Appointments  table-responsive">
-                    <table class="table col-md-12" id="">
-                        <thead>
-                            <tr>
-                                <th scope="col">Doctor</th>
-                                <th scope="col">App date</th>
-                                <th scope="col">Booking Date</th>
-                                <th scope="col">Amount</th>
-                                <th scope="col">Follow Up</th>
-                                <th scope="col">Status</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                $c = 1;
-                                $collection = $db->employee;
-                                $record = $collection->findOne(['_id'=> $_SESSION['eid']]);
-                                $datetime = iterator_to_array( $record['datetime'] ); 
-                                $d_collection = $db->manager;
-
-                                foreach($datetime as $did=>$dval) {
-                                    $d = strval($did);
-                                    
-                                    foreach($datetime as $doc_key=>$date) {
-                                        if($doc_key == $d) {
-                                            foreach($date as $key=>$val) {
-                                                foreach($val as $k=>$v) {
-
-                                                    $d_record = $d_collection->findOne( ["d_unid" => $d] );
-                                                    $doc_detail = iterator_to_array($d_record);
-                                                    echo'<tr class="py-5">
-                                                            <td class="d-flex pat">';
-                                                                    if($doc_detail['profile_image'] != '') {
-                                                                        echo '<img src="http://143.244.139.242/s/public/image/doc-img/doc-img/'.$doc_detail['profile_image'].'" class="my-auto" height="40" alt="User Image">';
-                                                                    }
-                                                                    else {
-                                                                        echo '<img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="User Image">';
-                                                                    }
-                                                            echo '<form action="http://143.244.139.242/s/view/p/doctor-profile" method="POST">
-                                                                    <button class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
-                                                                        '.$doc_detail['fname'].' '.$doc_detail['sname'].'
-                                                                        <p class="text-muted  text-left my-auto">#PT00'.$c.'</p>
-                                                                    </button>
-                                                                    <input type="text" hidden name="doc_profile_id" value="'.$d.'" id="pat_profile_id">
-                                                                </form>
-                                                            </td>';
-                                                    echo '<td class="">
-                                                                <p class="m-0 text-nowrap">'.$key.'</p>';
-                                                            if($v['book_t'][0] <= 12) {
-                                                                echo '<p class="m-0 text-primary">'.date('h:i', strtotime($v['book_t'][0])).' AM</p>';    
-                                                            }        
-                                                            else {
-                                                                echo '<p class="m-0 text-primary">'.date('h:i', strtotime($v['book_t'][0])).' PM</p>';    
-                                                            }
-                                                    echo '</td>
-                                                            <td class="text-nowrap">'.$v['d_stamp'].'</td>
-                                                            <td class="text-center">'.$v['amt'].'</td>
-                                                            <td class="text-nowrap">16 Nov 2019</td>';
-                                                            if($v['status'] == 'confirmed') {
-                                                                echo '<td class="text-nowrap badge-td"><span class="badge rounded-pill confirmed">Confirm</span></td>';
-                                                            }
-                                                            else if($v['status'] == 'cancelled') {
-                                                                echo '<td class="text-nowrap badge-td"><span class="badge rounded-pill cancelled">Cancelled</span></td>';
-                                                            }
-                                                            else {
-                                                                echo '<td class="text-nowrap badge-td"><span class="badge rounded-pill pending">Pending</span></td>';
-                                                            }
-                                                            echo '<td class="">
-                                                                <div class="d-flex action">
-                                                                    <button class="btn btn2 btn-sm mx-1"><i class="bi bi-printer"></i> Print</button>
-                                                                    <button type="button" class="btn btn1 btn-sm" data-bs-toggle="modal" data-bs-target="#info'.$c.'"><i class="bi bi-eye-fill"></i> View</button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>'; 
-                                                        // information modal 
-                                                        echo '<div class="modal fade" id="info'.$c.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-centered">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                        <h5 class="modal-title">Modal title</h5>
-                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <p>'.$doc_detail['fname'].'</p>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>';
-                                                        $c++;
-                                                }
-                                            }        
-                                        }
-                                    }
-                                }    
+                foreach($doc as $key=>$docval) {
+                    if($docval['approved'] == true) {
+                        if($docval['login_able'] == true) {
+                        
                             ?>
-                            
-                                
-                        </tbody>
-                    </table>
-                </div>
 
-                <!-- Prescriptions -->
-                <div class="row Prescriptions table-responsive">
-                    <table class="table  col-md-12" id="">
-                        <thead>
-                            <tr>
-                                <th scope="col">Date</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Created by</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="py-5">
-                                <td class="text-nowrap">14 Nov 2019 </td>
-                                <td class="text-f">Prescription 1</td>
-                                <td class="d-flex pat">
-                                    <img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
-                                    <a href="" class="px-2 my-auto text-nowrap">                    
-                                            Dr. Ruby Perrin
-                                        <p class="text-muted my-auto">Dental</p>
-                                    </a>
-                                </td>
-                                <td class="">
-                                    <div class="d-flex action">
-                                        <button class="btn btn2 btn-sm mx-1"><i class="bi bi-printer"></i> Print</button>
-                                        <button class="btn btn1 btn-sm "><i class="bi bi-eye-fill"></i> View</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                                <div class="container my-5">
+                                    <div class="p-2 d-flex justify-content-between">
+                                        <div class="left d-flex">
+                                            <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded"
+                                                height="160" alt="User Image">
+                                            <div class="mx-3">
+                                                <h5>Dr. <?php echo $docval['fname'].' '.$docval['sname'] ?></h5>
+                                                <p>BDS</p>
+                                                <p class="mb-1">Dentist</p>
+                                                <div class="d-flex my-1">
+                                                    <i class="bi bi-star-fill text-warning"></i>
+                                                    <i class="bi bi-star-fill text-warning"></i>
+                                                    <i class="bi bi-star-fill text-warning"></i>
+                                                    <i class="bi bi-star-fill text-warning"></i>
+                                                    <p class="my-0 mx-1">(35)</p>
+                                                </div>
+                                                <p class=""><i class="bi bi-geo-alt-fill"></i>
+                                                    <?php echo $docval['contact_detail']['city'].' '.$docval['contact_detail']['state'] ?>
+                                                    <a href="#"></a>
+                                                </p>
+                                                <div class="d-flex">
+                                                    <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="px-2"
+                                                        height="40" alt="User Image">
+                                                </div>
+                                                <div class="d-flex my-2">
+                                                    <?php 
+                                                        $c = 1;
+                                                            foreach($docval['servicesAndSpec']['services'] as $val) {
+                                                                if($c == 3) {
+                                                                    exit;
+                                                                }
+                                                                else {
+                                                                    echo '<small class="border px-3 py-1 mx-1 rounded">'.$val.'</small>';
+                                                                    $c++;
+                                                                }
+                                                            }
+                                                        ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right">
+                                            <p class="mb-1"><i class="bi bi-hand-thumbs-up-fill"></i> 99%</p>
+                                            <p class="mb-1"><i class="bi bi-chat-fill"></i> 35 Feedback</p>
+                                            <p class="mb-1"><i class="bi bi-geo-alt-fill"></i>
+                                                <?php echo $docval['contact_detail']['city'].' '.$docval['contact_detail']['state'].' '.$docval['contact_detail']['country'] ?>
+                                            </p>
+                                            <p class="mb-1"><i class="bi bi-cash-coin"></i> ₹<?php echo $docval['custom_price'] ?> per hour</p>
+                                            <div class="d-flex flex-column">
+                                                <a href="http://pavan.co/s/s/view/p/doctor-profile?id=<?php echo $docval['d_unid']; ?>" class="btn btn-outline-primary px-5 py-2 mt-2" type="button">View Profile</a>
 
-                <!-- Medical Records -->
-                <div class="row Medical_Records table-responsive">
-                    <table class="table  col-md-12" id="">
-                        <thead>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Attachment</th>
-                                <th scope="col">Created</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="py-5">
-                                <td class="text-nowrap"><a href="#">#MR-0009</a></td>
-                                <td class="text-nowrap">14 Nov 2019 </td>
-                                <td class="text-center">Dental Filling</td>
-                                <td class="text-center"><a href="#">dental-test.pdf</a></td>
-                                <td class="d-flex pat">
-                                    <img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
-                                    <a href="" class="px-2 my-auto text-nowrap">                    
-                                            Dr. Ruby Perrin
-                                        <p class="text-muted my-auto">Dental</p>
-                                    </a>
-                                </td>
-                                <td class="">
-                                    <div class="d-flex action">
-                                        <button class="btn btn2 btn-sm mx-1"><i class="bi bi-printer"></i> Print</button>
-                                        <button class="btn btn1 btn-sm "><i class="bi bi-eye-fill"></i> View</button>
+                                                <?php
+                                                    if($_SESSION['eid'] != '') {
+                                                        echo '<a href="http://pavan.co/s/s/view/p/booking?id='.$docval['d_unid'].'" class="btn btn-primary px-5 py-2 mt-2" type="button">BOOK <br>APPOINMENT</a>';
+                                                    }
+                                                    else {
+                                                        echo '<button class="btn btn-primary px-5 py-2 mt-2" type="button">LOGIN</button>';
+                                                    }
+                                                ?>
+                                            </div>
+                                        </div>
                                     </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                                </div>
+                            <?php
 
-                <!-- Medical Records -->
-                <div class="row Billing table-responsive">
-                    <table class="table  col-md-12" id="">
-                        <thead>
-                            <tr>
-                                <th scope="col">Invoice No</th>
-                                <th scope="col">doctor</th>
-                                <th scope="col">Amount</th>
-                                <th scope="col">Paid On</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="py-5">
-                                <td class="text-nowrap"><a href="#">#INV-0010</a></td>
-                                
-                                <td class="d-flex pat">
-                                    <img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
-                                    <a href="" class="px-2 my-auto text-nowrap">                    
-                                            Dr. Ruby Perrin
-                                        <p class="text-muted my-auto">Dental</p>
-                                    </a>
-                                </td>
-                                <td class="text-center">$222</td>
-                                <td class="text-nowrap">14 Nov 2019 </td>
-                                <td class="">
-                                    <div class="d-flex action">
-                                        <button class="btn btn2 btn-sm mx-1"><i class="bi bi-printer"></i> Print</button>
-                                        <button class="btn btn1 btn-sm "><i class="bi bi-eye-fill"></i> View</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                        }   
+                    }
+                }
+            
+            ?>
+
+
         </div>
     </div>
 
 
 
 
-
-
-
-
-
-
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://143.244.139.242/s/controller/js/p-dashboard.js?ver=1.2'></script>
+    <script src='http://pavan.co/s/s/controller/js/p-dashboard.js?ver=2.4'></script>
 
 </body>
 
-</html> 
+</html>

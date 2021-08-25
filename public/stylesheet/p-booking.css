@@ -1,5 +1,23 @@
 
-
+.PaymentButton--rzpTheme.svelte-ekc7fv .PaymentButton-contents.svelte-ekc7fv {
+    background: rgb(0, 212, 240) !important;
+    padding: 10px 30px !important;
+}
+.PaymentButton-text.svelte-ekc7fv.svelte-ekc7fv {
+    color: #fff !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+}
+.PaymentButton-securedBy.svelte-ekc7fv.svelte-ekc7fv {
+    display: none !important;
+}
+svg.svelte-ekc7fv.svelte-ekc7fv {
+    display: none !important;
+}
+.PaymentButton--rzpTheme.svelte-ekc7fv.svelte-ekc7fv::before {
+    display: none !important;
+}
 
 .select_active .time-slots .time-btn .btn-a .bt-active {
     color: rgb(0, 85, 255) !important;

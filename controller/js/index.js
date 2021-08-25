@@ -19,7 +19,7 @@ $(document).on('keyup', '#search_doc', function() {
     let sq = $(this).val();
     let search = true;
     var xhr = new XMLHttpRequest();
-    var url = "http://143.244.139.242/s/controller/php/index.php";
+    var url = "http://pavan.co/s/s/controller/php/index.php";
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -31,7 +31,7 @@ $(document).on('keyup', '#search_doc', function() {
     xhr.send(`search=${search}&sq=${sq}`);
 })
 
-console.log(s);
+// console.log(s);
     
 // $(document).ready(function(){
 //   $("#search_doc").autocomplete({

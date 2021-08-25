@@ -3,25 +3,28 @@
     error_reporting(0);
     session_start();
     require '../../vendor/autoload.php';
-    if($_SESSION['docid'] == '') {
+    if($_SESSION['eid'] == '') {
         header('location: http://pavan.co/s/s/index');
     }
     $con = new MongoDB\Client( 'mongodb://pavan.co:27017' );
     $db = $con->php_mongo;
-    $collection = $db->manager;
-    $msg = '';
+    // $msg = '';
+    
+    
+    $collection = $db->employee;
+    $record = $collection->findOne( [ '_id' =>$_SESSION['eid']] );
+    // $datetime = iterator_to_array( $record['datetime'] );
 
-    $record = $collection->findOne( [ '_id' =>$_SESSION['docid']] );
-    $datetime = iterator_to_array( $record['datetime'] );
+    // $date_arr = [];
+    // $time_arr = [];
 
-    $time_arr = [];
-
-    foreach($datetime as $date_key=>$val) {
-        foreach($val as $index=>$v) {
-            $time_arr[$date_key][] = $v;
-        }    
-    }
-    $k = count( $time_arr );
+    // foreach($datetime as $date_key=>$val) {
+    //     $date_arr[] = $date_key;
+    //     foreach($val as $index=>$v) {
+    //         $time_arr[$date_key][] = $v;
+    //     }    
+    // }
+    // $k = count( $date_arr );
 
 ?>
 
@@ -30,7 +33,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/d-patient-profile.css?ver=1.1">
+    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/p-dashboard.css?ver=1.5">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -49,50 +52,34 @@
 
 
     <!-- main content -->
-    <div class="m-5 row">
+    <div class="m-2 row">
         <!-- sidebar -->
-        <div class="col-md-3 side-profile p-2 ">
+        <div class="col-md-3 side-profile p-2 border">
             <div class="">
                 <div class="d-flex justify-content-center mb-4">
-                    <?php
-                        $collection = $db->employee;
-                        $record = $collection->findOne(['p_unid'=> $_POST['pat_profile_id']]);
-                        $datetime = iterator_to_array( $record['datetime'] );
-                        if($record['profile_image'] != '') {
-                            echo '<img src="http://pavan.co/s/s/public/image/doc-img/doc-img/'.$record['profile_image'].'" class="rounded" height="160" alt="User Image">';
-                        }
-                        else {
-                            echo '<img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" height="160" alt="User Image">';
-                        }
-                    ?>
-                </div>
-                <h4 class="text-center"><a ><?php echo $record['fname'].' '.$record['sname']; ?></a></h4>
-                <p class="text-center"><?php echo $record['address']['addr'] ?></p>
-                <div class="d-flex justify-content-between px-4">
-                    <h6>Phone</h6>
-                    <p><?php echo $record['gen_info']['phone_no'] ?></p>
-                </div>
-                <div class="d-flex justify-content-between px-4 py-1">
-                    <h6>Age</h6>
-                    <p><?php echo $record['gen_info']['age'] ?></p>
-                </div>
-                <div class="d-flex justify-content-between px-4">
-                    <h6>Blood Group</h6>
-                    <p><?php echo $record['gen_info']['Blood_gr'] ?></p>
-                </div>
+                    <img src="http://pavan.co/s/s/public/image/pat-img/default_user.png" height="150" class="rounded-circle"
+                        alt="">
+                </div>  
+                <h4 class="text-center"><a href="#"><?php echo $record['fname'].' '.$record['sname']; ?></a></h4>
+                <p class="text-center">24 Jul 1983, 38 years</p>
+                <p class="text-center"> Newyork, USA</p>
             </div>
             <div class="side-nav my-4">
-
+                <ul class="px-0">
+                <li class="px-4"><a href="http://pavan.co/s/s/view/p/index" ><i class="bi bi-person-bounding-box"></i>Select Doctor</a></li>
+                    <li class="px-4"><a href="http://pavan.co/s/s/view/p/dashboard"  class="s-active"><i class="bi bi-speedometer"></i>Dashboard</a></li>
+                    <li class="px-4"><a href="#"><i class="bi bi-bookmark-fill"></i></i>Favouriate</a></li>
+                    <li class="px-4"><a href="http://pavan.co/s/s/view/p/booking"><i class="bi bi-chat-left-dots-fill"></i>Booking</a></li>
+                    <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li>
+                    <li class="px-4"><a href="http://pavan.co/s/s/view/p/profile-settings"><i class="bi bi-gear-fill"></i>Profile Setting</a></li>
+                    <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
+                    <li class="px-4"><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
+                </ul>   
             </div>
         </div>
+        
         <!-- body content -->
         <div class="col-md-9 d-dash-content pl-5">
-
-
-
-
-
-
             <div class="my-4">
                 <nav class="nav d-flex justify-content-around ">
                     <button class="btn text-dark px-4 pb-3 active ">Appointments</button>
@@ -120,16 +107,20 @@
                         <tbody>
                             <?php
                                 $c = 1;
+                                $collection = $db->employee;
+                                $record = $collection->findOne(['_id'=> $_SESSION['eid']]);
+                                $datetime = iterator_to_array( $record['datetime'] ); 
                                 $d_collection = $db->manager;
 
                                 foreach($datetime as $did=>$dval) {
                                     $d = strval($did);
+                                    
                                     foreach($datetime as $doc_key=>$date) {
                                         if($doc_key == $d) {
                                             foreach($date as $key=>$val) {
                                                 foreach($val as $k=>$v) {
 
-                                                    $d_record = $d_collection->findOne( ["d_unid" => $_SESSION['d_unid']] );
+                                                    $d_record = $d_collection->findOne( ["d_unid" => $d] );
                                                     $doc_detail = iterator_to_array($d_record);
                                                     echo'<tr class="py-5">
                                                             <td class="d-flex pat">';
@@ -139,10 +130,13 @@
                                                                     else {
                                                                         echo '<img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="User Image">';
                                                                     }
-                                                            echo '<div>
-                                                                    <p  class="text-nowrap px-2 my-auto ">'.$doc_detail['fname'].' '.$doc_detail['sname'].'</p>
-                                                                    <p class="text-muted px-2 my-auto">Dental</p>
-                                                                </div>
+                                                            echo '<form action="http://pavan.co/s/s/view/p/doctor-profile" method="POST">
+                                                                    <button class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
+                                                                        '.$doc_detail['fname'].' '.$doc_detail['sname'].'
+                                                                        <p class="text-muted  text-left my-auto">#PT00'.$c.'</p>
+                                                                    </button>
+                                                                    <input type="text" hidden name="doc_profile_id" value="'.$d.'" id="pat_profile_id">
+                                                                </form>
                                                             </td>';
                                                     echo '<td class="">
                                                                 <p class="m-0 text-nowrap">'.$key.'</p>';
@@ -181,8 +175,20 @@
                                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                         </div>
                                                                         <div class="modal-body">
-                                                                            <p>'.$doc_detail['fname'].'</p>
-                                                                        </div>
+                                                                            <p>'.$doc_detail['fname'].'</p>';
+                                                                            
+                                                                            if($v['status'] == 'confirmed') {
+                                                                                echo '<div class="d-flex fun">
+                                                                                            <button class="btn btn-sm border mx-1  bookmark" type="button"><i
+                                                                                                    class="bi bi-bookmark"></i></button>
+                                                                                            <button class="btn btn-sm border mx-1  call" type="button"><i
+                                                                                                    class="bi bi-telephone-fill"></i></button>
+                                                                                            <button class="btn btn-sm border mx-1  video" type="button"><i
+                                                                                                    class="bi bi-camera-video-fill"></i></button>
+                                                                                        </div>';                                            
+                                                                            }
+
+                                                                        echo '</div>
                                                                         <div class="modal-footer">
                                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                                             <button type="button" class="btn btn-primary">Save changes</button>
@@ -197,6 +203,8 @@
                                     }
                                 }    
                             ?>
+                            
+                                
                         </tbody>
                     </table>
                 </div>
@@ -217,19 +225,16 @@
                                 <td class="text-nowrap">14 Nov 2019 </td>
                                 <td class="text-f">Prescription 1</td>
                                 <td class="d-flex pat">
-                                    <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg"
-                                        class="my-auto" height="40" alt="" srcset="">
-                                    <a href="" class="px-2 my-auto text-nowrap">
-                                        Dr. Ruby Perrin
+                                    <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
+                                    <a href="" class="px-2 my-auto text-nowrap">                    
+                                            Dr. Ruby Perrin
                                         <p class="text-muted my-auto">Dental</p>
                                     </a>
                                 </td>
                                 <td class="">
                                     <div class="d-flex action">
-                                        <button class="btn btn2 btn-sm mx-1"><i class="bi bi-printer"></i>
-                                            Print</button>
-                                        <button class="btn btn1 btn-sm "><i class="bi bi-eye-fill"></i>
-                                            View</button>
+                                        <button class="btn btn2 btn-sm mx-1"><i class="bi bi-printer"></i> Print</button>
+                                        <button class="btn btn1 btn-sm "><i class="bi bi-eye-fill"></i> View</button>
                                     </div>
                                 </td>
                             </tr>
@@ -257,19 +262,16 @@
                                 <td class="text-center">Dental Filling</td>
                                 <td class="text-center"><a href="#">dental-test.pdf</a></td>
                                 <td class="d-flex pat">
-                                    <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg"
-                                        class="my-auto" height="40" alt="" srcset="">
-                                    <a href="" class="px-2 my-auto text-nowrap">
-                                        Dr. Ruby Perrin
+                                    <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
+                                    <a href="" class="px-2 my-auto text-nowrap">                    
+                                            Dr. Ruby Perrin
                                         <p class="text-muted my-auto">Dental</p>
                                     </a>
                                 </td>
                                 <td class="">
                                     <div class="d-flex action">
-                                        <button class="btn btn2 btn-sm mx-1"><i class="bi bi-printer"></i>
-                                            Print</button>
-                                        <button class="btn btn1 btn-sm "><i class="bi bi-eye-fill"></i>
-                                            View</button>
+                                        <button class="btn btn2 btn-sm mx-1"><i class="bi bi-printer"></i> Print</button>
+                                        <button class="btn btn1 btn-sm "><i class="bi bi-eye-fill"></i> View</button>
                                     </div>
                                 </td>
                             </tr>
@@ -292,12 +294,11 @@
                         <tbody>
                             <tr class="py-5">
                                 <td class="text-nowrap"><a href="#">#INV-0010</a></td>
-
+                                
                                 <td class="d-flex pat">
-                                    <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg"
-                                        class="my-auto" height="40" alt="" srcset="">
-                                    <a href="" class="px-2 my-auto text-nowrap">
-                                        Dr. Ruby Perrin
+                                    <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
+                                    <a href="" class="px-2 my-auto text-nowrap">                    
+                                            Dr. Ruby Perrin
                                         <p class="text-muted my-auto">Dental</p>
                                     </a>
                                 </td>
@@ -305,10 +306,8 @@
                                 <td class="text-nowrap">14 Nov 2019 </td>
                                 <td class="">
                                     <div class="d-flex action">
-                                        <button class="btn btn2 btn-sm mx-1"><i class="bi bi-printer"></i>
-                                            Print</button>
-                                        <button class="btn btn1 btn-sm "><i class="bi bi-eye-fill"></i>
-                                            View</button>
+                                        <button class="btn btn2 btn-sm mx-1"><i class="bi bi-printer"></i> Print</button>
+                                        <button class="btn btn1 btn-sm "><i class="bi bi-eye-fill"></i> View</button>
                                     </div>
                                 </td>
                             </tr>
@@ -329,8 +328,8 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://pavan.co/s/s/controller/js/d-patient-profile.js?ver=1.2'></script>
+    <script src='http://pavan.co/s/s/controller/js/p-dashboard.js?ver=1.2'></script>
 
 </body>
 
-</html>
+</html> 

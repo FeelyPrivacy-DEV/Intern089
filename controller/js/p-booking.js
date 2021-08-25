@@ -7,9 +7,10 @@ var globalVariable = {
 }
     
 
-function prodtopay(i, j, s_t, e_t) {
+function prodtopay(i, j, s_t, e_t, did) {
     s_time = s_t 
     e_time = e_t 
+    doc_id = did
     timeslot = s_t + ' - ' + e_t;
     // $(`#btn${j}${j}`).addClass('bs-active');
     // $(`.select_active #btn${j}${i}`).removeClass('bs-active');
@@ -21,36 +22,36 @@ function proccedtopay() {
     let prodtopay_check = true;
     console.log(doc_id);
     var xhr = new XMLHttpRequest();
-    var url = 'http://143.244.139.242/s/controller/php/add_e.php';
-
+    var url = 'http://pavan.co/s/s/controller/php/add_e.php';
+ 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
-            $('#warn').text(xhr.responseText);
-            // window.location.href = `http://143.244.139.242/s/view/p/checkout?date=${doc_id}&time=${s_time}&${date}`;
+            // $('#warn').text(xhr.responseText);
+            window.location.href = `http://pavan.co/s/s/view/p/checkout?id=${doc_id}&t=${s_time}&d=${date}`;
         }
-    };
+    };  
     xhr.send(`prodtopay_check=${prodtopay_check}&date=${date}&doc_id=${doc_id}&s_time=${s_time}&e_time=${e_time}`);
 }
 
-$(document).on('change', '#doc-select', function() {
-    doc_id = $(this).val();
+// $(document).on('change', '#doc-select', function() {
+//     doc_id = $(this).val();
     
-    let d_sel = 'd_sel';
-    var xhr = new XMLHttpRequest();
-    var url = 'http://143.244.139.242/s/controller/php/add_e.php';
+//     let d_sel = 'd_sel';
+//     var xhr = new XMLHttpRequest();
+//     var url = 'http://pavan.co/s/s/controller/php/add_e.php';
 
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function() {
-        if(this.readyState == 4 && this.status == 200) {
-            $('#select_active').html(xhr.responseText);
-            // console.log(xhr.responseText);
-        }
-    };
-    xhr.send(`d_sel=${d_sel}&doc_id=${doc_id}`);
-});
+//     xhr.open("POST", url, true);
+//     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//     xhr.onreadystatechange = function() {
+//         if(this.readyState == 4 && this.status == 200) {
+//             $('#select_active').html(xhr.responseText);
+//             // console.log(xhr.responseText);
+//         }
+//     };
+//     xhr.send(`d_sel=${d_sel}&doc_id=${doc_id}`);
+// });
 
 
 
