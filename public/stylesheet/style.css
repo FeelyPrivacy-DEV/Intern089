@@ -35,6 +35,31 @@ body .btn-close, .btn, .form-control, .form-select {
 .navbar ul li {
     padding: 0 5px !important;
 }
+@media screen and (max-width: 900px) { 
+    .navbar img {
+        width: 90px !important;
+        height: 40px !important;
+    }   
+}
+
+
+@media screen and (max-width: 900px) { 
+    .row {
+        margin: 0px 0px !important;
+    }
+    .side-profile .sidebtn {
+        display: block;
+    }
+    .side-profile .side-nav {
+        display: none;
+    }
+}
+.sidebtn {
+    display: none;
+}
+.side-nav {
+    display: block;
+}
 
 /* breadcrumb */
 .breadc {
@@ -91,6 +116,22 @@ body .btn-close, .btn, .form-control, .form-select {
     text-decoration: none !important;
     color: rgb(0, 212, 212);
     font-weight: 500 !important;
+}
+@media screen and (max-width: 900px) { 
+    .reg_cont img {
+        display: none !important;
+    }
+    .reg_cont .img {
+        margin: 0px 0px !important;
+    }
+    .reg_cont .forms {
+        margin: 0px 0px !important;
+    }
+    .reg_cont .forms .reg {
+        width: 10px !important;
+        margin: 0px auto !important;
+        width: fit-content !important;
+    }
 }
 
 

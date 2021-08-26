@@ -33,7 +33,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/p-dashboard.css?ver=1.5">
+    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/p-dashboard.css?ver=1.6">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -64,13 +64,16 @@
                 <p class="text-center">24 Jul 1983, 38 years</p>
                 <p class="text-center"> Newyork, USA</p>
             </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-sm btn-outline-primary sidebtn fw-bold px-4 my-3"><i class="bi bi-list"></i></button>
+            </div>
             <div class="side-nav my-4">
                 <ul class="px-0">
                 <li class="px-4"><a href="http://pavan.co/s/s/view/p/index" ><i class="bi bi-person-bounding-box"></i>Select Doctor</a></li>
                     <li class="px-4"><a href="http://pavan.co/s/s/view/p/dashboard"  class="s-active"><i class="bi bi-speedometer"></i>Dashboard</a></li>
-                    <li class="px-4"><a href="#"><i class="bi bi-bookmark-fill"></i></i>Favouriate</a></li>
-                    <li class="px-4"><a href="http://pavan.co/s/s/view/p/booking"><i class="bi bi-chat-left-dots-fill"></i>Booking</a></li>
-                    <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li>
+                    <!-- <li class="px-4"><a href="#"><i class="bi bi-bookmark-fill"></i></i>Favouriate</a></li> -->
+                    <!-- <li class="px-4"><a href="http://pavan.co/s/s/view/p/booking"><i class="bi bi-chat-left-dots-fill"></i>Booking</a></li> -->
+                    <!-- <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li> -->
                     <li class="px-4"><a href="http://pavan.co/s/s/view/p/profile-settings"><i class="bi bi-gear-fill"></i>Profile Setting</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
@@ -97,7 +100,7 @@
                             <tr>
                                 <th scope="col">Doctor</th>
                                 <th scope="col">App date</th>
-                                <th scope="col">Booking Date</th>
+                                <th scope="col" class="text-nowrap">Booking Date</th>
                                 <th scope="col">Amount</th>
                                 <th scope="col">Follow Up</th>
                                 <th scope="col">Status</th>
@@ -328,7 +331,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://pavan.co/s/s/controller/js/p-dashboard.js?ver=1.2'></script>
+    <script src='http://pavan.co/s/s/controller/js/p-dashboard.js?ver=1.3'></script>
 
 </body>
 

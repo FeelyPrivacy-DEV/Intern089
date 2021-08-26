@@ -52,7 +52,8 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <title>Manager | Dashboard</title>
+    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/d-schedule-timings.js?ver=1.1">
+    <title>Doctor | </title>
 </head>
 
 <body>
@@ -72,7 +73,7 @@
     <?php echo $msg; ?>
 
 
-    <div class="m-5 row">
+    <div class="row m-5">
         <div class="col-md-3 side-profile p-2 ">
             <div class="">
                 <div class="d-flex justify-content-center mb-4">
@@ -88,17 +89,20 @@
                 <h4 class="text-center"><a href="#">Dr. <?php echo $record['fname'].' '.$record['sname']; ?></a></h4>
                 <small class="text-center">BDS, MDS - Oral & Maxillofacial Surgery</small>
             </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-sm btn-outline-primary sidebtn fw-bold px-4 my-3"><i class="bi bi-list"></i></button>
+            </div>
             <div class="side-nav my-4">
             <ul class="px-0">
                     <li class=""><a href="http://pavan.co/s/s/view/d/index"><i class="bi bi-speedometer"></i>Dashboard</a></li>
                     <li class=""><a href="http://pavan.co/s/s/view/d/appointments"><i class="bi bi-calendar-check-fill"></i>Appointments</a></li>
                     <li class=""><a href="#"><i class="bi bi-person-lines-fill"></i>My Patients</a></li>
                     <li class=""><a href="http://pavan.co/s/s/view/d/schedule-timings" class="s-active"><i class="bi bi-hourglass-split"></i>Schedule Timimg</a></li>
-                    <li class=""><a href="#"><i class="bi bi-receipt-cutoff"></i>Invoice</a></li>
-                    <li class=""><a href="#"><i class="bi bi-star-fill"></i>Review</a></li>
-                    <li class=""><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li>
+                    <!-- <li class=""><a href="#"><i class="bi bi-receipt-cutoff"></i>Invoice</a></li> -->
+                    <!-- <li class=""><a href="#"><i class="bi bi-star-fill"></i>Review</a></li> -->
+                    <!-- <li class=""><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li> -->
                     <li class=""><a href="http://pavan.co/s/s/view/d/profile-settings"><i class="bi bi-gear-fill"></i>Profile Setting</a></li>
-                    <li class=""><a href="#"><i class="bi bi-share-fill"></i>Social Media</a></li>
+                    <!-- <li class=""><a href="#"><i class="bi bi-share-fill"></i>Social Media</a></li> -->
                     <li class=""><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
                     <li class=""><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
                 </ul>
@@ -234,7 +238,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://pavan.co/s/s/controller/js/d-schedule-timings.js?ver=2.3'></script>
+    <script src='http://pavan.co/s/s/controller/js/d-schedule-timings.js?ver=2.4'></script>
     
 </body>
 

@@ -1,3 +1,10 @@
+
+$(document).on('click', '.sidebtn', function() {
+  $('.side-nav').toggle(200);
+});
+
+
+
 var day,
   next_date,
   time_dur_select,

@@ -1,3 +1,11 @@
+
+$(document).on('click', '.sidebtn', function() {
+    $('.side-nav').toggle(200);
+});
+
+
+
+
 $('#custom_price_input').css({'display': 'none'});
 
 $(document).on('change', '.form-check-input', function() {

@@ -1,4 +1,9 @@
 
+$(document).on('click', '.sidebtn', function() {
+    $('.side-nav').toggle(200);
+});
+
+
 
 // var date, next_date
 var date, date_id, doc_id, s_time, e_time, timeslot;

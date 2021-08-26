@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="http://pavan.co/s/s/assest/bootstrap-tagsinput/css/bootstrap-tagsinput.css">
 <link rel="stylesheet" href="http://pavan.co/s/s/assest/DataTables/datatables.min.css">
 <link rel="stylesheet" href="http://pavan.co/s/s/assest/dropzone/dropzone.min.css">
-<link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/style.css?ver=2.7">
+<link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/style.css?ver=2.9">
 <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/navbar.css?ver=1.1">
 <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/footer.css?ver=3.5">
 <link rel="stylesheet" href="http://pavan.co/s/s/assest/bootstrap/jquery-ui/jquery-ui/jquery-ui.css">

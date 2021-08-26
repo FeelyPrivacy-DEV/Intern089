@@ -77,7 +77,7 @@ body .border {
     height: 10px;
     left: 4px;
     margin: 0;
-    padding: 0;
+    padding: 0; 
     position: absolute;
     top: 4px;
     width: 10px;
@@ -100,4 +100,17 @@ body .border {
 }
 .experience-list > li > .experience-content .timeline-content > p {
     color: #20c0f3 !important;
+}
+
+@media screen and (max-width: 900px) {  
+    .left .doc_img {
+        height: 120px !important;
+        width: 110px !important;
+    }
+    .doc_block {
+        flex-direction: column !important;
+    }
+    .book_now {
+        display: grid !important; 
+    }
 }

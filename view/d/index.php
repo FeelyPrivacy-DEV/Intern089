@@ -30,7 +30,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/d-dashboard.css?ver=1.1">
+    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/d-dashboard.css?ver=1.7">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -49,7 +49,7 @@
 
 
     <!-- main content -->
-    <div class="m-5 row">
+    <div class="row m-5">
         <!-- sidebar -->
         <div class="col-md-3 side-profile p-2 ">
             <div class="">
@@ -64,7 +64,10 @@
                     ?>
                 </div>
                 <h4 class="text-center"><a href="#">Dr. <?php echo $record['fname'].' '.$record['sname']; ?></a></h4>
-                <small class="text-center">BDS, MDS - Oral & Maxillofacial Surgery</small>
+                <small class="text-center mx-auto">BDS, MDS - Oral & Maxillofacial Surgery</small>
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-sm btn-outline-primary sidebtn fw-bold px-4 my-3"><i class="bi bi-list"></i></button>
             </div>
             <div class="side-nav my-4">
                 <ul class="px-0">
@@ -136,124 +139,126 @@
             </div>
             <!-- table -->
             <div class="my-4">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Patient Name</th>
-                            <th scope="col">App date</th>
-                            <th scope="col">Purpose</th>
-                            <th scope="col">Type</th>
-                            <th scope="col">Paid Amount</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody id="p_details">
-                        <?php
-                                $c = 1;
-                                $collection = $db->manager;
-                                $record = $collection->findOne(['_id'=> $_SESSION['docid']]);
-                                $datetime = iterator_to_array( $record['datetime'] );
+                <div class="tableCont">
+                    <table class="table  table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col">Patient Name</th>
+                                <th scope="col">App date</th>
+                                <th scope="col">Purpose</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Paid Amount</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="p_details">
+                            <?php
+                                    $c = 1;
+                                    $collection = $db->manager;
+                                    $record = $collection->findOne(['_id'=> $_SESSION['docid']]);
+                                    $datetime = iterator_to_array( $record['datetime'] );
 
-                                foreach($record['p_unid'] as $punid_key) {
-                                    $e_collection = $db->employee;
-                                    $e_record = $e_collection->find(['p_unid' => $punid_key]);
-                                    $pat_detail = iterator_to_array($e_record);
-                                    foreach($pat_detail as $perticular_pat) {
-                                        foreach($perticular_pat['datetime'] as $single=>$singleVal) {
-                                            if($single == $_SESSION['d_unid']) {
-                                                foreach($singleVal as $date=>$val) {
-                                                    if($date >= date('Y-m-d')) {
-                                                        foreach($val as $k=>$v) {
-                                                            // print_r($v);
-                                                            
-                                                            echo'<tr class="py-5">
-                                                                    <td class="d-flex pat">
-                                                                        <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
-                                                                        <form action="http://pavan.co/s/s/view/d/patient-profile" method="POST">
-                                                                        <button class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
-                                                                            '.$perticular_pat['fname'].' '.$perticular_pat['sname'].'
-                                                                            <p class="text-muted  text-left my-auto">#PT00'.$c.'</p>
-                                                                        </button>
-                                                                        <input type="text" hidden name="pat_profile_id" value="'.$punid_key.'" id="pat_profile_id">
-                                                                        </form>
-                                                                    </td>';
-                                                            echo '<td class="">
-                                                                        <p class="m-0 text-nowrap">'.$date.'</p>';
-                                                                    if($v['book_t'][0] <= 12) {
-                                                                        echo '<p class="m-0 text-primary">'.date('h:i', strtotime($v['book_t'][0])).' AM</p>';    
-                                                                    }        
-                                                                    else {
-                                                                        echo '<p class="m-0 text-primary">'.date('h:i', strtotime($v['book_t'][0])).' PM</p>';    
-                                                                    }
-                                                            echo '</td>
-                                                                    <td class="text-nowrap">General </td>
-                                                                    <td class="text-nowrap">New</td>
-                                                                    <td class="text-center">$'.$v['amt'].'</td>
-                                                                    <td class="">
-                                                                        <div class="d-flex action">';
-                                                                        if($v['status'] == 'confirmed') {
-                                                                            echo '<button type="button" class="btn btn1 btn-sm" data-bs-toggle="modal" data-bs-target="#info'.$c.'"><i class="bi bi-eye-fill"></i> View</button>
-                                                                            <button class="btn btn2 btn-sm mx-1" disabled onclick="accept(\''.$punid_key.'\', \''.$date.'\', \''.$k.'\', '.$c.')" id="acc'.$c.'">Accepted</button>
-                                                                            <button class="btn btn3 btn-sm " onclick="cancel(\''.$punid_key.'\', \''.$date.'\', \''.$k.'\', '.$c.')" id="can'.$c.'"><i class="bi bi-x"></i> Cancel</button>';
-                                                                        }
-                                                                        else if($v['status'] == 'cancelled') {
-                                                                            echo '<button type="button" class="btn btn1 btn-sm" data-bs-toggle="modal" data-bs-target="#info'.$c.'"><i class="bi bi-eye-fill"></i> View</button>
-                                                                            <button class="btn btn2 btn-sm mx-1" onclick="accept(\''.$punid_key.'\', \''.$date.'\', \''.$k.'\', '.$c.')" id="acc'.$c.'"><i class="bi bi-check2"></i> Accept</button>
-                                                                            <button class="btn btn3 btn-sm " disabled onclick="cancel(\''.$punid_key.'\', \''.$date.'\', \''.$k.'\', '.$c.')" id="can'.$c.'"> Cancelled</button>';
-                                                                        }
+                                    foreach($record['p_unid'] as $punid_key) {
+                                        $e_collection = $db->employee;
+                                        $e_record = $e_collection->find(['p_unid' => $punid_key]);
+                                        $pat_detail = iterator_to_array($e_record);
+                                        foreach($pat_detail as $perticular_pat) {
+                                            foreach($perticular_pat['datetime'] as $single=>$singleVal) {
+                                                if($single == $_SESSION['d_unid']) {
+                                                    foreach($singleVal as $date=>$val) {
+                                                        if($date >= date('Y-m-d')) {
+                                                            foreach($val as $k=>$v) {
+                                                                // print_r($v);
+                                                                
+                                                                echo'<tr class="py-5">
+                                                                        <td class="d-flex pat">
+                                                                            <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
+                                                                            <form action="http://pavan.co/s/s/view/d/patient-profile" method="POST">
+                                                                            <button class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
+                                                                                '.$perticular_pat['fname'].' '.$perticular_pat['sname'].'
+                                                                                <p class="text-muted  text-left my-auto">#PT00'.$c.'</p>
+                                                                            </button>
+                                                                            <input type="text" hidden name="pat_profile_id" value="'.$punid_key.'" id="pat_profile_id">
+                                                                            </form>
+                                                                        </td>';
+                                                                echo '<td class="">
+                                                                            <p class="m-0 text-nowrap">'.$date.'</p>';
+                                                                        if($v['book_t'][0] <= 12) {
+                                                                            echo '<p class="m-0 text-primary">'.date('h:i', strtotime($v['book_t'][0])).' AM</p>';    
+                                                                        }        
                                                                         else {
-                                                                            echo '<button type="button" class="btn btn1 btn-sm" data-bs-toggle="modal" data-bs-target="#info'.$c.'"><i class="bi bi-eye-fill"></i> View</button>
-                                                                            <button class="btn btn2 btn-sm mx-1" onclick="accept(\''.$punid_key.'\', \''.$date.'\', \''.$k.'\', '.$c.')" id="acc'.$c.'"><i class="bi bi-check2"></i> Accept</button>
-                                                                            <button class="btn btn3 btn-sm " onclick="cancel(\''.$punid_key.'\', \''.$date.'\', \''.$k.'\', '.$c.')" id="can'.$c.'"><i class="bi bi-x"></i> Cancel</button>';
+                                                                            echo '<p class="m-0 text-primary">'.date('h:i', strtotime($v['book_t'][0])).' PM</p>';    
                                                                         }
-                                                                        
-                                                                    echo '</div>
-                                                                    </td>';
-                                                                echo '</tr>'; 
-                                                                // information modal 
-                                                                echo '<div class="modal fade" id="info'.$c.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                                        <div class="modal-dialog modal-dialog-centered ">
-                                                                            <div class="modal-content">
-                                                                                <div class="modal-header">
-                                                                                <h5 class="modal-title">Modal title</h5>
-                                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                                </div>
-                                                                                <div class="modal-body p-5">
-                                                                                    <div class="p-3 d-flex justify-content-between my-2 ">
-                                                                                        <div class="d-flex pet-info">
-                                                                                            <div class="pat-img">
-                                                                                                <img src="http://pavan.co/s/s/public/image/pat-img/default_user.png" height="110" width="110"
-                                                                                                    alt="" srcset="">
-                                                                                            </div>
-                                                                                            <div class="pat-det mx-4">
-                                                                                                <h5 class=""><a href="#">'.$perticular_pat['fname'].' '.$perticular_pat['sname'].'</a></h5>
-                                                                                                <p class="m-0 "><i class="bi bi-clock-fill"></i> '.date('Y M d', strtotime($key)).', '.$v['book_t'][0].' AM</p>
-                                                                                                <p class="m-0 "><i class="bi bi-geo-alt-fill"></i> Newyork, United States</p>
-                                                                                                <p class="m-0 "><i class="bi bi-chat-left-text-fill"></i> '.$perticular_pat['email'].'</p>
-                                                                                                <p class="m-0 "><i class="bi bi-telephone-fill"></i> +1 923 782 4575</p>
+                                                                echo '</td>
+                                                                        <td class="text-nowrap">General </td>
+                                                                        <td class="text-nowrap">New</td>
+                                                                        <td class="text-center">$'.$v['amt'].'</td>
+                                                                        <td class="">
+                                                                            <div class="d-flex action">';
+                                                                            if($v['status'] == 'confirmed') {
+                                                                                echo '<button type="button" class="btn btn1 btn-sm" data-bs-toggle="modal" data-bs-target="#info'.$c.'"><i class="bi bi-eye-fill"></i> View</button>
+                                                                                <button class="btn btn2 btn-sm mx-1" disabled onclick="accept(\''.$punid_key.'\', \''.$date.'\', \''.$k.'\', '.$c.')" id="acc'.$c.'">Accepted</button>
+                                                                                <button class="btn btn3 btn-sm " onclick="cancel(\''.$punid_key.'\', \''.$date.'\', \''.$k.'\', '.$c.')" id="can'.$c.'"><i class="bi bi-x"></i> Cancel</button>';
+                                                                            }
+                                                                            else if($v['status'] == 'cancelled') {
+                                                                                echo '<button type="button" class="btn btn1 btn-sm" data-bs-toggle="modal" data-bs-target="#info'.$c.'"><i class="bi bi-eye-fill"></i> View</button>
+                                                                                <button class="btn btn2 btn-sm mx-1" onclick="accept(\''.$punid_key.'\', \''.$date.'\', \''.$k.'\', '.$c.')" id="acc'.$c.'"><i class="bi bi-check2"></i> Accept</button>
+                                                                                <button class="btn btn3 btn-sm " disabled onclick="cancel(\''.$punid_key.'\', \''.$date.'\', \''.$k.'\', '.$c.')" id="can'.$c.'"> Cancelled</button>';
+                                                                            }
+                                                                            else {
+                                                                                echo '<button type="button" class="btn btn1 btn-sm" data-bs-toggle="modal" data-bs-target="#info'.$c.'"><i class="bi bi-eye-fill"></i> View</button>
+                                                                                <button class="btn btn2 btn-sm mx-1" onclick="accept(\''.$punid_key.'\', \''.$date.'\', \''.$k.'\', '.$c.')" id="acc'.$c.'"><i class="bi bi-check2"></i> Accept</button>
+                                                                                <button class="btn btn3 btn-sm " onclick="cancel(\''.$punid_key.'\', \''.$date.'\', \''.$k.'\', '.$c.')" id="can'.$c.'"><i class="bi bi-x"></i> Cancel</button>';
+                                                                            }
+                                                                            
+                                                                        echo '</div>
+                                                                        </td>';
+                                                                    echo '</tr>'; 
+                                                                    // information modal 
+                                                                    echo '<div class="modal fade" id="info'.$c.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                            <div class="modal-dialog modal-dialog-centered ">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                    <h5 class="modal-title">Modal title</h5>
+                                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                    </div>
+                                                                                    <div class="modal-body p-5">
+                                                                                        <div class="p-3 d-flex justify-content-between my-2 ">
+                                                                                            <div class="d-flex pet-info">
+                                                                                                <div class="pat-img">
+                                                                                                    <img src="http://pavan.co/s/s/public/image/pat-img/default_user.png" height="110" width="110"
+                                                                                                        alt="" srcset="">
+                                                                                                </div>
+                                                                                                <div class="pat-det mx-4">
+                                                                                                    <h5 class=""><a href="#">'.$perticular_pat['fname'].' '.$perticular_pat['sname'].'</a></h5>
+                                                                                                    <p class="m-0 "><i class="bi bi-clock-fill"></i> '.date('Y M d', strtotime($key)).', '.$v['book_t'][0].' AM</p>
+                                                                                                    <p class="m-0 "><i class="bi bi-geo-alt-fill"></i> Newyork, United States</p>
+                                                                                                    <p class="m-0 "><i class="bi bi-chat-left-text-fill"></i> '.$perticular_pat['email'].'</p>
+                                                                                                    <p class="m-0 "><i class="bi bi-telephone-fill"></i> +1 923 782 4575</p>
+                                                                                                </div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                    </div>';
-                                                            $c++;
+                                                                        </div>';
+                                                                $c++;
+                                                            }
                                                         }
                                                     }
                                                 }
                                             }
                                         }
-                                    }
-                                }    
-                            ?>
-                        
-                    </tbody>
-                </table>
+                                    }    
+                                ?>
+                            
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -267,7 +272,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://pavan.co/s/s/controller/js/d-dashboard.js?ver=1.2'></script>
+    <script src='http://pavan.co/s/s/controller/js/d-dashboard.js?ver=1.4'></script>
     <!-- <script src='http://pavan.co/s/s/controller/js/d-temp.js?ver=1.1'></script> -->
 
 </body>

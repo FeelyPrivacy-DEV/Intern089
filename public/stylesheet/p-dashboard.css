@@ -63,6 +63,36 @@ body {
     display: none !important;
 }
 
+@media screen and (max-width: 900px) { 
+    .row {
+        margin: 0px 0px !important;
+    }
+    .side-profile .sidebtn {
+        display: block;
+    }
+    .side-profile .side-nav {
+        display: none;
+    }
+    .all_doc_img {
+        height: 120px !important;
+        width: 110px !important;
+    }
+    .doc_block {
+        flex-direction: column !important;
+    }
+    .right p:nth-child(1), .right p:nth-child(2), .right p:nth-child(3), .right p:nth-child(4) {
+        display: none !important;
+    }
+    .d-dash-content .container {
+        padding: 0px 0px !important;
+    }
+}
+.sidebtn {
+    display: none;
+}
+.side-nav {
+    display: block;
+}
 
 
 /* select doctor */
@@ -93,3 +123,4 @@ body {
     background: rgb(0, 215, 253) !important;
     color: #fff !important;
 }
+

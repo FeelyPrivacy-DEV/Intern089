@@ -22,7 +22,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/p-doctor-profile.css?ver=1.1">
+    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/p-doctor-profile.css?ver=1.2">
     <title>Feely | Doc Profile</title>
 </head>
 
@@ -40,24 +40,24 @@
     </nav>
 
     <div class="container my-5">
-        <div class="p-2 d-flex justify-content-between">
+        <div class="p-2 d-flex doc_block justify-content-between">
             <div class="left d-flex">
-                <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded"
+                <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded doc_img"
                     height="160" alt="User Image">
                 <div class="mx-3">
-                    <h5>Dr. <?php echo $record['fname'].' '.$record['sname'] ?></h5>
-                    <p>BDS, MDS - Oral & Maxillofacial Surgery</p>
-                    <p class="mb-1">Dentist</p>
-                    <div class="d-flex my-1">
+                    <h5 class="text-nowrap">Dr. <?php echo $record['fname'].' '.$record['sname'] ?></h5>
+                    <p class="text-nowrap">BDS, MDS - Oral</p>
+                    <p class="mb-1 text-nowrap">Dentist</p>
+                    <div class="d-flex my-1"> 
                         <i class="bi bi-star-fill text-warning"></i>
                         <i class="bi bi-star-fill text-warning"></i>
                         <i class="bi bi-star-fill text-warning"></i>
                         <i class="bi bi-star-fill text-warning"></i>
                         <p class="my-0 mx-1">(35)</p>
                     </div>
-                    <p class=""><i class="bi bi-geo-alt-fill"></i> <?php echo $record['contact_detail']['city'].', '.$record['contact_detail']['state'] ?> - <a href="#">Get Directions</a>
+                    <p class="text-nowrap"><i class="bi bi-geo-alt-fill"></i> <?php echo $record['contact_detail']['city'].', '.$record['contact_detail']['state'] ?> - <a href="#">Get Directions</a>
                     </p>
-                    <div class="d-flex">
+                    <div class="d-flex clinic">
                         <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="px-2"
                             height="40" alt="User Image">
                     </div>
@@ -94,8 +94,8 @@
                 
 
                 <?php
-                    if($_SESSION['eid'] != '') {
-                        echo '<a href="http://pavan.co/s/s/view/p/booking?id='.$record['d_unid'].'" class="btn btn-primary px-5 py-2 mt-2" type="button">BOOK <br>APPOINMENT</a>';
+                        if($_SESSION['eid'] != '') {
+                        echo '<a href="http://pavan.co/s/s/view/p/booking?id='.$record['d_unid'].'" class="btn btn-primary px-5 py-2 mt-2 book_now" type="button">BOOK <br>APPOINMENT</a>';
                     }
                     else {
                         echo '<button class="btn btn-primary px-5 py-2 mt-2" type="button">LOGIN</button>';

@@ -1,4 +1,9 @@
 
+$(document).on('click', '.sidebtn', function() {
+  $('.side-nav').toggle(200);
+});
+
+
 
     $(`.all-table  .Appointments`).css({'display': 'block'}).siblings().css({'display': 'none'});
 

@@ -59,7 +59,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/p-booking.css?ver=1.3">
+    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/p-booking.css?ver=1.4">
     <title>Patient | Booking</title>
 </head>
 
@@ -94,16 +94,19 @@
                 <p class="text-center">24 Jul 1983, 38 years</p>
                 <p class="text-center"> Newyork, USA</p>
             </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-sm btn-outline-primary sidebtn fw-bold px-4 my-3"><i class="bi bi-list"></i></button>
+            </div>
             <div class="side-nav my-4">
                 <ul class="px-0">
                     <li class="px-4"><a href="http://pavan.co/s/s/view/p/index" class="s-active"><i
                                 class="bi bi-person-bounding-box"></i>Select Doctor</a></li>
                     <li class="px-4"><a href="http://pavan.co/s/s/view/p/dashboard"><i
                                 class="bi bi-speedometer"></i>Dashboard</a></li>
-                    <li class="px-4"><a href="#"><i class="bi bi-bookmark-fill"></i></i>Favouriate</a></li>
-                    <li class="px-4"><a href="http://pavan.co/s/s/view/p/booking" class="s-active"><i
-                                class="bi bi-chat-left-dots-fill"></i>Booking</a></li>
-                    <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li>
+                    <!-- <li class="px-4"><a href="#"><i class="bi bi-bookmark-fill"></i></i>Favouriate</a></li> -->
+                    <!-- <li class="px-4"><a href="http://pavan.co/s/s/view/p/booking" class="s-active"><i
+                                class="bi bi-chat-left-dots-fill"></i>Booking</a></li> -->
+                    <!-- <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li> -->
                     <li class="px-4"><a href="http://pavan.co/s/s/view/p/profile-settings"><i
                                 class="bi bi-gear-fill"></i>Profile Setting</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
@@ -270,7 +273,7 @@
 
 
         <?php include '../../assest/bottom_links.php'; ?>
-        <script src="http://pavan.co/s/s/controller/js/p-booking.js?ver=2.7"></script>
+        <script src="http://pavan.co/s/s/controller/js/p-booking.js?ver=2.8"></script>
         <script src="http://pavan.co/s/s/controller/js/success.js?ver=2.0"></script>
 </body>
 

@@ -25,7 +25,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/d-profile-settings.css?ver=1.0">
+    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/d-profile-settings.css?ver=1.2">
     <title>Feely | Doc Profile Settings</title>
 </head>
 
@@ -60,6 +60,9 @@
                 </div>                
                 <h4 class="text-center"><a href="#">Dr. <?php echo $record['fname'].' '.$record['sname'] ?></a></h4>
                 <small class="text-center">BDS, MDS - Oral & Maxillofacial Surgery</small>
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-sm btn-outline-primary sidebtn fw-bold px-4 my-3"><i class="bi bi-list"></i></button>
             </div>
             <div class="side-nav my-4">
             <ul class="px-0">
@@ -476,7 +479,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://pavan.co/s/s/controller/js/d-profile-settings.js?ver=1.2'></script>
+    <script src='http://pavan.co/s/s/controller/js/d-profile-settings.js?ver=1.3'></script>
 
 </body>
 

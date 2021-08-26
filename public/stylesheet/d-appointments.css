@@ -31,3 +31,22 @@ body {
     background-color: #e63c3c3d !important;
     font-weight: 600 !important;
 }
+
+
+@media screen and (max-width: 900px) { 
+    .row {
+        margin: 0px 0px !important;
+    }
+    .side-profile .sidebtn {
+        display: block;
+    }
+    .side-profile .side-nav {
+        display: none;
+    }
+}
+.sidebtn {
+    display: none;
+}
+.side-nav {
+    display: block;
+}
