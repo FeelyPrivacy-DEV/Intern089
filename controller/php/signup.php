@@ -4,7 +4,7 @@
 require '../../vendor/autoload.php';
 use Illuminate\Http\Request;
 use Magic;
-$con = new MongoDB\Client( 'mongodb://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com:27017' );
+$con = new MongoDB\Client( 'mongodb://test.feelyprivacy.com:27017' );
 $db = $con->php_mongo;
 
 try {
@@ -131,11 +131,11 @@ try {
         //         ['$push' =>['pendingDoc_ids' => $d_unid]]
         // );
 
-        //     header( 'location: http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/d?login=now' );
+        //     header( 'location: http://test.feelyprivacy.com/s/d?login=now' );
         //     // echo 'Account created success';
         // }
 
-        header( 'location: http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/index?c=e' );
+        header( 'location: http://test.feelyprivacy.com/s/index?c=e' );
         // print_r( $responseData );
 
     } else if ( isset( $_POST['employee_signup'] ) ) {
@@ -185,9 +185,9 @@ try {
                 ['$push' =>['pat_ids' => $p_unid]]
             );
 
-            header( 'location: http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/p?login=now' );
+            header( 'location: http://test.feelyprivacy.com/s/p?login=now' );
         } else {
-            header( 'location: http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/p?c=e' );
+            header( 'location: http://test.feelyprivacy.com/s/p?c=e' );
 
         }
         // echo 'Account created success';

@@ -13,7 +13,7 @@
         unset($_SESSION['loggedin']);
         session_unset();
         session_destroy(); 
-        header("location: http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/");
+        header("location: http://test.feelyprivacy.com/s/");
         exit();
 
     }

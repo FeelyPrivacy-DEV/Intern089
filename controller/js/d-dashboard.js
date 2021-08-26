@@ -9,7 +9,7 @@ $(document).on('click', '.sidebtn', function() {
 $(document).on('click', '#today', function() {
   let next_p_details = true;
   var xhr = new XMLHttpRequest();
-  var url = "http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/controller/php/add_m.php";
+  var url = "http://test.feelyprivacy.com/s/controller/php/add_m.php";
 
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -30,7 +30,7 @@ $(document).on('click', '#today', function() {
 $(document).on('click', '#upcoming', function() {
   let pre_p_details = true;
   var xhr = new XMLHttpRequest();
-  var url = "http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/controller/php/add_m.php";
+  var url = "http://test.feelyprivacy.com/s/controller/php/add_m.php";
 
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -58,7 +58,7 @@ function accept(pid, date, date_ind, i) {
   $(`#acc${i}`).html('Accepted');
   let accept = true;
   var xhr = new XMLHttpRequest();
-  var url = "http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/controller/php/add_m.php";
+  var url = "http://test.feelyprivacy.com/s/controller/php/add_m.php";
 
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -79,7 +79,7 @@ function cancel(pid, date, date_ind, i) {
   $(`#can${i}`).html('Cancelled');
   let cancelled = true;
   var xhr = new XMLHttpRequest();
-  var url = "http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/controller/php/add_m.php";
+  var url = "http://test.feelyprivacy.com/s/controller/php/add_m.php";
 
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

@@ -13,7 +13,7 @@
 
 <head>
     <?php include '../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/admin/public/stylesheet/login.css?ver=1.1">
+    <link rel="stylesheet" href="http://test.feelyprivacy.com/s/admin/public/stylesheet/login.css?ver=1.1">
     <title>Admin </title>
 </head>
 
@@ -24,14 +24,14 @@
             <div class="container">
                 <div class="loginbox">
                     <div class="login-left">
-                        <img class="img-fluid" src="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/admin/public/image/logo.png" alt="Logo">
+                        <img class="img-fluid" src="http://test.feelyprivacy.com/s/admin/public/image/logo.png" alt="Logo">
                     </div>
                     <div class="login-right">
                         <div class="login-right-wrap">
                             <h1>Register</h1>
 
                             <!-- Form -->
-                            <form action="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/admin/controller/php/signup.php" method="POST">
+                            <form action="http://test.feelyprivacy.com/s/admin/controller/php/signup.php" method="POST">
                                 <div class="row my-3">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -71,7 +71,7 @@
                             </div>
                             <!-- /Social Login -->
 
-                            <div class="text-center dont-have" >Already have an account? <a href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/admin/index">Login</a>
+                            <div class="text-center dont-have" >Already have an account? <a href="http://test.feelyprivacy.com/s/admin/index">Login</a>
                             </div>
                         </div>
                     </div>

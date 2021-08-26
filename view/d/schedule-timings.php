@@ -6,7 +6,7 @@
     if($_SESSION['docid'] == '') {
         header('location: ../index.php');
     }
-    $con = new MongoDB\Client( 'mongodb://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com:27017' );
+    $con = new MongoDB\Client( 'mongodb://test.feelyprivacy.com:27017' );
     $db = $con->php_mongo;
     $collection = $db->manager;
     $msg = '';
@@ -52,7 +52,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/public/stylesheet/d-schedule-timings.js?ver=1.1">
+    <link rel="stylesheet" href="http://test.feelyprivacy.com/s/public/stylesheet/d-schedule-timings.js?ver=1.1">
     <title>Doctor | </title>
 </head>
 
@@ -79,10 +79,10 @@
                 <div class="d-flex justify-content-center mb-4">
                     <?php
                         if($record['profile_image'] != '') {
-                            echo '<img src="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/public/image/doc-img/doc-img/'.$record['profile_image'].'" class="rounded" height="160" alt="User Image">';
+                            echo '<img src="http://test.feelyprivacy.com/s/public/image/doc-img/doc-img/'.$record['profile_image'].'" class="rounded" height="160" alt="User Image">';
                         }
                         else {
-                            echo '<img src="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/public/image/doc-img/doc-img/default-doc.jpg" height="160" alt="User Image">';
+                            echo '<img src="http://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg" height="160" alt="User Image">';
                         }
                     ?>
                 </div>
@@ -94,14 +94,14 @@
             </div>
             <div class="side-nav my-4">
             <ul class="px-0">
-                    <li class=""><a href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/view/d/index"><i class="bi bi-speedometer"></i>Dashboard</a></li>
-                    <li class=""><a href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/view/d/appointments"><i class="bi bi-calendar-check-fill"></i>Appointments</a></li>
+                    <li class=""><a href="http://test.feelyprivacy.com/s/view/d/index"><i class="bi bi-speedometer"></i>Dashboard</a></li>
+                    <li class=""><a href="http://test.feelyprivacy.com/s/view/d/appointments"><i class="bi bi-calendar-check-fill"></i>Appointments</a></li>
                     <li class=""><a href="#"><i class="bi bi-person-lines-fill"></i>My Patients</a></li>
-                    <li class=""><a href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/view/d/schedule-timings" class="s-active"><i class="bi bi-hourglass-split"></i>Schedule Timimg</a></li>
+                    <li class=""><a href="http://test.feelyprivacy.com/s/view/d/schedule-timings" class="s-active"><i class="bi bi-hourglass-split"></i>Schedule Timimg</a></li>
                     <!-- <li class=""><a href="#"><i class="bi bi-receipt-cutoff"></i>Invoice</a></li> -->
                     <!-- <li class=""><a href="#"><i class="bi bi-star-fill"></i>Review</a></li> -->
                     <!-- <li class=""><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li> -->
-                    <li class=""><a href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/view/d/profile-settings"><i class="bi bi-gear-fill"></i>Profile Setting</a></li>
+                    <li class=""><a href="http://test.feelyprivacy.com/s/view/d/profile-settings"><i class="bi bi-gear-fill"></i>Profile Setting</a></li>
                     <!-- <li class=""><a href="#"><i class="bi bi-share-fill"></i>Social Media</a></li> -->
                     <li class=""><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
                     <li class=""><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
@@ -211,7 +211,7 @@
                     <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'><i class="bi bi-x"></i></button>
                 </div>
                 <div class='modal-body'>
-                    <form action="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/controller/php/add_m.php" method="POST">
+                    <form action="http://test.feelyprivacy.com/s/controller/php/add_m.php" method="POST">
                         <input type="text"  name="slotDate" hidden id="dt" value="<?php echo date('Y-m-d'); ?>">
                         <div class="editing" id="editing">
                             <div class="d-flex justify-content-start">
@@ -238,7 +238,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/controller/js/d-schedule-timings.js?ver=2.4'></script>
+    <script src='http://test.feelyprivacy.com/s/controller/js/d-schedule-timings.js?ver=2.4'></script>
     
 </body>
 

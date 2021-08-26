@@ -3,7 +3,7 @@
     error_reporting(0);
 session_start();
 require '../../vendor/autoload.php';
-    $con = new MongoDB\Client( 'mongodb://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com:27017' );
+    $con = new MongoDB\Client( 'mongodb://test.feelyprivacy.com:27017' );
     $db = $con->php_mongo; $collection = $db->employee;
 
 
@@ -44,7 +44,7 @@ require '../../vendor/autoload.php';
 
         // echo seourl("/view/p/checkout?date=".$date);
 
-        // header('location: http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/view/p/checkout?id='.$doc_id.'&d='.$date.'&t='.$s_time);
+        // header('location: http://test.feelyprivacy.com/s/view/p/checkout?id='.$doc_id.'&d='.$date.'&t='.$s_time);
 
     }
     else if(isset($_POST['selected_sch'])) {
