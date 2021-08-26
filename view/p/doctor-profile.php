@@ -4,7 +4,7 @@
     session_start();
     require '../../vendor/autoload.php';
     
-    $con = new MongoDB\Client( 'mongodb://pavan.co:27017' );
+    $con = new MongoDB\Client( 'mongodb://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com:27017' );
     $db = $con->php_mongo;
 
     $collection = $db->employee;
@@ -22,7 +22,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/p-doctor-profile.css?ver=1.2">
+    <link rel="stylesheet" href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/public/stylesheet/p-doctor-profile.css?ver=1.2">
     <title>Feely | Doc Profile</title>
 </head>
 
@@ -42,7 +42,7 @@
     <div class="container my-5">
         <div class="p-2 d-flex doc_block justify-content-between">
             <div class="left d-flex">
-                <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded doc_img"
+                <img src="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded doc_img"
                     height="160" alt="User Image">
                 <div class="mx-3">
                     <h5 class="text-nowrap">Dr. <?php echo $record['fname'].' '.$record['sname'] ?></h5>
@@ -58,7 +58,7 @@
                     <p class="text-nowrap"><i class="bi bi-geo-alt-fill"></i> <?php echo $record['contact_detail']['city'].', '.$record['contact_detail']['state'] ?> - <a href="#">Get Directions</a>
                     </p>
                     <div class="d-flex clinic">
-                        <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="px-2"
+                        <img src="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/public/image/doc-img/doc-img/default-doc.jpg" class="px-2"
                             height="40" alt="User Image">
                     </div>
                     <div class="d-flex my-2">
@@ -95,7 +95,7 @@
 
                 <?php
                         if($_SESSION['eid'] != '') {
-                        echo '<a href="http://pavan.co/s/s/view/p/booking?id='.$record['d_unid'].'" class="btn btn-primary px-5 py-2 mt-2 book_now" type="button">BOOK <br>APPOINMENT</a>';
+                        echo '<a href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/view/p/booking?id='.$record['d_unid'].'" class="btn btn-primary px-5 py-2 mt-2 book_now" type="button">BOOK <br>APPOINMENT</a>';
                     }
                     else {
                         echo '<button class="btn btn-primary px-5 py-2 mt-2" type="button">LOGIN</button>';
@@ -215,7 +215,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://pavan.co/s/s/controller/js/d-patient-profile.js?ver=1.2'></script>
+    <script src='http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/controller/js/d-patient-profile.js?ver=1.2'></script>
 
 </body>
 

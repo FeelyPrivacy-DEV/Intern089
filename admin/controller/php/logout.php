@@ -8,7 +8,7 @@
         unset($_SESSION['aid']);
         session_unset();
         session_destroy(); 
-        header("location: http://pavan.co/s/s/admin/index");
+        header("location: http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/admin/index");
         exit();
 
     }

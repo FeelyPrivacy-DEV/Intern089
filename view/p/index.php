@@ -4,9 +4,9 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['eid'] == '') {
-        header('location: http://pavan.co/s/s/index');
+        header('location: http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/index');
     }
-    $con = new MongoDB\Client( 'mongodb://pavan.co:27017' );
+    $con = new MongoDB\Client( 'mongodb://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com:27017' );
     $db = $con->php_mongo;
     // $msg = '';
     
@@ -33,7 +33,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/p-dashboard.css?ver=1.6">
+    <link rel="stylesheet" href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/public/stylesheet/p-dashboard.css?ver=1.6">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -57,7 +57,7 @@
         <div class="col-md-3 side-profile p-2 border">
             <div class="">
                 <div class="d-flex justify-content-center mb-4">
-                    <img src="http://pavan.co/s/s/public/image/pat-img/default_user.png" height="150"
+                    <img src="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/public/image/pat-img/default_user.png" height="150"
                         class="rounded-circle" alt="">
                 </div>
                 <h4 class="text-center text-nowrap"><a href="#"><?php echo $record['fname'].' '.$record['sname']; ?></a></h4>
@@ -69,15 +69,15 @@
             </div>
             <div class="side-nav my-4">
                 <ul class="px-0">
-                    <li class="px-4"><a href="http://pavan.co/s/s/view/p/index" class="s-active"><i
+                    <li class="px-4"><a href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/view/p/index" class="s-active"><i
                                 class="bi bi-person-bounding-box"></i>Select Doctor</a></li>
-                    <li class="px-4"><a href="http://pavan.co/s/s/view/p/dashboard"><i
+                    <li class="px-4"><a href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/view/p/dashboard"><i
                                 class="bi bi-speedometer"></i>Dashboard</a></li>
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-bookmark-fill"></i></i>Favouriate</a></li> -->
-                    <!-- <li class="px-4"><a href="http://pavan.co/s/s/view/p/booking"><i
+                    <!-- <li class="px-4"><a href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/view/p/booking"><i
                                 class="bi bi-chat-left-dots-fill"></i>Booking</a></li> -->
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li> -->
-                    <li class="px-4"><a href="http://pavan.co/s/s/view/p/profile-settings"><i
+                    <li class="px-4"><a href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/view/p/profile-settings"><i
                                 class="bi bi-gear-fill"></i>Profile Setting</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
@@ -99,7 +99,7 @@
                                 <div class="container my-5">
                                     <div class="p-2 d-flex doc_block justify-content-between">
                                         <div class="left d-flex">
-                                            <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded all_doc_img"
+                                            <img src="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded all_doc_img"
                                                 height="160" alt="User Image">
                                             <div class="mx-3">
                                                 <h5 class="text-nowrap">Dr. <?php echo $docval['fname'].' '.$docval['sname'] ?></h5>
@@ -117,7 +117,7 @@
                                                     <a href="#"></a>
                                                 </p>
                                                 <div class="d-flex">
-                                                    <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="px-2"
+                                                    <img src="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/public/image/doc-img/doc-img/default-doc.jpg" class="px-2"
                                                         height="40" alt="User Image">
                                                 </div>
                                                 <div class="d-flex my-2">
@@ -144,11 +144,11 @@
                                             </p>
                                             <p class="mb-1"><i class="bi bi-cash-coin"></i> ₹<?php echo $docval['custom_price'] ?> per hour</p>
                                             <div class="d-flex flex-column">
-                                                <a href="http://pavan.co/s/s/view/p/doctor-profile?id=<?php echo $docval['d_unid']; ?>" class="btn btn-outline-primary px-5 py-2 mt-2" type="button">View Profile</a>
+                                                <a href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/view/p/doctor-profile?id=<?php echo $docval['d_unid']; ?>" class="btn btn-outline-primary px-5 py-2 mt-2" type="button">View Profile</a>
 
                                                 <?php
                                                     if($_SESSION['eid'] != '') {
-                                                        echo '<a href="http://pavan.co/s/s/view/p/booking?id='.$docval['d_unid'].'" class="btn btn-primary px-5 py-2 mt-2" type="button">BOOK <br>APPOINMENT</a>';
+                                                        echo '<a href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/view/p/booking?id='.$docval['d_unid'].'" class="btn btn-primary px-5 py-2 mt-2" type="button">BOOK <br>APPOINMENT</a>';
                                                     }
                                                     else {
                                                         echo '<button class="btn btn-primary px-5 py-2 mt-2" type="button">LOGIN</button>';
@@ -174,7 +174,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://pavan.co/s/s/controller/js/p-dashboard.js?ver=2.5'></script>
+    <script src='http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/controller/js/p-dashboard.js?ver=2.5'></script>
 </body>
 
 </html>

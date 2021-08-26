@@ -3,7 +3,7 @@
     error_reporting(0);
     session_start();
     require './vendor/autoload.php';
-    $con = new MongoDB\Client( 'mongodb://pavan.co:27017' );
+    $con = new MongoDB\Client( 'mongodb://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com:27017' );
 
 
     $db = $con->php_mongo;
@@ -56,8 +56,8 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class='navbar-brand text-light mx-4' href='http://pavan.co/s/s/'>
-                <img src="http://pavan.co/s/s/public/image/logo.png" height="60" alt="" srcset="">
+            <a class='navbar-brand text-light mx-4' href='http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/'>
+                <img src="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/public/image/logo.png" height="60" alt="" srcset="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -67,16 +67,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://pavan.co/s/s/index">Home</a>
+                        <a class="nav-link active" aria-current="page" href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://pavan.co/s/s/index">Doctor</a>
+                        <a class="nav-link active" aria-current="page" href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/index">Doctor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://pavan.co/s/s/p">Patient</a>
+                        <a class="nav-link active" aria-current="page" href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/p">Patient</a>
                     </li>
                 </ul>
-                <a href="http://pavan.co/s/s/index" class='btn btn-outline-primary text-primary px-3 py-2 mx-5'>LOGIN
+                <a href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/index" class='btn btn-outline-primary text-primary px-3 py-2 mx-5'>LOGIN
                     /
                     SIGNUP</a>
             </div>
@@ -93,7 +93,7 @@
         // 'domain' => 'dev-83yti7ke.us.auth0.com',
         // 'client_id' => 'wxoAs08d4cn6d5XsJXRVtvUKUrZg96lx',
         // 'client_secret' => 'cN2pt5bJtf1qSI5-Nc7LIDtdQOETadbAxUxbjCREA8kw1mRxt6c-0gEA1yVbNct1',
-        // 'redirect_uri' => 'http://pavan.co/s/s/index',
+        // 'redirect_uri' => 'http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/index',
         // 'scope' => 'openid profile email',
         // ]);
 
@@ -114,15 +114,15 @@
     <div class="container  my-5">
         <div class="reg_cont d-flex justify-content-center">
             <div class="img my-auto mx-4">
-                <img src="http://pavan.co/s/s/public/image/login-banner.png" class="bnar" height="300" alt="" srcset="">
+                <img src="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/public/image/login-banner.png" class="bnar" height="300" alt="" srcset="">
             </div>
             <div class="forms mx-4">
                 <div class="reg" id="docreg">
                     <div class="d-flex justify-content-between px-3 pb-2">
                         <h5>Doctor Register</h5>
-                        <a href="http://pavan.co/s/s/p">Not a Doctor ?</a>
+                        <a href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/p">Not a Doctor ?</a>
                     </div>
-                    <form class="container needs-validation" action="http://pavan.co/s/s/controller/php/signup.php"
+                    <form class="container needs-validation" action="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/controller/php/signup.php"
                         method="POST">
                         <div class="d-flex justify-content-between">
                             <div class="mb-3 mx-1">
@@ -162,9 +162,9 @@
                 <div class="log" id="doclog">
                     <div class="d-flex justify-content-between px-3 pb-2">
                         <h5>Doctor Login</h5>
-                        <a href="http://pavan.co/s/s/p">Not a Doctor ?</a>
+                        <a href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/p">Not a Doctor ?</a>
                     </div>
-                    <form class="container e_log_form" action="http://pavan.co/s/s/controller/php/login.php"
+                    <form class="container e_log_form" action="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/controller/php/login.php"
                         method="POST">
                         <div class="mb-4">
                             <label for="email" class="form-label">Email Address</label>
@@ -186,11 +186,11 @@
                 <!-- <div class="login-container" id="docreg">
                     <div class="d-flex justify-content-between px-3 pb-2">
                         <h5>Doctor Register</h5>
-                        <a href="http://pavan.co/s/s/p">Not a Doctor ?</a>
+                        <a href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/p">Not a Doctor ?</a>
                     </div>
                     <div class="col-xs-12 col-sm-4 col-sm-offset-4 login-box">
                         <div class="login-header mb-3">
-                            <img src="http://pavan.co/s/s/public/image/logo.png" />
+                            <img src="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/public/image/logo.png" />
                         </div>
                         <div id="error-message" class="alert alert-danger">+
 
@@ -230,11 +230,11 @@
                 <div class="login-container" id="doclog">
                     <div class="d-flex justify-content-between px-3 pb-2">
                         <h5>Doctor Login</h5>
-                        <a href="http://pavan.co/s/s/p">Not a Doctor ?</a>
+                        <a href="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/p">Not a Doctor ?</a>
                     </div>
                     <div class="col-xs-12 col-sm-4 col-sm-offset-4 login-box">
                         <div class="login-header mb-3">
-                            <img src="http://pavan.co/s/s/public/image/logo.png" />
+                            <img src="http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/public/image/logo.png" />
                         </div>
                         <div id="error-message" class="alert alert-danger">+
 
@@ -264,7 +264,7 @@
 
 
     <?php include './assest/bottom_links.php'; ?>
-    <script src='http://pavan.co/s/s/controller/js/index.js?ver=1.3'></script>
+    <script src='http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/controller/js/index.js?ver=1.3'></script>
     <script src="https://cdn.auth0.com/js/auth0/9.16/auth0.min.js"></script>
     <script src="https://cdn.auth0.com/js/polyfills/1.0/object-assign.min.js"></script>
     <script>
@@ -285,7 +285,7 @@
 
         //     var auth0Domain = 'dev-83yti7ke.us.auth0.com';
         //     var clientID  = 'wxoAs08d4cn6d5XsJXRVtvUKUrZg96lx';
-        //     var callbackURL = 'http://pavan.co/s/s/index';
+        //     var callbackURL = 'http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/index';
 
         //     var params = Object.assign({
         //         overrides: {
@@ -299,7 +299,7 @@
         //     }, config.internalOptions);
 
         //     var webAuth = new auth0.WebAuth(params);
-        //     var databaseConnection = 'mongodb://pavan.co:27017';
+        //     var databaseConnection = 'mongodb://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com:27017';
         //     // var captcha = webAuth.renderCaptcha(
         //     //     document.querySelector('.captcha-container')
         //     // );

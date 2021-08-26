@@ -2,7 +2,7 @@
 
 require '../../vendor/autoload.php';
 
-$con = new MongoDB\Client( 'mongodb://pavan.co:27017' );
+$con = new MongoDB\Client( 'mongodb://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com:27017' );
 $db = $con->php_mongo;
 
 if(isset($_POST['manager_login'])) {
@@ -24,23 +24,23 @@ if(isset($_POST['manager_login'])) {
                     $_SESSION['d_unid'] = $record['d_unid'];
                     $_SESSION['fname'] = $record['fname'];
                     $_SESSION['sname'] = $record['sname'];
-                    header('location: http://pavan.co/s/s/view/d/index');
+                    header('location: http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/view/d/index');
                     exit();
                 }
                 else {
-                    header('location: http://pavan.co/s/s/d?login=disable');
+                    header('location: http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/d?login=disable');
                 }
             }
             else {
-                header('location: http://pavan.co/s/s/d?auth=disable');
+                header('location: http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/d?auth=disable');
             }
         }
         else {
-            header('location: http://pavan.co/s/s/d?auth=failed');
+            header('location: http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/d?auth=failed');
         }
     }
     else {
-        header('location: http://pavan.co/s/s/d?auth=failed');
+        header('location: http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/d?auth=failed');
     }
  
 }
@@ -60,15 +60,15 @@ else if(isset($_POST['employee_login'])) {
             $_SESSION['fname'] = $record['fname'];
             $_SESSION['sname'] = $record['sname'];
             $_SESSION['p_unid'] = $record['p_unid'];
-            header('location: http://pavan.co/s/s/view/p/index');
+            header('location: http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/view/p/index');
             exit();
         }
         else {
-            header('location: http://pavan.co/s/s/p?auth=failed');
+            header('location: http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/p?auth=failed');
         }
     }
     else {
-        header('location: http://pavan.co/s/s/p?auth=failed');
+        header('location: http://ec2-13-127-72-12.ap-south-1.compute.amazonaws.com/s/p?auth=failed');
     }
 
 
