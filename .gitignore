@@ -1,5 +1,5 @@
 .vscode/
 vendor/
-# composer.json
-# composer.lock
+composer.json
+composer.lock
 ignore1.php
