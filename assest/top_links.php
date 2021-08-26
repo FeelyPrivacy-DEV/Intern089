@@ -19,15 +19,15 @@
 <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 
 
-<link rel="shortcut icon" href="http://143.244.139.242/s/public/image/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="http://pavan.co/s/s/public/image/favicon.ico" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://143.244.139.242/s/assest/bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="http://143.244.139.242/s/assest/bootstrap/css/b-icons/bootstrap-icons.css">
-<link rel="stylesheet" href="http://143.244.139.242/s/assest/bootstrap-tagsinput/css/bootstrap-tagsinput.css">
-<link rel="stylesheet" href="http://143.244.139.242/s/assest/DataTables/datatables.min.css">
-<link rel="stylesheet" href="http://143.244.139.242/s/assest/dropzone/dropzone.min.css">
-<link rel="stylesheet" href="http://143.244.139.242/s/public/stylesheet/style.css?ver=2.9">
-<link rel="stylesheet" href="http://143.244.139.242/s/public/stylesheet/navbar.css?ver=1.1">
-<link rel="stylesheet" href="http://143.244.139.242/s/public/stylesheet/footer.css?ver=3.5">
-<link rel="stylesheet" href="http://143.244.139.242/s/assest/bootstrap/jquery-ui/jquery-ui/jquery-ui.css">
-<link rel="stylesheet" href="http://143.244.139.242/s/assest/bootstrap/jquery-ui/jquery-ui/jquery-ui.min.css">
+<link rel="stylesheet" href="http://pavan.co/s/s/assest/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="http://pavan.co/s/s/assest/bootstrap/css/b-icons/bootstrap-icons.css">
+<link rel="stylesheet" href="http://pavan.co/s/s/assest/bootstrap-tagsinput/css/bootstrap-tagsinput.css">
+<link rel="stylesheet" href="http://pavan.co/s/s/assest/DataTables/datatables.min.css">
+<link rel="stylesheet" href="http://pavan.co/s/s/assest/dropzone/dropzone.min.css">
+<link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/style.css?ver=3.1">
+<link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/navbar.css?ver=1.1">
+<link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/footer.css?ver=3.5">
+<link rel="stylesheet" href="http://pavan.co/s/s/assest/bootstrap/jquery-ui/jquery-ui/jquery-ui.css">
+<link rel="stylesheet" href="http://pavan.co/s/s/assest/bootstrap/jquery-ui/jquery-ui/jquery-ui.min.css">

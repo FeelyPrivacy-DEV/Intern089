@@ -4,7 +4,7 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['eid'] == '') {
-        header('location: http://143.244.139.242/s/index');
+        header('location: http://pavan.co/s/s/index');
     }
 
 ?>
@@ -43,8 +43,8 @@
     </div>
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <!-- <script src='http://143.244.139.242/s/controller/js/employee.js'></script> -->
-    <script src='http://143.244.139.242/s/controller/js/success.js'></script>
+    <!-- <script src='http://pavan.co/s/s/controller/js/employee.js'></script> -->
+    <script src='http://pavan.co/s/s/controller/js/success.js'></script>
 </body>
 
 </html>

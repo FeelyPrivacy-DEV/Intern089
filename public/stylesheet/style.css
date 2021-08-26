@@ -117,8 +117,9 @@ body .btn-close, .btn, .form-control, .form-select {
     color: rgb(0, 212, 212);
     font-weight: 500 !important;
 }
+
 @media screen and (max-width: 900px) { 
-    .reg_cont img {
+    .reg_cont .bnar {
         display: none !important;
     }
     .reg_cont .img {
@@ -300,3 +301,39 @@ body .btn-close, .btn, .form-control, .form-select {
 .edit_slots .form-control {
     width: 175px !important;
 }
+
+
+
+
+
+
+
+/* auth0 */
+
+  .login-container {
+    position: relative;
+    height: 100%;
+  }
+  .login-container a {
+    text-decoration: none !important;
+    color: rgb(0, 212, 212);
+    font-weight: 500 !important;
+}
+  .login-box {
+    background-color: #fff;
+    border-radius: 5px;
+    width: 400px !important;
+  }
+
+  .login-header {
+    text-align: center;
+  }
+
+  .login-header img {
+    width: 75px;
+  }
+
+  #error-message {
+    display: none;
+    white-space: break-spaces;
+  }

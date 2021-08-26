@@ -4,7 +4,7 @@
 require '../../vendor/autoload.php';
 use Illuminate\Http\Request;
 use Magic;
-$con = new MongoDB\Client( 'mongodb://143.244.139.242:27017' );
+$con = new MongoDB\Client( 'mongodb://pavan.co:27017' );
 $db = $con->php_mongo;
 
 try {
@@ -131,11 +131,11 @@ try {
         //         ['$push' =>['pendingDoc_ids' => $d_unid]]
         // );
 
-        //     header( 'location: http://143.244.139.242/s/d?login=now' );
+        //     header( 'location: http://pavan.co/s/s/d?login=now' );
         //     // echo 'Account created success';
         // }
 
-        header( 'location: http://143.244.139.242/s/index?c=e' );
+        header( 'location: http://pavan.co/s/s/index?c=e' );
         // print_r( $responseData );
 
     } else if ( isset( $_POST['employee_signup'] ) ) {
@@ -185,9 +185,9 @@ try {
                 ['$push' =>['pat_ids' => $p_unid]]
             );
 
-            header( 'location: http://143.244.139.242/s/p?login=now' );
+            header( 'location: http://pavan.co/s/s/p?login=now' );
         } else {
-            header( 'location: http://143.244.139.242/s/p?c=e' );
+            header( 'location: http://pavan.co/s/s/p?c=e' );
 
         }
         // echo 'Account created success';
