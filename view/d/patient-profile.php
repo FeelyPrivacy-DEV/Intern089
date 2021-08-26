@@ -4,9 +4,9 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['docid'] == '') {
-        header('location: http://pavan.co/s/s/index');
+        header('location: http://143.244.139.242/s/index');
     }
-    $con = new MongoDB\Client( 'mongodb://pavan.co:27017' );
+    $con = new MongoDB\Client( 'mongodb://143.244.139.242:27017' );
     $db = $con->php_mongo;
     $collection = $db->manager;
     $msg = '';
@@ -30,7 +30,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/d-patient-profile.css?ver=1.1">
+    <link rel="stylesheet" href="http://143.244.139.242/s/public/stylesheet/d-patient-profile.css?ver=1.1">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -59,10 +59,10 @@
                         $record = $collection->findOne(['p_unid'=> $_POST['pat_profile_id']]);
                         $datetime = iterator_to_array( $record['datetime'] );
                         if($record['profile_image'] != '') {
-                            echo '<img src="http://pavan.co/s/s/public/image/doc-img/doc-img/'.$record['profile_image'].'" class="rounded" height="160" alt="User Image">';
+                            echo '<img src="http://143.244.139.242/s/public/image/doc-img/doc-img/'.$record['profile_image'].'" class="rounded" height="160" alt="User Image">';
                         }
                         else {
-                            echo '<img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" height="160" alt="User Image">';
+                            echo '<img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" height="160" alt="User Image">';
                         }
                     ?>
                 </div>
@@ -134,10 +134,10 @@
                                                     echo'<tr class="py-5">
                                                             <td class="d-flex pat">';
                                                                     if($doc_detail['profile_image'] != '') {
-                                                                        echo '<img src="http://pavan.co/s/s/public/image/doc-img/doc-img/'.$doc_detail['profile_image'].'" class="my-auto" height="40" alt="User Image">';
+                                                                        echo '<img src="http://143.244.139.242/s/public/image/doc-img/doc-img/'.$doc_detail['profile_image'].'" class="my-auto" height="40" alt="User Image">';
                                                                     }
                                                                     else {
-                                                                        echo '<img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="User Image">';
+                                                                        echo '<img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="User Image">';
                                                                     }
                                                             echo '<div>
                                                                     <p  class="text-nowrap px-2 my-auto ">'.$doc_detail['fname'].' '.$doc_detail['sname'].'</p>
@@ -217,7 +217,7 @@
                                 <td class="text-nowrap">14 Nov 2019 </td>
                                 <td class="text-f">Prescription 1</td>
                                 <td class="d-flex pat">
-                                    <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg"
+                                    <img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg"
                                         class="my-auto" height="40" alt="" srcset="">
                                     <a href="" class="px-2 my-auto text-nowrap">
                                         Dr. Ruby Perrin
@@ -257,7 +257,7 @@
                                 <td class="text-center">Dental Filling</td>
                                 <td class="text-center"><a href="#">dental-test.pdf</a></td>
                                 <td class="d-flex pat">
-                                    <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg"
+                                    <img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg"
                                         class="my-auto" height="40" alt="" srcset="">
                                     <a href="" class="px-2 my-auto text-nowrap">
                                         Dr. Ruby Perrin
@@ -294,7 +294,7 @@
                                 <td class="text-nowrap"><a href="#">#INV-0010</a></td>
 
                                 <td class="d-flex pat">
-                                    <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg"
+                                    <img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg"
                                         class="my-auto" height="40" alt="" srcset="">
                                     <a href="" class="px-2 my-auto text-nowrap">
                                         Dr. Ruby Perrin
@@ -329,7 +329,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://pavan.co/s/s/controller/js/d-patient-profile.js?ver=1.2'></script>
+    <script src='http://143.244.139.242/s/controller/js/d-patient-profile.js?ver=1.2'></script>
 
 </body>
 

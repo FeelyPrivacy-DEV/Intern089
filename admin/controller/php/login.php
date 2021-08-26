@@ -3,7 +3,7 @@
 
 require '../../../vendor/autoload.php';
 
-$con = new MongoDB\Client( 'mongodb://pavan.co:27017' );
+$con = new MongoDB\Client( 'mongodb://143.244.139.242:27017' );
 $db = $con->php_mongo; 
 
 
@@ -21,7 +21,7 @@ if(isset($_POST['a_login'])) {
             $_SESSION['aid'] = $record['_id'];
             $_SESSION['a_unid'] = $record['a_unid'];
             $_SESSION['fname'] = $record['fname'];
-            header('location: http://pavan.co/s/s/admin/view/index');
+            header('location: http://143.244.139.242/s/admin/view/index');
             exit();
         }
         else {

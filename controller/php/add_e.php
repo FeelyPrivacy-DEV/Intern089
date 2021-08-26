@@ -3,7 +3,7 @@
     error_reporting(0);
 session_start();
 require '../../vendor/autoload.php';
-    $con = new MongoDB\Client( 'mongodb://pavan.co:27017' );
+    $con = new MongoDB\Client( 'mongodb://143.244.139.242:27017' );
     $db = $con->php_mongo; $collection = $db->employee;
 
 
@@ -44,7 +44,7 @@ require '../../vendor/autoload.php';
 
         // echo seourl("/view/p/checkout?date=".$date);
 
-        // header('location: http://pavan.co/s/s/view/p/checkout?id='.$doc_id.'&d='.$date.'&t='.$s_time);
+        // header('location: http://143.244.139.242/s/view/p/checkout?id='.$doc_id.'&d='.$date.'&t='.$s_time);
 
     }
     else if(isset($_POST['selected_sch'])) {

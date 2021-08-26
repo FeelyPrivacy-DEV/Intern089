@@ -6,7 +6,7 @@
     if($_SESSION['docid'] == '') {
         header('location: ../index.php');
     }
-    $con = new MongoDB\Client( 'mongodb://pavan.co:27017' );
+    $con = new MongoDB\Client( 'mongodb://143.244.139.242:27017' );
     $db = $con->php_mongo;
     $collection = $db->manager;
     // $msg = '';
@@ -33,7 +33,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/d-appointments.css?ver=1.3">
+    <link rel="stylesheet" href="http://143.244.139.242/s/public/stylesheet/d-appointments.css?ver=1.3">
     <title>Feely | Doc Appointments</title>
 </head>
 
@@ -59,10 +59,10 @@
                 <div class="d-flex justify-content-center mb-4">
                     <?php
                         if($record['profile_image'] != '') {
-                            echo '<img src="http://pavan.co/s/s/public/image/doc-img/doc-img/'.$record['profile_image'].'" class="rounded" height="160" alt="User Image">';
+                            echo '<img src="http://143.244.139.242/s/public/image/doc-img/doc-img/'.$record['profile_image'].'" class="rounded" height="160" alt="User Image">';
                         }
                         else {
-                            echo '<img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" height="160" alt="User Image">';
+                            echo '<img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" height="160" alt="User Image">';
                         }
                     ?>
                 </div>
@@ -74,17 +74,17 @@
             </div>
             <div class="side-nav my-4">
                 <ul class="px-0">
-                    <li class="px-4"><a href="http://pavan.co/s/s/view/d/index"><i
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/d/index"><i
                                 class="bi bi-speedometer"></i>Dashboard</a></li>
-                    <li class="px-4"><a href="http://pavan.co/s/s/view/d/appointments" class="s-active"><i
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/d/appointments" class="s-active"><i
                                 class="bi bi-calendar-check-fill"></i>Appointments</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-person-lines-fill"></i>My Patients</a></li>
-                    <li class="px-4"><a href="http://pavan.co/s/s/view/d/schedule-timings"><i
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/d/schedule-timings"><i
                                 class="bi bi-hourglass-split"></i>Schedule Timimg</a></li>
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-receipt-cutoff"></i>Invoice</a></li> -->
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-star-fill"></i>Review</a></li> -->
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li> -->
-                    <li class="px-4"><a href="http://pavan.co/s/s/view/d/profile-settings"><i
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/d/profile-settings"><i
                                 class="bi bi-gear-fill"></i>Profile Setting</a></li>
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-share-fill"></i>Social Media</a></li> -->
                     <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
@@ -115,7 +115,7 @@
                                             echo '<div class="p-3 d-flex justify-content-between border my-2 rounded">
                                                     <div class="d-flex pet-info">
                                                         <div class="pat-img">
-                                                            <img src="http://pavan.co/s/s/public/image/pat-img/default_user.png" height="110" width="110"
+                                                            <img src="http://143.244.139.242/s/public/image/pat-img/default_user.png" height="110" width="110"
                                                                 alt="" srcset="">
                                                         </div>
                                                         <div class="pat-det mx-4">
@@ -176,7 +176,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://pavan.co/s/s/controller/js/d-appointments.js?ver=1.3'></script>
+    <script src='http://143.244.139.242/s/controller/js/d-appointments.js?ver=1.3'></script>
 
 </body>
 

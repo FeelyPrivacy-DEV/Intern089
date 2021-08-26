@@ -4,10 +4,10 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['eid'] == '') {
-        header('location: http://pavan.co/s/s/index');
+        header('location: http://143.244.139.242/s/index');
     }
 
-    $con = new MongoDB\Client( 'mongodb://pavan.co:27017' );
+    $con = new MongoDB\Client( 'mongodb://143.244.139.242:27017' );
     $db = $con->php_mongo;
 
  
@@ -59,7 +59,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/p-booking.css?ver=1.4">
+    <link rel="stylesheet" href="http://143.244.139.242/s/public/stylesheet/p-booking.css?ver=1.4">
     <title>Patient | Booking</title>
 </head>
 
@@ -87,7 +87,7 @@
                     $erecord = $collection->findOne( ['_id' =>$_SESSION['eid']] );
                 ?>
                 <div class="d-flex justify-content-center mb-4">
-                    <img src="http://pavan.co/s/s/public/image/pat-img/default_user.png" height="150"
+                    <img src="http://143.244.139.242/s/public/image/pat-img/default_user.png" height="150"
                         class="rounded-circle" alt="">
                 </div>
                 <h4 class="text-center"><a href="#"><?php echo $erecord['fname'].' '.$erecord['sname']; ?></a></h4>
@@ -99,15 +99,15 @@
             </div>
             <div class="side-nav my-4">
                 <ul class="px-0">
-                    <li class="px-4"><a href="http://pavan.co/s/s/view/p/index" class="s-active"><i
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/p/index" class="s-active"><i
                                 class="bi bi-person-bounding-box"></i>Select Doctor</a></li>
-                    <li class="px-4"><a href="http://pavan.co/s/s/view/p/dashboard"><i
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/p/dashboard"><i
                                 class="bi bi-speedometer"></i>Dashboard</a></li>
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-bookmark-fill"></i></i>Favouriate</a></li> -->
-                    <!-- <li class="px-4"><a href="http://pavan.co/s/s/view/p/booking" class="s-active"><i
+                    <!-- <li class="px-4"><a href="http://143.244.139.242/s/view/p/booking" class="s-active"><i
                                 class="bi bi-chat-left-dots-fill"></i>Booking</a></li> -->
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li> -->
-                    <li class="px-4"><a href="http://pavan.co/s/s/view/p/profile-settings"><i
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/p/profile-settings"><i
                                 class="bi bi-gear-fill"></i>Profile Setting</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
@@ -119,7 +119,7 @@
         <!-- body content -->
         <div class="col-md-9 d-book-content my-4">
             <div class="left d-flex mb-4">
-                <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded" height="90"
+                <img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded" height="90"
                     alt="User Image">
                 <div class="mx-3">
                     <h5>Dr. <?php echo $record['fname'].' '.$record['sname'] ?></h5>
@@ -273,8 +273,8 @@
 
 
         <?php include '../../assest/bottom_links.php'; ?>
-        <script src="http://pavan.co/s/s/controller/js/p-booking.js?ver=2.8"></script>
-        <script src="http://pavan.co/s/s/controller/js/success.js?ver=2.0"></script>
+        <script src="http://143.244.139.242/s/controller/js/p-booking.js?ver=2.8"></script>
+        <script src="http://143.244.139.242/s/controller/js/success.js?ver=2.0"></script>
 </body>
 
 </html>

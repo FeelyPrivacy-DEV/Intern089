@@ -4,9 +4,9 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['eid'] == '') {
-        header('location: http://pavan.co/s/s/index');
+        header('location: http://143.244.139.242/s/index');
     }
-    $con = new MongoDB\Client( 'mongodb://pavan.co:27017' );
+    $con = new MongoDB\Client( 'mongodb://143.244.139.242:27017' );
     $db = $con->php_mongo;
 
     $collection = $db->employee;
@@ -21,8 +21,8 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://pavan.co/s/s/public/stylesheet/p-checkout.css?ver=1.2">
-    <script src='http://pavan.co/s/s/controller/js/p-checkout.js?ver=1.7'></script>
+    <link rel="stylesheet" href="http://143.244.139.242/s/public/stylesheet/p-checkout.css?ver=1.2">
+    <script src='http://143.244.139.242/s/controller/js/p-checkout.js?ver=1.7'></script>
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -121,7 +121,7 @@
                 <div class="summary">
                     <h4 class="card-title">Booking Summary</h4>
                     <div class="d-flex justify-content-start my-3">
-                        <img src="http://pavan.co/s/s/public/image/doc-img/doc-img/default-doc.jpg" height="70"
+                        <img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" height="70"
                             alt="User Image">
                         <div class="mx-2">
                             <h5 class="card-title">Dr. <?php echo $record['fname'].' '.$record['sname']; ?></h5>
@@ -178,7 +178,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <!-- <script src='http://pavan.co/s/s/controller/js/p-checkout.js?ver=1.6'></script> -->
+    <!-- <script src='http://143.244.139.242/s/controller/js/p-checkout.js?ver=1.6'></script> -->
 
 
 </body>

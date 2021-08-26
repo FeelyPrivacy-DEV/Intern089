@@ -50,7 +50,7 @@ function display(ind) {
   day = ind;
   let next_date = true;
   var xhr = new XMLHttpRequest();
-  var url = "http://pavan.co/s/s/controller/php/add_m.php";
+  var url = "http://143.244.139.242/s/controller/php/add_m.php";
 
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -74,7 +74,7 @@ function slotdelete(d, i) {
   let index = i;
   let slotdelete = true;
   var xhr = new XMLHttpRequest();
-  var url = "http://pavan.co/s/s/controller/php/add_m.php";
+  var url = "http://143.244.139.242/s/controller/php/add_m.php";
 
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -91,7 +91,7 @@ function get_time_dur() {
   let dur_time = true;
   dur_time = toString(dur_time);
   var xhr = new XMLHttpRequest();
-  var url = "http://pavan.co/s/s/controller/php/add_m.php";
+  var url = "http://143.244.139.242/s/controller/php/add_m.php";
 
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
