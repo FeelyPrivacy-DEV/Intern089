@@ -36,11 +36,11 @@ else if(isset($_POST['allowit'])) {
 
     $collection = $db->admin;
     $collection->updateOne(
-        ['a_unid' => '1974781675'],
+        ['a_unid' => '214738596'],
         ['$pull' => ['pendingDoc_ids' => $id ]]
     );
     echo $collection->updateOne(
-        ['a_unid' => '1974781675'],
+        ['a_unid' => '214738596'],
         ['$push' => ['doc_ids' => strval($id) ]]
     );
 
