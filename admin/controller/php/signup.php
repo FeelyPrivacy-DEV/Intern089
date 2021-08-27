@@ -5,7 +5,7 @@ use MongoDB\Exception\Exception;
 
 require '../../../vendor/autoload.php';
 
-$con = new MongoDB\Client( 'mongod://test.feelyprivacy.com:27017' );
+$con = new MongoDB\Client( 'mongod://127.0.0.1:27017' );
 $db = $con->php_mongo; 
 
 try {

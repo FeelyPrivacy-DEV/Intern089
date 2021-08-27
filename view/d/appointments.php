@@ -6,7 +6,7 @@
     if($_SESSION['docid'] == '') {
         header('location: ../index.php');
     }
-    $con = new MongoDB\Client( 'mongodb://test.feelyprivacy.com:27017' );
+    $con = new MongoDB\Client( 'mongodb://127.0.0.1:27017' );
     $db = $con->php_mongo;
     $collection = $db->manager;
     // $msg = '';
