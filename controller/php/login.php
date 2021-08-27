@@ -28,19 +28,19 @@ if(isset($_POST['manager_login'])) {
                     exit();
                 }
                 else {
-                    header('location: http://test.feelyprivacy.com/s/d?login=disable');
+                    header('location: http://test.feelyprivacy.com/s/index?login=disable');
                 }
             }
             else {
-                header('location: http://test.feelyprivacy.com/s/d?auth=disable');
+                header('location: http://test.feelyprivacy.com/s/index?auth=disable');
             }
         }
         else {
-            header('location: http://test.feelyprivacy.com/s/d?auth=failed');
+            header('location: http://test.feelyprivacy.com/s/index?auth=failed');
         }
     }
     else {
-        header('location: http://test.feelyprivacy.com/s/d?auth=failed');
+        header('location: http://test.feelyprivacy.com/s/index?auth=failed');
     }
  
 }
