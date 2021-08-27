@@ -126,24 +126,24 @@
                         method="POST">
                         <div class="d-flex justify-content-between">
                             <div class="mb-3 mx-1">
-                                <label for="email" class="form-label">First Name</label>
+                                <!-- <label for="email" class="form-label">First Name</label> -->
                                 <input type="text" class="form-control py-2" name="fname" id="fname"
                                     placeholder="First Name" required>
                             </div>
                             <div class="mb-4 mx-1">
-                                <label for="email" class="form-label">Last Name</label>
+                                <!-- <label for="email" class="form-label">Last Name</label> -->
                                 <input type="text" class="form-control py-2" name="sname" id="sname"
                                     placeholder="Last Name" required>
                             </div>
                         </div>
                         <div class="mb-4">
-                            <label for="email" class="form-label">Email Address</label>
+                            <!-- <label for="email" class="form-label">Email Address</label> -->
                             <input type="email" class="form-control py-2" name="email" id="msemail"
                                 aria-describedby="email" placeholder="Email Address" required>
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-4">
-                            <label for="password" class="form-label">Password</label>
+                            <!-- <label for="password" class="form-label">Password</label> -->
                             <input type="password" class="form-control py-2" name="pass" id="mspas"
                                 placeholder="Create Password " required aria-describedby="password">
                         </div>
@@ -154,8 +154,8 @@
                         <div class="d-grid gap-2 my-3">
                             <button type="submit" class="btn btn-primary py-2" name="manager_signup">Create
                                 Account</button>
-                            <button type="submit" class="btn btn-primary py-2" name="manager_signup">Create
-                                Account Password less</button>
+                            <!-- <button type="submit" class="btn btn-primary py-2" name="manager_signup">Create
+                                Account Password less</button> -->
                         </div>
                     </form>
                 </div>
@@ -167,19 +167,18 @@
                     <form class="container e_log_form" action="http://test.feelyprivacy.com/s/controller/php/login.php"
                         method="POST">
                         <div class="mb-4">
-                            <label for="email" class="form-label">Email Address</label>
+                            <!-- <label for="email" class="form-label">Email Address</label> -->
                             <input type="email" name="email" class="form-control py-3" id="log_empid"
                                 placeholder="Email Address" required aria-describedby="empid">
                         </div>
                         <div class="mb-4">
-                            <label for="password" class="form-label">Password</label>
+                            <!-- <label for="password" class="form-label">Password</label> -->
                             <input type="password" name="pass" class="form-control py-3" id="log_pass"
                                 placeholder="Enter Password" required aria-describedby="password">
                         </div>
                         <button class="btn m-0 fw-bold p-0 text-primary al-r" type="button">Create Account ?</button>
                         <div class="d-grid gap-2 my-5">
-                            <button type="submit" class="btn btn-primary py-2" name="manager_login">Log in password
-                                less</button>
+                            <button type="submit" class="btn btn-primary py-2" name="manager_login">Log in </button>
                         </div>
                     </form>
                 </div>
