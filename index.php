@@ -111,7 +111,7 @@
     
     ?>
     <!-- <a class="btn btn-primary" href="login.php">Log In</a> -->
-    <div class="container  my-5">
+    <div class="container formcont my-5">
         <div class="reg_cont d-flex justify-content-center">
             <div class="img my-auto mx-4">
                 <img src="http://test.feelyprivacy.com/s/public/image/login-banner.png" class="bnar" height="300" alt="" srcset="">

@@ -1,6 +1,6 @@
 <?php
 
-    error_reporting(0); 
+    // error_reporting(0); 
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['aid'] == '') {
@@ -156,7 +156,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://test.feelyprivacy.com/s/admin/controller/js/dashboard.js?ver=1.7  '></script>
+    <script src='http://127.0.0.1/s/s/admin/controller/js/dashboard.js?ver=1.7  '></script>
 
 </body>
 

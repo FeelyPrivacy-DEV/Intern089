@@ -122,7 +122,7 @@ body .btn-close, .btn, .form-control, .form-select {
     .reg_cont .bnar {
         display: none !important;
     }
-    .reg_cont .img {
+    .reg_cont  .img {
         margin: 0px 0px !important;
     }
     .reg_cont .forms {
@@ -133,6 +133,42 @@ body .btn-close, .btn, .form-control, .form-select {
         margin: 0px auto !important;
         width: fit-content !important;
     }
+    .reg_cont .patreg, .patlog .bnar {
+        display: none !important;
+    }
+    .reg_cont .patreg, .patlog .img {
+        margin: 0px 0px !important;
+    }
+    .reg_cont .forms .reg {
+        width: 10px !important;
+        margin: 0px auto !important;
+        width: fit-content !important;
+    }
+    .h-captcha iframe {
+        padding: 0px 20px !important;
+        /* width: 26px !important; */
+    }
+    #patlog {
+        width: 266px !important;
+    }
+    #doclog {
+        width: 266px !important;
+    }
+    #docreg {
+        width: 275px !important;
+    }
+    #patreg {
+        width: 266px !important;
+    }
+    .formcont {
+        margin: 0px 7px !important;
+        padding: 0px 0px !important;
+        width: fit-content !important;
+    }
+}
+
+@media screen and (max-width: 900px) { 
+    
 }
 
 

@@ -25,11 +25,11 @@ if(isset($_POST['a_login'])) {
             exit();
         }
         else {
-            header('location: ../../?auth=failed');
+            header('location: http://test.feelyprivacy.com/s/admin/index?auth=failed');
         }
     }
     else {
-        header('location: ../../?auth=failed');
+        header('location: http://test.feelyprivacy.com/s/admin/index?auth=failed');
     }
 
 

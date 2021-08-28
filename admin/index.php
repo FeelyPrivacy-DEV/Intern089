@@ -69,16 +69,19 @@
                             </div>
 
                             <!-- Social Login -->
-                            <div class="social-login">
+                            <!-- <div class="social-login">
                                 <span style="color: rgb(209, 203, 199) !important;">Login with</span>
                                 <div class="form-group d-grid gap-2 my-4">
                                     <button class="btn btn-primary btn-block disabled" type="submit"><i class="bi bi-facebook mx-2"></i> Facebook</button>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- /Social Login -->
-
+                            <?php
+                                $collection = $db->admin;
+                            ?>
                             <div class="text-center dont-have" >Don’t have an account? <a href="http://test.feelyprivacy.com/s/admin/register">Register</a>
-                            </div>
+
+                        </div>
                         </div>
                     </div>
                 </div>
