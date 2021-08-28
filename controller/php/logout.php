@@ -13,7 +13,7 @@
         unset($_SESSION['loggedin']);
         session_unset();
         session_destroy(); 
-        header("location: http://test.feelyprivacy.com/s/");
+        header("location: https://test.feelyprivacy.com/s/");
         exit();
 
     }

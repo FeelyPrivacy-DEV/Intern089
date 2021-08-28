@@ -94,11 +94,11 @@ try {
                 ['$push' =>['pendingDoc_ids' => $d_unid]]
             );
 
-            header( 'location: http://test.feelyprivacy.com/s/index?login=now' );
+            header( 'location: https://test.feelyprivacy.com/s/index?login=now' );
             // echo 'Account created success';
         }
         else {
-            header( 'location: http://test.feelyprivacy.com/s/index?c=e' );
+            header( 'location: https://test.feelyprivacy.com/s/index?c=e' );
         }
 
         // print_r( $responseData );
@@ -150,9 +150,9 @@ try {
                 ['$push' =>['pat_ids' => $p_unid]]
             );
 
-            header( 'location: http://test.feelyprivacy.com/s/p?login=now' );
+            header( 'location: https://test.feelyprivacy.com/s/p?login=now' );
         } else {
-            header( 'location: http://test.feelyprivacy.com/s/p?c=e' );
+            header( 'location: https://test.feelyprivacy.com/s/p?c=e' );
 
         }
         // echo 'Account created success';

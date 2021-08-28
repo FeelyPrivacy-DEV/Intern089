@@ -19,7 +19,7 @@ $(document).on('keyup', '#search_doc', function() {
     let sq = $(this).val();
     let search = true;
     var xhr = new XMLHttpRequest();
-    var url = "http://test.feelyprivacy.com/s/controller/php/index.php";
+    var url = "https://test.feelyprivacy.com/s/controller/php/index.php";
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

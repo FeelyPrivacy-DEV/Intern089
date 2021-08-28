@@ -4,7 +4,7 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['eid'] == '') {
-        header('location: http://test.feelyprivacy.com/s/index');
+        header('location: https://test.feelyprivacy.com/s/index');
     }
 
 ?>
@@ -43,8 +43,8 @@
     </div>
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <!-- <script src='http://test.feelyprivacy.com/s/controller/js/employee.js'></script> -->
-    <script src='http://test.feelyprivacy.com/s/controller/js/success.js'></script>
+    <!-- <script src='https://test.feelyprivacy.com/s/controller/js/employee.js'></script> -->
+    <script src='https://test.feelyprivacy.com/s/controller/js/success.js'></script>
 </body>
 
 </html>

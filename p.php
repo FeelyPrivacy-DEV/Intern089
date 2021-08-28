@@ -42,8 +42,8 @@ else if($_GET['c'] == 'e') {
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class='navbar-brand text-light mx-4' href='http://test.feelyprivacy.com/s/'>
-                <img src="http://test.feelyprivacy.com/s/public/image/logo.png" height="60" alt="" srcset="">
+            <a class='navbar-brand text-light mx-4' href='https://test.feelyprivacy.com/s/'>
+                <img src="https://test.feelyprivacy.com/s/public/image/logo.png" height="60" alt="" srcset="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -53,16 +53,16 @@ else if($_GET['c'] == 'e') {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://test.feelyprivacy.com/s/index">Home</a>
+                        <a class="nav-link active" aria-current="page" href="https://test.feelyprivacy.com/s/index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://test.feelyprivacy.com/s/index">Doctor</a>
+                        <a class="nav-link active" aria-current="page" href="https://test.feelyprivacy.com/s/index">Doctor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://test.feelyprivacy.com/s/p">Patient</a>
+                        <a class="nav-link active" aria-current="page" href="https://test.feelyprivacy.com/s/p">Patient</a>
                     </li>
                 </ul>
-                <a href="http://test.feelyprivacy.com/s/index" class='btn btn-outline-primary text-primary px-3 py-2 mx-5'>LOGIN
+                <a href="https://test.feelyprivacy.com/s/index" class='btn btn-outline-primary text-primary px-3 py-2 mx-5'>LOGIN
                     /
                     SIGNUP</a>
             </div>
@@ -75,15 +75,15 @@ else if($_GET['c'] == 'e') {
     <div class="container formcont my-5">
         <div class="reg_cont d-flex justify-content-center">
             <div class="img my-auto mx-4">
-                <img src="http://test.feelyprivacy.com/s/public/image/login-banner.png" class="bnar" height="300" alt="" srcset="">
+                <img src="https://test.feelyprivacy.com/s/public/image/login-banner.png" class="bnar" height="300" alt="" srcset="">
             </div>
             <div class="forms mx-4">
                 <div class="reg" id="patreg">
                     <div class="d-flex justify-content-between px-3 pb-2">
                         <h5>Patient Register</h5>
-                        <a href="http://test.feelyprivacy.com/s/index">Not a Patient ?</a>
+                        <a href="https://test.feelyprivacy.com/s/index">Not a Patient ?</a>
                     </div>
-                    <form class="container needs-validation" action="http://test.feelyprivacy.com/s/controller/php/signup.php"
+                    <form class="container needs-validation" action="https://test.feelyprivacy.com/s/controller/php/signup.php"
                         method="POST">
                         <div class="d-flex justify-content-between">
                             <div class="mb-3 mx-1">
@@ -129,9 +129,9 @@ else if($_GET['c'] == 'e') {
                 <div class="log" id="patlog">
                     <div class="d-flex justify-content-between px-3 pb-2">
                         <h5>Patient Login</h5>
-                        <a href="http://test.feelyprivacy.com/s/index">Not a Patient ?</a>
+                        <a href="https://test.feelyprivacy.com/s/index">Not a Patient ?</a>
                     </div>
-                    <form class=" container e_log_form" action="http://test.feelyprivacy.com/s/controller/php/login.php"
+                    <form class=" container e_log_form" action="https://test.feelyprivacy.com/s/controller/php/login.php"
                         method="POST">
                         <div class="mb-3">
                             <!-- <label for="number" class="form-label">Patient ID</label> -->
@@ -158,7 +158,7 @@ else if($_GET['c'] == 'e') {
 
 
     <?php include './assest/bottom_links.php'; ?>
-    <script src='http://test.feelyprivacy.com/s/controller/js/index.js?ver=1.3'></script>
+    <script src='https://test.feelyprivacy.com/s/controller/js/index.js?ver=1.3'></script>
 
 </body>
 

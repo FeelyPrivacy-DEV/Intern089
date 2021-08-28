@@ -8,7 +8,7 @@
         unset($_SESSION['aid']);
         session_unset();
         session_destroy(); 
-        header("location: http://test.feelyprivacy.com/s/admin/index");
+        header("location: https://test.feelyprivacy.com/s/admin/index");
         exit();
 
     }

@@ -44,7 +44,7 @@ require '../../vendor/autoload.php';
 
         // echo seourl("/view/p/checkout?date=".$date);
 
-        // header('location: http://test.feelyprivacy.com/s/view/p/checkout?id='.$doc_id.'&d='.$date.'&t='.$s_time);
+        // header('location: https://test.feelyprivacy.com/s/view/p/checkout?id='.$doc_id.'&d='.$date.'&t='.$s_time);
 
     }
     else if(isset($_POST['selected_sch'])) {

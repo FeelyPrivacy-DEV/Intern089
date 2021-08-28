@@ -27,14 +27,14 @@ function proccedtopay() {
     let prodtopay_check = true;
     console.log(doc_id);
     var xhr = new XMLHttpRequest();
-    var url = 'http://test.feelyprivacy.com/s/controller/php/add_e.php';
+    var url = 'https://test.feelyprivacy.com/s/controller/php/add_e.php';
  
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
             // $('#warn').text(xhr.responseText);
-            window.location.href = `http://test.feelyprivacy.com/s/view/p/checkout?id=${doc_id}&t=${s_time}&d=${date}`;
+            window.location.href = `https://test.feelyprivacy.com/s/view/p/checkout?id=${doc_id}&t=${s_time}&d=${date}`;
         }
     };  
     xhr.send(`prodtopay_check=${prodtopay_check}&date=${date}&doc_id=${doc_id}&s_time=${s_time}&e_time=${e_time}`);
@@ -45,7 +45,7 @@ function proccedtopay() {
     
 //     let d_sel = 'd_sel';
 //     var xhr = new XMLHttpRequest();
-//     var url = 'http://test.feelyprivacy.com/s/controller/php/add_e.php';
+//     var url = 'https://test.feelyprivacy.com/s/controller/php/add_e.php';
 
 //     xhr.open("POST", url, true);
 //     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

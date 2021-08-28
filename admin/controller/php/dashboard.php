@@ -45,8 +45,6 @@ else if(isset($_POST['allowit'])) {
         ['a_unid' => '214738596'],
         ['$push' => ['doc_ids' => strval($id) ]]
     );
-
-
 }
 else if(isset($_POST['del'])) {
 
