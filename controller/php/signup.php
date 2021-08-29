@@ -148,7 +148,7 @@ try {
                 'p_unid' => $p_unid,
                 'fname' =>$fname,
                 'sname' =>$_POST['sname'],
-                'empid' =>$_POST['empid'],
+                // 'empid' =>$_POST['empid'],
                 'email' =>$email,
                 'gen_info' => [
                     'phone_no' => '',

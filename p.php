@@ -99,12 +99,12 @@ else if($_GET['c'] == 'e') {
                                 
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <!-- <label for="number" class="form-label">Patient ID</label> -->
+                        <!-- <div class="mb-3">
+                            <label for="number" class="form-label">Patient ID</label>
                             <input type="text" name="empid" class="form-control py-2" id="empsid"
                                 aria-describedby="empid" placeholder="Create Username " required>
                             
-                        </div>
+                        </div> -->
                         <div class="mb-3">
                             <!-- <label for="email" class="form-label">Email Address</label> -->
                             <input type="email" name="email" class="form-control py-2" id="empsemail"
