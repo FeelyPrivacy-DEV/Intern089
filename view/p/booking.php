@@ -99,7 +99,7 @@
             </div>
             <div class="side-nav my-4">
                 <ul class="px-0">
-                    <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/index" class="s-active"><i
+                    <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/index"><i
                                 class="bi bi-person-bounding-box"></i>Select Doctor</a></li>
                     <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/dashboard"><i
                                 class="bi bi-speedometer"></i>Dashboard</a></li>
@@ -107,8 +107,8 @@
                     <!-- <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/booking" class="s-active"><i
                                 class="bi bi-chat-left-dots-fill"></i>Booking</a></li> -->
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li> -->
-                    <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/profile-settings"><i
-                                class="bi bi-gear-fill"></i>Profile Setting</a></li>
+                    <!-- <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/profile-settings"><i
+                                class="bi bi-gear-fill"></i>Profile Setting</a></li> -->
                     <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
                 </ul>
