@@ -111,8 +111,22 @@
                     <div class="d-flex">
                         <img src="https://test.feelyprivacy.com/s/public/image/doc-img/icon-02.png" class="p-4" alt="" srcset="">
                         <div class="px-3 my-auto d-flex flex-column justify-content-start">
+                            <?php
+                            $cnt = 0;
+                            $e_collection = $db->employee;
+                            $e_record = $e_collection->find(['p_unid' => $punid_key]);
+                            $pat_detail = iterator_to_array($e_record);
+                            foreach($pat_detail as $perticular_pat) {
+                                foreach($perticular_pat['datetime'] as $single=>$singleVal) {
+                                    if($single == $_SESSION['d_unid']) {
+                                     $cnt++;
+                                    }
+                                }
+                            }
+                            
+                            ?>
                             <h6 class="text-nowrap">Today's Patient</h6>
-                            <h3 class="text-nowrap">1500</h3>
+                            <h3 class="text-nowrap"><?php echo $cnt;?></h3>
                             <p class="m-0 text-nowrap"><?php echo date('d, M Y  ') ?></p>
                         </div>
                     </div>
@@ -122,7 +136,7 @@
                         <img src="https://test.feelyprivacy.com/s/public/image/doc-img/icon-03.png" class="p-4" alt="" srcset="">
                         <div class="px-3 my-auto d-flex flex-column justify-content-start">
                             <h6 class="text-nowrap">Appoinments</h6>
-                            <h3 class="text-nowrap">1500</h3>
+                            <h3 class="text-nowrap">0</h3>
                             <p class="m-0 text-nowrap"><?php echo date('d, M Y  ') ?></p>
                         </div>
                     </div>
