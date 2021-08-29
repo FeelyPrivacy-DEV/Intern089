@@ -33,7 +33,7 @@ $bodyHtml = '
 $mail = new PHPMailer(true);
 
 try {
-    $mail->SMTPDebug = 2;
+    // $mail->SMTPDebug = 2;
     $mail->isSMTP();
     $mail->setFrom($sender, $senderName);
     $mail->Username   = $usernameSmtp;
@@ -53,13 +53,13 @@ try {
     $mail->AltBody    = $bodyText;
     $mail->Send();
     $send = true;
-    echo "Email sent!" , PHP_EOL;
+    // echo "Email sent!" , PHP_EOL;
 } catch (Exception $e) {
     $send = false;
-    echo "An error occurred. {$e->errorMessage()}", PHP_EOL; 
+    // echo "An error occurred. {$e->errorMessage()}", PHP_EOL; 
 } catch (Exception $e) {
     $send = false;
-    echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; 
+    // echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; 
 }
 
 ?>
