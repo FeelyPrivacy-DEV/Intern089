@@ -3,11 +3,11 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../../vendor/autoload.php';
+// require '../../vendor/autoload.php';
 
 $sender = 'hello@feelyprivacy.com';
 $senderName = 'FeelyPrivacy';
-$recipient = 'pavankumargovindtidke21@gmail.com';
+$recipient = $erecord['email'];
 $usernameSmtp = 'AKIASX2DB3OIBTJVZIWW';
 $passwordSmtp = 'BA5t01w1QYc6CFvm3kK3HD3mlYrHeL6dqvTszZYOdiFV';
 
@@ -16,12 +16,19 @@ $passwordSmtp = 'BA5t01w1QYc6CFvm3kK3HD3mlYrHeL6dqvTszZYOdiFV';
 $host = 'email-smtp.ap-south-1.amazonaws.com';
 $port = 587;
 
-$subject = 'Amazon SES test (SMTP interface accessed using PHP)';
+$subject = '
+    Appoinment Cancelled !
+';
 
-$bodyText =  "Email Test\r\nThis email was sent through the
-    Amazon SES SMTP interface using the PHPMailer class.";
+$bodyText =  '
+    Appoinment Cancelled !
+';
 
-$bodyHtml = '<h1>Email Test</h1>';
+$bodyHtml = '
+<img src="https://test.feelyprivacy.com/s/public/image/logo.png" style="margin: 0px auto !important;" height="100" >
+    <h3>Hi, '.$erecord['fname'].'</h3>
+    <p>Your appoinment is cancelled with <h4> Dr. '.$_SESSION['fname'].' '.$_SESSION['sname'].' </h4> due to some reason.</p>
+';
 
 
 $mail = new PHPMailer(true);
@@ -46,11 +53,14 @@ try {
     $mail->Body       = $bodyHtml;
     $mail->AltBody    = $bodyText;
     $mail->Send();
+    $send = true;
     echo "Email sent!" , PHP_EOL;
 } catch (Exception $e) {
-    echo "An error occurred. {$e->errorMessage()}", PHP_EOL; 
+    $send = false;
+    // echo "An error occurred. {$e->errorMessage()}", PHP_EOL; 
 } catch (Exception $e) {
-    echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; 
+    $send = false;
+    // echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; 
 }
 
 ?>

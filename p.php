@@ -72,16 +72,16 @@ else if($_GET['c'] == 'e') {
     <?php echo $auth_msg; ?>
 
 
-    <div class="container formcont my-5">
+    <div class="container formcont my-2">
         <div class="reg_cont d-flex justify-content-center">
-            <div class="img my-auto mx-4">
+            <div class="img mx-4">
                 <img src="https://test.feelyprivacy.com/s/public/image/login-banner.png" class="bnar" height="300" alt="" srcset="">
             </div>
             <div class="forms mx-4">
                 <div class="reg" id="patreg">
                     <div class="d-flex justify-content-between px-3 pb-2">
                         <h5>Patient Register</h5>
-                        <a href="https://test.feelyprivacy.com/s/index">Not a Patient ?</a>
+                        <!-- <a href="https://test.feelyprivacy.com/s/index">Not a Patient ?</a> -->
                     </div>
                     <form class="container needs-validation" action="https://test.feelyprivacy.com/s/controller/php/signup.php"
                         method="POST">
@@ -119,24 +119,24 @@ else if($_GET['c'] == 'e') {
                         <div class="d-flex justify-content-center">
                             <div class="h-captcha" data-sitekey="8840d1d7-bfeb-4979-b86b-5223d5ad79f9" required></div>
                         </div>
-                        <button class="btn m-0 fw-bold p-0 text-primary al-p" type="button">Login ?</button>
-                        <div class="d-grid gap-2 my-3">
+                        <button class="btn m-0 fw-bold p-0 text-primary" id="p_log" type="button">Login </button>
+                        <div class="d-grid gap-2 my-1">
                             <button type="submit" name="employee_signup" class="btn btn-primary py-2">Create
-                                Account password less</button>
+                                Account </button>
                         </div>
                     </form>
                 </div>
                 <div class="log" id="patlog">
                     <div class="d-flex justify-content-between px-3 pb-2">
                         <h5>Patient Login</h5>
-                        <a href="https://test.feelyprivacy.com/s/index">Not a Patient ?</a>
+                        <!-- <a href="https://test.feelyprivacy.com/s/index">Not a Patient ?</a> -->
                     </div>
                     <form class=" container e_log_form" action="https://test.feelyprivacy.com/s/controller/php/login.php"
                         method="POST">
                         <div class="mb-3">
                             <!-- <label for="number" class="form-label">Patient ID</label> -->
-                            <input type="number" name="empid" class="form-control py-3" id="log_empid" required
-                                placeholder="Username" aria-describedby="empid">
+                            <input type="email" name="email" class="form-control py-3" id="log_empid" required
+                                placeholder="Email Address" aria-describedby="empid">
                                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
@@ -144,21 +144,45 @@ else if($_GET['c'] == 'e') {
                             <input type="password" name="pass" class="form-control py-3" id="log_pass" required
                                 placeholder="Password" aria-describedby="password">
                         </div>
-                        <button class="btn m-0 p-0 fw-bold text-primary al-p" type="button">Create Account ?</button>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn m-0 p-0 fw-bold text-primary" id="p_ca" type="button">Create Account</button>
+                            <button class="btn m-0 p-0 fw-bold text-primary" id="p_for" type="button">Forgot Password</button>
+                        </div>
                         <div class="d-grid gap-2 my-5">
-                            <button type="submit" class="btn btn-primary py-2" name="employee_login">Log Inpassword less</button>
+                            <button type="submit" class="btn btn-primary py-2" name="employee_login">Log In</button>
                         </div>
                     </form>
+                </div>
+                <div class="forgot" id="patforgot">
+                <h6 class="text-center text-nowrap" id="for_warn_pat"></h6>
+                    <div class="d-flex justify-content-between px-3 pb-2">
+                        <h5>Patient Forgot Password</h5>
+                        <!-- <a href="https://test.feelyprivacy.com/s/index">Not a Patient ?</a> -->
+                    </div>
+                    <div class=" container e_log_form">
+                        <div class="mb-3">
+                            <!-- <label for="number" class="form-label">Patient ID</label> -->
+                            <input type="email" name="email" class="form-control py-3" id="p_for_email" required
+                                placeholder="Enter Email Address" aria-describedby="email">
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn m-0 p-0 fw-bold text-primary" id="p_ca" type="button">Create Account </button>
+                            <button class="btn m-0 fw-bold p-0 text-primary " id="p_log" type="button">Login </button>
+                        </div>
+                        <div class="d-grid gap-2 my-5">
+                            <button type="submit" class="btn btn-primary py-2" id="pat_forgot">Send Email</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-
+                        
 
 
     <?php include './assest/bottom_links.php'; ?>
-    <script src='https://test.feelyprivacy.com/s/controller/js/index.js?ver=1.3'></script>
+    <script src='https://test.feelyprivacy.com/s/controller/js/index.js?ver=3.0'></script>
 
 </body>
 

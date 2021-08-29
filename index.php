@@ -15,9 +15,9 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
     }
-    else if($_GET['login'] == 'now') {
+    else if($_GET['login'] == 'wait') {
         $auth_msg = '<div class="alert alert-success alert-dismissible fade show " role="alert">
-                        <strong>Your account created successfully !</strong> Login Now !
+                        <strong>Your account created </strong> and under review ! Please check email.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
     }
@@ -39,6 +39,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
     }
+
+    
 
 ?>
 
@@ -116,11 +118,12 @@
             <div class="img my-auto mx-4">
                 <img src="https://test.feelyprivacy.com/s/public/image/login-banner.png" class="bnar" height="300" alt="" srcset="">
             </div>
+            
             <div class="forms mx-4">
                 <div class="reg" id="docreg">
                     <div class="d-flex justify-content-between px-3 pb-2">
                         <h5>Doctor Register</h5>
-                        <a href="https://test.feelyprivacy.com/s/p">Not a Doctor ?</a>
+                        <!-- <a href="https://test.feelyprivacy.com/s/p">Not a Doctor ?</a> -->
                     </div>
                     <form class="container needs-validation" action="https://test.feelyprivacy.com/s/controller/php/signup.php"
                         method="POST">
@@ -150,7 +153,10 @@
                         <div class="d-flex justify-content-center">
                             <div class="h-captcha" data-sitekey="8840d1d7-bfeb-4979-b86b-5223d5ad79f9" required></div>
                         </div>
-                        <button class="btn m-0 p-0 fw-bold text-primary al-r" type="button">Login ?</button>
+                        
+                            <button class="btn m-0 p-0 fw-bold text-primary al-r" id="d_log" type="button">Login </button>
+                            
+                        
                         <div class="d-grid gap-2 my-3">
                             <button type="submit" class="btn btn-primary py-2" name="manager_signup">Create
                                 Account</button>
@@ -162,7 +168,7 @@
                 <div class="log" id="doclog">
                     <div class="d-flex justify-content-between px-3 pb-2">
                         <h5>Doctor Login</h5>
-                        <a href="https://test.feelyprivacy.com/s/p">Not a Doctor ?</a>
+                        <!-- <a href="https://test.feelyprivacy.com/s/p">Not a Doctor ?</a> -->
                     </div>
                     <form class="container e_log_form" action="https://test.feelyprivacy.com/s/controller/php/login.php"
                         method="POST">
@@ -176,11 +182,35 @@
                             <input type="password" name="pass" class="form-control py-3" id="log_pass"
                                 placeholder="Enter Password" required aria-describedby="password">
                         </div>
-                        <button class="btn m-0 fw-bold p-0 text-primary al-r" type="button">Create Account ?</button>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn m-0 fw-bold p-0 text-primary" id="d_ca"  type="button">Create Account </button>
+                            <button class="btn m-0 p-0 fw-bold text-primary" id="d_for" type="button">Forgot Password</button>
+                        </div>
                         <div class="d-grid gap-2 my-5">
                             <button type="submit" class="btn btn-primary py-2" name="manager_login">Log in </button>
                         </div>
                     </form>
+                </div>
+                <div class="forgot" id="docforgot">
+                    <h6 class="text-center text-nowrap" id="for_warn"></h6>
+                    <div class="d-flex justify-content-between px-3 pb-2">
+                        <h5>Doctor Forgot Password</h5>
+                        <!-- <a href="https://test.feelyprivacy.com/s/p">Not a Doctor ?</a> -->
+                    </div>
+                    <div class="container e_log_form">
+                        <div class="mb-4">
+                            <!-- <label for="email" class="form-label">Email Address</label> -->
+                            <input type="email" name="email" class="form-control py-3" id="d_for_email"
+                                placeholder="Enter Email Address" required aria-describedby="empid">
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn m-0 fw-bold p-0 text-primary" id="d_ca"  type="button">Create Account </button>
+                            <button class="btn m-0 p-0 fw-bold text-primary" id="d_log" type="button">Log In</button>
+                        </div>
+                        <div class="d-grid gap-2 my-5">
+                            <button type="submit" class="btn btn-primary py-2" id="doc_forgot">Send Email </button>
+                        </div>
+                    </div>
                 </div>
                 <!-- <div class="login-container" id="docreg">
                     <div class="d-flex justify-content-between px-3 pb-2">
@@ -263,7 +293,7 @@
 
 
     <?php include './assest/bottom_links.php'; ?>
-    <script src='https://test.feelyprivacy.com/s/controller/js/index.js?ver=1.3'></script>
+    <script src='https://test.feelyprivacy.com/s/controller/js/index.js?ver=1.4'></script>
     <!-- <script src="https://cdn.auth0.com/js/auth0/9.16/auth0.min.js"></script>
     <script src="https://cdn.auth0.com/js/polyfills/1.0/object-assign.min.js"></script> -->
     

@@ -2,15 +2,35 @@ body {
     background-color: #f8f9fa !important;
 }
 
-.d-appo-content .pat-det h5 {
-    font-weight: 400 !important;
-    font-size: 17px !important;
+.d-appo-content {
+    height: 600px !important;
+    overflow: hidden !important;
+    overflow-y: scroll !important;
+}
+.d-appo-content .pat_card {
+    border-radius: 10px !important;
+    background: #fff !important;
+}
+@media screen and (max-width: 700px) {
+    .pat_card img {
+        height: 86px ;
+        width: 85px ;
+    }
+    .pat_card {
+        flex-direction: column !important;
+    }
+    .pet-action {
+        margin-top: 19px !important;
+    }
+    .pet-action .action {
+        justify-content: space-around !important;
+    }
 }
 .d-appo-content .pat-det h5 a {
     text-decoration: none !important;
 }
 .d-appo-content .pat-det p {
-    font-weight: 400 !important;
+    font-weight: 400 !important; 
     font-size: 13px !important;
     padding: 2px 0 !important;
 }

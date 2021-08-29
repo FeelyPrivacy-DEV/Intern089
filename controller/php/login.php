@@ -47,10 +47,10 @@ if(isset($_POST['manager_login'])) {
 else if(isset($_POST['employee_login'])) {
     $collection = $db->employee;
 
-    $empid = $_POST['empid'];
+    $email = $_POST['email'];
     $pass = $_POST['pass'];
 
-    $record = $collection->findOne( [ 'empid' =>$empid ]);  
+    $record = $collection->findOne( [ 'email' =>$email ]);  
 
     if($record) {
         if(password_verify( $pass, $record['password'])) {

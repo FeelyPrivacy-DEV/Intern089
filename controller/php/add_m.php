@@ -202,21 +202,39 @@ require '../../vendor/autoload.php';
         $date_ind = strval($_POST['date_ind']);
 
         $e_collection = $db->employee;
+        $erecord = $e_collection->findOne(['p_unid' => $pid]);
         $record = $e_collection->updateOne(
             ['p_unid' => $pid],
             ['$set' =>['datetime.'.$_SESSION['d_unid'].'.'.$date.'.'.$date_ind.'.status' => 'confirmed']]
         );
-    }
+        include './email/accept_app_email.php';
+        if($send == true) {
+            echo 'true';
+            // header( 'location: https://test.feelyprivacy.com/s/p?login=now' );
+        }
+        else {
+            header( 'location: https://test.feelyprivacy.com/s/view/index/index?email=err' );
+        }
+    } 
     else if(isset($_POST['cancelled'])) {
         $pid = strval($_POST['pid']);
         $date = strval($_POST['date']);
         $date_ind = strval($_POST['date_ind']);
 
         $e_collection = $db->employee;
+        $erecord = $e_collection->findOne(['p_unid' => $pid]);
         $record = $e_collection->updateOne(
             ['p_unid' => $pid],
             ['$set' =>['datetime.'.$_SESSION['d_unid'].'.'.$date.'.'.$date_ind.'.status' => 'cancelled']]
         );
+        include './email/cancel_app_email.php';
+        if($send == true) {
+            echo 'true';
+            // header( 'location: https://test.feelyprivacy.com/s/p?login=now' );
+        }
+        else {
+            header( 'location: https://test.feelyprivacy.com/s/view/p/checkout?email=err' );
+        }
     }
     else if(isset($_POST['next_p_details'])) {
         $c = 1;

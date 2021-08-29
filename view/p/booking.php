@@ -260,9 +260,9 @@
  
                 <!-- procced to pay -->
                 <div class="container protopay d-flex justify-content-end">
-                    <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HpPd6WQ6mPUBwA" async> </script> </form>
-                    <!-- <button class="btn btn-primary px-5 py-3" onclick="proccedtopay()" id="proccedtopay">Proceed to Pay
-                        <i class="bi bi-arrow-right my-auto mx-3 "></i></button> -->
+                    <!-- <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HpPd6WQ6mPUBwA" async> </script> </form> -->
+                    <button class="btn btn-primary px-5 py-3 mx-3" onclick="proccedtopay()" id="proccedtopay">Proceed to Pay
+                        <i class="bi bi-arrow-right my-auto mx-3 "></i></button>
                 </div>
             </div>
         </div>
@@ -273,8 +273,8 @@
 
 
         <?php include '../../assest/bottom_links.php'; ?>
-        <script src="https://test.feelyprivacy.com/s/controller/js/p-booking.js?ver=2.8"></script>
-        <script src="https://test.feelyprivacy.com/s/controller/js/success.js?ver=2.0"></script>
+        <script src="https://test.feelyprivacy.com/s/controller/js/p-booking.js?ver=3.3"></script>
+        <!-- <script src="https://test.feelyprivacy.com/s/controller/js/success.js?ver=2.0"></script> -->
 </body>
 
 </html>

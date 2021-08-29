@@ -11,7 +11,15 @@
     border-radius: none !important;
 }
 
+
 /* table */ 
+.Appointments {
+    width: 100% !important;
+    overflow-x: auto !important;
+    height: 600px !important;
+    overflow: hidden !important;
+    overflow-y: scroll !important;
+}
 .table {
     overflow-x: auto !important;
 }

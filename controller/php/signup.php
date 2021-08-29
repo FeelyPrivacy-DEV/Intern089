@@ -1,5 +1,7 @@
 <?php
 
+
+
 require '../../vendor/autoload.php';
 
 $con = new MongoDB\Client( 'mongodb://127.0.0.1:27017' );
@@ -10,6 +12,7 @@ try {
     if ( isset( $_POST['manager_signup'] ) ) {
         $collection = $db->manager;
 
+        $fname = $_POST['fname'];
         $email = $_POST['email'];
 
         $data = array(
@@ -36,7 +39,7 @@ try {
                 'd_unid' => $d_unid,
                 'p_unid' => $p_unid,
                 'password' =>$hash,
-                'fname' =>$_POST['fname'],
+                'fname' =>$fname,
                 'sname' =>$_POST['sname'],
                 'email' =>$_POST['email'],
                 'gen_info' => [
@@ -44,7 +47,11 @@ try {
                     'gender' => '',
                     'DOB' => '',
                     'biography' => '',
-                    'member_since' => date( 'Y-m-d' )
+                    'member_since' => date( 'Y-m-d' ),
+                    'reset_token' => [
+                        'token' => 'null',
+                        'time' => 'null'
+                    ],
                 ],
                 'clinic_info' => [
                     'clinic_name' => '',
@@ -90,11 +97,17 @@ try {
 
             $collection = $db->admin;
             $collection->updateOne(
-                ['a_unid' => '214738596'],
+                ['a_unid' => '1747567783'],
                 ['$push' =>['pendingDoc_ids' => $d_unid]]
             );
+            include './email/doc_reg_email.php';
+            if($send == true) {
+                header( 'location: https://test.feelyprivacy.com/s/index?login=wait' );
+            }
+            else {
+                header( 'location: https://test.feelyprivacy.com/s/index?email=err' );
+            }
 
-            header( 'location: https://test.feelyprivacy.com/s/index?login=now' );
             // echo 'Account created success';
         }
         else {
@@ -105,6 +118,9 @@ try {
 
     } else if ( isset( $_POST['employee_signup'] ) ) {
         $collection = $db->employee;
+
+        $fname = $_POST['fname'];
+        $email = $_POST['email'];
 
         $data = array(
             'secret' => '0xd36232060c2727eDE97A8A9F6c61ffa636779cb2',
@@ -130,15 +146,19 @@ try {
             $collection->insertOne( [
                 'd_unid' => $d_unid,
                 'p_unid' => $p_unid,
-                'fname' =>$_POST['fname'],
+                'fname' =>$fname,
                 'sname' =>$_POST['sname'],
                 'empid' =>$_POST['empid'],
-                'email' =>$_POST['email'],
+                'email' =>$email,
                 'gen_info' => [
                     'phone_no' => '',
                     'gender' => '',
                     'DOB' => '',
-                    'member_since' => date( 'Y-m-d' )
+                    'member_since' => date( 'Y-m-d' ),
+                    'reset_token' => [
+                        'token' => 'null',
+                        'time' => 'null'
+                    ],
                 ],
                 'password' =>$hash,
                 'datetime'=>$datetime
@@ -146,14 +166,19 @@ try {
 
             $collection = $db->admin;
             $collection->updateOne(
-                ['a_unid' => '214738596'],
+                ['a_unid' => '1747567783'],
                 ['$push' =>['pat_ids' => $p_unid]]
             );
+            include './email/pat_reg_email.php';
+            if($send == true) {
+                header( 'location: https://test.feelyprivacy.com/s/p?login=now' );
+            }
+            else {
+                header( 'location: https://test.feelyprivacy.com/s/p?email=err' );
+            }
 
-            header( 'location: https://test.feelyprivacy.com/s/p?login=now' );
         } else {
             header( 'location: https://test.feelyprivacy.com/s/p?c=e' );
-
         }
         // echo 'Account created success';
 

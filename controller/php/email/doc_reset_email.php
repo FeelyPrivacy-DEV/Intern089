@@ -3,11 +3,11 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../../vendor/autoload.php';
+// require '../../vendor/autoload.php';
 
 $sender = 'hello@feelyprivacy.com';
 $senderName = 'FeelyPrivacy';
-$recipient = 'pavankumargovindtidke21@gmail.com';
+$recipient = $record['email'];
 $usernameSmtp = 'AKIASX2DB3OIBTJVZIWW';
 $passwordSmtp = 'BA5t01w1QYc6CFvm3kK3HD3mlYrHeL6dqvTszZYOdiFV';
 
@@ -16,18 +16,27 @@ $passwordSmtp = 'BA5t01w1QYc6CFvm3kK3HD3mlYrHeL6dqvTszZYOdiFV';
 $host = 'email-smtp.ap-south-1.amazonaws.com';
 $port = 587;
 
-$subject = 'Amazon SES test (SMTP interface accessed using PHP)';
+$subject = '
+    Reset Done
+';
+$bodyText =  '
+    Reset done
+';
 
-$bodyText =  "Email Test\r\nThis email was sent through the
-    Amazon SES SMTP interface using the PHPMailer class.";
+$bodyHtml = '
+<img src="https://test.feelyprivacy.com/s/public/image/logo.png" style="margin: 0px auto !important;" height="100" >
+    <h5>
+    Hi, '.$record['fname'].'
+        doctor reseted password 
 
-$bodyHtml = '<h1>Email Test</h1>';
+    </h5>
+';
 
 
 $mail = new PHPMailer(true);
 
 try {
-    $mail->SMTPDebug = 2;
+    // $mail->SMTPDebug = 2;
     $mail->isSMTP();
     $mail->setFrom($sender, $senderName);
     $mail->Username   = $usernameSmtp;
@@ -46,11 +55,14 @@ try {
     $mail->Body       = $bodyHtml;
     $mail->AltBody    = $bodyText;
     $mail->Send();
-    echo "Email sent!" , PHP_EOL;
+    $send = true;
+    // echo "Email sent!" , PHP_EOL;
 } catch (Exception $e) {
-    echo "An error occurred. {$e->errorMessage()}", PHP_EOL; 
+    $send = false;
+    // echo "An error occurred. {$e->errorMessage()}", PHP_EOL; 
 } catch (Exception $e) {
-    echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; 
+    $send = false;
+    // echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; 
 }
 
 ?>

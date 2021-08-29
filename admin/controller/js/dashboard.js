@@ -50,7 +50,7 @@ function AllowIt(i) {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(xhr.responseText);
+            $('#warn').text(xhr.responseText);
         }
     };
     xhr.send(`allowit=${allowit}&id=${i}`);
@@ -61,7 +61,7 @@ function del(i) {
 
     let delt = true;
     var xhr = new XMLHttpRequest();
-    var url = "https://test.feelyprivacy.com/s/admin/controller/php/dashboard.php";
+    var url = "http://127.0.0.1/s/s/admin/controller/php/dashboard.php";
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

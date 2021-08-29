@@ -22,11 +22,11 @@ body {
 .table .pat img {
     border-radius: 50% !important;
 }
-.table button {
+.table a {
     color: #000;
     text-decoration: none !important;
 }
-.table button:hover {
+.table a:hover {
     color: #20c0f3 !important;
 }
 .table .badge-td .confirmed {
@@ -96,6 +96,14 @@ body {
 
 
 /* select doctor */
+.d-dash-content {
+    height: 600px !important;
+    overflow: hidden !important;
+    overflow-y: scroll !important;
+}
+.d-dash-content::-webkit-scrollbar {
+    display: none;
+}
 .container {
     background: #fff !important;
 }

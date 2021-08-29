@@ -30,7 +30,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/public/stylesheet/d-patient-profile.css?ver=1.1">
+    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/public/stylesheet/d-patient-profile.css?ver=1.2">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -56,7 +56,7 @@
                 <div class="d-flex justify-content-center mb-4">
                     <?php
                         $collection = $db->employee;
-                        $record = $collection->findOne(['p_unid'=> $_POST['pat_profile_id']]);
+                        $record = $collection->findOne(['p_unid'=> $_GET['id']]);
                         $datetime = iterator_to_array( $record['datetime'] );
                         if($record['profile_image'] != '') {
                             echo '<img src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/'.$record['profile_image'].'" class="rounded" height="160" alt="User Image">';

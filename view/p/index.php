@@ -33,7 +33,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/public/stylesheet/p-dashboard.css?ver=1.6">
+    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/public/stylesheet/p-dashboard.css?ver=1.8">
     <title>Feely | Doc Dashboard</title>
 </head>
 

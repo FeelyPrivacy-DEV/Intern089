@@ -15,20 +15,31 @@ require '../../vendor/autoload.php';
         $s_time = $_POST['s_time'];
         $e_time = $_POST['e_time'];
         
-        // $record = $collection->updateOne(
-        //     ['_id' => $_SESSION['eid']],
-        //     ['$push' =>['datetime.'.$doc_id.'.'.$date=> ['d_stamp' => date('Y-m-d'), 'status' => '', 'amt' => '$120', 'p_name' => $_SESSION['fname'], 'book_t' =>[$s_time, $e_time]]]]
-        // );
-        // $collection = $db->manager;
-        // $record = $collection->updateOne(
-        //     ['d_unid' => $doc_id], 
-        //     ['$addToSet' =>['p_unid' => $_SESSION['p_unid']]]
-        // );
-        // $collection = $db->check;
-        // $record = $collection->updateOne(
-        //     ['c_unid' => '429570412'],
-        //     ['$push' =>['datetime.'.$date => [$s_time, $e_time]]]
-        // );
+        $record = $collection->updateOne(
+            ['_id' => $_SESSION['eid']],
+            ['$push' =>['datetime.'.$doc_id.'.'.$date=> ['d_stamp' => date('Y-m-d'), 'status' => '', 'amt' => '$120', 'p_name' => $_SESSION['fname'], 'book_t' =>[$s_time, $e_time]]]]
+        );
+        $collection = $db->manager;
+        $drecord = $collection->findOne(['d_unid' => $doc_id]);
+        $collection->updateOne(
+            ['d_unid' => $doc_id], 
+            ['$addToSet' =>['p_unid' => $_SESSION['p_unid']]]
+        );
+        $collection = $db->check;
+        $record = $collection->updateOne(
+            ['c_unid' => '429570412'],
+            ['$push' =>['datetime.'.$date => [$s_time, $e_time]]]
+        );
+    
+        include './email/pat_doc_book_email.php';
+        include './email/pat_book_email.php';
+        if($send == true) {
+            echo 'true';
+            // header( 'location: https://test.feelyprivacy.com/s/p?login=now' );
+        }
+        else {
+            header( 'location: https://test.feelyprivacy.com/s/view/p/checkout?email=err' );
+        }
 
         // clear SEO
         // function seourl($phrase, $maxLength = 100000000000000) {

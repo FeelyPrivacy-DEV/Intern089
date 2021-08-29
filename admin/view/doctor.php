@@ -138,20 +138,20 @@
                                     if($key['approved'] == true) {
                                         echo '<tr>
                                                 <td>
-                                                    <h2 class="table-avatar">';
+                                                    <h2 class="table-avatar d-flex justify-content-start">';
                                                     if($key['profile_image'] != '') {
                                                         echo '<a href="#" class="avatar avatar-sm mr-2"><img
-                                                                    class="avatar-img rounded-circle"
+                                                                    class="avatar-img rounded-circle "
                                                                     src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/'.$key['profile_image'].'"
                                                                     height="40" alt="User Image"></a>
-                                                            <a href="#">Dr. '.$key['fname'].' '.$key['sname'].'</a>';
+                                                            <a href="#" class="my-auto px-2">Dr. '.$key['fname'].' '.$key['sname'].'</a>';
                                                     }
                                                     else {
                                                         echo '<a href="#" class="avatar avatar-sm mr-2"><img
-                                                                    class="avatar-img rounded-circle"
+                                                                    class="avatar-img rounded-circle mx-3"
                                                                     src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg"
                                                                     height="40" alt="User Image"></a>
-                                                            <a href="#">Dr. '.$key['fname'].' '.$key['sname'].'</a>';
+                                                            <a href="#"  class="my-auto mx-2">Dr. '.$key['fname'].' '.$key['sname'].'</a>';
                                                     }
                                             echo '</h2>
                                                 </td>

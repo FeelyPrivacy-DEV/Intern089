@@ -104,18 +104,21 @@ body .btn-close, .btn, .form-control, .form-select {
     border: 2px solid #a0a0a0 !important;
     border-radius: 5px !important;
 }
-.reg_cont .forms .reg, .log {
+.reg_cont .forms .reg, .log, .forgot {
     width: 400px !important;
 }
-.reg_cont .forms .reg a {
+.reg_cont .forms .reg, .log, .forgot h5 {
     text-decoration: none !important;
-    color: rgb(0, 212, 212);
+    color: rgb(0, 212, 212) !important;
     font-weight: 500 !important;
 }
-.reg_cont .forms .log a {
+/* .reg_cont .forms .log h5 {
     text-decoration: none !important;
     color: rgb(0, 212, 212);
     font-weight: 500 !important;
+} */
+.reg_cont  .img {
+    margin-top: 65px !important;
 }
 
 @media screen and (max-width: 900px) { 
@@ -373,3 +376,10 @@ body .btn-close, .btn, .form-control, .form-select {
     display: none;
     white-space: break-spaces;
   }
+
+
+  /* reset password */
+
+.reset_form {
+    width: 450px !important;
+}

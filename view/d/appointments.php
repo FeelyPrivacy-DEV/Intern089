@@ -18,7 +18,7 @@
     // $date_arr = [];
     // $time_arr = [];
 
-    // foreach($datetime as $date_key=>$val) {
+    // foreach($datetime as $date_key=>$val) { 
     //     $date_arr[] = $date_key;
     //     foreach($val as $index=>$v) {
     //         $time_arr[$date_key][] = $v;
@@ -33,7 +33,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/public/stylesheet/d-appointments.css?ver=1.3">
+    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/public/stylesheet/d-appointments.css?ver=1.4">
     <title>Feely | Doc Appointments</title>
 </head>
 
@@ -112,7 +112,7 @@
                                     foreach($singleVal as $key=>$val) {
                                         foreach($val as $k=>$v) {
                                             // print_r($v);
-                                            echo '<div class="p-3 d-flex justify-content-between border my-2 rounded">
+                                            echo '<div class="p-3 d-flex justify-content-between pat_card border my-2 rounded">
                                                     <div class="d-flex pet-info">
                                                         <div class="pat-img">
                                                             <img src="https://test.feelyprivacy.com/s/public/image/pat-img/default_user.png" height="110" width="110"
@@ -127,11 +127,23 @@
                                                         </div>
                                                     </div>
                                                     <div class="pet-action my-auto">
-                                                        <div class="d-flex align-items-center action">
-                                                            <button class="btn btn1 btn-sm "><i class="bi bi-eye-fill"></i> View</button>
-                                                            <button class="btn btn2 btn-sm mx-1"><i class="bi bi-check2"></i> Accept</button>
-                                                            <button class="btn btn3 btn-sm "><i class="bi bi-x"></i> Cancel</button>
-                                                        </div>
+                                                        <div class="d-flex align-items-center action">';
+                                                            if($v['status'] == 'confirmed') {
+                                                                echo '<button type="button" class="btn btn1 btn-sm" data-bs-toggle="modal" data-bs-target="#info'.$c.'"><i class="bi bi-eye-fill"></i> View</button>
+                                                                <button class="btn btn2 btn-sm mx-1" disabled onclick="accept(\''.$p_unid_key.'\', \''.$key.'\', \''.$k.'\', '.$c.')" id="acc'.$c.'">Accepted</button>
+                                                                <button class="btn btn3 btn-sm " onclick="cancel(\''.$p_unid_key.'\', \''.$key.'\', \''.$k.'\', '.$c.')" id="can'.$c.'"><i class="bi bi-x"></i> Cancel</button>';
+                                                            }
+                                                            else if($v['status'] == 'cancelled') {
+                                                                echo '<button type="button" class="btn btn1 btn-sm" data-bs-toggle="modal" data-bs-target="#info'.$c.'"><i class="bi bi-eye-fill"></i> View</button>
+                                                                <button class="btn btn2 btn-sm mx-1" onclick="accept(\''.$p_unid_key.'\', \''.$key.'\', \''.$k.'\', '.$c.')" id="acc'.$c.'"><i class="bi bi-check2"></i> Accept</button>
+                                                                <button class="btn btn3 btn-sm " disabled onclick="cancel(\''.$p_unid_key.'\', \''.$key.'\', \''.$k.'\', '.$c.')" id="can'.$c.'"> Cancelled</button>';
+                                                            }
+                                                            else {
+                                                                echo '<button type="button" class="btn btn1 btn-sm" data-bs-toggle="modal" data-bs-target="#info'.$c.'"><i class="bi bi-eye-fill"></i> View</button>
+                                                                <button class="btn btn2 btn-sm mx-1" onclick="accept(\''.$p_unid_key.'\', \''.$key.'\', \''.$k.'\', '.$c.')" id="acc'.$c.'"><i class="bi bi-check2"></i> Accept</button>
+                                                                <button class="btn btn3 btn-sm " onclick="cancel(\''.$p_unid_key.'\', \''.$key.'\', \''.$k.'\', '.$c.')" id="can'.$c.'"><i class="bi bi-x"></i> Cancel</button>';
+                                                            }
+                                                    echo '</div>
                                                     </div>
                                                 </div>';
 
@@ -176,7 +188,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='https://test.feelyprivacy.com/s/controller/js/d-appointments.js?ver=1.3'></script>
+    <script src='https://test.feelyprivacy.com/s/controller/js/d-appointments.js?ver=1.4'></script>
 
 </body>
 

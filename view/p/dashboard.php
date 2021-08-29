@@ -33,7 +33,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/public/stylesheet/p-dashboard.css?ver=1.6">
+    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/public/stylesheet/p-dashboard.css?ver=2.1">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -69,7 +69,7 @@
             </div>
             <div class="side-nav my-4">
                 <ul class="px-0">
-                <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/index" ><i class="bi bi-person-bounding-box"></i>Select Doctor</a></li>
+                    <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/index" ><i class="bi bi-person-bounding-box"></i>Select Doctor</a></li>
                     <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/dashboard"  class="s-active"><i class="bi bi-speedometer"></i>Dashboard</a></li>
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-bookmark-fill"></i></i>Favouriate</a></li> -->
                     <!-- <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/booking"><i class="bi bi-chat-left-dots-fill"></i>Booking</a></li> -->
@@ -123,8 +123,8 @@
                                             foreach($date as $key=>$val) {
                                                 foreach($val as $k=>$v) {
 
-                                                    $d_record = $d_collection->findOne( ["d_unid" => $d] );
-                                                    $doc_detail = iterator_to_array($d_record);
+                                                    $doc_detail = $d_collection->findOne( ["d_unid" => $d] );
+                                                    // $doc_detail = iterator_to_array($d_record);
                                                     echo'<tr class="py-5">
                                                             <td class="d-flex pat">';
                                                                     if($doc_detail['profile_image'] != '') {
@@ -133,13 +133,11 @@
                                                                     else {
                                                                         echo '<img src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="User Image">';
                                                                     }
-                                                            echo '<form action="https://test.feelyprivacy.com/s/view/p/doctor-profile" method="POST">
-                                                                    <button class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
+                                                            echo '
+                                                                    <a href="https://test.feelyprivacy.com/s/view/p/doctor-profile?id='.$doc_detail['d_unid'].'" class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
                                                                         '.$doc_detail['fname'].' '.$doc_detail['sname'].'
                                                                         <p class="text-muted  text-left my-auto">#PT00'.$c.'</p>
-                                                                    </button>
-                                                                    <input type="text" hidden name="doc_profile_id" value="'.$d.'" id="pat_profile_id">
-                                                                </form>
+                                                                    </a>
                                                             </td>';
                                                     echo '<td class="">
                                                                 <p class="m-0 text-nowrap">'.$key.'</p>';
@@ -331,7 +329,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='https://test.feelyprivacy.com/s/controller/js/p-dashboard.js?ver=1.3'></script>
+    <script src='https://test.feelyprivacy.com/s/controller/js/p-dashboard.js?ver=1.6'></script>
 
 </body>
 

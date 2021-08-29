@@ -15,7 +15,7 @@
     $datetime = iterator_to_array( $record['datetime'] );
 
     $time_arr = [];
-
+ 
     foreach($datetime as $date_key=>$val) {
         foreach($val as $index=>$v) {
             $time_arr[$date_key][] = $v;
@@ -23,14 +23,14 @@
     }
     $k = count( $time_arr );
 
-?>
+?> 
 
 <!doctype html>
 <html lang='en'>
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/public/stylesheet/d-dashboard.css?ver=1.7">
+    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/public/stylesheet/d-dashboard.css?ver=1.8">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -140,7 +140,7 @@
             <!-- table -->
             <div class="my-4">
                 <div class="tableCont">
-                    <table class="table  table-responsive">
+                    <table class="table table-responsive">
                         <thead>
                             <tr>
                                 <th scope="col">Patient Name</th>
@@ -173,13 +173,11 @@
                                                                 echo'<tr class="py-5">
                                                                         <td class="d-flex pat">
                                                                             <img src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
-                                                                            <form action="https://test.feelyprivacy.com/s/view/d/patient-profile" method="POST">
-                                                                            <button class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
+                                                                            
+                                                                            <a href="https://test.feelyprivacy.com/s/view/d/patient-profile?id='.$perticular_pat['p_unid'].'" class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
                                                                                 '.$perticular_pat['fname'].' '.$perticular_pat['sname'].'
                                                                                 <p class="text-muted  text-left my-auto">#PT00'.$c.'</p>
-                                                                            </button>
-                                                                            <input type="text" hidden name="pat_profile_id" value="'.$punid_key.'" id="pat_profile_id">
-                                                                            </form>
+                                                                            </a>
                                                                         </td>';
                                                                 echo '<td class="">
                                                                             <p class="m-0 text-nowrap">'.$date.'</p>';

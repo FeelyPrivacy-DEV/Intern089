@@ -129,7 +129,7 @@
                             foreach($record_doc as $each) {
                                 if($each['approved'] == false) {
                                     echo '<tr class="py-3" id="trid'.$each['d_unid'].'">';
-                                    echo '<td>Dr. '.$each['fname'].' '.$each['sname'].'</td>
+                                    echo '<td class="d-flex justify-content-start text-left">Dr. '.$each['fname'].' '.$each['sname'].'</td>
                                             <td>'.$each['gen_info']['member_since'].'</td>
                                             <td>'.$each['email'].'</td>';
                                         
@@ -143,20 +143,20 @@
                                     echo '</tr>';
                                 }
                             }        
-                            error_log(print_r($variable, TRUE)); 
                         ?>
                     </tbody>
                 </table>
+                <p id="warn"></p>
             </div>
         </div>
     </div>
 
 
-
+ 
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='https://test.feelyprivacy.com/s/admin/controller/js/dashboard.js?ver=1.7  '></script>
+    <script src='https://test.feelyprivacy.com/s/admin/controller/js/dashboard.js?ver=1.8'></script>
 
 </body>
 

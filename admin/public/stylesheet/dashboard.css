@@ -194,3 +194,25 @@ input[type="checkbox"].switch_1:checked:after {
 .table tbody tr .no_login {
   background: rgb(255, 223, 223) !important;
 }
+
+.doc-table {
+  width: 100% !important;
+  overflow-x: auto !important;
+  height: 500px !important;
+  overflow: hidden !important;
+  overflow-y: scroll !important;
+}
+.pat-table {
+  width: 100% !important;
+  overflow-x: auto !important;
+  height: 500px !important;
+  overflow: hidden !important;
+  overflow-y: scroll !important;
+}
+.app-table {
+  width: 100% !important;
+  overflow-x: auto !important;
+  height: 500px !important;
+  overflow: hidden !important;
+  overflow-y: scroll !important;
+}

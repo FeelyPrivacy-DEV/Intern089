@@ -21,7 +21,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/admin/public/stylesheet/dashboard.css?ver=2.9">
+    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/admin/public/stylesheet/dashboard.css?ver=3.1">
     <title>Admin | Dashboard</title>
 </head>
 
@@ -64,7 +64,8 @@
                 <li>
                     <a href="https://test.feelyprivacy.com/s/admin/view/pending_doc" class="nav-link link-dark">
                         <i class="bi bi-person-dash-fill  bi me-2"></i>
-                        Pending Doc  <span class="text-end text-danger"><?php echo count($record['pendingDoc_ids']); ?></span>
+                        Pending Doc <span
+                            class="text-end text-danger"><?php echo count($record['pendingDoc_ids']); ?></span>
                     </a>
                 </li>
                 <li>
@@ -215,17 +216,18 @@
                     <div class="card-header">
                         <h4 class="card-title">Doctors List</h4>
                     </div>
-                    <table class="table table-hover table-responsive table-center mb-0" id="doc_table">
-                        <thead>
-                            <tr class="text-center">
-                                <th>Doctor Name</th>
-                                <th>Speciality</th>
-                                <th>Earned</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
+                    <div class="doc-table">
+                        <table class="table table-hover table-responsive table-center mb-0" id="doc_table">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>Doctor Name</th>
+                                    <th>Speciality</th>
+                                    <th>Earned</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
                                     $collection = $db->manager;
                                     $record_doc = $collection->find();
 
@@ -238,20 +240,20 @@
                                                 echo '<tr>';
                                             }
                                                 echo '<td>
-                                                        <h2 class="table-avatar">';
+                                                        <h2 class="table-avatar d-flex justify-content-start">';
                                                         if($key['profile_image'] != '') {
                                                             echo '<a href="#" class="avatar avatar-sm mr-2"><img
-                                                                        class="avatar-img rounded-circle"
+                                                                        class="avatar-img rounded-circle mx-2"
                                                                         src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/'.$key['profile_image'].'"
                                                                         height="40" alt="User Image"></a>
-                                                                <a href="#">Dr. '.$key['fname'].' '.$key['sname'].'</a>';
+                                                                <a href="#" class="my-auto mx-1 text-nowrap">Dr. '.$key['fname'].' '.$key['sname'].'</a>';
                                                         }
                                                         else {
                                                             echo '<a href="#" class="avatar avatar-sm mr-2"><img
-                                                                        class="avatar-img rounded-circle"
+                                                                        class="avatar-img rounded-circle mx-2"
                                                                         src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg"
                                                                         height="40" alt="User Image"></a>
-                                                                <a href="#">Dr. '.$key['fname'].' '.$key['sname'].'</a>';
+                                                                <a href="#" class="my-auto mx-1 text-nowrap">Dr. '.$key['fname'].' '.$key['sname'].'</a>';
                                                         }
                                                 echo '</h2>
                                                     </td>
@@ -264,24 +266,26 @@
                                         }
                                     }
                                 ?>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card-header">
                         <h4 class="card-title">Patients List</h4>
                     </div>
-                    <table class="table table-hover table-responsive table-center mb-0" id="pat_table">
-                        <thead>
-                            <tr class="text-center">
-                                <th>Patient Name</th>
-                                <th>Phone</th>
-                                <th>Last Visit</th>
-                                <th>Paid</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
+                    <div class="pat-table">
+                        <table class="table table-hover table-responsive table-center mb-0" id="pat_table">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>Patient Name</th>
+                                    <th>Phone</th>
+                                    <th>Last Visit</th>
+                                    <th>Paid</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
                             $collection = $db->employee;
                             $record_pat = $collection->find();
 
@@ -302,8 +306,9 @@
                                     </tr>';
                             }
                         ?>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
@@ -313,19 +318,20 @@
                     <div class="card-header">
                         <h4 class="card-title">Appointment List</h4>
                     </div>
-                    <table class="table table-hover table-responsive table-center mb-0" id="app_table">
-                        <thead class="px-auto">
-                            <tr class="text-center">
-                                <th class="">Doctor Name</th>
-                                <th class="mx-5">Speciality</th>
-                                <th>Patient Name</th>
-                                <th>Apointment Time</th>
-                                <th>Status</th>
-                                <th class="text-right">Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody class="px-auto">
-                            <?php
+                    <div class="app-table">
+                        <table class="table table-hover table-responsive table-center mb-0" id="app_table">
+                            <thead class="px-auto">
+                                <tr class="text-center">
+                                    <th class="">Doctor Name</th>
+                                    <th class="mx-5">Speciality</th>
+                                    <th>Patient Name</th>
+                                    <th>Apointment Time</th>
+                                    <th>Status</th>
+                                    <th class="text-right">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody class="px-auto">
+                                <?php
                                     $collection = $db->employee;
                                     $record_pat_app = $collection->find();                        
                                     $c = 0;
@@ -338,7 +344,7 @@
                                                         
                                                         echo '<tr class="px-auto">
                                                                 <td>
-                                                                    <h2 class="table-avatar">
+                                                                    <h2 class="table-avatar d-flex justify-content-start">
                                                                         <a href="profile.html" class="avatar avatar-sm mr-2"><img
                                                                                 class="avatar-img rounded-circle"';
                                                                                 if($record_doc_app['profile_image'] != '') {
@@ -349,7 +355,7 @@
                                                                                 }
                                                                         echo 'height="40"
                                                                                 alt="User Image"></a>
-                                                                        <a href="profile.html" class="text-nowrap">Dr. '.$record_doc_app['fname'].' '.$record_doc_app['sname'].'</a>
+                                                                        <a href="profile.html" class="text-nowrap mx-2">Dr. '.$record_doc_app['fname'].' '.$record_doc_app['sname'].'</a>
                                                                     </h2>
                                                                 </td>
                                                                 <td class="px-auto">Dental</td>
@@ -384,8 +390,9 @@
                                         }                            
                                     }                
                                 ?>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

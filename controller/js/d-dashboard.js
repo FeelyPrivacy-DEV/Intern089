@@ -4,7 +4,7 @@ $(document).on('click', '.sidebtn', function() {
     $('.side-nav').toggle(200);
 });
 
-
+ 
 
 $(document).on('click', '#today', function() {
   let next_p_details = true;
