@@ -3,7 +3,7 @@
     error_reporting(0);
     session_start();
     require './vendor/autoload.php';
-    $con = new MongoDB\Client( 'mongodb://127.0.0.1:27017' );
+    $con = new MongoDB\Client( 'mongodb://127.0.0.1:27017' ); 
 
 
     $db = $con->php_mongo;
@@ -182,7 +182,7 @@
                             <input type="password" name="pass" class="form-control py-3" id="log_pass"
                                 placeholder="Enter Password" required aria-describedby="password">
                         </div>
-                        <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-between cf">
                             <button class="btn m-0 fw-bold p-0 text-primary" id="d_ca"  type="button">Create Account </button>
                             <button class="btn m-0 p-0 fw-bold text-primary" id="d_for" type="button">Forgot Password</button>
                         </div>

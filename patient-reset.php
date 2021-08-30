@@ -106,7 +106,7 @@
                         <div class="reset_form border boder-dark rounded p-5">
                             <h5 class="">Change Password</h5>
                             <div class="form-group my-4 ">
-            
+                                <input type="text" id="pat_token" hidden value="'.$token.'">
                                 <input type="password" class="form-control p-2" name="" placeholder="New Password" id="newpass">
                             </div>
                             <div class="form-group my-4 ">
@@ -130,7 +130,7 @@
 
 
     <?php include './assest/bottom_links.php'; ?>
-    <script src='https://test.feelyprivacy.com/s/controller/js/index.js?ver=1.5'></script>
+    <script src='https://test.feelyprivacy.com/s/controller/js/index.js?ver=1.7'></script>
 
 </body>
 

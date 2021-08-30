@@ -68,7 +68,7 @@ else if(isset($_POST['change_pass_pat'])) {
     else {
         echo 'notSent';
     }
-
+ 
 }
 else if(isset($_POST['change_pass_doc'])) { 
     $collection = $db->manager;

@@ -16,7 +16,7 @@ $(document).on('click', '#d_for', function() {
     $('#docreg, #doclog').hide();
     $('#docforgot').show()
 })
-
+ 
 
 $(document).on('click', '#p_log', function() {
     $('#patreg, #patforgot').hide();
@@ -139,14 +139,10 @@ $(document).on('click', '#pat_forgot', function() {
 
 
 // check password
-function check_pass() { 
-    
-};
+
 var new_pass, conf_pass, token;
 $(document).on('click', '#change_pass_pat', function() { 
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    token = urlParams.get('token');
+    token = $('#pat_token').val();
     new_pass = $('#newpass').val();
     conf_pass = $('#confpass').val();
     if(new_pass != '' && conf_pass != '') {
@@ -157,7 +153,7 @@ $(document).on('click', '#change_pass_pat', function() {
                 <span class="visually-hidden">Loading...</span>
                 </div>
             `)
-            $('#for_warn_pat').html('<h4 class="text-success">Password Changed Successfully <br> You will be redirect to login page.</h4>');
+            $('#for_warn_pat').html('<h5 class="text-success">Password Changed Successfully <br> You will be redirect to login page.</h3>');
             let change_pass_pat = true;
             var xhr = new XMLHttpRequest();
             var url = "https://test.feelyprivacy.com/s/controller/php/forgot_password.php";
@@ -167,7 +163,7 @@ $(document).on('click', '#change_pass_pat', function() {
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     if(xhr.responseText == 'true') {
-                        window.location.href = 'https://test.feelyprivacy.com/s/';
+                        window.location.href = 'https://test.feelyprivacy.com/s/p';
                     }
                     else if(xhr.responseText == 'notSent') {
                         $('#for_warn_pat').html('<p class="text-danger">For some reason emailnot sent (email error)</p>');
@@ -182,6 +178,12 @@ $(document).on('click', '#change_pass_pat', function() {
             };
             xhr.send(`change_pass_pat=${change_pass_pat}&new_pass=${new_pass}&token=${token}`);
         }
+        else {
+            $('#for_warn_pat').html('<p class="text-danger">Passwords not same</p>');
+        }
+    }
+    else {
+        $('#for_warn_pat').html('<p class="text-danger">Password is blank</p>');
     }
 
 
@@ -210,7 +212,7 @@ $(document).on('click', '#change_pass_doc', function() {
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     if(xhr.responseText == 'true') {
-                        window.location.href = 'https://test.feelyprivacy.com/s/p';
+                        window.location.href = 'https://test.feelyprivacy.com/s/';
                     }
                     else if(xhr.responseText == 'notSent') {
                         console.log(xhr.responseText);
