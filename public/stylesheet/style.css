@@ -178,12 +178,12 @@ body .btn-close, .btn, .form-control, .form-select {
 /* .slider::-webkit-scrollbar {
     width: 0 !important;
 } */
-.slider {
+/* .slider {
     max-width: fit-content !important;
     width: 100% !important;
     overflow-x: auto !important;
     background: #fff;
-}
+} */
 .slider a {
     color: rgb(97, 97, 97);
     text-decoration: none;

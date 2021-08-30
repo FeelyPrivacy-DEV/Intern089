@@ -59,7 +59,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/public/stylesheet/p-booking.css?ver=1.4">
+    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/public/stylesheet/p-booking.css?ver=1.6">
     <title>Patient | Booking</title>
 </head>
 
@@ -117,7 +117,7 @@
 
 
         <!-- body content -->
-        <div class="col-md-9 d-book-content my-4">
+        <div class="col-md-9 d-book-content  my-4">
             <div class="left d-flex mb-4">
                 <img src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded" height="90"
                     alt="User Image">
@@ -153,7 +153,7 @@
 
                 <p id="warn"></p>
 
-                <div class='container slider-main my-5'>
+                <div class='container slider-main my-5' id="seven-days-slot">
                     <?php echo $msg; ?>
                     <!-- <button type="button" class="btn slider-btn" id=""><i class='bi bi-chevron-left text-primary text-center my-auto rounder-circle'></i></button> -->
                     <div class="slider my-5 " id="seven-days-slot">

@@ -43,3 +43,7 @@ svg.svelte-ekc7fv.svelte-ekc7fv {
 .side-nav {
     display: block;
 }
+.slider-main .slider {
+    width: 100% !important;
+   overflow-x: auto !important;
+}

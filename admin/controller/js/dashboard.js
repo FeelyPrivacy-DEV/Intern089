@@ -61,7 +61,7 @@ function del(i) {
 
     let delt = true;
     var xhr = new XMLHttpRequest();
-    var url = "http://127.0.0.1/s/s/admin/controller/php/dashboard.php";
+    var url = "https://test.feelyprivacy.com/s/admin/controller/php/dashboard.php";
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
