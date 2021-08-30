@@ -141,7 +141,7 @@
                 <!-- day and date strip -->
                 <div class="container dd-strip d-flex justify-content-between">
                     <div class="" id="today-date">
-                        <h4 class="mb-1"><?php echo date('d F Y'); ?></h4>
+                        <h4 class="mb-1"><?php echo date('d F Y'); ?></h4> 
                         <p class="text-muted"><?php echo date('l'); ?></p>
                     </div>
                     <div class="">
