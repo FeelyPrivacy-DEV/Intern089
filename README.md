@@ -6,7 +6,7 @@
 
 ## Project Description
 
-There are two sections in this project 
+**There are two sections in this project :-**
 
  1. **Doctor**
     - First doctor has to create account <a href="https://test.feelyprivacy.com/s/">here</a>. 
