@@ -16,7 +16,7 @@
     - Dcotor cannot change timings or scheduleds of previous  days.
     - Once scheduleding is done, patients can now able to see doctor's profile and book appoinments with you.
     - Doctor can have two options after patient's booking appoinment, either doctor can accept or cancel the appoinment, every thing is updated via the email for doctor and patient.
-    - It is recommended to doctors to complete their profile details like their clinic details etc. for convenient of patients, as well as the ranking od doctors. 
+    - It is recommended to doctors to complete their profile details like their clinic details etc. for convenient of patients, as well as the ranking doctors. 
   
  2. **Patient**
     - Patient can directly create their account <a href="https://test.feelyprivacy.com/s/p">here</a> without administrator approval.
