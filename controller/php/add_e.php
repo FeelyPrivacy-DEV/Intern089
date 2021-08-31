@@ -35,10 +35,10 @@ require '../../vendor/autoload.php';
         include './email/pat_book_email.php';
         if($send == true) {
             echo 'true';
-            // header( 'location: https://test.feelyprivacy.com/s/p?login=now' );
+            // header( 'location: https://test.feelyprivacy.comprivacy.com/s/p?login=now' );
         }
         else {
-            header( 'location: https://test.feelyprivacy.com/s/view/p/checkout?email=err' );
+            header( 'location: https://test.feelyprivacy.comprivacy.com/s/view/p/checkout?email=err' );
         }
 
         // clear SEO
@@ -55,7 +55,7 @@ require '../../vendor/autoload.php';
 
         // echo seourl("/view/p/checkout?date=".$date);
 
-        // header('location: https://test.feelyprivacy.com/s/view/p/checkout?id='.$doc_id.'&d='.$date.'&t='.$s_time);
+        // header('location: https://test.feelyprivacy.comprivacy.com/s/view/p/checkout?id='.$doc_id.'&d='.$date.'&t='.$s_time);
 
     }
     else if(isset($_POST['selected_sch'])) {

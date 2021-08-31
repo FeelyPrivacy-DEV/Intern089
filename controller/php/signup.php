@@ -102,16 +102,16 @@ try {
             );
             include './email/doc_reg_email.php';
             if($send == true) {
-                header( 'location: https://test.feelyprivacy.com/s/index?login=wait' );
+                header( 'location: https://test.feelyprivacy.comprivacy.com/s/index?login=wait' );
             }
             else {
-                header( 'location: https://test.feelyprivacy.com/s/index?email=err' );
+                header( 'location: https://test.feelyprivacy.comprivacy.com/s/index?email=err' );
             }
 
             // echo 'Account created success';
         }
         else {
-            header( 'location: https://test.feelyprivacy.com/s/index?c=e' );
+            header( 'location: https://test.feelyprivacy.comprivacy.com/s/index?c=e' );
         }
 
         // print_r( $responseData );
@@ -171,14 +171,14 @@ try {
             );
             include './email/pat_reg_email.php';
             if($send == true) {
-                header( 'location: https://test.feelyprivacy.com/s/p?login=now' );
+                header( 'location: https://test.feelyprivacy.comprivacy.com/s/p?login=now' );
             }
             else {
-                header( 'location: https://test.feelyprivacy.com/s/p?email=err' );
+                header( 'location: https://test.feelyprivacy.comprivacy.com/s/p?email=err' );
             }
 
         } else {
-            header( 'location: https://test.feelyprivacy.com/s/p?c=e' );
+            header( 'location: https://test.feelyprivacy.comprivacy.com/s/p?c=e' );
         }
         // echo 'Account created success';
 

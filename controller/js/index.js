@@ -40,7 +40,7 @@ $(document).on('keyup', '#search_doc', function() {
     let sq = $(this).val();
     let search = true;
     var xhr = new XMLHttpRequest();
-    var url = "https://test.feelyprivacy.com/s/controller/php/index.php";
+    var url = "https://test.feelyprivacy.comprivacy.com/s/controller/php/index.php";
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -64,7 +64,7 @@ $(document).on('click', '#doc_forgot', function() {
     var email = $('#d_for_email').val();
     let doc_forgot = true;
     var xhr = new XMLHttpRequest();
-    var url = "https://test.feelyprivacy.com/s/controller/php/forgot_password.php";
+    var url = "https://test.feelyprivacy.comprivacy.com/s/controller/php/forgot_password.php";
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -106,7 +106,7 @@ $(document).on('click', '#pat_forgot', function() {
     var email = $('#p_for_email').val();
     let pat_forgot = true;
     var xhr = new XMLHttpRequest();
-    var url = "https://test.feelyprivacy.com/s/controller/php/forgot_password.php";
+    var url = "https://test.feelyprivacy.comprivacy.com/s/controller/php/forgot_password.php";
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -156,14 +156,14 @@ $(document).on('click', '#change_pass_pat', function() {
             $('#for_warn_pat').html('<h5 class="text-success">Password Changed Successfully <br> You will be redirect to login page.</h3>');
             let change_pass_pat = true;
             var xhr = new XMLHttpRequest();
-            var url = "https://test.feelyprivacy.com/s/controller/php/forgot_password.php";
+            var url = "https://test.feelyprivacy.comprivacy.com/s/controller/php/forgot_password.php";
             
             xhr.open("POST", url, true);
             xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     if(xhr.responseText == 'true') {
-                        window.location.href = 'https://test.feelyprivacy.com/s/p';
+                        window.location.href = 'https://test.feelyprivacy.comprivacy.com/s/p';
                     }
                     else if(xhr.responseText == 'notSent') {
                         $('#for_warn_pat').html('<p class="text-danger">For some reason emailnot sent (email error)</p>');
@@ -205,14 +205,14 @@ $(document).on('click', '#change_pass_doc', function() {
             $('#for_warn_pat').html('<h4 class="text-success">Password Changed Successfully <br> You will be redirect to login page.</h4>');
             let change_pass_doc = true;
             var xhr = new XMLHttpRequest();
-            var url = "https://test.feelyprivacy.com/s/controller/php/forgot_password.php";
+            var url = "https://test.feelyprivacy.comprivacy.com/s/controller/php/forgot_password.php";
             
             xhr.open("POST", url, true);
             xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     if(xhr.responseText == 'true') {
-                        window.location.href = 'https://test.feelyprivacy.com/s/';
+                        window.location.href = 'https://test.feelyprivacy.comprivacy.com/s/';
                     }
                     else if(xhr.responseText == 'notSent') {
                         console.log(xhr.responseText);

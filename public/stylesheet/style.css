@@ -11,7 +11,119 @@ body .btn-close, .btn, .form-control, .form-select {
         -ms-user-select: none;
             user-select: none; 
 } */
- 
+
+
+
+/** Watson styles **/
+#WACContainer.WACContainer .WAC  {
+    border-radius: 30px !important;
+}
+#WACContainer.WACContainer .WACBotContainer {
+    border-radius: 30px !important;
+}
+#WACContainer.WACContainer .WACLauncher__ButtonContainer {
+    border-radius: 50% !important;
+    border-color: transparent !important;
+}
+#WACContainer.WACContainer .WACLauncher__ButtonContainer.WACLauncher__ButtonContainer--open {
+    border-color: #fff !important;
+}
+#WACContainer.WACContainer button.WAC__button--primary:enabled {
+    border-color: transparent !important;
+    border-radius: 50% !important;
+    background-color: rgb(0, 214, 214) !important;
+}
+
+#WACContainer.WACContainer .WAC__header-name {
+    visibility: hidden !important;
+    font-family: sans-serif !important;
+    min-height: 48px;
+    text-align: left;
+    padding: 12px 12px 12px 0;
+}
+#WACContainer.WACContainer .WAC__header-name::after { 
+    visibility: visible !important;
+    content: 'Pavankumar\'s Bot' !important;
+    position:  absolute !important;
+    opacity: 9999999 !important;
+    z-index: 9999999999 !important;
+    margin-left: -135px !important;
+}
+#WACContainer.WACContainer .WAC__message .WAC__message-vertical-padding {
+    margin-top: 1px !important;
+    margin-bottom: 10px !important;
+}
+#WACContainer.WACContainer .WAC__ChatNonHeaderContainer {
+    background: rgb(255, 255, 255) !important;
+}
+
+#WACContainer.WACContainer .WAC__connectToAgent--title, #WACContainer.WACContainer .WAC__image--title {
+    background: #ffffff !important;
+    color: #00d4d4 !important;
+    padding: 10px 10px !important;
+}
+#WACContainer.WACContainer .WAC__button-holder ul li button, 
+#WACContainer.WACContainer .WAC__messages .WAC__messagesEndChatButton, 
+#WACContainer.WACContainer .WAC__process-launcher .WAC__button--round, 
+#WACContainer.WACContainer .WACAlternateSuggestionsOptionsPanel .WAC__button-holder button {
+    background: transparent !important;
+    color: #00d4d4 !important;
+    border: 1px solid #00d4d4 !important;
+
+}
+#WACContainer.WACContainer .WAC__button-holder ul li button:hover, 
+#WACContainer.WACContainer .WAC__messages .WAC__messagesEndChatButton, 
+#WACContainer.WACContainer .WAC__process-launcher .WAC__button--round, 
+#WACContainer.WACContainer .WACAlternateSuggestionsOptionsPanel .WAC__button-holder button:hover {
+    background: #00d4d4 !important;
+    color: #ffffff !important;
+    border: 1px solid #00d4d4 !important;
+
+}
+#WACContainer.WACContainer .WAC__sent {
+    color: rgb(255, 255, 255) !important;
+    border: 1px solid #1e65ff !important;
+    background-color: #1e65ff !important;
+    font-weight: 800 !important;
+}
+#WACContainer.WACContainer .WAC__message .WAC__received {
+    background: #ffffff !important;
+    color: #00d4d4 !important;
+    padding: 10px 10px !important;
+    border: 1px solid !important;
+    border-radius: 9px !important;
+    font-weight: 800 !important;
+}
+#WACContainer.WACContainer .WAC__sent:after {
+    /* border-left: 8px solid rgb(161, 244, 255) !important; */
+    border-top: 8px solid #1e65ff !important;
+    bottom: -8px !important;
+    content: "" !important;
+    position: absolute !important;
+    right: -1px !important;
+}
+#WACContainer.WACContainer .WAC__inputContainer .WAC__TextArea textarea.WAC__TextArea-textarea {
+    border: 2px solid #1e65ff !important;
+}
+#WACContainer.WACContainer button.WAC__send-button.WAC__button--base.WAC__button--primary:disabled {
+    color: transparent !important;
+}
+#WACContainer.WACContainer button.WAC__send-button.WAC__button--base.WAC__button--primary {
+    border: none !important;
+}
+#WACContainer.WACContainer button.WAC__send-button.WAC__button--base {
+    border: 2px solid #1e65ff !important;
+    background: transparent !important;
+    color: blue !important;
+    border-left: none !important;
+}
+#WACContainer.WACContainer .WACAlternateSuggestionsButton__ButtonContainer {
+    display: none !important;
+}
+#WACContainer.WACContainer .WACBrandingBanner__text {
+    display: none !important;
+}
+
 
 
 .navbar {
