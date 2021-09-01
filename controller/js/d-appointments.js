@@ -11,7 +11,7 @@ function accept(pid, date, date_ind, i) {
     $(`#acc${i}`).html('Accepted');
     let accept = true;
     var xhr = new XMLHttpRequest();
-    var url = "https://test.feelyprivacy.com/s/controller/php/add_m.php";
+    var url = "http://143.244.139.242/s/controller/php/add_m.php";
   
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -32,7 +32,7 @@ function accept(pid, date, date_ind, i) {
     $(`#can${i}`).html('Cancelled');
     let cancelled = true;
     var xhr = new XMLHttpRequest();
-    var url = "https://test.feelyprivacy.com/s/controller/php/add_m.php";
+    var url = "http://143.244.139.242/s/controller/php/add_m.php";
   
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

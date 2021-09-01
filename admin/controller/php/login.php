@@ -21,15 +21,15 @@ if(isset($_POST['a_login'])) {
             $_SESSION['aid'] = $record['_id'];
             $_SESSION['a_unid'] = $record['a_unid'];
             $_SESSION['fname'] = $record['fname'];
-            header('location: https://test.feelyprivacy.com/s/admin/view/index');
+            header('location: http://143.244.139.242/s/admin/view/index');
             exit();
         }
         else {
-            header('location: https://test.feelyprivacy.com/s/admin/index?auth=failed');
+            header('location: http://143.244.139.242/s/admin/index?auth=failed');
         }
     }
     else {
-        header('location: https://test.feelyprivacy.com/s/admin/index?auth=failed');
+        header('location: http://143.244.139.242/s/admin/index?auth=failed');
     }
 
 

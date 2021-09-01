@@ -97,21 +97,21 @@ try {
 
             $collection = $db->admin;
             $collection->updateOne(
-                ['a_unid' => '1747567783'],
+                ['a_unid' => '39992729'],
                 ['$push' =>['pendingDoc_ids' => $d_unid]]
             );
             include './email/doc_reg_email.php';
             if($send == true) {
-                header( 'location: https://test.feelyprivacy.com/s/index?login=wait' );
+                header( 'location: http://143.244.139.242/s/index?login=wait' );
             }
             else {
-                header( 'location: https://test.feelyprivacy.com/s/index?email=err' );
+                header( 'location: http://143.244.139.242/s/index?email=err' );
             }
 
             // echo 'Account created success';
         }
         else {
-            header( 'location: https://test.feelyprivacy.com/s/index?c=e' );
+            header( 'location: http://143.244.139.242/s/index?c=e' );
         }
 
         // print_r( $responseData );
@@ -166,19 +166,19 @@ try {
 
             $collection = $db->admin;
             $collection->updateOne(
-                ['a_unid' => '1747567783'],
+                ['a_unid' => '39992729'],
                 ['$push' =>['pat_ids' => $p_unid]]
             );
             include './email/pat_reg_email.php';
             if($send == true) {
-                header( 'location: https://test.feelyprivacy.com/s/p?login=now' );
+                header( 'location: http://143.244.139.242/s/p?login=now' );
             }
             else {
-                header( 'location: https://test.feelyprivacy.com/s/p?email=err' );
+                header( 'location: http://143.244.139.242/s/p?email=err' );
             }
 
         } else {
-            header( 'location: https://test.feelyprivacy.com/s/p?c=e' );
+            header( 'location: http://143.244.139.242/s/p?c=e' );
         }
         // echo 'Account created success';
 

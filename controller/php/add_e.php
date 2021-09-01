@@ -1,7 +1,7 @@
 <?php
 
     error_reporting(0);
-session_start();
+session_start(); 
 require '../../vendor/autoload.php';
     $con = new MongoDB\Client( 'mongodb://127.0.0.1:27017' );
     $db = $con->php_mongo; $collection = $db->employee;
@@ -35,10 +35,10 @@ require '../../vendor/autoload.php';
         include './email/pat_book_email.php';
         if($send == true) {
             echo 'true';
-            // header( 'location: https://test.feelyprivacy.com/s/p?login=now' );
+            // header( 'location: http://143.244.139.242/s/p?login=now' );
         }
         else {
-            header( 'location: https://test.feelyprivacy.com/s/view/p/checkout?email=err' );
+            header( 'location: http://143.244.139.242/s/view/p/checkout?email=err' );
         }
 
         // clear SEO
@@ -55,11 +55,11 @@ require '../../vendor/autoload.php';
 
         // echo seourl("/view/p/checkout?date=".$date);
 
-        // header('location: https://test.feelyprivacy.com/s/view/p/checkout?id='.$doc_id.'&d='.$date.'&t='.$s_time);
+        // header('location: http://143.244.139.242/s/view/p/checkout?id='.$doc_id.'&d='.$date.'&t='.$s_time);
 
     }
     else if(isset($_POST['selected_sch'])) {
-        echo $_POST['meeting_date'];
+        $_POST['meeting_date'];
         $st = strval($_POST['meeting_time']);
     
         $collection = $db->manager;

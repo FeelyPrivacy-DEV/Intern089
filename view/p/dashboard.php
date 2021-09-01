@@ -4,7 +4,7 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['eid'] == '') {
-        header('location: https://test.feelyprivacy.com/s/index');
+        header('location: http://143.244.139.242/s/index');
     }
     $con = new MongoDB\Client( 'mongodb://127.0.0.1:27017' );
     $db = $con->php_mongo;
@@ -33,7 +33,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/public/stylesheet/p-dashboard.css?ver=2.1">
+    <link rel="stylesheet" href="http://143.244.139.242/s/public/stylesheet/p-dashboard.css?ver=2.1">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -57,7 +57,7 @@
         <div class="col-md-3 side-profile p-2 border">
             <div class="">
                 <div class="d-flex justify-content-center mb-4">
-                    <img src="https://test.feelyprivacy.com/s/public/image/pat-img/default_user.png" height="150" class="rounded-circle"
+                    <img src="http://143.244.139.242/s/public/image/pat-img/default_user.png" height="150" class="rounded-circle"
                         alt="">
                 </div>  
                 <h4 class="text-center"><a href="#"><?php echo $record['fname'].' '.$record['sname']; ?></a></h4>
@@ -69,12 +69,12 @@
             </div>
             <div class="side-nav my-4">
                 <ul class="px-0">
-                    <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/index" ><i class="bi bi-person-bounding-box"></i>Select Doctor</a></li>
-                    <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/dashboard"  class="s-active"><i class="bi bi-speedometer"></i>Dashboard</a></li>
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/p/index" ><i class="bi bi-person-bounding-box"></i>Select Doctor</a></li>
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/p/dashboard"  class="s-active"><i class="bi bi-speedometer"></i>Dashboard</a></li>
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-bookmark-fill"></i></i>Favouriate</a></li> -->
-                    <!-- <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/booking"><i class="bi bi-chat-left-dots-fill"></i>Booking</a></li> -->
+                    <!-- <li class="px-4"><a href="http://143.244.139.242/s/view/p/booking"><i class="bi bi-chat-left-dots-fill"></i>Booking</a></li> -->
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li> -->
-                    <!-- <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/profile-settings"><i class="bi bi-gear-fill"></i>Profile Setting</a></li> -->
+                    <!-- <li class="px-4"><a href="http://143.244.139.242/s/view/p/profile-settings"><i class="bi bi-gear-fill"></i>Profile Setting</a></li> -->
                     <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
                 </ul>   
@@ -128,13 +128,13 @@
                                                     echo'<tr class="py-5">
                                                             <td class="d-flex pat">';
                                                                     if($doc_detail['profile_image'] != '') {
-                                                                        echo '<img src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/'.$doc_detail['profile_image'].'" class="my-auto" height="40" alt="User Image">';
+                                                                        echo '<img src="http://143.244.139.242/s/public/image/doc-img/doc-img/'.$doc_detail['profile_image'].'" class="my-auto" height="40" alt="User Image">';
                                                                     }
                                                                     else {
-                                                                        echo '<img src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="User Image">';
+                                                                        echo '<img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="User Image">';
                                                                     }
                                                             echo '
-                                                                    <a href="https://test.feelyprivacy.com/s/view/p/doctor-profile?id='.$doc_detail['d_unid'].'" class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
+                                                                    <a href="http://143.244.139.242/s/view/p/doctor-profile?id='.$doc_detail['d_unid'].'" class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
                                                                         '.$doc_detail['fname'].' '.$doc_detail['sname'].'
                                                                         <p class="text-muted  text-left my-auto">#PT00'.$c.'</p>
                                                                     </a>
@@ -226,7 +226,7 @@
                                 <td class="text-nowrap">14 Nov 2019 </td>
                                 <td class="text-f">Prescription 1</td>
                                 <td class="d-flex pat">
-                                    <img src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
+                                    <img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
                                     <a href="" class="px-2 my-auto text-nowrap">                    
                                             Dr. Ruby Perrin
                                         <p class="text-muted my-auto">Dental</p>
@@ -263,7 +263,7 @@
                                 <td class="text-center">Dental Filling</td>
                                 <td class="text-center"><a href="#">dental-test.pdf</a></td>
                                 <td class="d-flex pat">
-                                    <img src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
+                                    <img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
                                     <a href="" class="px-2 my-auto text-nowrap">                    
                                             Dr. Ruby Perrin
                                         <p class="text-muted my-auto">Dental</p>
@@ -297,7 +297,7 @@
                                 <td class="text-nowrap"><a href="#">#INV-0010</a></td>
                                 
                                 <td class="d-flex pat">
-                                    <img src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
+                                    <img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
                                     <a href="" class="px-2 my-auto text-nowrap">                    
                                             Dr. Ruby Perrin
                                         <p class="text-muted my-auto">Dental</p>
@@ -329,7 +329,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='https://test.feelyprivacy.com/s/controller/js/p-dashboard.js?ver=1.6'></script>
+    <script src='http://143.244.139.242/s/controller/js/p-dashboard.js?ver=1.6'></script>
 
 </body>
 

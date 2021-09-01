@@ -1,49 +1,17 @@
 <?php
-    use MongoDB\Operation\Find;
+
     error_reporting(0);
     session_start();
     require '../../vendor/autoload.php';
+
+    // if the session is not set and patient is not logged in then it will redirected to home page
     if($_SESSION['eid'] == '') {
-        header('location: https://test.feelyprivacy.com/s/index');
+        header('location: http://143.244.139.242/s/');
     }
 
+    // connecting to database
     $con = new MongoDB\Client( 'mongodb://127.0.0.1:27017' );
     $db = $con->php_mongo;
-
- 
-    $msg = '';
-
-    if($_GET['e'] == 'sametm') {
-        $msg = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Not available !</strong> Because this scheduled is already booked by <strong> manager.</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>';
-    }
-    else if($_GET['e'] == 'samete') {
-        $msg = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <strong>Not available !</strong> Because this scheduled is already booked by other <strong> emplpoyee.</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>';
-    }
-    else if($_GET['time'] == 'equal') {
-        $msg = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <strong>You already booked this time schedueld !</strong> Please select another one.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>';
-    }
-    else if($_GET['time'] == 'add' || $_GET['date'] == 'add') {
-        $msg = '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Your meeting scheduled has been saved !</strong> 
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>';
-    }
-    else if($_GET['time'] == 'addm' || $_GET['date'] == 'addm') {
-        $msg = '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Your meeting has been scheduled with Manager !</strong> 
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>';
-    }
-
 
     $d = date( 'Y-m-d' );
     $ass = $_GET['id'];
@@ -59,7 +27,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/public/stylesheet/p-booking.css?ver=1.6">
+    <link rel="stylesheet" href="http://143.244.139.242/s/public/stylesheet/p-booking.css?ver=1.6">
     <title>Patient | Booking</title>
 </head>
 
@@ -87,7 +55,7 @@
                     $erecord = $collection->findOne( ['_id' =>$_SESSION['eid']] );
                 ?>
                 <div class="d-flex justify-content-center mb-4">
-                    <img src="https://test.feelyprivacy.com/s/public/image/pat-img/default_user.png" height="150"
+                    <img src="http://143.244.139.242/s/public/image/pat-img/default_user.png" height="150"
                         class="rounded-circle" alt="">
                 </div>
                 <h4 class="text-center"><a href="#"><?php echo $erecord['fname'].' '.$erecord['sname']; ?></a></h4>
@@ -99,15 +67,15 @@
             </div>
             <div class="side-nav my-4">
                 <ul class="px-0">
-                    <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/index"><i
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/p/index"><i
                                 class="bi bi-person-bounding-box"></i>Select Doctor</a></li>
-                    <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/dashboard"><i
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/p/dashboard"><i
                                 class="bi bi-speedometer"></i>Dashboard</a></li>
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-bookmark-fill"></i></i>Favouriate</a></li> -->
-                    <!-- <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/booking" class="s-active"><i
+                    <!-- <li class="px-4"><a href="http://143.244.139.242/s/view/p/booking" class="s-active"><i
                                 class="bi bi-chat-left-dots-fill"></i>Booking</a></li> -->
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li> -->
-                    <!-- <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/profile-settings"><i
+                    <!-- <li class="px-4"><a href="http://143.244.139.242/s/view/p/profile-settings"><i
                                 class="bi bi-gear-fill"></i>Profile Setting</a></li> -->
                     <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
@@ -119,7 +87,7 @@
         <!-- body content -->
         <div class="col-md-9 d-book-content  my-4">
             <div class="left d-flex mb-4">
-                <img src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded" height="90"
+                <img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded" height="90"
                     alt="User Image">
                 <div class="mx-3">
                     <h5>Dr. <?php echo $record['fname'].' '.$record['sname'] ?></h5>
@@ -273,8 +241,8 @@
 
 
         <?php include '../../assest/bottom_links.php'; ?>
-        <script src="https://test.feelyprivacy.com/s/controller/js/p-booking.js?ver=3.3"></script>
-        <!-- <script src="https://test.feelyprivacy.com/s/controller/js/success.js?ver=2.0"></script> -->
+        <script src="http://143.244.139.242/s/controller/js/p-booking.js?ver=3.3"></script>
+        <!-- <script src="http://143.244.139.242/s/controller/js/success.js?ver=2.0"></script> -->
 </body>
 
 </html>

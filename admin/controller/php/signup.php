@@ -32,7 +32,7 @@ try {
             'doc_ids' => $doc_ids,
         ] );
         
-        header('location: https://test.feelyprivacy.com/s/admin/index?login=now');
+        header('location: http://143.244.139.242/s/admin/index?login=now');
         // echo 'Account created success';
 
     }

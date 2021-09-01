@@ -4,7 +4,7 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['docid'] == '') {
-        header('location: https://test.feelyprivacy.com/s/index');
+        header('location: http://143.244.139.242/s/index');
     }
     $con = new MongoDB\Client( 'mongodb://127.0.0.1:27017' );
     $db = $con->php_mongo;
@@ -30,7 +30,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/public/stylesheet/d-dashboard.css?ver=1.8">
+    <link rel="stylesheet" href="http://143.244.139.242/s/public/stylesheet/d-dashboard.css?ver=1.8">
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -56,10 +56,10 @@
                 <div class="d-flex justify-content-center mb-4">
                 <?php
                         if($record['profile_image'] != '') {
-                            echo '<img src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/'.$record['profile_image'].'" class="rounded" height="160" alt="User Image">';
+                            echo '<img src="http://143.244.139.242/s/public/image/doc-img/doc-img/'.$record['profile_image'].'" class="rounded" height="160" alt="User Image">';
                         }
                         else {
-                            echo '<img src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg" height="160" alt="User Image">';
+                            echo '<img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" height="160" alt="User Image">';
                         }
                     ?>
                 </div>
@@ -71,17 +71,17 @@
             </div>
             <div class="side-nav my-4">
                 <ul class="px-0">
-                    <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/d/index"  class="s-active"><i
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/d/index"  class="s-active"><i
                                 class="bi bi-speedometer"></i>Dashboard</a></li>
-                    <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/d/appointments"><i
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/d/appointments"><i
                                 class="bi bi-calendar-check-fill"></i>Appointments</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-person-lines-fill"></i>My Patients</a></li>
-                    <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/d/schedule-timings"><i
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/d/schedule-timings"><i
                                 class="bi bi-hourglass-split"></i>Schedule Timimg</a></li>
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-receipt-cutoff"></i>Invoice</a></li> -->
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-star-fill"></i>Review</a></li> -->
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li> -->
-                    <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/d/profile-settings"><i
+                    <li class="px-4"><a href="http://143.244.139.242/s/view/d/profile-settings"><i
                                 class="bi bi-gear-fill"></i>Profile Setting</a></li>
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-share-fill"></i>Social Media</a></li> -->
                     <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
@@ -94,7 +94,7 @@
             <div class="row d-flex justify-content-between short-data">
                 <div class="col-md-3 m-4">
                     <div class="d-flex">
-                        <img src="https://test.feelyprivacy.com/s/public/image/doc-img/icon-01.png" class="p-4" alt="" srcset="">
+                        <img src="http://143.244.139.242/s/public/image/doc-img/icon-01.png" class="p-4" alt="" srcset="">
                         <div class="px-3 my-auto d-flex flex-column justify-content-startr">
                             <?php
                                 $collection = $db->manager;
@@ -109,7 +109,7 @@
                 </div>
                 <div class="col-md-3 m-4 ">
                     <div class="d-flex">
-                        <img src="https://test.feelyprivacy.com/s/public/image/doc-img/icon-02.png" class="p-4" alt="" srcset="">
+                        <img src="http://143.244.139.242/s/public/image/doc-img/icon-02.png" class="p-4" alt="" srcset="">
                         <div class="px-3 my-auto d-flex flex-column justify-content-start">
                             <?php
                             $cnt = 0;
@@ -143,7 +143,7 @@
                 </div>
                 <div class="col-md-3 m-4 ">
                     <div class="d-flex ">
-                        <img src="https://test.feelyprivacy.com/s/public/image/doc-img/icon-03.png" class="p-4" alt="" srcset="">
+                        <img src="http://143.244.139.242/s/public/image/doc-img/icon-03.png" class="p-4" alt="" srcset="">
                         <div class="px-3 my-auto d-flex flex-column justify-content-start">
                             <?php
                                 $cnt = 0;
@@ -220,9 +220,9 @@
                                                                 
                                                                 echo'<tr class="py-5">
                                                                         <td class="d-flex pat">
-                                                                            <img src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
+                                                                            <img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
                                                                             
-                                                                            <a href="https://test.feelyprivacy.com/s/view/d/patient-profile?id='.$perticular_pat['p_unid'].'" class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
+                                                                            <a href="http://143.244.139.242/s/view/d/patient-profile?id='.$perticular_pat['p_unid'].'" class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
                                                                                 '.$perticular_pat['fname'].' '.$perticular_pat['sname'].'
                                                                                 <p class="text-muted  text-left my-auto">#PT00'.$c.'</p>
                                                                             </a>
@@ -272,7 +272,7 @@
                                                                                         <div class="p-3 d-flex justify-content-between my-2 ">
                                                                                             <div class="d-flex pet-info">
                                                                                                 <div class="pat-img">
-                                                                                                    <img src="https://test.feelyprivacy.com/s/public/image/pat-img/default_user.png" height="110" width="110"
+                                                                                                    <img src="http://143.244.139.242/s/public/image/pat-img/default_user.png" height="110" width="110"
                                                                                                         alt="" srcset="">
                                                                                                 </div>
                                                                                                 <div class="pat-det mx-4">
@@ -318,8 +318,8 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='https://test.feelyprivacy.com/s/controller/js/d-dashboard.js?ver=1.4'></script>
-    <!-- <script src='https://test.feelyprivacy.com/s/controller/js/d-temp.js?ver=1.1'></script> -->
+    <script src='http://143.244.139.242/s/controller/js/d-dashboard.js?ver=1.4'></script>
+    <!-- <script src='http://143.244.139.242/s/controller/js/d-temp.js?ver=1.1'></script> -->
 
 </body>
 
