@@ -1,0 +1,54 @@
+
+.PaymentButton--rzpTheme.svelte-ekc7fv .PaymentButton-contents.svelte-ekc7fv {
+    background: rgb(0, 212, 240) !important;
+    padding: 10px 30px !important;
+}
+.PaymentButton-text.svelte-ekc7fv.svelte-ekc7fv {
+    color: #fff !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+}
+.PaymentButton-securedBy.svelte-ekc7fv.svelte-ekc7fv {
+    display: none !important;
+}
+svg.svelte-ekc7fv.svelte-ekc7fv {
+    display: none !important;
+}
+.PaymentButton--rzpTheme.svelte-ekc7fv.svelte-ekc7fv::before {
+    display: none !important;
+}
+
+.select_active .time-slots .time-btn .btn-a .bt-active {
+    color: rgb(0, 85, 255) !important;
+    background: rgba(0, 132, 255, 0.233) !important;
+}
+
+
+ 
+@media screen and (max-width: 900px) { 
+    .row {
+        margin: 0px 0px !important;
+    }
+    .side-profile .sidebtn {
+        display: block;
+    }
+    .side-profile .side-nav {
+        display: none;
+    }
+}
+.sidebtn {
+    display: none;
+}
+.side-nav {
+    display: block;
+}
+
+#select_active {
+    width: fit-content !important;   
+}
+.slider-main {
+    width: fit-content !important;
+    /* overflow: scroll !important; */
+    overflow-x: scroll !important;
+}

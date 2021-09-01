@@ -1,0 +1,90 @@
+body {
+    background-color: #fff;
+    color: #333;
+    font-family: 'Mada', sans-serif;
+    font-size: 1rem;
+    height: 100%;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+body a {
+    text-decoration: none !important;
+    color: #00b1cc !important;
+}
+
+.login-body {
+    display: table;
+    height: 100vh;
+    min-height: 100vh;
+}
+.main-wrapper {
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+}
+.login-wrapper {
+    width: 100%;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+}
+.login-wrapper .loginbox {
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 1px 3px 33px rgb(190, 190, 190);
+    display: flex;
+    margin: 1.875rem auto;
+    max-width: 800px;
+    min-height: 500px;
+    width: 100%;
+}
+.login-wrapper .loginbox .login-left {
+    align-items: center;
+    background: linear-gradient(180deg, #0c5da3, #00d0f1);
+    border-radius: 6px 0 0 6px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    width: 400px;
+    display: flex;
+}
+.login-wrapper .loginbox .login-left img {
+    box-shadow: 1px 3px 20px rgb(90, 90, 90);
+}
+.login-wrapper .loginbox .login-right {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    width: 400px;
+}
+.login-wrapper .loginbox .login-right .form-control {
+    font-size: 13px !important;
+}
+.login-wrapper .loginbox .login-right .login-right-wrap {
+    max-width: 100%;
+    flex: 0 0 100%;
+}
+.login-wrapper .loginbox .login-right h1 {
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.account-subtitle {
+    color: #4c4c4c;
+    font-size: 17px;
+    margin-bottom: 1.875rem;
+    text-align: center;
+}
+.login-or {
+    color: #a0a0a0;
+    position: relative;
+}
+.social-login {
+    text-align: center;
+}
+.login-wrapper .loginbox .login-right .dont-have {
+    color: #a0a0a0;
+    margin-top: 1.875rem;
+}

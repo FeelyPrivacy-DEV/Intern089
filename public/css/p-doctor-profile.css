@@ -1,0 +1,116 @@
+body {
+    background-color: #f8f9fa !important;
+}
+body .border {
+    border-color: rgb(192, 192, 192) !important;
+}
+.container {
+    background: #fff !important;
+}
+
+.left h5    {
+    color: rgb(0, 199, 199); 
+}
+.left p    {
+    font-size: 14px !important;
+}
+.left a    {
+    text-decoration: none !important;
+    color: rgb(0, 199, 199);
+}
+.right .fun .bookmark:hover {
+    color: #fff !important;
+    background: rgb(255, 0, 0);
+}
+.right .fun .call:hover {
+    color: #fff !important;
+    background: rgb(0, 255, 98);
+}
+.right .fun .video:hover {
+    color: #fff !important;
+    background: rgb(0, 255, 106);
+}
+.right .btn-primary {
+    border-color: rgb(0, 215, 253);
+    background: rgb(0, 215, 253);
+}
+
+
+/* details */
+.nav .active {
+    color: #20c0f3 !important;
+    border-bottom: 4px solid #20c0f3 !important;
+    background-color: transparent !important;
+}
+.nav button {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    border-radius: none !important;
+}
+
+
+
+.widget {
+    margin-bottom: 30px;
+}
+.widget-title {
+    margin-bottom: 15px;
+}
+
+.h4, h4 {
+    font-size: 1.125rem;
+}
+.experience-box {
+    position: relative;
+}   
+.experience-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.experience-list > li {
+    position: relative;
+}
+.experience-list > li .experience-user {
+    background: #fff;
+    height: 10px;
+    left: 4px;
+    margin: 0;
+    padding: 0; 
+    position: absolute;
+    top: 4px;
+    width: 10px;
+}
+.before-circle {
+    background-color: rgba(32, 192, 243, 0.2);
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+    border: 2px solid #20c0f3;
+}   
+.experience-list > li .experience-content {
+    background-color: #fff;
+    margin: 0 0 20px 40px;
+    padding: 0;
+    position: relative;
+}
+.experience-list > li .experience-content .timeline-content {
+    color: #757575;
+}
+.experience-list > li > .experience-content .timeline-content > p {
+    color: #20c0f3 !important;
+}
+
+@media screen and (max-width: 900px) {  
+    .left .doc_img {
+        height: 120px !important;
+        width: 110px !important;
+    }
+    .doc_block {
+        flex-direction: column !important;
+    }
+    .book_now {
+        display: grid !important; 
+    }
+}
