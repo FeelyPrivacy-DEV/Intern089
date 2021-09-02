@@ -11,7 +11,7 @@ var globalVariable = {
      date, date_id, doc_id, s_time, e_time, timeslot
 }
 $('#proccedtopay').attr('disabled', true);
-    
+
 function select_check() {
     if(s_time == '' && e_time == '' && doc_id == '' && date == '') {
         $('#proccedtopay').attr('disabled', true);
@@ -24,45 +24,68 @@ function select_check() {
 }
 function prodtopay(i, j, s_t, e_t, did) {
     select_check();
-    s_time = s_t 
-    e_time = e_t 
-    doc_id = did 
+    s_time = s_t
+    e_time = e_t
+    doc_id = did
     timeslot = s_t + ' - ' + e_t;
     // $(`#btn${j}${j}`).addClass('bs-active');
     // $(`.select_active #btn${j}${i}`).removeClass('bs-active');
     date = i;
-    timeslot = $(`#btn${j}${j}`).text();    
+    timeslot = $(`#btn${j}${j}`).text();
 }
 
 function proccedtopay() {
-    let prodtopay_check = true;
     console.log(doc_id);
+    var _token = $('#proccedToPay_csrf_token').val();
+    // var _token = "{{ csrf_token() }}"
+    var eid = $('#eid').val();
     $('#proccedtopay').html(`
         <div class="spinner-border text-light" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
     `);
     $('#proccedtopay').attr('disabled', true);
-    
-    var xhr = new XMLHttpRequest();
-    var url = 'http://127.0.0.1/s/s/controller/php/add_e.php';
-    
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function() {
-        if(this.readyState == 4 && this.status == 200) {
-            // $('#warn').text(xhr.responseText);
-            // console.log(xhr.responseText);
-            window.location.href = `http://127.0.0.1/s/s/view/p/checkout?id=${doc_id}&t=${s_time}&d=${date}`;
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    };  
-    xhr.send(`prodtopay_check=${prodtopay_check}&date=${date}&doc_id=${doc_id}&s_time=${s_time}&e_time=${e_time}`);
+    });
+    $.ajax({
+        url: "/proccedToPay",
+        type: "POST",
+        data: {
+            // _token: _token,
+            date: date,
+            doc_id: doc_id,
+            s_time: s_time,
+            e_time: e_time,
+            eid: eid
+        }, 
+        success: function(data) {
+            $('#warn').text(data);
+        }
+    });
+
+    // var xhr = new XMLHttpRequest();
+    // var url = '/proccedToPay';
+
+    // xhr.open("POST", url, true);
+    // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    // xhr.onreadystatechange = function() {
+    //     if(this.readyState == 4 && this.status == 200) {
+    //         $('#warn').text(xhr.responseText);
+    //         // console.log(xhr.responseText);
+    //         // window.location.href = `/p/checkout?id=${doc_id}&t=${s_time}&d=${date}`;
+    //     }
+    // };
+    // xhr.send(`_token=${_token}&date=${date}&doc_id=${doc_id}&s_time=${s_time}&e_time=${e_time}&eid=${eid}`);
 }
 
 
 // $(document).on('change', '#doc-select', function() {
 //     doc_id = $(this).val();
-    
+
 //     let d_sel = 'd_sel';
 //     var xhr = new XMLHttpRequest();
 //     var url = 'http://127.0.0.1/s/s/controller/php/add_e.php';

@@ -69,7 +69,7 @@
                 <h4 class="text-center"><a href="#">Dr. <?php echo $record['fname'].' '.$record['sname']; ?></a></h4>
                 <small class="text-center">BDS, MDS - Oral & Maxillofacial Surgery</small>
             </div>
-            <div class="d-grid gap-2">
+            <div class="">
                 <button class="btn btn-sm btn-outline-primary sidebtn fw-bold px-4 my-3"><i class="bi bi-list"></i></button>
             </div>
             <div class="side-nav my-4">

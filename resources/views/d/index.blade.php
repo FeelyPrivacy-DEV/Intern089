@@ -66,7 +66,7 @@
                 <h4 class="text-center"><a href="#">Dr. <?php echo $record['fname'].' '.$record['sname']; ?></a></h4>
                 <small class="text-center mx-auto">BDS, MDS - Oral & Maxillofacial Surgery</small>
             </div>
-            <div class="d-grid gap-2">
+            <div class="">
                 <button class="btn btn-sm btn-outline-primary sidebtn fw-bold px-4 my-3"><i class="bi bi-list"></i></button>
             </div>
             <div class="side-nav my-4">
@@ -94,7 +94,7 @@
             <div class="row d-flex justify-content-between short-data">
                 <div class="col-md-3 m-4">
                     <div class="d-flex">
-                        <img src="http://127.0.0.1/s/s/public/image/doc-img/icon-01.png" class="p-4" alt="" srcset="">
+                        <img src="/image/doc-img/icon-01.png" class="p-4" alt="" srcset="">
                         <div class="px-3 my-auto d-flex flex-column justify-content-startr">
                             <?php
                                 $collection = $db->manager;
@@ -109,7 +109,7 @@
                 </div>
                 <div class="col-md-3 m-4 ">
                     <div class="d-flex">
-                        <img src="http://127.0.0.1/s/s/public/image/doc-img/icon-02.png" class="p-4" alt="" srcset="">
+                        <img src="/image/doc-img/icon-02.png" class="p-4" alt="" srcset="">
                         <div class="px-3 my-auto d-flex flex-column justify-content-start">
                             <?php
                             $cnt = 0;
@@ -143,7 +143,7 @@
                 </div>
                 <div class="col-md-3 m-4 ">
                     <div class="d-flex ">
-                        <img src="http://127.0.0.1/s/s/public/image/doc-img/icon-03.png" class="p-4" alt="" srcset="">
+                        <img src="/image/doc-img/icon-03.png" class="p-4" alt="" srcset="">
                         <div class="px-3 my-auto d-flex flex-column justify-content-start">
                             <?php
                                 $cnt = 0;
@@ -183,6 +183,7 @@
                 <nav class="nav">
                     <button class="btn text-dark px-4 active " id="upcoming">Upcoming</button>
                     <button class="btn text-dark px-4 " id="today">Today</button>
+                    <input type="text" id="todayCsrfToken" hidden value="<?php echo csrf_token(); ?>">
                 </nav>
             </div>
             <!-- table -->

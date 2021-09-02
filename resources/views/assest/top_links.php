@@ -18,7 +18,7 @@
 <!-- hCaptcha -->
 <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="shortcut icon" href="/image/favicon.ico" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/assest/bootstrap/css/bootstrap.css">

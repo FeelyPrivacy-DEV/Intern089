@@ -26,7 +26,7 @@ $bodyText =  '
 
 if($s_time <= 12) {
     $bodyHtml = '
-        <img src="http://127.0.0.1/s/s/public/image/logo.png" style="margin: 0px auto !important;" height="100" >
+        <img src="/image/logo.png" style="margin: 0px auto !important;" height="100" >
         <h3>Hi, '.$drecord['fname'].'</h3>
         <p style="margin-left: 10px !important;">Your Appoinment is booked with patient  '.$_SESSION['fname'].'</p>
         <h5 style="margin: 10px !important;">Appoinment Details :- </h5>
@@ -73,10 +73,10 @@ try {
     echo "Email sent!" , PHP_EOL;
 } catch (Exception $e) {
     $send = false;
-    // echo "An error occurred. {$e->errorMessage()}", PHP_EOL; 
+    // echo "An error occurred. {$e->errorMessage()}", PHP_EOL;
 } catch (Exception $e) {
     $send = false;
-    // echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; 
+    // echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL;
 }
 
 ?>
