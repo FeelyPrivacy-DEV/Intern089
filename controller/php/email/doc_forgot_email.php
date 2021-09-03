@@ -33,11 +33,11 @@ $collection->updateOne(
 );
 
 $bodyHtml = '
-<img src="http://143.244.139.242/s/public/image/logo.png" style="margin: 0px auto !important;" height="100" >
+<img src="https://test.feelyprivacy.com/s/public/image/logo.png" style="margin: 0px auto !important;" height="100" >
     <h5>
         doctor reset password link :- 
 
-        http://143.244.139.242/s/doctor-reset?token='.$token.'&t='.$time.'
+        https://test.feelyprivacy.com/s/doctor-reset?token='.$token.'&t='.$time.'
     
     </h5>
 ';

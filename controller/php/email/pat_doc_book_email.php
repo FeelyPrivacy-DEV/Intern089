@@ -26,7 +26,7 @@ $bodyText =  '
 
 if($s_time <= 12) {
     $bodyHtml = '
-        <img src="http://143.244.139.242/s/public/image/logo.png" style="margin: 0px auto !important;" height="100" >
+        <img src="https://test.feelyprivacy.com/s/public/image/logo.png" style="margin: 0px auto !important;" height="100" >
         <h3>Hi, '.$drecord['fname'].'</h3>
         <p style="margin-left: 10px !important;">Your Appoinment is booked with patient  '.$_SESSION['fname'].'</p>
         <h5 style="margin: 10px !important;">Appoinment Details :- </h5>
@@ -36,7 +36,7 @@ if($s_time <= 12) {
 }
 else {
     $bodyHtml = '
-        <img src="http://143.244.139.242/s/public/image/logo.png" style="margin: 0px auto !important;" height="100" >
+        <img src="https://test.feelyprivacy.com/s/public/image/logo.png" style="margin: 0px auto !important;" height="100" >
         <h3>Hi, '.$drecord['fname'].'</h3>
         <p style="margin-left: 10px !important;">Your Appoinment is booked with patient '.$_SESSION['fname'].'</p>
         <h5 style="margin: 10px !important;">Appoinment Details :- </h5>

@@ -6,17 +6,14 @@
 
     // if the session is not set and patient is not logged in then it will redirected to home page
     if($_SESSION['eid'] == '') {
-        header('location: http://143.244.139.242/s/');
+        header('location: https://test.feelyprivacy.com/s/');
     }
 
     // connecting to database
     $con = new MongoDB\Client( 'mongodb://127.0.0.1:27017' );
     $db = $con->php_mongo;
 
-    $d = date( 'Y-m-d' );
-    $ass = $_GET['id'];
-    $collection = $db->manager;
-    $record = $collection->findOne( ["d_unid" => $ass] );
+    
 ?>
 
 
@@ -27,7 +24,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://143.244.139.242/s/public/stylesheet/p-booking.css?ver=1.6">
+    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/public/stylesheet/p-booking.css?ver=1.7">
     <title>Patient | Booking</title>
 </head>
 
@@ -55,7 +52,7 @@
                     $erecord = $collection->findOne( ['_id' =>$_SESSION['eid']] );
                 ?>
                 <div class="d-flex justify-content-center mb-4">
-                    <img src="http://143.244.139.242/s/public/image/pat-img/default_user.png" height="150"
+                    <img src="https://test.feelyprivacy.com/s/public/image/pat-img/default_user.png" height="150"
                         class="rounded-circle" alt="">
                 </div>
                 <h4 class="text-center"><a href="#"><?php echo $erecord['fname'].' '.$erecord['sname']; ?></a></h4>
@@ -67,15 +64,15 @@
             </div>
             <div class="side-nav my-4">
                 <ul class="px-0">
-                    <li class="px-4"><a href="http://143.244.139.242/s/view/p/index"><i
+                    <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/index"><i
                                 class="bi bi-person-bounding-box"></i>Select Doctor</a></li>
-                    <li class="px-4"><a href="http://143.244.139.242/s/view/p/dashboard"><i
+                    <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/dashboard"><i
                                 class="bi bi-speedometer"></i>Dashboard</a></li>
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-bookmark-fill"></i></i>Favouriate</a></li> -->
-                    <!-- <li class="px-4"><a href="http://143.244.139.242/s/view/p/booking" class="s-active"><i
+                    <!-- <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/booking" class="s-active"><i
                                 class="bi bi-chat-left-dots-fill"></i>Booking</a></li> -->
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li> -->
-                    <!-- <li class="px-4"><a href="http://143.244.139.242/s/view/p/profile-settings"><i
+                    <!-- <li class="px-4"><a href="https://test.feelyprivacy.com/s/view/p/profile-settings"><i
                                 class="bi bi-gear-fill"></i>Profile Setting</a></li> -->
                     <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
@@ -85,9 +82,15 @@
 
 
         <!-- body content -->
+        <?php
+            $d = date( 'Y-m-d' );
+            $ass = $_GET['id'];
+            $collection = $db->manager;
+            $record = $collection->findOne( ["d_unid" => $ass] );
+        ?>
         <div class="col-md-9 d-book-content  my-4">
             <div class="left d-flex mb-4">
-                <img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded" height="90"
+                <img src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg" class="rounded" height="90"
                     alt="User Image">
                 <div class="mx-3">
                     <h5>Dr. <?php echo $record['fname'].' '.$record['sname'] ?></h5>
@@ -124,29 +127,28 @@
                 <div class='container slider-main my-5' id="seven-days-slot">
                     <?php echo $msg; ?>
                     <!-- <button type="button" class="btn slider-btn" id=""><i class='bi bi-chevron-left text-primary text-center my-auto rounder-circle'></i></button> -->
-                    <div class="slider my-5 " id="seven-days-slot">
-                        <div class="pl-5 d-flex justify-content-around select_active" id="select_active">
+                    <!-- <div class="slider my-5 " id="seven-days-slot"> -->
+                        <div class="d-flex justify-content-around select_active" id="select_active">
                             <?php
-                                
                                 $flag2 = false;
                                 
-                                $datetime = iterator_to_array( $record['datetime'] );
+                                // $datetime = iterator_to_array( $record['datetime'] );
                         
-                                $date_arr = [];
-                                $time_arr = [];
+                                // $date_arr = [];
+                                // $time_arr = [];
                         
-                                foreach($datetime as $date_key=>$val) {
-                                    $date_arr[] = $date_key;
-                                    foreach($val as $index=>$v) {
-                                        $time_arr[$date_key][] = $v;
-                                    }    
-                                }
+                                // foreach($datetime as $date_key=>$val) {
+                                //     $date_arr[] = $date_key;
+                                //     foreach($val as $index=>$v) {
+                                //         $time_arr[$date_key][] = $v;
+                                //     }    
+                                // }
                         
-                                $k = count( $date_arr );
+                                // $k = count( $date_arr );
                         
-                                $collection = $db->check;
-                                $record = $collection->findOne( ['c_unid' =>'429570412'] );
-                                $datetime = iterator_to_array( $record['datetime'] );
+                                // $collection = $db->check;
+                                // $record = $collection->findOne( ['c_unid' =>'429570412'] );
+                                // $datetime = iterator_to_array( $record['datetime'] );
                         
                                 for($i = 0; $i < 7; $i++) {
                                     $date = strtotime("+$i day", strtotime("this week"));
@@ -156,20 +158,21 @@
                                             <div class="mx-auto">
                                                 <h5 class="text-dark px-4">'.date("D", $date).'</h5>
                                                 <p class="text-muted text-nowrap">'.date("d M Y", $date).'</p>
+                                                
                                             </div>';
                         
                                     // $w = count($time_arr[$premon]); 
-                                    if($time_arr[$premon] == 0) {
+                                    if($record['datetime'][$premon] == 0) {
                                         echo '<button type="button" class="btn btn-sm px-5 m-1 text-nowrap" disabled>---</button>';
                                     }
                                     else {
                                         $x = 1;
-                                        foreach($time_arr as $index=>$value) {
+                                        foreach($record['datetime'] as $index=>$value) {
                                             if($index == $premon) {
                                                 echo '<div class="d-flex flex-column time-btn">';
                                                 foreach ( $value as $key=>$val ) {
                         
-                                                    foreach($datetime as $did=>$dval) {
+                                                    foreach($record['datetime'] as $did=>$dval) {
                                                         if($did == $ass) {
                                                             foreach($dval as $date_key=>$val2) {
                                                                 if($date_key == $premon) {
@@ -223,7 +226,7 @@
                             
                             ?>
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </div>
  
                 <!-- procced to pay -->
@@ -241,8 +244,8 @@
 
 
         <?php include '../../assest/bottom_links.php'; ?>
-        <script src="http://143.244.139.242/s/controller/js/p-booking.js?ver=3.3"></script>
-        <!-- <script src="http://143.244.139.242/s/controller/js/success.js?ver=2.0"></script> -->
+        <script src="https://test.feelyprivacy.com/s/controller/js/p-booking.js?ver=3.4"></script>
+        <!-- <script src="https://test.feelyprivacy.com/s/controller/js/success.js?ver=2.0"></script> -->
 </body>
 
 </html>

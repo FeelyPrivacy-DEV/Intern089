@@ -4,7 +4,7 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['aid'] == '') {
-        header('location: http://143.244.139.242/s/admin/index');
+        header('location: https://test.feelyprivacy.com/s/admin/index');
     }
     $con = new MongoDB\Client( 'mongodb://127.0.0.1:27017' );
     $db = $con->php_mongo;
@@ -21,7 +21,7 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://143.244.139.242/s/admin/public/stylesheet/dashboard.css?ver=3.1">
+    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/admin/public/stylesheet/dashboard.css?ver=3.1">
     <title>Admin | Dashboard</title>
 </head>
 
@@ -31,45 +31,45 @@
 
         <!-- sidebar -->
         <div class="Sidebar d-flex flex-column flex-shrink-0 p-3 bg-light" id="sidebar">
-            <a href="http://143.244.139.242/s/admin/view/index"
+            <a href="https://test.feelyprivacy.com/s/admin/view/index"
                 class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                <img src="http://143.244.139.242/s/admin/public/image/logo.png" height="40" class="mx-auto " alt="">
+                <img src="https://test.feelyprivacy.com/s/admin/public/image/logo.png" height="40" class="mx-auto " alt="">
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a href="http://143.244.139.242/s/admin/view/index" class="nav-link active-sn" aria-current="page">
+                    <a href="https://test.feelyprivacy.com/s/admin/view/index" class="nav-link active-sn" aria-current="page">
                         <i class="bi bi-speedometer bi me-2"></i>
                         Dashboard
                     </a>
                 </li>
                 <li>
-                    <a href="http://143.244.139.242/s/admin/view/appoinment" class="nav-link link-dark">
+                    <a href="https://test.feelyprivacy.com/s/admin/view/appoinment" class="nav-link link-dark">
                         <i class="bi bi-calendar-check-fill bi me-2"></i>
                         Appointments
                     </a>
                 </li>
                 <li>
-                    <a href="http://143.244.139.242/s/admin/view/specialities" class="nav-link link-dark">
+                    <a href="https://test.feelyprivacy.com/s/admin/view/specialities" class="nav-link link-dark">
                         <i class="bi bi-megaphone-fill bi me-2"></i>
                         Specialities
                     </a>
                 </li>
                 <li>
-                    <a href="http://143.244.139.242/s/admin/view/doctor" class="nav-link link-dark">
+                    <a href="https://test.feelyprivacy.com/s/admin/view/doctor" class="nav-link link-dark">
                         <i class="bi bi-person-lines-fill bi me-2"></i>
                         Doctor
                     </a>
                 </li>
                 <li>
-                    <a href="http://143.244.139.242/s/admin/view/pending_doc" class="nav-link link-dark">
+                    <a href="https://test.feelyprivacy.com/s/admin/view/pending_doc" class="nav-link link-dark">
                         <i class="bi bi-person-dash-fill  bi me-2"></i>
                         Pending Doc <span
                             class="text-end text-danger"><?php echo count($record['pendingDoc_ids']); ?></span>
                     </a>
                 </li>
                 <li>
-                    <a href="http://143.244.139.242/s/admin/view/patient" class="nav-link link-dark">
+                    <a href="https://test.feelyprivacy.com/s/admin/view/patient" class="nav-link link-dark">
                         <i class="bi bi-file-person bi me-2"></i>
                         Patients
                     </a>
@@ -96,7 +96,7 @@
                         <li><a class="dropdown-item" href="#">My Profile</a></li>
                         <li><a class="dropdown-item" href="#">Settings</a></li>
                         <li>
-                            <form action='http://143.244.139.242/s/admin/controller/php/logout.php' method='POST'>
+                            <form action='https://test.feelyprivacy.com/s/admin/controller/php/logout.php' method='POST'>
                                 <button type='submit' name='logout'
                                     class='btn    text-nowrap text-danger px-4 mx-1'>Logout</button>
                             </form>
@@ -244,14 +244,14 @@
                                                         if($key['profile_image'] != '') {
                                                             echo '<a href="#" class="avatar avatar-sm mr-2"><img
                                                                         class="avatar-img rounded-circle mx-2"
-                                                                        src="http://143.244.139.242/s/public/image/doc-img/doc-img/'.$key['profile_image'].'"
+                                                                        src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/'.$key['profile_image'].'"
                                                                         height="40" alt="User Image"></a>
                                                                 <a href="#" class="my-auto mx-1 text-nowrap">Dr. '.$key['fname'].' '.$key['sname'].'</a>';
                                                         }
                                                         else {
                                                             echo '<a href="#" class="avatar avatar-sm mr-2"><img
                                                                         class="avatar-img rounded-circle mx-2"
-                                                                        src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg"
+                                                                        src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg"
                                                                         height="40" alt="User Image"></a>
                                                                 <a href="#" class="my-auto mx-1 text-nowrap">Dr. '.$key['fname'].' '.$key['sname'].'</a>';
                                                         }
@@ -295,7 +295,7 @@
                                             <h2 class="table-avatar">
                                                 <a href="#" class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
-                                                        src="http://143.244.139.242/s/public/image/pat-img/default_user.png"
+                                                        src="https://test.feelyprivacy.com/s/public/image/pat-img/default_user.png"
                                                         height="40" alt="User Image"></a>
                                                 <a href="#" class="text-nowrap">'.$key['fname'].' '.$key['sname'].'</a>
                                             </h2>
@@ -348,10 +348,10 @@
                                                                         <a href="profile.html" class="avatar avatar-sm mr-2"><img
                                                                                 class="avatar-img rounded-circle"';
                                                                                 if($record_doc_app['profile_image'] != '') {
-                                                                                    echo 'src="http://143.244.139.242/s/public/image/doc-img/doc-img/'.$record_doc_app['profile_image'].'"';
+                                                                                    echo 'src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/'.$record_doc_app['profile_image'].'"';
                                                                                 }
                                                                                 else {
-                                                                                    echo 'src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg"';
+                                                                                    echo 'src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg"';
                                                                                 }
                                                                         echo 'height="40"
                                                                                 alt="User Image"></a>
@@ -363,7 +363,7 @@
                                                                     <h2 class="table-avatar">
                                                                         <a href="profile.html" class="avatar avatar-sm mr-2"><img
                                                                                 class="avatar-img rounded-circle"
-                                                                                src="http://143.244.139.242/s/admin/public/image/ad.jpg"
+                                                                                src="https://test.feelyprivacy.com/s/admin/public/image/ad.jpg"
                                                                                 height="40"
                                                                                 alt="User Image"></a>
                                                                         <a href="profile.html">'.$keyOfPat['fname'].' '.$keyOfPat['sname'].'</a>
@@ -403,7 +403,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <script src='http://143.244.139.242/s/admin/controller/js/dashboard.js?ver=1.8'></script>
+    <script src='https://test.feelyprivacy.com/s/admin/controller/js/dashboard.js?ver=1.8'></script>
 
 </body>
 

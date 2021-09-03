@@ -4,7 +4,7 @@ function disableIt(i) {
         $(`#check${i}`).val('0');
         let check1 = true;
         var xhr = new XMLHttpRequest();
-        var url = "http://143.244.139.242/s/admin/controller/php/dashboard.php";
+        var url = "https://test.feelyprivacy.com/s/admin/controller/php/dashboard.php";
 
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -19,7 +19,7 @@ function disableIt(i) {
         $(`#check${i}`).val('1');
         let check2 = true;
         var xhr = new XMLHttpRequest();
-        var url = "http://143.244.139.242/s/admin/controller/php/dashboard.php";
+        var url = "https://test.feelyprivacy.com/s/admin/controller/php/dashboard.php";
 
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -44,7 +44,7 @@ function AllowIt(i) {
 
     let allowit = true;
     var xhr = new XMLHttpRequest();
-    var url = "http://143.244.139.242/s/admin/controller/php/dashboard.php";
+    var url = "https://test.feelyprivacy.com/s/admin/controller/php/dashboard.php";
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -61,7 +61,7 @@ function del(i) {
 
     let delt = true;
     var xhr = new XMLHttpRequest();
-    var url = "http://143.244.139.242/s/admin/controller/php/dashboard.php";
+    var url = "https://test.feelyprivacy.com/s/admin/controller/php/dashboard.php";
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

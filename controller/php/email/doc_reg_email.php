@@ -25,7 +25,7 @@ $bodyText =  '
 ';
 
 $bodyHtml = '
-<img src="http://143.244.139.242/s/public/image/logo.png" style="margin: 0px auto !important;" height="100" >
+<img src="https://test.feelyprivacy.com/s/public/image/logo.png" style="margin: 0px auto !important;" height="100" >
     <h1>doc Email Test</h1>
 ';
 

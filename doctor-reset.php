@@ -40,8 +40,8 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class='navbar-brand text-light mx-4' href='http://143.244.139.242/s/'>
-                <img src="http://143.244.139.242/s/public/image/logo.png" height="60" alt="" srcset="">
+            <a class='navbar-brand text-light mx-4' href='https://test.feelyprivacy.com/s/'>
+                <img src="https://test.feelyprivacy.com/s/public/image/logo.png" height="60" alt="" srcset="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -51,16 +51,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://143.244.139.242/s/index">Home</a>
+                        <a class="nav-link active" aria-current="page" href="https://test.feelyprivacy.com/s/index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://143.244.139.242/s/index">Doctor</a>
+                        <a class="nav-link active" aria-current="page" href="https://test.feelyprivacy.com/s/index">Doctor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://143.244.139.242/s/p">Patient</a>
+                        <a class="nav-link active" aria-current="page" href="https://test.feelyprivacy.com/s/p">Patient</a>
                     </li>
                 </ul>
-                <a href="http://143.244.139.242/s/index" class='btn btn-outline-primary text-primary px-3 py-2 mx-5'>LOGIN
+                <a href="https://test.feelyprivacy.com/s/index" class='btn btn-outline-primary text-primary px-3 py-2 mx-5'>LOGIN
                     /
                     SIGNUP</a> -->
             </div>
@@ -130,7 +130,7 @@
 
 
     <?php include './assest/bottom_links.php'; ?>
-    <script src='http://143.244.139.242/s/controller/js/index.js?ver=1.5'></script>
+    <script src='https://test.feelyprivacy.com/s/controller/js/index.js?ver=1.5'></script>
 
 </body>
 

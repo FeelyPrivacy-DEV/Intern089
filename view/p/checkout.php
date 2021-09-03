@@ -4,7 +4,7 @@
     session_start();
     require '../../vendor/autoload.php';
     if($_SESSION['eid'] == '') {
-        header('location: http://143.244.139.242/s/index');
+        header('location: https://test.feelyprivacy.com/s/index');
     }
     $con = new MongoDB\Client( 'mongodb://127.0.0.1:27017' );
     $db = $con->php_mongo;
@@ -21,8 +21,8 @@
 
 <head>
     <?php include '../../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="http://143.244.139.242/s/public/stylesheet/p-checkout.css?ver=1.2">
-    <script src='http://143.244.139.242/s/controller/js/p-checkout.js?ver=1.7'></script>
+    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/public/stylesheet/p-checkout.css?ver=1.2">
+    <script src='https://test.feelyprivacy.com/s/controller/js/p-checkout.js?ver=1.7'></script>
     <title>Feely | Doc Dashboard</title>
 </head>
 
@@ -121,7 +121,7 @@
                 <div class="summary">
                     <h4 class="card-title">Booking Summary</h4>
                     <div class="d-flex justify-content-start my-3">
-                        <img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" height="70"
+                        <img src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg" height="70"
                             alt="User Image">
                         <div class="mx-2">
                             <h5 class="card-title">Dr. <?php echo $record['fname'].' '.$record['sname']; ?></h5>
@@ -139,7 +139,13 @@
                     </div>
                     <div class="d-flex justify-content-between py-1">
                         <h6>Time</h6>
-                        <p class="mb-1"><?php echo $_GET['t']; ?></p>
+                        <?php
+                            if($val[0] <= 12 && $val[1]) {
+                                echo '<p class="mb-1">'.date('h:i', strtotime($_GET['t'])).' AM</p>';
+                            } else {
+                                echo '<p class="mb-1">'.date('h:i', strtotime($_GET['t'])).' PM</p>';
+                            }
+                        ?>
                     </div>
                     <div class="d-flex justify-content-between py-1">
                         <h6>Consulting Fee</h6>
@@ -178,7 +184,7 @@
 
 
     <?php include '../../assest/bottom_links.php'; ?>
-    <!-- <script src='http://143.244.139.242/s/controller/js/p-checkout.js?ver=1.6'></script> -->
+    <!-- <script src='https://test.feelyprivacy.com/s/controller/js/p-checkout.js?ver=1.6'></script> -->
 
 
 </body>

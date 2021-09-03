@@ -25,7 +25,7 @@ $bodyText =  '
 ';
 
 $bodyHtml = '
-<img src="http://143.244.139.242/s/public/image/logo.png" style="margin: 0px auto !important;" height="100" >
+<img src="https://test.feelyprivacy.com/s/public/image/logo.png" style="margin: 0px auto !important;" height="100" >
     <h3>Hi, '.$erecord['fname'].'</h3>
     <p>Your appoinment is cancelled with <h4> Dr. '.$_SESSION['fname'].' '.$_SESSION['sname'].' </h4> due to some reason.</p>
 ';

@@ -45,7 +45,7 @@ function proccedtopay() {
     $('#proccedtopay').attr('disabled', true);
     
     var xhr = new XMLHttpRequest();
-    var url = 'http://143.244.139.242/s/controller/php/add_e.php';
+    var url = 'https://test.feelyprivacy.com/s/controller/php/add_e.php';
     
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -53,7 +53,7 @@ function proccedtopay() {
         if(this.readyState == 4 && this.status == 200) {
             // $('#warn').text(xhr.responseText);
             // console.log(xhr.responseText);
-            window.location.href = `http://143.244.139.242/s/view/p/checkout?id=${doc_id}&t=${s_time}&d=${date}`;
+            window.location.href = `https://test.feelyprivacy.com/s/view/p/checkout?id=${doc_id}&t=${s_time}&d=${date}`;
         }
     };  
     xhr.send(`prodtopay_check=${prodtopay_check}&date=${date}&doc_id=${doc_id}&s_time=${s_time}&e_time=${e_time}`);
@@ -65,7 +65,7 @@ function proccedtopay() {
     
 //     let d_sel = 'd_sel';
 //     var xhr = new XMLHttpRequest();
-//     var url = 'http://143.244.139.242/s/controller/php/add_e.php';
+//     var url = 'https://test.feelyprivacy.com/s/controller/php/add_e.php';
 
 //     xhr.open("POST", url, true);
 //     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -84,6 +84,7 @@ function proccedtopay() {
 
 
 $(document).on('click', '.select_active .time-slots .time-btn .btn-a', function() {
+    $('.select_active .time-slots .time-btn .btn-a').css({'color': 'black', 'background': 'rgba(228, 228, 228, 0.699)'});
     $(this).css({'color':' rgb(0, 85, 255)', 'background': 'rgba(0, 132, 255, 0.233)'}).siblings().css({'color': 'black', 'background': 'rgba(228, 228, 228, 0.699)'});
     // $(this+'.select_active .time-slots button').addClass('bs-active').siblings().removeClass('bs-active');
   })

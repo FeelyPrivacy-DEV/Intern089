@@ -24,23 +24,23 @@ if(isset($_POST['manager_login'])) {
                     $_SESSION['d_unid'] = $record['d_unid'];
                     $_SESSION['fname'] = $record['fname'];
                     $_SESSION['sname'] = $record['sname'];
-                    header('location: http://143.244.139.242/s/view/d/index');
+                    header('location: https://test.feelyprivacy.com/s/view/d/index');
                     exit();
                 }
                 else {
-                    header('location: http://143.244.139.242/s/index?login=disable');
+                    header('location: https://test.feelyprivacy.com/s/index?login=disable');
                 }
             }
             else {
-                header('location: http://143.244.139.242/s/index?auth=disable');
+                header('location: https://test.feelyprivacy.com/s/index?auth=disable');
             }
         }
         else {
-            header('location: http://143.244.139.242/s/index?auth=failed');
+            header('location: https://test.feelyprivacy.com/s/index?auth=failed');
         }
     }
     else {
-        header('location: http://143.244.139.242/s/index?auth=failed');
+        header('location: https://test.feelyprivacy.com/s/index?auth=failed');
     }
  
 }
@@ -60,15 +60,15 @@ else if(isset($_POST['employee_login'])) {
             $_SESSION['fname'] = $record['fname'];
             $_SESSION['sname'] = $record['sname'];
             $_SESSION['p_unid'] = $record['p_unid'];
-            header('location: http://143.244.139.242/s/view/p/index');
+            header('location: https://test.feelyprivacy.com/s/view/p/index');
             exit();
         }
         else {
-            header('location: http://143.244.139.242/s/p?auth=failed');
+            header('location: https://test.feelyprivacy.com/s/p?auth=failed');
         }
     }
     else {
-        header('location: http://143.244.139.242/s/p?auth=failed');
+        header('location: https://test.feelyprivacy.com/s/p?auth=failed');
     }
 
 

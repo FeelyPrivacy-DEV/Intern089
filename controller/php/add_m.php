@@ -19,7 +19,7 @@ require '../../vendor/autoload.php';
             );
         }
 
-        header('location: http://143.244.139.242/s/view/d/schedule-timings?slot=submit');
+        header('location: https://test.feelyprivacy.com/s/view/d/schedule-timings?slot=submit');
 
     }
     else if(isset($_POST['update_profile'])) {
@@ -96,7 +96,7 @@ require '../../vendor/autoload.php';
             );
         }
 
-        header('location: http://143.244.139.242/s/view/d/profile-settings');
+        header('location: https://test.feelyprivacy.com/s/view/d/profile-settings');
 
     }
     else if(isset($_POST['next_date'])) {
@@ -210,10 +210,10 @@ require '../../vendor/autoload.php';
         include './email/accept_app_email.php';
         if($send == true) {
             echo 'true';
-            // header( 'location: http://143.244.139.242/s/p?login=now' );
+            // header( 'location: https://test.feelyprivacy.com/s/p?login=now' );
         }
         else {
-            header( 'location: http://143.244.139.242/s/view/index/index?email=err' );
+            header( 'location: https://test.feelyprivacy.com/s/view/index/index?email=err' );
         }
     } 
     else if(isset($_POST['cancelled'])) {
@@ -230,10 +230,10 @@ require '../../vendor/autoload.php';
         include './email/cancel_app_email.php';
         if($send == true) {
             echo 'true';
-            // header( 'location: http://143.244.139.242/s/p?login=now' );
+            // header( 'location: https://test.feelyprivacy.com/s/p?login=now' );
         }
         else {
-            header( 'location: http://143.244.139.242/s/view/p/checkout?email=err' );
+            header( 'location: https://test.feelyprivacy.com/s/view/p/checkout?email=err' );
         }
     }
     else if(isset($_POST['next_p_details'])) {
@@ -256,7 +256,7 @@ require '../../vendor/autoload.php';
                                     
                                     echo'<tr class="py-5">
                                             <td class="d-flex pat">
-                                                <img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
+                                                <img src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
                                                 <a href="" class="px-2 my-auto text-nowrap">
                                                     '.$perticular_pat['fname'].' '.$perticular_pat['sname'].'
                                                     <p class="text-muted my-auto">#PT00'.$c.'</p>
@@ -307,7 +307,7 @@ require '../../vendor/autoload.php';
                                                             <div class="p-3 d-flex justify-content-between my-2 ">
                                                                 <div class="d-flex pet-info">
                                                                     <div class="pat-img">
-                                                                        <img src="http://143.244.139.242/s/public/image/pat-img/default_user.png" height="110" width="110"
+                                                                        <img src="https://test.feelyprivacy.com/s/public/image/pat-img/default_user.png" height="110" width="110"
                                                                             alt="" srcset="">
                                                                     </div>
                                                                     <div class="pat-det mx-4">
@@ -356,7 +356,7 @@ require '../../vendor/autoload.php';
                                     
                                     echo'<tr class="py-5">
                                             <td class="d-flex pat">
-                                                <img src="http://143.244.139.242/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
+                                                <img src="https://test.feelyprivacy.com/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
                                                 <a href="" class="px-2 my-auto text-nowrap">
                                                     '.$perticular_pat['fname'].' '.$perticular_pat['sname'].'
                                                     <p class="text-muted my-auto">#PT00'.$c.'</p>
@@ -407,7 +407,7 @@ require '../../vendor/autoload.php';
                                                             <div class="p-3 d-flex justify-content-between my-2 ">
                                                                 <div class="d-flex pet-info">
                                                                     <div class="pat-img">
-                                                                        <img src="http://143.244.139.242/s/public/image/pat-img/default_user.png" height="110" width="110"
+                                                                        <img src="https://test.feelyprivacy.com/s/public/image/pat-img/default_user.png" height="110" width="110"
                                                                             alt="" srcset="">
                                                                     </div>
                                                                     <div class="pat-det mx-4">

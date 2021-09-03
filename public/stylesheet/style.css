@@ -287,20 +287,7 @@ body .btn-close, .btn, .form-control, .form-select {
 .slider .form-control, .form-select {
     max-width: 300px !important;
 }
-/* .slider::-webkit-scrollbar {
-    width: 0 !important;
-} */
-/* .slider {
-    max-width: fit-content !important;
-    width: 100% !important;
-    overflow-x: auto !important;
-    background: #fff;
-} */
-.slider a {
-    color: rgb(97, 97, 97);
-    text-decoration: none;
-    cursor: pointer;
-}
+
 .slider h5 {
     font-weight: 400 !important;
 }

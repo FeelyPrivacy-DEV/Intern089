@@ -25,7 +25,7 @@ svg.svelte-ekc7fv.svelte-ekc7fv {
 }
 
 
-
+ 
 @media screen and (max-width: 900px) { 
     .row {
         margin: 0px 0px !important;
@@ -43,7 +43,12 @@ svg.svelte-ekc7fv.svelte-ekc7fv {
 .side-nav {
     display: block;
 }
-.slider-main .slider {
-    width: 100% !important;
-   overflow-x: auto !important;
+
+#select_active {
+    width: fit-content !important;   
+}
+.slider-main {
+    width: fit-content !important;
+    /* overflow: scroll !important; */
+    overflow-x: scroll !important;
 }
