@@ -1,6 +1,7 @@
 
 <?php
 
+use Illuminate\Support\Facades\Redirect;
 use MongoDB\Exception\Exception;
 
 require '../../../vendor/autoload.php';
@@ -32,7 +33,7 @@ try {
             'doc_ids' => $doc_ids,
         ] );
         
-        header('location: http://127.0.0.1/s/s/admin/index?login=now');
+        header('location: https://test.feelyprivacy.com/s/admin/index?login=now');
         // echo 'Account created success';
 
     }
