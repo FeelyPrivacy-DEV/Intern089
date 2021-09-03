@@ -48,6 +48,17 @@ body a {
     width: 400px;
     display: flex;
 }
+
+@media screen and (max-width: 900px) { 
+    .login-left {
+        display: none !important;
+    }
+    .login-right {
+        margin: auto auto !important;
+    }
+}
+
+
 .login-wrapper .loginbox .login-left img {
     box-shadow: 1px 3px 20px rgb(90, 90, 90);
 }

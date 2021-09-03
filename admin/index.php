@@ -29,7 +29,7 @@
 
 <head>
     <?php include '../assest/top_links.php'; ?>
-    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/admin/public/stylesheet/login.css?ver=1.1">
+    <link rel="stylesheet" href="https://test.feelyprivacy.com/s/admin/public/stylesheet/login.css?ver=1.3">
     <title>Admin </title>
 </head>
 
@@ -41,7 +41,7 @@
             <div class="container">
                 <div class="loginbox">
                     <div class="login-left">
-                        <img class="img-fluid" src="https://test.feelyprivacy.com/s/admin/public/image/logo.png" alt="Logo">
+                        <img class="" src="https://test.feelyprivacy.com/s/admin/public/image/logo.png" alt="Logo">
                     </div>
                     <div class="login-right">
                         <div class="login-right-wrap">
