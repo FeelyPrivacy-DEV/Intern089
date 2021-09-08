@@ -6,7 +6,7 @@ $('#patreg, #patforgot').hide();
 
 $(document).on('click', '#d_log', function() {
     $('#docreg, #docforgot').hide();
-    $('#doclog').show() 
+    $('#doclog').show()
 })
 $(document).on('click', '#d_ca', function() {
     $('#doclog, #docforgot').hide();
@@ -16,7 +16,7 @@ $(document).on('click', '#d_for', function() {
     $('#docreg, #doclog').hide();
     $('#docforgot').show()
 })
- 
+
 
 $(document).on('click', '#p_log', function() {
     $('#patreg, #patforgot').hide();
@@ -33,28 +33,118 @@ $(document).on('click', '#p_for', function() {
 
 
 
+// doctor login
+$(document).on('click', '#doctor_login_btn', function() {
+    doc_email = $('#login_doctor_email').val();
+    doc_pass = $('#login_doctor_pass').val();
+    if(doc_email == '' || doc_pass == '') {
+        $('#doctor_login_warn').html('<h6 class="text-center text-warning">Email or Password cannot be be blank</h6>')
+    }
+    else {
+        $('#doctor_login_btn').html(`
+            <div class="spinner-border text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        `);
+        $('#doctor_login_btn').attr('disabled', true);
+
+        var xhr = new XMLHttpRequest();
+        var url = "/";
+
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            if(xhr.responseText == 'true') {
+                window.location.href = '/d';
+            }
+            else if(xhr.responseText == 'pfalse') {
+                $('#doctor_login_warn').html('<h6 class="text-center text-danger">Wrong credentials !</h6>')
+                $('#doctor_login_btn').text(`Log in`);
+                $('#doctor_login_btn').attr('disabled', false);
+            }
+            else if(xhr.responseText == 'efalse') {
+                $('#doctor_login_warn').html('<h6 class="text-center text-danger">Account not found !</h6>')
+                $('#doctor_login_btn').text(`Log in`);
+                $('#doctor_login_btn').attr('disabled', false);
+            }
+            else if(xhr.responseText == 'notApproved') {
+                $('#doctor_login_warn').html('<h6 class="text-center text-primary">You\'r not approved yet !</h6>')
+                $('#doctor_login_btn').text(`Log in`);
+                $('#doctor_login_btn').attr('disabled', false);
+            }
+            else if(xhr.responseText == 'disable') {
+                $('#doctor_login_warn').html('<h6 class="text-center text-danger">You\'r disabled by admin !</h6>')
+                $('#doctor_login_btn').text(`Log in`);
+                $('#doctor_login_btn').attr('disabled', false);
+            }
+            else {
+                $('#doctor_login_warn').html(`<h6 class="text-center text-primary">${xhr.responseText}</h6>`)
+                $('#doctor_login_btn').text(`Log in`);
+                $('#doctor_login_btn').attr('disabled', false);
+            }
+          }
+        };
+        xhr.send(`doc_email=${doc_email}&doc_pass=${doc_pass}`);
+    }
+});
 
 
-var s = [];
-$(document).on('keyup', '#search_doc', function() {
-    let sq = $(this).val();
-    let search = true;
-    var xhr = new XMLHttpRequest();
-    var url = "http://127.0.0.1/s/s/controller/php/index.php";
+// doctor registration
+$(document).on('click', '#doctor_register_btn', function() {
+    doctor_register_fname = $('#doctor_register_fname').val();
+    doctor_register_sname = $('#doctor_register_sname').val();
+    doctor_register_email = $('#doctor_register_email').val();
+    doctor_register_pass = $('#doctor_register_pass').val();
+    doc_captcha = $('[name=h-captcha-response]').val();
+    if(doctor_register_fname == '' || doctor_register_sname == '' || doctor_register_email == '' || doctor_register_pass == '') {
+        $('#doctor_register_warn').html('<h6 class="text-center text-warning">Everything should be filled</h6>')
+    }
+    else {
+        $('#doctor_register_btn').html(`
+            <div class="spinner-border text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        `);
+        $('#doctor_register_btn').attr('disabled', true);
 
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-          s.push(xhr.responseText);
-      }
-    };
-    xhr.send(`search=${search}&sq=${sq}`);
-})
+        var xhr = new XMLHttpRequest();
+        var url = "/dNew";
+
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            if(xhr.responseText == 'true') {
+                $('#doctor_register_warn').html('<h6 class="text-center text-success">Your account is created, please check email !</h6>')
+                $('#doctor_register_btn').attr('disabled', false);
+                $('#doctor_register_btn').text(`Create Account`);
+            }
+            else if(xhr.responseText == 'emailError') {
+                $('#doctor_register_warn').html('<h6 class="text-center text-danger">This email is not working !</h6>')
+                $('#doctor_register_btn').attr('disabled', false);
+                $('#doctor_register_btn').text(`Create Account`);
+            }
+            else if(xhr.responseText == 'captchaError') {
+                $('#doctor_register_warn').html('<h6 class="text-center text-danger">Please verify captcha !</h6>')
+                $('#doctor_register_btn').attr('disabled', false);
+                $('#doctor_register_btn').text(`Create Account`);
+            }
+            else {
+                $('#doctor_register_warn').html(`<h6 class="text-center text-primary">${xhr.responseText}</h6>`)
+                $('#doctor_register_btn').text(`Create Account`);
+                $('#doctor_register_btn').attr('disabled', false);
+            }
+          }
+        };
+        xhr.send(`doctor_register_fname=${doctor_register_fname}&doctor_register_sname=${doctor_register_sname}&doctor_register_email=${doctor_register_email}&doctor_register_pass=${doctor_register_pass}&doc_captcha=${doc_captcha}`);
+    }
+
+});
 
 
 
-// doc
+// doctor forgot password
 $(document).on('click', '#doc_forgot', function() {
     $('#doc_forgot').html(`
         <div class="spinner-border text-light" role="status">
@@ -64,7 +154,7 @@ $(document).on('click', '#doc_forgot', function() {
     var email = $('#d_for_email').val();
     let doc_forgot = true;
     var xhr = new XMLHttpRequest();
-    var url = "http://127.0.0.1/s/s/controller/php/forgot_password.php";
+    var url = "/doctor-forgot-password";
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -91,12 +181,116 @@ $(document).on('click', '#doc_forgot', function() {
 
       }
     };
-    xhr.send(`doc_forgot=${doc_forgot}&email=${email}`);
+    xhr.send(`email=${email}`);
 })
 
 
 
-// pat
+//* patient *//
+
+// patient registration
+$(document).on('click', '#patient_registration_btn', function(e) {
+    patient_registration_fname = $('#patient_registration_fname').val();
+    patient_registration_sname = $('#patient_registration_sname').val();
+    patient_registration_email = $('#patient_registration_email').val();
+    patient_registration_pass = $('#patient_registration_pass').val();
+    pat_captcha = $('[name=h-captcha-response]').val();
+    if(patient_registration_fname == '' || patient_registration_sname == '' || patient_registration_email == '' || patient_registration_pass == '') {
+        $('#patient_register_warn').html('<h6 class="text-center text-warning">Everything should be filled</h6>');
+    }
+    else {
+        $('#patient_registration_btn').html(`
+            <div class="spinner-border text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        `)
+        $('#patient_registration_btn').attr('disabled', true);
+
+        var xhr = new XMLHttpRequest();
+        var url = "/pNew";
+
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            if(xhr.responseText == 'true') {
+                $('#patient_register_warn').html('<h6 class="text-center text-success">Your account is created, please log in now !</h6>')
+                $('#patient_registration_btn').attr('disabled', false);
+                $('#patient_registration_btn').text(`Create Account`);
+            }
+            else if(xhr.responseText == 'emailError') {
+                $('#patient_register_warn').html('<h6 class="text-center text-danger">This email is not working !</h6>')
+                $('#patient_registration_btn').attr('disabled', false);
+                $('#patient_registration_btn').text(`Create Account`);
+            }
+            else if(xhr.responseText == 'captchaError') {
+                $('#patient_register_warn').html('<h6 class="text-center text-danger">Please verify captcha !</h6>')
+                $('#patient_registration_btn').attr('disabled', false);
+                $('#patient_registration_btn').text(`Create Account`);
+            }
+            else {
+                $('#patient_register_warn').html(`<h6 class="text-center text-primary">${xhr.responseText}</h6>`)
+                $('#patient_registration_btn').text(`Create Account`);
+                $('#patient_registration_btn').attr('disabled', false);
+            }
+          }
+        };
+        xhr.send(`patient_registration_fname=${patient_registration_fname}&patient_registration_sname=${patient_registration_sname}&patient_registration_email=${patient_registration_email}&patient_registration_pass=${patient_registration_pass}&pat_captcha=${pat_captcha}`);
+    }
+
+});
+
+
+// patient login
+$(document).on('click', '#patient_login_btn', function() {
+    patient_login_email = $('#patient_login_email').val()
+    patient_login_pass = $('#patient_login_pass').val()
+    if(patient_login_email == '' || patient_login_pass == '') {
+        $('#patient_login_warn').html('<h6 class="text-center text-warning">Everything should be filled</h6>');
+    }
+    else {
+        $('#patient_login_btn').html(`
+            <div class="spinner-border text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        `)
+        $('#patient_login_btn').attr('disabled', true);
+
+        var xhr = new XMLHttpRequest();
+        var url = "/pLogin";
+
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            if(xhr.responseText == 'true') {
+                window.location.href = '/p';
+            }
+            else if(xhr.responseText == 'pfalse') {
+                $('#patient_login_warn').html('<h6 class="text-center text-danger">Wrong credentials !</h6>')
+                $('#patient_login_btn').text(`Log in`);
+                $('#patient_login_btn').attr('disabled', false);
+            }
+            else if(xhr.responseText == 'efalse') {
+                $('#patient_login_warn').html('<h6 class="text-center text-danger">Account not found !</h6>')
+                $('#patient_login_btn').text(`Log in`);
+                $('#patient_login_btn').attr('disabled', false);
+            }
+            else {
+                $('#patient_login_warn').html(`<h6 class="text-center text-primary">${xhr.responseText}</h6>`)
+                $('#patient_login_btn').text(`Log in`);
+                $('#patient_login_btn').attr('disabled', false);
+            }
+          }
+        };
+        xhr.send(`patient_login_email=${patient_login_email}&patient_login_pass=${patient_login_pass}`);
+    }
+
+})
+
+
+
+// patient forgot
 $(document).on('click', '#pat_forgot', function() {
     $('#pat_forgot').html(`
         <div class="spinner-border text-light" role="status">
@@ -106,7 +300,7 @@ $(document).on('click', '#pat_forgot', function() {
     var email = $('#p_for_email').val();
     let pat_forgot = true;
     var xhr = new XMLHttpRequest();
-    var url = "http://127.0.0.1/s/s/controller/php/forgot_password.php";
+    var url = "/patient-forgot-password";
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -130,10 +324,10 @@ $(document).on('click', '#pat_forgot', function() {
                 $('#for_warn_pat').text(xhr.responseText);
                 $('#pat_forgot').text('Send Email');
             }
-    
+
           }
     };
-    xhr.send(`pat_forgot=${pat_forgot}&email=${email}`);
+    xhr.send(`email=${email}`);
 });
 
 
@@ -141,7 +335,7 @@ $(document).on('click', '#pat_forgot', function() {
 // check password
 
 var new_pass, conf_pass, token;
-$(document).on('click', '#change_pass_pat', function() { 
+$(document).on('click', '#change_pass_pat', function() {
     token = $('#pat_token').val();
     new_pass = $('#newpass').val();
     conf_pass = $('#confpass').val();
@@ -156,8 +350,8 @@ $(document).on('click', '#change_pass_pat', function() {
             $('#for_warn_pat').html('<h5 class="text-success">Password Changed Successfully <br> You will be redirect to login page.</h3>');
             let change_pass_pat = true;
             var xhr = new XMLHttpRequest();
-            var url = "http://127.0.0.1/s/s/controller/php/forgot_password.php";
-            
+            var url = "/patient-change-password-route";
+
             xhr.open("POST", url, true);
             xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhr.onreadystatechange = function () {
@@ -173,10 +367,9 @@ $(document).on('click', '#change_pass_pat', function() {
                         $('#for_warn_pat').text(xhr.responseText);
                         $('.reset_form').show();
                     }
-            
                 }
             };
-            xhr.send(`change_pass_pat=${change_pass_pat}&new_pass=${new_pass}&token=${token}`);
+            xhr.send(`new_pass=${new_pass}&token=${token}`);
         }
         else {
             $('#for_warn_pat').html('<p class="text-danger">Passwords not same</p>');
@@ -188,7 +381,7 @@ $(document).on('click', '#change_pass_pat', function() {
 
 
 });
-$(document).on('click', '#change_pass_doc', function() { 
+$(document).on('click', '#change_pass_doc', function() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     token = urlParams.get('token');
@@ -205,14 +398,14 @@ $(document).on('click', '#change_pass_doc', function() {
             $('#for_warn_pat').html('<h4 class="text-success">Password Changed Successfully <br> You will be redirect to login page.</h4>');
             let change_pass_doc = true;
             var xhr = new XMLHttpRequest();
-            var url = "http://127.0.0.1/s/s/controller/php/forgot_password.php";
-            
+            var url = "/doctor-change-password-route";
+
             xhr.open("POST", url, true);
             xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     if(xhr.responseText == 'true') {
-                        window.location.href = 'http://127.0.0.1/s/s/';
+                        window.location.href = 'http://127.0.0.1/';
                     }
                     else if(xhr.responseText == 'notSent') {
                         console.log(xhr.responseText);
@@ -225,12 +418,112 @@ $(document).on('click', '#change_pass_doc', function() {
                         $('#pat_forgot').text('Change Password');
                         $('#for_warn_pat').hide();
                     }
-            
+
                 }
             };
-            xhr.send(`change_pass_doc=${change_pass_doc}&new_pass=${new_pass}&token=${token}`);
+            xhr.send(`new_pass=${new_pass}&token=${token}`);
         }
     }
 
 
+});
+
+
+
+
+
+//* admin *//
+
+// admin login
+$(document).on('click', '#admin_login_btn', function() {
+    admin_login_email = $('#admin_login_email').val();
+    admin_login_pass = $('#admin_login_pass').val();
+    if(admin_login_email == '' || admin_login_pass == '') {
+        $('#admin_login_warn').html('<h6 class="text-center text-warning">Everything should be filled</h6>')
+    }
+    else {
+        $('#admin_login_btn').html(`
+            <div class="spinner-border text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        `);
+        $('#admin_login_btn').attr('disabled', true);
+
+        var xhr = new XMLHttpRequest();
+        var url = "/admin_login";
+
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            if(xhr.responseText == 'true') {
+                window.location.href = '/a/dashboard';
+            }
+            else if(xhr.responseText == 'pfalse') {
+                $('#admin_login_warn').html('<h6 class="text-center text-danger">Wrong credentials !</h6>')
+                $('#admin_login_btn').text(`Log as in`);
+                $('#admin_login_btn').attr('disabled', false);
+            }
+            else if(xhr.responseText == 'efalse') {
+                $('#admin_login_warn').html('<h6 class="text-center text-danger">Account not found !</h6>')
+                $('#admin_login_btn').text(`Log as in`);
+                $('#admin_login_btn').attr('disabled', false);
+            }
+            else {
+                $('#admin_login_warn').html(`<h6 class="text-center text-primary">${xhr.responseText}</h6>`)
+                $('#admin_login_btn').text(`Log as in`);
+                $('#admin_login_btn').attr('disabled', false);
+            }
+          }
+        };
+        xhr.send(`admin_login_email=${admin_login_email}&admin_login_pass=${admin_login_pass}`);
+    }
+})
+
+
+
+// admin registration
+$(document).on('click', '#admin_register_btn', function() {
+    admin_register_fname = $('#admin_register_fname').val();
+    admin_register_email = $('#admin_register_email').val();
+    admin_register_pass = $('#admin_register_pass').val();
+    if(admin_register_fname == '' || admin_register_email == '' || admin_register_pass == '') {
+        $('#admin_register_warn').html('<h6 class="text-center text-warning">Everything should be filled</h6>')
+    }
+    else {
+        $('#admin_register_btn').html(`
+            <div class="spinner-border text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        `);
+        $('#admin_register_btn').attr('disabled', true);
+        var xhr = new XMLHttpRequest();
+        var url = "/admin_registration";
+
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            if(xhr.responseText == 'true') {
+                window.location.href = '/a/dashboard';
+            }
+            else if(xhr.responseText == 'pfalse') {
+                $('#admin_register_warn').html('<h6 class="text-center text-danger">Wrong credentials !</h6>')
+                $('#admin_register_btn').text(`Log as in`);
+                $('#admin_register_btn').attr('disabled', false);
+            }
+            else if(xhr.responseText == 'efalse') {
+                $('#admin_register_warn').html('<h6 class="text-center text-danger">Account not found !</h6>')
+                $('#admin_register_btn').text(`Log as in`);
+                $('#admin_register_btn').attr('disabled', false);
+            }
+            else {
+                $('#admin_register_warn').html(`<h6 class="text-center text-primary">${xhr.responseText}</h6>`)
+                $('#admin_register_btn').text(`Log as in`);
+                $('#admin_register_btn').attr('disabled', false);
+            }
+          }
+        };
+        xhr.send(`admin_register_fname=${admin_register_fname}&admin_register_email=${admin_register_email}&admin_register_pass=${admin_register_pass}`);
+    }
 });

@@ -56,7 +56,7 @@
                 <div class="d-flex justify-content-center mb-4">
                     <?php
                         $collection = $db->employee;
-                        $record = $collection->findOne(['p_unid'=> $_GET['id']]);
+                        $record = $collection->findOne(['p_unid'=> $id]);
                         $datetime = iterator_to_array( $record['datetime'] );
                         if($record['profile_image'] != '') {
                             echo '<img src="/image/doc-img/doc-img/'.$record['profile_image'].'" class="rounded" height="160" alt="User Image">';

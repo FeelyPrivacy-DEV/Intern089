@@ -39,18 +39,16 @@ function display(ind) {
 
   if(ind >= $('#edit_modal_btn_val').val()) {
     $('#edit_modal_btn').attr('hidden', false);
-    console.log('gt');
   }
   else {
     $('#edit_modal_btn').attr('hidden', true);
-    console.log('lt');
   }
 
   day_date = $("#dt").val(ind);
   day = ind;
   let next_date = true;
   var xhr = new XMLHttpRequest();
-  var url = "http://127.0.0.1/s/s/controller/php/add_m.php";
+  var url = "/show-slots";
 
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

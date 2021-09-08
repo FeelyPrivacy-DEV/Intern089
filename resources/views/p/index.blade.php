@@ -1,5 +1,7 @@
 <?php
 
+    use Symfony\Component\Routing\Route as route;
+
     error_reporting(0);
     session_start();
     // require '../../vendor/autoload.php';
@@ -145,11 +147,13 @@
                                             </p>
                                             <p class="mb-1"><i class="bi bi-cash-coin"></i> ₹<?php echo $docval['custom_price'] ?> per hour</p>
                                             <div class="d-flex flex-column">
-                                                <a href="/p/doctor-profile?id=<?php echo $docval['d_unid']; ?>" class="btn btn-outline-primary px-5 py-2 mt-2" type="button">View Profile</a>
+                                                <a href="{{route('doctor-profile', ['id'=> $docval['d_unid']])}}" class="btn btn-outline-primary px-5 py-2 mt-2" type="button">View Profile</a>
 
                                                 <?php
                                                     if($_SESSION['eid'] != '') {
-                                                        echo '<a href="/p/booking?id='.$docval['d_unid'].'" class="btn btn-primary px-5 py-2 mt-2" type="button">BOOK <br>APPOINMENT</a>';
+                                                        ?>
+                                                            <a href="{{route('booking', ['id'=> $docval['d_unid']])}}" class="btn btn-primary px-5 py-2 mt-2" type="button">BOOK <br>APPOINMENT</a>
+                                                        <?php
                                                     }
                                                     else {
                                                         echo '<button class="btn btn-primary px-5 py-2 mt-2" type="button">LOGIN</button>';

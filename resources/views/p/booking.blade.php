@@ -86,7 +86,7 @@
         <!-- body content -->
         <?php
             $d = date( 'Y-m-d' );
-            $ass = $_GET['id'];
+            $ass = $id;
             $collection = $db->manager;
             $record = $collection->findOne( ["d_unid" => $ass] );
         ?>
@@ -112,15 +112,10 @@
             <!-- select doctor -->
             <div class="row">
                 <!-- day and date strip -->
-                <div class="container dd-strip d-flex justify-content-between">
+                <div class="container dd-strip d-flex justify-content-start">
                     <div class="" id="today-date">
-                        <h4 class="mb-1"><?php echo date('d F Y'); ?></h4>
+                        <h5 class="mb-1 text-info"><?php echo date('d F Y'); ?></h5>
                         <p class="text-muted"><?php echo date('l'); ?></p>
-                    </div>
-                    <div class="">
-                        <div class="bookingrange btn btn-white btn-sm mb-3">
-                            <input type="date" name="" class="form-control" id="">
-                        </div>
                     </div>
                 </div>
 
@@ -148,8 +143,8 @@
 
                                 // $k = count( $date_arr );
 
-                                // $collection = $db->check;
-                                // $record = $collection->findOne( ['c_unid' =>'429570412'] );
+                                $collection = $db->check;
+                                $crecord = $collection->findOne( ['fname' => 'check_datetime'], );
                                 // $datetime = iterator_to_array( $record['datetime'] );
 
                                 for($i = 0; $i < 7; $i++) {
@@ -174,7 +169,7 @@
                                                 echo '<div class="d-flex flex-column time-btn">';
                                                 foreach ( $value as $key=>$val ) {
 
-                                                    foreach($record['datetime'] as $did=>$dval) {
+                                                    foreach($crecord['datetime'] as $did=>$dval) {
                                                         if($did == $ass) {
                                                             foreach($dval as $date_key=>$val2) {
                                                                 if($date_key == $premon) {
@@ -202,20 +197,41 @@
 
                                                     ZSA: if($flag2 == false) {
                                                             if($val[0] <= 12 && $val[1]) {
-                                                                echo '<button type="button"
-                                                                        onclick="prodtopay(\''.$premon .'\', \''.$x .'\', \''.$val[0].'\', \''.$val[1].'\', \''.$ass .'\')"
-                                                                        class="btn btn-sm  text-nowrap px-4 m-1 btn-a"
-                                                                        id="btn'.$x.$premon.'">'.date('h:i', strtotime($val[0])).' AM - '.date('h:i', strtotime($val[1])).'
-                                                                        AM</button>';
-                                                                    $x++;
+                                                                if(date("d M Y", $date) < date('d M Y')) {
+                                                                    echo '<button type="button"
+                                                                            onclick="prodtopay(\''.$premon .'\', \''.$x .'\', \''.$val[0].'\', \''.$val[1].'\', \''.$ass .'\')"
+                                                                            class="btn btn-sm text-nowrap px-4 m-1 btn-a" disabled
+                                                                            id="btn'.$x.$premon.'">'.date('h:i', strtotime($val[0])).' AM - '.date('h:i', strtotime($val[1])).'
+                                                                            AM</button>';
+                                                                        $x++;
+                                                                }
+                                                                else {
+                                                                    echo '<button type="button"
+                                                                            onclick="prodtopay(\''.$premon .'\', \''.$x .'\', \''.$val[0].'\', \''.$val[1].'\', \''.$ass .'\')"
+                                                                            class="btn btn-sm  text-nowrap px-4 m-1 btn-a"
+                                                                            id="btn'.$x.$premon.'">'.date('h:i', strtotime($val[0])).' AM - '.date('h:i', strtotime($val[1])).'
+                                                                            AM</button>';
+                                                                        $x++;
+                                                                }
                                                             }
                                                             else {
-                                                                echo '<button type="button"
-                                                                        onclick="prodtopay(\''.$premon .'\', \''.$x .'\', \''.$val[0].'\', \''.$val[1].'\', \''.$ass .'\')"
-                                                                        class="btn btn-sm  text-nowrap px-4 m-1 btn-a"
-                                                                        id="btn'.$x.$premon.'">'.date('h:i', strtotime($val[0])).' PM - '.date('h:i', strtotime($val[1])).'
-                                                                        PM</button>';
-                                                                    $x++;
+                                                                if(date("d M Y", $date) < date('d M Y')) {
+                                                                    echo '<button type="button"
+                                                                            onclick="prodtopay(\''.$premon .'\', \''.$x .'\', \''.$val[0].'\', \''.$val[1].'\', \''.$ass .'\')"
+                                                                            class="btn btn-sm text-nowrap px-4 m-1 btn-a" disabled
+                                                                            id="btn'.$x.$premon.'">'.date('h:i', strtotime($val[0])).' PM - '.date('h:i', strtotime($val[1])).'
+                                                                            PM</button>';
+                                                                        $x++;
+
+                                                                }
+                                                                else {
+                                                                    echo '<button type="button"
+                                                                            onclick="prodtopay(\''.$premon .'\', \''.$x .'\', \''.$val[0].'\', \''.$val[1].'\', \''.$ass .'\')"
+                                                                            class="btn btn-sm  text-nowrap px-4 m-1 btn-a"
+                                                                            id="btn'.$x.$premon.'">'.date('h:i', strtotime($val[0])).' PM - '.date('h:i', strtotime($val[1])).'
+                                                                            PM</button>';
+                                                                        $x++;
+                                                                }
                                                             }
                                                         }
                                                 }
@@ -236,8 +252,7 @@
                     <!-- <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HpPd6WQ6mPUBwA" async> </script> </form> -->
                     <button class="btn btn-primary px-5 py-3 mx-3" onclick="proccedtopay()" id="proccedtopay">Proceed to Pay
                         <i class="bi bi-arrow-right my-auto mx-3 "></i></button>
-                        <input type="text"  id="proccedToPay_csrf_token" value="<?php echo csrf_token(); ?>">
-                        <input type="text"  id="eid" value="<?php echo $_SESSION['eid']; ?>">
+
                 </div>
             </div>
         </div>

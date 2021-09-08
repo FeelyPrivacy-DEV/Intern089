@@ -1,11 +1,13 @@
 <?php
-
-    error_reporting(0);
     session_start();
+    use Illuminate\Http\Request;
+    error_reporting(0);
     // require '../../vendor/autoload.php';
-    if($_SESSION['docid'] == '') {
-        header('location: /');
+    $req = new Request();
+    if($_SESSION['email'] == '') {
+         header('Loacation: /');
     }
+    
     $con = new MongoDB\Client( 'mongodb://127.0.0.1:27017' );
     $db = $con->php_mongo;
     $collection = $db->manager;
@@ -169,7 +171,7 @@
                                 }
 
                             ?>
-                            <h6 class="text-nowrap">Appoinments</h6>
+                            <h6 class="text-nowrap"> Appoinments</h6>
                             <h3 class="text-nowrap"><?php echo $cnt; ?></h3>
                             <p class="m-0 text-nowrap"><?php echo date('d, M Y  ') ?></p>
                         </div>
@@ -221,10 +223,11 @@
 
                                                                 echo'<tr class="py-5">
                                                                         <td class="d-flex pat">
-                                                                            <img src="http://127.0.0.1/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
-
-                                                                            <a href="http://127.0.0.1/s/s/view/d/patient-profile?id='.$perticular_pat['p_unid'].'" class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
-                                                                                '.$perticular_pat['fname'].' '.$perticular_pat['sname'].'
+                                                                            <img src="/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">';
+                                                                        ?>
+                                                                            <a href="{{route('patient-profile', ['id'=> $perticular_pat['p_unid']])}}" class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
+                                                                        <?php
+                                                                        echo ''.$perticular_pat['fname'].' '.$perticular_pat['sname'].'
                                                                                 <p class="text-muted  text-left my-auto">#PT00'.$c.'</p>
                                                                             </a>
                                                                         </td>';
@@ -326,7 +329,7 @@
 
 
     @include('assest/bottom_links')
-    <script src="{{ URL::asset('/js/d-dashboard.js?ver=1.4')}}"></script>
+    <script src="{{ URL::asset('/js/d-dashboard.js?ver=1.5')}}"></script>
     <!-- <script src='http://127.0.0.1/s/s/controller/js/d-temp.js?ver=1.1'></script> -->
 
 </body>

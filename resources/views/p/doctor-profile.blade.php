@@ -12,7 +12,7 @@
     $pdatetime = iterator_to_array( $precord['datetime'] );
 
     $collection = $db->manager;
-    $record = $collection->findOne( [ 'd_unid' =>$_GET['id']] );
+    $record = $collection->findOne( [ 'd_unid' =>$id] );
     $datetime = iterator_to_array( $record['datetime'] );
 
 ?>
@@ -94,8 +94,10 @@
 
 
                 <?php
-                        if($_SESSION['eid'] != '') {
-                        echo '<a href="/p/booking?id='.$record['d_unid'].'" class="btn btn-primary px-5 py-2 mt-2 book_now" type="button">BOOK <br>APPOINMENT</a>';
+                    if($_SESSION['eid'] != '') {
+                        ?>
+                            <a href="{{route('booking', ['id'=> $record['d_unid']])}}" class="btn btn-primary px-5 py-2 mt-2 book_now" type="button">BOOK <br>APPOINMENT</a>
+                        <?php
                     }
                     else {
                         echo '<button class="btn btn-primary px-5 py-2 mt-2" type="button">LOGIN</button>';

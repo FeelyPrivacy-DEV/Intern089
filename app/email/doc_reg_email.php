@@ -17,7 +17,7 @@ $host = 'email-smtp.ap-south-1.amazonaws.com';
 $port = 587;
 
 $subject = '
-    Welcome '.$fname.'
+    Welcome Dr. '.$fname.'
 ';
 
 $bodyText =  '
@@ -25,8 +25,89 @@ $bodyText =  '
 ';
 
 $bodyHtml = '
-<img src="http://127.0.0.1/s/s/public/image/logo.png" style="margin: 0px auto !important;" height="100" >
-    <h1>doc Email Test</h1>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:o="urn:schemas-microsoft-com:office:office">
+    <head>
+        <!--[if gte mso 9]>
+        <xml>
+        <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="x-apple-disable-message-reformatting">
+        <!--[if !mso]><!-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--<![endif]-->
+        <title></title>
+        <style type="text/css">
+            @import url(\'https://fonts.googleapis.com/css2?family=Lobster&display=swap\');
+            @import url(\'https://fonts.googleapis.com/css2?family=Cabin&family=Lobster&display=swap\');
+            .main {
+                border-top-left-radius: 200px !important;
+                border-bottom-right-radius: 200px !important;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                font-family: \'Lobster\', cursive;
+                text-align: center !important;
+            }
+            p {
+                font-family: \'Cabin\', sans-serif;
+                text-align: center !important;
+            }
+            a {
+                text-decoration: none !important;
+            }
+            .btn {
+                display: flex !important;
+                justify-content: center !important;
+                margin: 30px 0px !important;
+            }
+            button {
+                cursor: pointer;
+                color: #fff !important;
+                background-color: #008b8b !important;
+                padding: 14px 50px !important;
+                border: none;
+                border-radius: 10px !important;
+                font-size: 15px !important;
+                box-shadow: 4px 4px 10px rgb(168, 168, 168) !important;
+            }
+            @media screen and (max-width: 800px) {
+                .main {
+                    border-radius: 17px !important;
+                }
+            }
+        </style>
+        <!--[if !mso]><!-->
+        <!--<![endif]-->
+    </head>
+    <body class="clean-body" style="display: flex;justify-content: center !important;margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #fff;color: #008b8b;width: 100%;">
+        <div class="main" style="background-color: #008b8b;display: flex;justify-content: center; margin: 40px 5% !important;min-height: 400px !important;width: 100%;">
+            <div class="welcome" style="justify-content: center !important;width: 100%;">
+                <a href="https://test.feelyprivacy.com">
+                    <img src="https://test.feelyprivacy.com/image/logo.jpg" alt="" height="50"
+                    style="display: flex;justify-content: center;margin: 10px auto !important;" />
+                </a>
+                <h3 style="font-size: 2rem !important; color: #fff !important;">Hello '.$fname.',</h3>
+                <span><p style="color: #fff !important;">
+                    Thanks for being a "Jeev60"
+                    Doctor!<br />&nbsp; your account has been created successfully.<br /> We\'d appreciate you but before that till verify you, <br />please be patient ,
+                    so we can improve our contents and services !</p>
+                </span>
+                <div class="address" style="margin-top: 100px !important;">
+                    <span><p style="color: rgb(214, 214, 214);">Beed, Maharashtra, INDIA</p></span><br>
+                    <span><p style="margin: 0px !important; color: #fff !important;">+919754625871 | <span style="color: #fff !important;"> hello@feelyprivacy.com </span></p></span><br>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
 ';
 
 
@@ -56,10 +137,10 @@ try {
     // echo "Email sent!" , PHP_EOL;
 } catch (Exception $e) {
     $send = false;
-    // echo "An error occurred. {$e->errorMessage()}", PHP_EOL; 
+    // echo "An error occurred. {$e->errorMessage()}", PHP_EOL;
 } catch (Exception $e) {
     $send = false;
-    // echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; 
+    // echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL;
 }
 
 ?>

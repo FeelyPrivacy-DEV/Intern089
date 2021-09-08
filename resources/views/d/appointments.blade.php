@@ -115,7 +115,7 @@
                                             echo '<div class="p-3 d-flex justify-content-between pat_card border my-2 rounded">
                                                     <div class="d-flex pet-info">
                                                         <div class="pat-img">
-                                                            <img src="http://127.0.0.1/s/s/public/image/pat-img/default_user.png" height="110" width="110"
+                                                            <img src="/image/pat-img/default_user.png" height="110" width="110"
                                                                 alt="" srcset="">
                                                         </div>
                                                         <div class="pat-det mx-4">

@@ -12,6 +12,22 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        '/todaysAppoinment'
+        '/admin_login',
+        '/admin_registration',
+        '/',
+        'dNew',
+        'pNew',
+        'pLogin',
+        '/loginEnable',
+        '/loginDisable',
+        '/approveDoctor',
+        '/todaysAppoinment',
+        '/upcomingAppoinment',
+        'acceptAppoinment',
+        'cancelAppoinment',
+        '/show-slots',
+        '/proccedToPay',
+        '/doctor-forgot-password',
+        '/patient-forgot-password',
     ];
 }

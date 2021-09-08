@@ -9,38 +9,38 @@
 
     $auth_msg = '';
 
-    if($_GET['auth'] == 'failed') {
+    if($auth == 'false') {
         $auth_msg = '<div class="alert alert-danger alert-dismissible fade show " role="alert">
                         <strong>Wrong Credentials !</strong> Please try again.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
     }
-    else if($_GET['login'] == 'wait') {
+    else if($auth == 'wait') {
         $auth_msg = '<div class="alert alert-success alert-dismissible fade show " role="alert">
                         <strong>Your account created </strong> and under review ! Please check email.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
     }
-    if($_GET['auth'] == 'disable') {
+    if($auth == 'notApproved') {
         $auth_msg = '<div class="alert alert-danger alert-dismissible fade show " role="alert">
                         <strong>Your Account is not verified yet !</strong>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
     }
-    else if($_GET['login'] == 'disable') {
+    else if($auth == 'disable') {
         $auth_msg = '<div class="alert alert-danger alert-dismissible fade show " role="alert">
                         <strong>Your account has been disbaled by admin !</strong>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
     }
-    else if($_GET['c'] == 'e') {
+    else if($auth == 'captcha') {
         $auth_msg = '<div class="alert alert-danger alert-dismissible fade show " role="alert">
-                        <strong>Pleace verify captcha f**king bi**h !</strong>
+                        <strong>Pleace verify captcha !</strong>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>';
     }
 
-
+echo $auth;
 
 ?>
 
@@ -126,62 +126,64 @@
                         <h5>Doctor Register</h5>
                         <!-- <a href="http://127.0.0.1:8000/s/l/p">Not a Doctor ?</a> -->
                     </div>
-                    <form class="container needs-validation" action="/dNew"
-                        method="POST">
-                        @csrf
+                    <div class="container needs-validation">
+                        <div class="text-center my-4" id="doctor_register_warn"></div>
+                        <!-- @csrf -->
                         <div class="d-flex justify-content-between">
                             <div class="mb-3 mx-1">
                                 <!-- <label for="email" class="form-label">First Name</label> -->
-                                <input type="text" class="form-control py-2" name="fname" id="fname"
+                                <input type="text" class="form-control py-2" name="fname" id="doctor_register_fname"
                                     placeholder="First Name" required>
                             </div>
                             <div class="mb-4 mx-1">
                                 <!-- <label for="email" class="form-label">Last Name</label> -->
-                                <input type="text" class="form-control py-2" name="sname" id="sname"
+                                <input type="text" class="form-control py-2" name="sname" id="doctor_register_sname"
                                     placeholder="Last Name" required>
                             </div>
                         </div>
                         <div class="mb-4">
                             <!-- <label for="email" class="form-label">Email Address</label> -->
-                            <input type="email" class="form-control py-2" name="email" id="msemail"
+                            <input type="email" class="form-control py-2" name="email" id="doctor_register_email"
                                 aria-describedby="email" placeholder="Email Address" required>
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-4">
                             <!-- <label for="password" class="form-label">Password</label> -->
-                            <input type="password" class="form-control py-2" name="pass" id="mspas"
+                            <input type="password" class="form-control py-2" name="pass" id="doctor_register_pass"
                                 placeholder="Create Password " required aria-describedby="password">
                         </div>
-                        <!-- <div class="d-flex justify-content-center">
+                        <div class="d-flex justify-content-center">
                             <div class="h-captcha" data-sitekey="8840d1d7-bfeb-4979-b86b-5223d5ad79f9" required></div>
-                        </div> -->
+                        </div>
 
                             <button class="btn m-0 p-0 fw-bold text-primary al-r" id="d_log" type="button">Login </button>
 
 
                         <div class="d-grid gap-2 my-3">
-                            <button type="submit" class="btn btn-primary py-2" name="manager_signup">Create
+                            <button type="submit" class="btn btn-primary py-2" id="doctor_register_btn" name="manager_signup">Create
                                 Account</button>
                             <!-- <button type="submit" class="btn btn-primary py-2" name="manager_signup">Create
                                 Account Password less</button> -->
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div class="log" id="doclog">
                     <div class="d-flex justify-content-between px-3 pb-2">
                         <h5>Doctor Login</h5>
                         <!-- <a href="http://127.0.0.1:8000/s/l/p">Not a Doctor ?</a> -->
                     </div>
-                    <form class="container e_log_form" action="/" method="POST">
-                        @csrf
+                    <div class="container e_log_form">
+                        <div class="text-center text-nowrap my-4" id="doctor_login_warn"></div>
+
+                        <!-- @csrf -->
                         <div class="mb-4">
                             <!-- <label for="email" class="form-label">Email Address</label> -->
-                            <input type="email" name="email" class="form-control py-3" id="log_empid"
+                            <input type="email" name="email" class="form-control py-3" id="login_doctor_email"
                                 placeholder="Email Address" required aria-describedby="empid">
                         </div>
                         <div class="mb-4">
                             <!-- <label for="password" class="form-label">Password</label> -->
-                            <input type="password" name="pass" class="form-control py-3" id="log_pass"
+                            <input type="password" name="pass" class="form-control py-3" id="login_doctor_pass"
                                 placeholder="Enter Password" required aria-describedby="password">
                         </div>
                         <div class="d-flex justify-content-between cf">
@@ -189,9 +191,9 @@
                             <button class="btn m-0 p-0 fw-bold text-primary" id="d_for" type="button">Forgot Password</button>
                         </div>
                         <div class="d-grid gap-2 my-5">
-                            <button type="submit" class="btn btn-primary py-2" name="manager_login">Log in </button>
+                            <button type="submit" class="btn btn-primary py-2" id="doctor_login_btn" name="manager_login">Log in </button>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div class="forgot" id="docforgot">
                     <h6 class="text-center text-nowrap" id="for_warn"></h6>
@@ -212,7 +214,7 @@
                         <div class="d-grid gap-2 my-5">
                             <button type="submit" class="btn btn-primary py-2" id="doc_forgot">Send Email </button>
                         </div>
-                    </div> 
+                    </div>
                 </div>
                 <!-- <div class="login-container" id="docreg">
                     <div class="d-flex justify-content-between px-3 pb-2">

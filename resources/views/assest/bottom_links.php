@@ -17,6 +17,9 @@
   <script src="https://cdn.auth0.com/js/polyfills/1.0/es5-shim.min.js"></script>
   <![endif]-->
 
+  
+<!-- hCaptcha -->
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 
 
   <!-- watson assistant -->

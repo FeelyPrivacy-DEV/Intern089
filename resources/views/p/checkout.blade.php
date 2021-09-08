@@ -114,7 +114,7 @@
             <div class="col-md-4 my-4">
                 <?php
                     $collection = $db->manager;
-                    $record = $collection->findOne( [ 'd_unid' =>$_GET['id']] );
+                    $record = $collection->findOne( [ 'd_unid' =>$id] );
 
 
                 ?>
@@ -135,15 +135,15 @@
                     </div>
                     <div class="d-flex justify-content-between py-1">
                         <h6>Date</h6>
-                        <p class="mb-1"><?php echo $_GET['d']; ?></p>
+                        <p class="mb-1"><?php echo date('d M Y', strtotime($date)) ?></p>
                     </div>
                     <div class="d-flex justify-content-between py-1">
                         <h6>Time</h6>
                         <?php
                             if($val[0] <= 12 && $val[1]) {
-                                echo '<p class="mb-1">'.date('h:i', strtotime($_GET['t'])).' AM</p>';
+                                echo '<p class="mb-1">'.$time.' AM</p>';
                             } else {
-                                echo '<p class="mb-1">'.date('h:i', strtotime($_GET['t'])).' PM</p>';
+                                echo '<p class="mb-1">'.$time.' PM</p>';
                             }
                         ?>
                     </div>
@@ -164,6 +164,9 @@
                         <h5>Total</h5>
                         <p>$ 150</p>
                     </div>
+                </div>
+                <div class="my-5 d-grid gap-2">
+                    <button class="btn btn-primary px-5 py-3" type="button">Check Out with $150</button>
                 </div>
             </div>
         </div>

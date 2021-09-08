@@ -35,10 +35,6 @@ function prodtopay(i, j, s_t, e_t, did) {
 }
 
 function proccedtopay() {
-    console.log(doc_id);
-    var _token = $('#proccedToPay_csrf_token').val();
-    // var _token = "{{ csrf_token() }}"
-    var eid = $('#eid').val();
     $('#proccedtopay').html(`
         <div class="spinner-border text-light" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -46,61 +42,26 @@ function proccedtopay() {
     `);
     $('#proccedtopay').attr('disabled', true);
 
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    $.ajax({
-        url: "/proccedToPay",
-        type: "POST",
-        data: {
-            // _token: _token,
-            date: date,
-            doc_id: doc_id,
-            s_time: s_time,
-            e_time: e_time,
-            eid: eid
-        }, 
-        success: function(data) {
-            $('#warn').text(data);
-        }
-    });
 
-    // var xhr = new XMLHttpRequest();
-    // var url = '/proccedToPay';
+    var xhr = new XMLHttpRequest();
+    var url = '/proccedToPay';
 
-    // xhr.open("POST", url, true);
-    // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    // xhr.onreadystatechange = function() {
-    //     if(this.readyState == 4 && this.status == 200) {
-    //         $('#warn').text(xhr.responseText);
-    //         // console.log(xhr.responseText);
-    //         // window.location.href = `/p/checkout?id=${doc_id}&t=${s_time}&d=${date}`;
-    //     }
-    // };
-    // xhr.send(`_token=${_token}&date=${date}&doc_id=${doc_id}&s_time=${s_time}&e_time=${e_time}&eid=${eid}`);
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200) {
+            // if(xhr.responseText == true) {
+                window.location.href = xhr.responseText;
+            // }
+            // else {
+                // $('#proccedtopay').text('Procces to Pay');
+                // $('#proccedtopay').attr('disabled', false);
+                // $('#warn').html(`<p class="text-center text-danger">${xhr.responseText}</p>`);
+            // }
+        }
+    };
+    xhr.send(`date=${date}&doc_id=${doc_id}&s_time=${s_time}&e_time=${e_time}`);
 }
-
-
-// $(document).on('change', '#doc-select', function() {
-//     doc_id = $(this).val();
-
-//     let d_sel = 'd_sel';
-//     var xhr = new XMLHttpRequest();
-//     var url = 'http://127.0.0.1/s/s/controller/php/add_e.php';
-
-//     xhr.open("POST", url, true);
-//     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//     xhr.onreadystatechange = function() {
-//         if(this.readyState == 4 && this.status == 200) {
-//             $('#select_active').html(xhr.responseText);
-//             // console.log(xhr.responseText);
-//         }
-//     };
-//     xhr.send(`d_sel=${d_sel}&doc_id=${doc_id}`);
-// });
-
 
 
 
@@ -108,8 +69,7 @@ function proccedtopay() {
 
 $(document).on('click', '.select_active .time-slots .time-btn .btn-a', function() {
     $('.select_active .time-slots .time-btn .btn-a').css({'color': 'black', 'background': 'rgba(228, 228, 228, 0.699)'});
-    $(this).css({'color':' rgb(0, 85, 255)', 'background': 'rgba(0, 132, 255, 0.233)'}).siblings().css({'color': 'black', 'background': 'rgba(228, 228, 228, 0.699)'});
+    $(this).css({'color':' rgb(0, 85, 255)', 'background': 'rgba(0, 132, 255, 0.233)'})
     // $(this+'.select_active .time-slots button').addClass('bs-active').siblings().removeClass('bs-active');
-  })
-$(document).ready(function() {
 })
+

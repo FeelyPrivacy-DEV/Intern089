@@ -74,7 +74,7 @@ $k = count( $date_arr );
 <?php echo $msg; ?>
 
 
-<div class="row m-5">
+<div class="row p-5">
     <div class="col-md-3 side-profile p-2 ">
         <div class="">
             <div class="d-flex justify-content-center mb-4">
@@ -212,7 +212,8 @@ $k = count( $date_arr );
                 <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'><i class="bi bi-x"></i></button>
             </div>
             <div class='modal-body'>
-                <form action="http://127.0.0.1/s/s/controller/php/add_m.php" method="POST">
+                <form action="/schedule-timings" method="POST">
+                @csrf
                     <input type="text"  name="slotDate" hidden id="dt" value="<?php echo date('Y-m-d'); ?>">
                     <div class="editing" id="editing">
                         <div class="d-flex justify-content-start">

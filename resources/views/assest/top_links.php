@@ -1,13 +1,13 @@
 <meta charset="utf-8">
 <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self';
                                                     font-src 'self' ;
-                                                    frame-src 'self' https://*.razorpay.com https://hcaptcha.com https://*.hcaptcha.com;
+                                                    frame-src 'self' https://hcaptcha.com https://*.hcaptcha.com;
                                                     manifest-src 'self' ;
                                                     media-src 'self' ;
                                                     object-src 'self' ;
-                                                    script-src 'self' 'unsafe-inline' https://*.razorpay.com  https://hcaptcha.com https://*.hcaptcha.com;
-                                                    style-src 'self'  https://*.razorpay.com https://hcaptcha.com https://*.hcaptcha.com;
-                                                    script-src-elem 'self' https://razorpay.com https://*.razorpay.com ;
+                                                    script-src 'self' 'unsafe-inline'  https://hcaptcha.com https://*.hcaptcha.com;
+                                                    style-src 'self'   https://hcaptcha.com https://*.hcaptcha.com;
+                                                    script-src-elem 'self'  https://*.razorpay.com ;
                                                     worker-src 'self' ;
                                                     img-src 'self' ;
                                                     child-src 'self' ;
@@ -15,8 +15,7 @@
                                                     connect-src 'self'  https://*.hcaptcha.com
                                                     "> -->
 
-<!-- hCaptcha -->
-<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="shortcut icon" href="/image/favicon.ico" type="image/x-icon">

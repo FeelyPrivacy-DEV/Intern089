@@ -133,9 +133,10 @@
                                                                     else {
                                                                         echo '<img src="/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="User Image">';
                                                                     }
-                                                            echo '
-                                                                    <a href="http://127.0.0.1/s/s/view/p/doctor-profile?id='.$doc_detail['d_unid'].'" class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
-                                                                        '.$doc_detail['fname'].' '.$doc_detail['sname'].'
+                                                                    ?>
+                                                                        <a href="{{route('doctor-profile', ['id'=> $doc_detail['d_unid']])}}" class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
+                                                                    <?php
+                                                                    echo ''.$doc_detail['fname'].' '.$doc_detail['sname'].'
                                                                         <p class="text-muted  text-left my-auto">#PT00'.$c.'</p>
                                                                     </a>
                                                             </td>';
