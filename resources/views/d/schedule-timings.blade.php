@@ -52,9 +52,9 @@ $k = count( $date_arr );
 <html lang='en'>
 
 <head>
-@include('assest/top_links')
-<link rel="stylesheet" href="/css/d-schedule-timings.css?ver=1.2">
-<title>Doctor | Schedule-timings </title>
+    @include('assest/top_links')
+    <link rel="stylesheet" href="/css/d-schedule-timings.css?ver=1.2">
+    <title>Doctor | Schedule-timings </title>
 </head>
 
 <body>
@@ -154,20 +154,20 @@ $k = count( $date_arr );
                                 if($index == date('Y-m-d')) {
                                     foreach ( $value as $key=>$val ) {
                                         if($val[0] <= 12 && $val[1]) {
-                                            echo '<div class="btn-group mx-2 my-1" role="group" aria-label="Basic mixed styles example">
+                                            echo '<div class="btn-group my-2" role="group" aria-label="Basic mixed styles example">
                                                     <button type="button" class="btn btn-danger px-2">'.date('h:i', strtotime($val[0])).' AM - '.date('h:i', strtotime($val[1])).' AM</button>';
-                                                    ?>
+                                            ?>
                                                     <button type="button" class="btn btn-danger" onclick="slotdelete('<?php echo $index; ?>', <?php echo $key; ?>)"><i class="bi bi-x"></i></button>
                                             <?php
-                                                    echo '</div>';
+                                            echo '</div>';
                                         }
                                         else {
-                                            echo '<div class="btn-group mx-2 my-1" role="group" aria-label="Basic mixed styles example">
+                                            echo '<div class="btn-group my-2" role="group" aria-label="Basic mixed styles example">
                                                     <button type="button" class="btn btn-danger px-2">'.date('h:i', strtotime($val[0])).' PM - '.date('h:i', strtotime($val[1])).' PM</button>';
-                                                    ?>
+                                            ?>
                                                     <button type="button" class="btn btn-danger" onclick="slotdelete('<?php echo $index; ?>', <?php echo $key; ?>)"><i class="bi bi-x"></i></button>
                                             <?php
-                                                    echo '</div>';
+                                            echo '</div>';
                                         }
                                     }
                                     break;
@@ -241,7 +241,7 @@ $k = count( $date_arr );
 
 @include('assest/bottom_links')
              <!-- {{ URL::asset('/js/d-dashboard.js?ver=1.4')}} -->
-<script src="{{ URL::asset('/js/d-schedule-timings.js?ver=2.5') }}"></script>
+<script src="{{ URL::asset('/js/d-schedule-timings.js?ver=2.6') }}"></script>
 <!-- <script src="{{ URL::asset('/js/index.js?ver=1.4') }}"></script> -->
 
 </body>
