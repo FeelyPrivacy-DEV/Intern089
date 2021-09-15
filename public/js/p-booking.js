@@ -36,9 +36,7 @@ function prodtopay(i, j, s_t, e_t, did) {
 
 function proccedtopay() {
     $('#proccedtopay').html(`
-        <div class="spinner-border text-light" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
+        <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
     `);
     $('#proccedtopay').attr('disabled', true);
 

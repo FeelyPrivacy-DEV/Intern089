@@ -44,6 +44,7 @@ class pAuth extends Controller {
                     $collection = $db->employee;
                     $pass = $req->input('patient_registration_pass');
                     $datetime = ( Object )[];
+                    $prescription = ( Object )[];
                     $hash = password_hash( $pass, PASSWORD_DEFAULT );
                     $d_unid = [];
 
@@ -64,7 +65,8 @@ class pAuth extends Controller {
                             ],
                         ],
                         'password' =>$hash,
-                        'datetime'=>$datetime
+                        'datetime'=>$datetime,
+                        'prescription'=>$prescription
                     ] );
 
                     return 'true';

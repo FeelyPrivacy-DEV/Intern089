@@ -27,6 +27,10 @@ class VerifyCsrfToken extends Middleware
         'cancelAppoinment',
         '/show-slots',
         '/proccedToPay',
+        '/prescription-save',
+        '/edit-prescription-save',
+        '/delete-prescription',
+        '/display-prescription',
         '/doctor-forgot-password',
         '/patient-forgot-password',
     ];

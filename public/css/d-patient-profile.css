@@ -1,3 +1,6 @@
+body {
+    background-color: #f8f8f8 !important;
+}
 
 /* nav */
 .nav .active {
@@ -11,15 +14,58 @@
     border-radius: none !important;
 }
 
+.back-btn, .add-item {
+    color: #00ccff;
+    font-weight: 600 !important;
+}
+.back-btn:hover {
+    color: #00ddc0;
+}
+.add-item:hover {
+    color: #00ccff;
+}
 
-/* table */ 
-.Appointments {
+
+/* table  .Prescriptions*/
+.Appointments, .prescription-input-table {
+    max-height: 500px !important;
     width: 100% !important;
-    overflow-x: auto !important;
-    height: 600px !important;
-    overflow: hidden !important;
+    overflow-x: scroll !important;
     overflow-y: scroll !important;
 }
+/* #Prescription-input {
+    width: 100% !important;
+    overflow-x: scroll !important;
+} */
+
+.prescription-btn {
+    font-weight: 600;
+    padding: 10px 35px;
+    color: #fff !important;
+    background: rgb(0, 226, 215) !important;
+}
+.save {
+    background: rgb(1, 204, 194) !important;
+    border: none !important;
+}
+
+/* add-prescription */
+#add-prescription {
+    height: 900px !important;
+}
+#add-prescription, .d-dash-content {
+    background: #fff !important;
+}
+#add-prescription .h5 {
+    color: #00ddc0;
+}
+
+.pres-reason label{
+    margin-right: 20px !important;
+    font-weight: 600 ;
+    font-size: 15px !important;
+}
+
 .table {
     overflow-x: auto !important;
 }
@@ -45,18 +91,28 @@
 }
 .table .badge-td .cancelled {
     color: #e20606 !important;
-    background-color: #b91d1d2a !important;
+    background-color: #b91d1d1a !important;
     font-weight: 700 !important;
 }
 
-.table .action .btn1 {
+.table .action .view {
     color: #1db9aa !important;
     background-color: #1db9a941 !important;
     font-weight: 600 !important;
 }
-.table .action .btn2 {
+.table .action .print {
     color: #0056b3  !important;
     background-color: #2195f34f !important;
+    font-weight: 600 !important;
+}
+.table .delete {
+    color: #b30000  !important;
+    background-color: #ff000033 !important;
+    font-weight: 600 !important;
+}
+.table .edit {
+    color: #4500b3  !important;
+    background-color: #7523f833 !important;
     font-weight: 600 !important;
 }
 
@@ -66,3 +122,40 @@
 .hide {
     display: none !important;
 }
+
+#add-prescription .med-name {
+    max-width: 260px !important;
+    min-width: 120px !important;
+}
+#add-prescription .med-qty, .med-day {
+    max-width: 65px !important;
+    min-width: 65px !important;
+}
+
+.edit-prescription .med-name {
+    max-width: 260px !important;
+    min-width: 120px !important;
+}
+.edit-prescription .med-qty, .med-day {
+    max-width: 65px !important;
+    min-width: 65px !important;
+}
+
+.doc-sign {
+    background: #fff;
+    /* flex-direction: column !important; */
+}
+
+
+
+/** modals **/
+
+.edit-modal {
+    max-width: 700px !important;
+    min-width: 700px !important;
+}
+.edit-modal .row {
+    width: 100% !important;
+    overflow-x: auto;
+}
+

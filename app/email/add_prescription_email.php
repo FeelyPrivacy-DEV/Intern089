@@ -10,14 +10,13 @@ $passwordSmtp = env('MAIL_PASSWORD');
 $host = env('MAIL_HOST');
 $port = env('MAIL_PORT');
 $recipient = $erecord['email'];
-// $configurationSet = 'ConfigSet';
 
 $subject = '
-    Appoinment Cancelled !
+    Prescription arrived !
 ';
 
 $bodyText =  '
-    Appoinment Cancelled !
+    Prescription arrived !
 ';
 
 $bodyHtml = '
@@ -59,18 +58,20 @@ $bodyHtml = '
                 text-decoration: none !important;
             }
             .btn {
-                display: flex !important;
+                display: flex;
                 justify-content: center !important;
-                margin: 30px 0px !important;
+                margin: 30px auto !important;
             }
-            button {
-                cursor: pointer;
-                color: #fff !important;
-                background-color: #008b8b !important;
+            .buttonA {
+                align-item: center !important;
+                margin: 30px auto !important;
+                color: #000 !important;
+                background-color: #00ffca !important;
                 padding: 14px 50px !important;
                 border: none;
                 border-radius: 10px !important;
                 font-size: 15px !important;
+                font-weight: 600;
                 box-shadow: 4px 4px 10px rgb(168, 168, 168) !important;
             }
             @media screen and (max-width: 800px) {
@@ -91,10 +92,12 @@ $bodyHtml = '
                 </a>
                 <h3 style="font-size: 2rem !important; color: #fff !important;">Hi, '.$erecord['fname'].'</h3>
                 <span><p style="color: #fff !important;">
-                    We are sorry about this,<br> for some reason
-                    Your appoinment is cancelled with Dr. '.$_SESSION['fname'].' '.$_SESSION['sname'].'<br>
-                     Better luck next time!!</p>
+                    Your prescription is arrived from Dr. '.$_SESSION['fname'].' '.$_SESSION['sname'].'<br>
+                    Download the prescription by clicking below button. Gook luck !!</p>
                 </span>
+                <div class="btn">
+                    <a href="#" class="buttonA" >Download Prescription Here</a>
+                </div>
                 <div class="address" style="margin-top: 100px !important;">
                     <span><p style="color: rgb(214, 214, 214);">Beed, Maharashtra, INDIA</p></span><br>
                     <span><p style="margin: 0px !important; color: #fff !important;">+919754625871 | <span style="color: #fff !important;"> hello@feelyprivacy.com </span></p></span><br>
@@ -109,7 +112,7 @@ $bodyHtml = '
 $mail = new PHPMailer(true);
 
 try {
-    $mail->SMTPDebug = 2;
+    // $mail->SMTPDebug = 2;
     $mail->isSMTP();
     $mail->setFrom($sender, $senderName);
     $mail->Username   = $usernameSmtp;
@@ -129,7 +132,7 @@ try {
     $mail->AltBody    = $bodyText;
     $mail->Send();
     $send = true;
-    echo "Email sent!" , PHP_EOL;
+    // echo "Email sent!" , PHP_EOL;
 } catch (Exception $e) {
     $send = false;
     // echo "An error occurred. {$e->errorMessage()}", PHP_EOL;

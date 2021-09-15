@@ -3,18 +3,15 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// require '../../vendor/autoload.php';
 
-$sender = 'hello@feelyprivacy.com';
-$senderName = 'FeelyPrivacy';
+$sender = env('MAIL_FROM_ADDRESS');
+$senderName = env('MAIL_FROM_NAME');
+$usernameSmtp = env('MAIL_USERNAME');
+$passwordSmtp = env('MAIL_PASSWORD');
+$host = env('MAIL_HOST');
+$port = env('MAIL_PORT');
 $recipient = $email;
-$usernameSmtp = 'AKIASX2DB3OIBTJVZIWW';
-$passwordSmtp = 'BA5t01w1QYc6CFvm3kK3HD3mlYrHeL6dqvTszZYOdiFV';
 
-// $configurationSet = 'ConfigSet';
-
-$host = 'email-smtp.ap-south-1.amazonaws.com';
-$port = 587;
 
 $subject = '
     Welcome Dr. '.$fname.'
@@ -25,7 +22,6 @@ $bodyText =  '
 ';
 
 $bodyHtml = '
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
     xmlns:o="urn:schemas-microsoft-com:office:office">

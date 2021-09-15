@@ -25,7 +25,11 @@
 </head>
 
 <body>
-
+<div class="loading">
+        <div class="spinner-border text-center" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
     <div class="main">
 
         <!-- sidebar -->
@@ -95,7 +99,7 @@
                         <li><a class="dropdown-item" href="#">Settings</a></li>
                         <li>
                             <form action='/logout' method='POST'>
-                            $csrf
+                            @csrf
                                 <button type='submit' name='logout'
                                     class='btn btn-sm  text-nowrap text-danger px-4 mx-1'>Logout</button>
                             </form>

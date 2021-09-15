@@ -11,7 +11,7 @@ use App\Http\Controllers\aHandler;
 use App\Http\Controllers\docHandler;
 use App\Http\Controllers\patHandler;
 use App\Http\Controllers\logout;
-
+use App\Http\Controllers\temp;
 // middlewares
 use App\Http\Middleware\Authenticate as check_auth;
 use GuzzleHttp\Middleware;
@@ -156,6 +156,15 @@ use GuzzleHttp\Middleware;
 
             // doctor cancel appoinment
             Route::post('/cancelAppoinment', [docHandler::class, 'cancelAppoinment']);
+
+            //  adding prescriptions
+            Route::post('/prescription-save', [docHandler::class, 'prescriptionSave']);
+            //  editing prescriptions
+            Route::post('/edit-prescription-save', [docHandler::class, 'editPrescriptionSave']);
+            // getting all prescriptions of perticular patient
+            Route::get('/display-prescription', [temp::class, 'displayPrescription']);
+            //  deleting prescriptions
+            Route::post('/delete-prescription', [docHandler::class, 'deletePrescription']);
 
         // });
 

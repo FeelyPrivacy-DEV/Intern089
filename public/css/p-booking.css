@@ -25,8 +25,8 @@ svg.svelte-ekc7fv.svelte-ekc7fv {
 }
 
 
- 
-@media screen and (max-width: 900px) { 
+
+@media screen and (max-width: 900px) {
     .row {
         margin: 0px 0px !important;
     }
@@ -36,7 +36,11 @@ svg.svelte-ekc7fv.svelte-ekc7fv {
     .side-profile .side-nav {
         display: none;
     }
+    .doc-head {
+        margin: 20px 1px !important;
+    }
 }
+
 .sidebtn {
     display: none;
 }
@@ -45,7 +49,7 @@ svg.svelte-ekc7fv.svelte-ekc7fv {
 }
 
 #select_active {
-    width: fit-content !important;   
+    width: fit-content !important;
 }
 .slider-main {
     width: fit-content !important;

@@ -42,9 +42,7 @@ $(document).on('click', '#doctor_login_btn', function() {
     }
     else {
         $('#doctor_login_btn').html(`
-            <div class="spinner-border text-light" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
+            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
         `);
         $('#doctor_login_btn').attr('disabled', true);
 
@@ -102,9 +100,7 @@ $(document).on('click', '#doctor_register_btn', function() {
     }
     else {
         $('#doctor_register_btn').html(`
-            <div class="spinner-border text-light" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
+            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
         `);
         $('#doctor_register_btn').attr('disabled', true);
 
@@ -147,10 +143,9 @@ $(document).on('click', '#doctor_register_btn', function() {
 // doctor forgot password
 $(document).on('click', '#doc_forgot', function() {
     $('#doc_forgot').html(`
-        <div class="spinner-border text-light" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
+        <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
     `)
+    $('#doc_forgot').attr('disabled', true)
     var email = $('#d_for_email').val();
     let doc_forgot = true;
     var xhr = new XMLHttpRequest();
@@ -163,14 +158,16 @@ $(document).on('click', '#doc_forgot', function() {
         if(xhr.responseText == 'Account not found') {
             $('#for_warn').html('<p class="text-danger">Account not found</p>');
             $('#doc_forgot').text('Send Email');
+            $('#doc_forgot').attr('disabled', false);
         }
         else if(xhr.responseText == 'true') {
             $('#for_warn').html('<p class="text-success">Please check your email</p>');
             $('#doc_forgot').text('Send Email');
+            $('#doc_forgot').attr('disabled', false);
             // $('#doc_forgot').attr();
         }
         else if(xhr.responseText == 'notSent') {
-            $('#for_warn').html('<p class="text-danger">For some reason emailnot sent (email error)</p>');
+            $('#for_warn').html('<p class="text-danger">For some reason email not sent (email error)</p>');
             $('#doc_forgot').text('Send Email');
             $('#doc_forgot').attr('disabled', true);
         }
@@ -200,9 +197,7 @@ $(document).on('click', '#patient_registration_btn', function(e) {
     }
     else {
         $('#patient_registration_btn').html(`
-            <div class="spinner-border text-light" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
+            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
         `)
         $('#patient_registration_btn').attr('disabled', true);
 
@@ -250,9 +245,7 @@ $(document).on('click', '#patient_login_btn', function() {
     }
     else {
         $('#patient_login_btn').html(`
-            <div class="spinner-border text-light" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
+            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
         `)
         $('#patient_login_btn').attr('disabled', true);
 
@@ -293,10 +286,9 @@ $(document).on('click', '#patient_login_btn', function() {
 // patient forgot
 $(document).on('click', '#pat_forgot', function() {
     $('#pat_forgot').html(`
-        <div class="spinner-border text-light" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
+        <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
     `)
+    $('#pat_forgot').attr('disabled', true)
     var email = $('#p_for_email').val();
     let pat_forgot = true;
     var xhr = new XMLHttpRequest();
@@ -309,11 +301,11 @@ $(document).on('click', '#pat_forgot', function() {
             if(xhr.responseText == 'Account not found') {
                 $('#for_warn_pat').html('<p class="text-danger">Account not found</p>');
                 $('#pat_forgot').text('Send Email');
+                $('#pat_forgot').attr('disabled', false)
             }
             else if(xhr.responseText == 'true') {
                 $('#for_warn_pat').html('<p class="text-success">Please check your email</p>');
                 $('#pat_forgot').text('Send Email');
-                // $('#pat_forgot').attr();
             }
             else if(xhr.responseText == 'notSent') {
                 $('#for_warn_pat').html('<p class="text-danger">For some reason emailnot sent (email error)</p>');
@@ -323,6 +315,7 @@ $(document).on('click', '#pat_forgot', function() {
             else {
                 $('#for_warn_pat').text(xhr.responseText);
                 $('#pat_forgot').text('Send Email');
+                $('#pat_forgot').attr('disabled', false);
             }
 
           }
@@ -443,9 +436,7 @@ $(document).on('click', '#admin_login_btn', function() {
     }
     else {
         $('#admin_login_btn').html(`
-            <div class="spinner-border text-light" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
+            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
         `);
         $('#admin_login_btn').attr('disabled', true);
 
@@ -492,9 +483,7 @@ $(document).on('click', '#admin_register_btn', function() {
     }
     else {
         $('#admin_register_btn').html(`
-            <div class="spinner-border text-light" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
+            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
         `);
         $('#admin_register_btn').attr('disabled', true);
         var xhr = new XMLHttpRequest();

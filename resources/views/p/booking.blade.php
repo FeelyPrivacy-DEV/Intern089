@@ -26,11 +26,18 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @include('assest/top_links')
-    <link rel="stylesheet" href="/css/p-booking.css?ver=1.7">
+    <link rel="stylesheet" href="/css/p-booking.css?ver=1.8">
     <title>Patient | Booking</title>
 </head>
 
 <body>
+
+<div class="loading">
+        <div class="spinner-border text-center" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
     @include('assest/navbar')
 
     <!-- breadcrumb -->
@@ -45,43 +52,8 @@
 
 
     <!-- main content -->
-    <div class="m-2 row my-5">
+    <div class="m-5 row ">
         <!-- sidebar -->
-        <div class="col-md-3 side-profile p-2 ">
-            <div class="">
-                <?php
-                    $collection = $db->employee;
-                    $erecord = $collection->findOne( ['_id' =>$_SESSION['eid']] );
-                ?>
-                <div class="d-flex justify-content-center mb-4">
-                    <img src="/image/pat-img/default_user.png" height="150"
-                        class="rounded-circle" alt="">
-                </div>
-                <h4 class="text-center"><a href="#"><?php echo $erecord['fname'].' '.$erecord['sname']; ?></a></h4>
-                <p class="text-center">24 Jul 1983, 38 years</p>
-                <p class="text-center"> Newyork, USA</p>
-            </div>
-            <div class="d-grid gap-2">
-                <button class="btn btn-sm btn-outline-primary sidebtn fw-bold px-4 my-3"><i class="bi bi-list"></i></button>
-            </div>
-            <div class="side-nav my-4">
-                <ul class="px-0">
-                    <li class="px-4"><a href="/p"><i
-                                class="bi bi-person-bounding-box"></i>Select Doctor</a></li>
-                    <li class="px-4"><a href="/p/dashboard"><i
-                                class="bi bi-speedometer"></i>Dashboard</a></li>
-                    <!-- <li class="px-4"><a href="#"><i class="bi bi-bookmark-fill"></i></i>Favouriate</a></li> -->
-                    <!-- <li class="px-4"><a href="http://127.0.0.1/s/s/view/p/booking" class="s-active"><i
-                                class="bi bi-chat-left-dots-fill"></i>Booking</a></li> -->
-                    <!-- <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li> -->
-                    <!-- <li class="px-4"><a href="http://127.0.0.1/s/s/view/p/profile-settings"><i
-                                class="bi bi-gear-fill"></i>Profile Setting</a></li> -->
-                    <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
-                    <li class="px-4"><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
-                </ul>
-            </div>
-        </div>
-
 
         <!-- body content -->
         <?php
@@ -90,43 +62,45 @@
             $collection = $db->manager;
             $record = $collection->findOne( ["d_unid" => $ass] );
         ?>
-        <div class="col-md-9 d-book-content  my-4">
-            <div class="left d-flex mb-4">
-                <img src="/image/doc-img/doc-img/default-doc.jpg" class="rounded" height="90"
-                    alt="User Image">
-                <div class="mx-3">
-                    <h5>Dr. <?php echo $record['fname'].' '.$record['sname'] ?></h5>
-                    <div class="d-flex my-1">
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <i class="bi bi-star-fill text-warning"></i>
-                        <p class="my-0 mx-1">(35)</p>
+        <div class="col-md-12 d-book-content my-4">
+            <div class="doc-head mx-5">
+                <div class="left d-flex mb-4">
+                    <img src="/image/doc-img/doc-img/default-doc.jpg" class="rounded" height="90" alt="User Image">
+                    <div class="mx-3">
+                        <h5>Dr. <?php echo $record['fname'].' '.$record['sname'] ?></h5>
+                        <div class="d-flex my-1">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <p class="my-0 mx-1">(35)</p>
+                        </div>
+                        <p class=""><i class="bi bi-geo-alt-fill"></i>
+                            <?php echo $record['contact_detail']['city'].' '.$record['contact_detail']['state'] ?>
+                            <a href="#"></a>
+                        </p>
                     </div>
-                    <p class=""><i class="bi bi-geo-alt-fill"></i>
-                        <?php echo $record['contact_detail']['city'].' '.$record['contact_detail']['state'] ?>
-                        <a href="#"></a>
-                    </p>
                 </div>
-            </div>
-            <!-- select doctor -->
-            <div class="row">
+                <!-- select doctor -->
                 <!-- day and date strip -->
-                <div class="container dd-strip d-flex justify-content-start">
+                <div class="dd-strip d-flex justify-content-start">
                     <div class="" id="today-date">
                         <h5 class="mb-1 text-info"><?php echo date('d F Y'); ?></h5>
                         <p class="text-muted"><?php echo date('l'); ?></p>
                     </div>
                 </div>
 
-                <p id="warn"></p>
+            </div>
 
+            <p id="warn"></p>
+
+            <div class="row">
                 <div class='container slider-main my-5' id="seven-days-slot">
                     <?php echo $msg; ?>
                     <!-- <button type="button" class="btn slider-btn" id=""><i class='bi bi-chevron-left text-primary text-center my-auto rounder-circle'></i></button> -->
                     <!-- <div class="slider my-5 " id="seven-days-slot"> -->
-                        <div class="d-flex justify-content-around select_active" id="select_active">
-                            <?php
+                    <div class="d-flex justify-content-around select_active" id="select_active">
+                        <?php
                                 $flag2 = false;
 
                                 // $datetime = iterator_to_array( $record['datetime'] );
@@ -155,7 +129,6 @@
                                             <div class="mx-auto">
                                                 <h5 class="text-dark px-4">'.date("D", $date).'</h5>
                                                 <p class="text-muted text-nowrap">'.date("d M Y", $date).'</p>
-
                                             </div>';
 
                                     // $w = count($time_arr[$premon]);
@@ -163,6 +136,7 @@
                                         echo '<button type="button" class="btn btn-sm px-5 m-1 text-nowrap" disabled>---</button>';
                                     }
                                     else {
+                                        try{
                                         $x = 1;
                                         foreach($record['datetime'] as $index=>$value) {
                                             if($index == $premon) {
@@ -197,7 +171,7 @@
 
                                                     ZSA: if($flag2 == false) {
                                                             if($val[0] <= 12 && $val[1]) {
-                                                                if(date("d M Y", $date) < date('d M Y')) {
+                                                                if(date("d M Y", $date) <= date('d M Y')) {
                                                                     echo '<button type="button"
                                                                             onclick="prodtopay(\''.$premon .'\', \''.$x .'\', \''.$val[0].'\', \''.$val[1].'\', \''.$ass .'\')"
                                                                             class="btn btn-sm text-nowrap px-4 m-1 btn-a" disabled
@@ -215,7 +189,7 @@
                                                                 }
                                                             }
                                                             else {
-                                                                if(date("d M Y", $date) < date('d M Y')) {
+                                                                if(date("d M Y", $date) <= date('d M Y')) {
                                                                     echo '<button type="button"
                                                                             onclick="prodtopay(\''.$premon .'\', \''.$x .'\', \''.$val[0].'\', \''.$val[1].'\', \''.$ass .'\')"
                                                                             class="btn btn-sm text-nowrap px-4 m-1 btn-a" disabled
@@ -238,19 +212,23 @@
                                                 echo '</div>';
                                             }
                                         }
+                                        } catch(Exception $e) {
+                                            echo $e;
+                                        }
                                     }
                                     echo '</div>';
                                 }
-
                             ?>
-                        </div>
+                    </div>
+
                     <!-- </div> -->
                 </div>
 
                 <!-- procced to pay -->
                 <div class="container protopay d-flex justify-content-end">
                     <!-- <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HpPd6WQ6mPUBwA" async> </script> </form> -->
-                    <button class="btn btn-primary px-5 py-3 mx-3" onclick="proccedtopay()" id="proccedtopay">Proceed to Pay
+                    <button class="btn btn-primary px-5 py-3 mx-3" onclick="proccedtopay()" id="proccedtopay">Proceed to
+                        Pay
                         <i class="bi bi-arrow-right my-auto mx-3 "></i></button>
 
                 </div>

@@ -8,6 +8,7 @@
 <script src="/assest/bootstrap-tagsinput/js/bootstrap-tagsinput.js"></script>
 <script src='/assest/payment.js'></script>
 <script src="/assest/dropzone/dropzone.min.js"></script>
+<script src="/js/temp.js?ver=1.5"></script>
     <!--[if IE 8]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/ie8/0.2.5/ie8.js"></script>
   <![endif]-->
@@ -17,7 +18,7 @@
   <script src="https://cdn.auth0.com/js/polyfills/1.0/es5-shim.min.js"></script>
   <![endif]-->
 
-  
+
 <!-- hCaptcha -->
 <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 

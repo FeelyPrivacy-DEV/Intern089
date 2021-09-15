@@ -7,7 +7,7 @@
     if($_SESSION['email'] == '') {
          header('Loacation: /');
     }
-    
+
     $con = new MongoDB\Client( 'mongodb://127.0.0.1:27017' );
     $db = $con->php_mongo;
     $collection = $db->manager;
@@ -37,6 +37,13 @@
 </head>
 
 <body>
+
+    <div class="loading">
+        <div class="spinner-border text-center" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
 @include('assest/navbar')
 
     <!-- breadcrumb -->
@@ -276,7 +283,7 @@
                                                                                         <div class="p-3 d-flex justify-content-between my-2 ">
                                                                                             <div class="d-flex pet-info">
                                                                                                 <div class="pat-img">
-                                                                                                    <img src="http://127.0.0.1/s/s/public/image/pat-img/default_user.png" height="110" width="110"
+                                                                                                    <img src="/image/pat-img/default_user.png" height="110" width="110"
                                                                                                         alt="" srcset="">
                                                                                                 </div>
                                                                                                 <div class="pat-det mx-4">

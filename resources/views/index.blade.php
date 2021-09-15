@@ -52,9 +52,16 @@ echo $auth;
 
     @include('assest/top_links')
     <title>Feely | Register</title>
+
 </head>
 
 <body>
+
+    <div class="loading">
+        <div class="spinner-border text-center" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
 
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -145,7 +152,8 @@ echo $auth;
                             <!-- <label for="email" class="form-label">Email Address</label> -->
                             <input type="email" class="form-control py-2" name="email" id="doctor_register_email"
                                 aria-describedby="email" placeholder="Email Address" required>
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                            </div>
                         </div>
                         <div class="mb-4">
                             <!-- <label for="password" class="form-label">Password</label> -->
@@ -153,14 +161,17 @@ echo $auth;
                                 placeholder="Create Password " required aria-describedby="password">
                         </div>
                         <div class="d-flex justify-content-center">
-                            <div class="h-captcha" data-sitekey="8840d1d7-bfeb-4979-b86b-5223d5ad79f9" required></div>
+                            <div class="h-captcha" data-sitekey="8840d1d7-bfeb-4979-b86b-5223d5ad79f9" required>
+                            </div>
                         </div>
 
-                            <button class="btn m-0 p-0 fw-bold text-primary al-r" id="d_log" type="button">Login </button>
+                        <button class="btn m-0 p-0 fw-bold text-primary al-r" id="d_log" type="button">Login
+                        </button>
 
 
                         <div class="d-grid gap-2 my-3">
-                            <button type="submit" class="btn btn-primary py-2" id="doctor_register_btn" name="manager_signup">Create
+                            <button type="submit" class="btn btn-primary py-2" id="doctor_register_btn"
+                                name="manager_signup">Create
                                 Account</button>
                             <!-- <button type="submit" class="btn btn-primary py-2" name="manager_signup">Create
                                 Account Password less</button> -->
@@ -187,11 +198,14 @@ echo $auth;
                                 placeholder="Enter Password" required aria-describedby="password">
                         </div>
                         <div class="d-flex justify-content-between cf">
-                            <button class="btn m-0 fw-bold p-0 text-primary" id="d_ca"  type="button">Create Account </button>
-                            <button class="btn m-0 p-0 fw-bold text-primary" id="d_for" type="button">Forgot Password</button>
+                            <button class="btn m-0 fw-bold p-0 text-primary" id="d_ca" type="button">Create Account
+                            </button>
+                            <button class="btn m-0 p-0 fw-bold text-primary" id="d_for" type="button">Forgot
+                                Password</button>
                         </div>
                         <div class="d-grid gap-2 my-5">
-                            <button type="submit" class="btn btn-primary py-2" id="doctor_login_btn" name="manager_login">Log in </button>
+                            <button type="submit" class="btn btn-primary py-2" id="doctor_login_btn"
+                                name="manager_login">Log in </button>
                         </div>
                     </div>
                 </div>
@@ -208,8 +222,10 @@ echo $auth;
                                 placeholder="Enter Email Address" required aria-describedby="empid">
                         </div>
                         <div class="d-flex justify-content-between">
-                            <button class="btn m-0 fw-bold p-0 text-primary" id="d_ca"  type="button">Create Account </button>
-                            <button class="btn m-0 p-0 fw-bold text-primary" id="d_log" type="button">Log In</button>
+                            <button class="btn m-0 fw-bold p-0 text-primary" id="d_ca" type="button">Create Account
+                            </button>
+                            <button class="btn m-0 p-0 fw-bold text-primary" id="d_log" type="button">Log
+                                In</button>
                         </div>
                         <div class="d-grid gap-2 my-5">
                             <button type="submit" class="btn btn-primary py-2" id="doc_forgot">Send Email </button>
@@ -291,7 +307,6 @@ echo $auth;
                 </div> -->
             </div>
         </div>
-    </div>
     </div>
 
 
