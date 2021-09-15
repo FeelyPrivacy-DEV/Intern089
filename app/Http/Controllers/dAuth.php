@@ -44,7 +44,7 @@ class dAuth extends Controller {
         // if ( $responseData->success) {
             $collection = $db->admin;
             $collection->updateOne(
-                ['a_unid' => '39992729'],
+                ['username' => 'admin'],
                 ['$push' =>['pendingDoc_ids' => $d_unid]]
             );
             include(app_path().'/email/doc_reg_email.php');

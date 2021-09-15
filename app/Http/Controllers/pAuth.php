@@ -35,7 +35,7 @@ class pAuth extends Controller {
             // if ( $responseData->success ) {
                 $collection = $db->admin;
                 $collection->updateOne(
-                    ['a_unid' => '39992729'],
+                    ['username' => 'admin'],
                     ['$push' =>['pat_ids' => $p_unid]]
                 );
                 include(app_path().'/email/pat_reg_email.php');
