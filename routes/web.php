@@ -139,6 +139,14 @@ use GuzzleHttp\Middleware;
                 return view('/d/patient-profile', ['id'=>$id]);
             })->name('patient-profile');
 
+            // doctor invoice
+            // Route::get('/d/invoice/{id}', function ($id) {
+            //     return view('/d/invoice', ['id'=>$id]);
+            // })->name('invoice');
+
+            // doctor profile-settings
+            Route::view('/d/invoice', '/d/invoice');
+
             // doctor profile-settings
             Route::view('/d/profile-settings', '/d/profile-settings');
 

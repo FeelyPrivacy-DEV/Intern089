@@ -149,7 +149,7 @@
                                                                         echo '<img src="/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="User Image">';
                                                                     }
                                                             echo '<div>
-                                                                    <p  class="text-nowrap px-2 my-auto ">'.$doc_detail['fname'].' '.$doc_detail['sname'].'</p>
+                                                                    <p  class="text-nowrap px-2 my-auto ">Dr. '.$doc_detail['fname'].' '.$doc_detail['sname'].'</p>
                                                                     <p class="text-muted px-2 my-auto">Dental</p>
                                                                 </div>
                                                             </td>';
@@ -177,24 +177,41 @@
                                                             echo '<td class="">
                                                                 <div class="d-flex action">
                                                                     <button class="btn print btn-sm mx-1 text-nowrap"><i class="bi bi-printer"></i> Print</button>
-                                                                    <button type="button" class="btn view btn-sm text-nowrap" data-bs-toggle="modal" data-bs-target="#info'.$c.'"><i class="bi bi-eye-fill"></i> View</button>
+                                                                    <button type="button" class="btn view btn-sm text-nowrap" data-bs-toggle="modal" data-bs-target="#info'.$c.'"><i class="bi bi-eye-fill"></i> Invoice</button>
                                                                 </div>
                                                             </td>
                                                         </tr>';
                                                         // information modal
                                                         echo '<div class="modal fade" id="info'.$c.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-dialog modal-dialog-centered modal-lg">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
-                                                                        <h5 class="modal-title">'.$doc_detail['fname'].'</h5>
+                                                                        <h5 class="modal-title">Invoice</h5>
                                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                         </div>
                                                                         <div class="modal-body">
-                                                                            <p>'.$doc_detail['fname'].'</p>
+                                                                            <div class="container">
+                                                                                <div class="d-flex justify-content-between my-2 ">
+                                                                                    <img src="/image/logo.png" height="50" alt="">
+                                                                                    <div class="d-flex flex-column">
+                                                                                        <p class="m-0 p-0"><strong>Order: </strong>#001</p>
+                                                                                        <p class="m-0 p-0"><strong>Issued: '.$key.'</strong></p>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-between my-3 ">
+                                                                                    <div class="d-flex flex-column">
+                                                                                        <p class="m-0 p-0"><strong>Order: </strong>Invoice From</p>
+                                                                                        <p class="m-0 p-0"><strong>Issued: Dr. '.$doc_detail['fname'].'</strong></p>
+                                                                                    </div>
+                                                                                    <div class="d-flex flex-column">
+                                                                                        <p class="m-0 p-0"><strong>Order: </strong>Invoice To</p>
+                                                                                        <p class="m-0 p-0"><strong>Issued: '.$record['fname'].'</strong></p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                            <button type="button" class="btn btn-primary">Save changes</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>

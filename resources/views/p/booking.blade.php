@@ -171,7 +171,7 @@
 
                                                     ZSA: if($flag2 == false) {
                                                             if($val[0] <= 12 && $val[1]) {
-                                                                if(date("d M Y", $date) <= date('d M Y')) {
+                                                                if(date("d M Y", $date) < date('d M Y')) {
                                                                     echo '<button type="button"
                                                                             onclick="prodtopay(\''.$premon .'\', \''.$x .'\', \''.$val[0].'\', \''.$val[1].'\', \''.$ass .'\')"
                                                                             class="btn btn-sm text-nowrap px-4 m-1 btn-a" disabled
@@ -189,7 +189,7 @@
                                                                 }
                                                             }
                                                             else {
-                                                                if(date("d M Y", $date) <= date('d M Y')) {
+                                                                if(date("d M Y", $date) < date('d M Y')) {
                                                                     echo '<button type="button"
                                                                             onclick="prodtopay(\''.$premon .'\', \''.$x .'\', \''.$val[0].'\', \''.$val[1].'\', \''.$ass .'\')"
                                                                             class="btn btn-sm text-nowrap px-4 m-1 btn-a" disabled

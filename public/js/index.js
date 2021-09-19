@@ -42,7 +42,7 @@ $(document).on('click', '#doctor_login_btn', function() {
     }
     else {
         $('#doctor_login_btn').html(`
-            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
+            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Logging In...
         `);
         $('#doctor_login_btn').attr('disabled', true);
 
@@ -100,7 +100,7 @@ $(document).on('click', '#doctor_register_btn', function() {
     }
     else {
         $('#doctor_register_btn').html(`
-            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
+            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Signing Up...
         `);
         $('#doctor_register_btn').attr('disabled', true);
 
@@ -143,7 +143,7 @@ $(document).on('click', '#doctor_register_btn', function() {
 // doctor forgot password
 $(document).on('click', '#doc_forgot', function() {
     $('#doc_forgot').html(`
-        <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
+        <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Sending Email...
     `)
     $('#doc_forgot').attr('disabled', true)
     var email = $('#d_for_email').val();
@@ -197,7 +197,7 @@ $(document).on('click', '#patient_registration_btn', function(e) {
     }
     else {
         $('#patient_registration_btn').html(`
-            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
+            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Signing Up...
         `)
         $('#patient_registration_btn').attr('disabled', true);
 
@@ -245,7 +245,7 @@ $(document).on('click', '#patient_login_btn', function() {
     }
     else {
         $('#patient_login_btn').html(`
-            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
+            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Logging In...
         `)
         $('#patient_login_btn').attr('disabled', true);
 
@@ -286,7 +286,7 @@ $(document).on('click', '#patient_login_btn', function() {
 // patient forgot
 $(document).on('click', '#pat_forgot', function() {
     $('#pat_forgot').html(`
-        <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
+        <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Sending Email...
     `)
     $('#pat_forgot').attr('disabled', true)
     var email = $('#p_for_email').val();
@@ -337,7 +337,7 @@ $(document).on('click', '#change_pass_pat', function() {
             $('.reset_form').hide();
             $('#load_pat').html(`
                 <div class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <span class="visually-hidden">Changing Password...</span>
                 </div>
             `)
             $('#for_warn_pat').html('<h5 class="text-success">Password Changed Successfully <br> You will be redirect to login page.</h3>');
@@ -353,7 +353,7 @@ $(document).on('click', '#change_pass_pat', function() {
                         window.location.href = 'http://127.0.0.1/s/s/p';
                     }
                     else if(xhr.responseText == 'notSent') {
-                        $('#for_warn_pat').html('<p class="text-danger">For some reason emailnot sent (email error)</p>');
+                        $('#for_warn_pat').html('<p class="text-danger">For some reason email not sent (email error)</p>');
                         $('.reset_form').show();
                     }
                     else {
@@ -436,7 +436,7 @@ $(document).on('click', '#admin_login_btn', function() {
     }
     else {
         $('#admin_login_btn').html(`
-            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
+            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Logging In...
         `);
         $('#admin_login_btn').attr('disabled', true);
 
@@ -483,7 +483,7 @@ $(document).on('click', '#admin_register_btn', function() {
     }
     else {
         $('#admin_register_btn').html(`
-            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
+            <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Signing Up...
         `);
         $('#admin_register_btn').attr('disabled', true);
         var xhr = new XMLHttpRequest();
