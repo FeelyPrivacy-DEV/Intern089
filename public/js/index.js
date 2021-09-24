@@ -89,13 +89,34 @@ $(document).on('click', '#doctor_login_btn', function() {
 
 
 // doctor registration
+//password checking
+$(document).on('keyup', '#doctor_register_pass', function() {
+    let p = document.getElementById('doctor_register_pass').value;
+    let regex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    if(p.length > 8) {
+        if(!regex.test(p)) {
+            $('#pass_warn').html(`password should contain atleast one number and one special character`);
+            $('#doctor_register_btn').attr('disabled', true);
+        }
+        else {
+            $('#pass_warn').html(``);
+            $('#doctor_register_btn').attr('disabled', false);
+        }
+    }
+    else {
+        $('#pass_warn').html(`Password should greater then 8 characters`);
+        $('#doctor_register_btn').attr('disabled', true);
+    }
+});
 $(document).on('click', '#doctor_register_btn', function() {
     doctor_register_fname = $('#doctor_register_fname').val();
     doctor_register_sname = $('#doctor_register_sname').val();
     doctor_register_email = $('#doctor_register_email').val();
+    doctor_register_mn = $('#doctor_register_mn').val();
+    doctor_register_ml = $('#doctor_register_ml').val();
     doctor_register_pass = $('#doctor_register_pass').val();
     doc_captcha = $('[name=h-captcha-response]').val();
-    if(doctor_register_fname == '' || doctor_register_sname == '' || doctor_register_email == '' || doctor_register_pass == '') {
+    if(doctor_register_ml == '' || doctor_register_mn == '' || doctor_register_fname == '' || doctor_register_sname == '' || doctor_register_email == '' || doctor_register_pass == '') {
         $('#doctor_register_warn').html('<h6 class="text-center text-warning">Everything should be filled</h6>')
     }
     else {
@@ -121,6 +142,11 @@ $(document).on('click', '#doctor_register_btn', function() {
                 $('#doctor_register_btn').attr('disabled', false);
                 $('#doctor_register_btn').text(`Create Account`);
             }
+            else if(xhr.responseText == 'emailExist') {
+                $('#doctor_register_warn').html('<h6 class="text-center text-danger">This email is is already in use !</h6>')
+                $('#doctor_register_btn').attr('disabled', false);
+                $('#doctor_register_btn').text(`Create Account`);
+            }
             else if(xhr.responseText == 'captchaError') {
                 $('#doctor_register_warn').html('<h6 class="text-center text-danger">Please verify captcha !</h6>')
                 $('#doctor_register_btn').attr('disabled', false);
@@ -133,7 +159,14 @@ $(document).on('click', '#doctor_register_btn', function() {
             }
           }
         };
-        xhr.send(`doctor_register_fname=${doctor_register_fname}&doctor_register_sname=${doctor_register_sname}&doctor_register_email=${doctor_register_email}&doctor_register_pass=${doctor_register_pass}&doc_captcha=${doc_captcha}`);
+        xhr.send(`
+            doctor_register_fname=${doctor_register_fname}&
+            doctor_register_sname=${doctor_register_sname}&
+            doctor_register_email=${doctor_register_email}&
+            doctor_register_mn=${doctor_register_mn}&
+            doctor_register_ml=${doctor_register_ml}&
+            doctor_register_pass=${doctor_register_pass}&
+            doc_captcha=${doc_captcha}`);
     }
 
 });
@@ -186,6 +219,25 @@ $(document).on('click', '#doc_forgot', function() {
 //* patient *//
 
 // patient registration
+//password checking
+$(document).on('keyup', '#patient_registration_pass', function() {
+    let p = document.getElementById('patient_registration_pass').value;
+    let regex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    if(p.length > 8) {
+        if(!regex.test(p)) {
+            $('#pass_warn').html(`password should contain atleast one number and one special character`);
+            $('#doctor_register_btn').attr('disabled', true);
+        }
+        else {
+            $('#pass_warn').html(``);
+            $('#doctor_register_btn').attr('disabled', false);
+        }
+    }
+    else {
+        $('#pass_warn').html(`Password should greater then 8 characters`);
+        $('#doctor_register_btn').attr('disabled', true);
+    }
+});
 $(document).on('click', '#patient_registration_btn', function(e) {
     patient_registration_fname = $('#patient_registration_fname').val();
     patient_registration_sname = $('#patient_registration_sname').val();
@@ -215,6 +267,11 @@ $(document).on('click', '#patient_registration_btn', function(e) {
             }
             else if(xhr.responseText == 'emailError') {
                 $('#patient_register_warn').html('<h6 class="text-center text-danger">This email is not working !</h6>')
+                $('#patient_registration_btn').attr('disabled', false);
+                $('#patient_registration_btn').text(`Create Account`);
+            }
+            else if(xhr.responseText == 'emailExist') {
+                $('#patient_register_warn').html('<h6 class="text-center text-danger">This email is already exists !</h6>')
                 $('#patient_registration_btn').attr('disabled', false);
                 $('#patient_registration_btn').text(`Create Account`);
             }

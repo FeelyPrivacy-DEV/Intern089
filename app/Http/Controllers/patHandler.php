@@ -29,7 +29,7 @@ class patHandler extends Controller {
                 $collection = $db->employee;
                 $r = $collection->updateMany(
                     ['p_unid' => $_SESSION['p_unid']],
-                    ['$push' =>['datetime.'.$doc_id.'.'.$date=> ['d_stamp' => date('Y-m-d'), 'status' => '', 'amt' => '$120', 'p_name' => $_SESSION['fname'], 'book_t' =>[$s_time, $e_time]]]]
+                    ['$push' =>['datetime.'.$doc_id.'.'.$date=> ['d_stamp' => date('Y-m-d'), 'status' => '', 'video_link' => '', 'amt' => '$120', 'p_name' => $_SESSION['fname'], 'book_t' =>[$s_time, $e_time]]]]
                 );
 
                 $collection = $db->manager;
@@ -59,4 +59,28 @@ class patHandler extends Controller {
 
     }
 
+
+    // change password inbuilt
+    function chPasswordPat(Request $req) {
+        $con = new mongo;
+        $db = $con->php_mongo;
+        $collection = $db->employee;
+
+        $old = $req->input('old');
+        $newPass = $req->input('newPass');
+
+        $r = $collection->findOne(['p_unid' => $_SESSION['p_unid']]);
+        $p = password_verify($old, $r['password']);
+        if($p) {
+            $hash = password_hash( $newPass, PASSWORD_DEFAULT );
+            $r = $collection->updateOne(
+                ['p_unid' => $_SESSION['p_unid']],
+                ['$set' =>['password' => $hash]]
+            );
+            return 'true';
+        }
+        else {
+            return 'false';
+        }
+    }
 }

@@ -48,10 +48,14 @@
                 <h5 class="my-auto py-1">Booking</h5>
             </div>
         </div>
+
     </nav>
 
 
     <!-- main content -->
+    <div class="d-flex justify-content-start ms-4">
+        <a href="/p" class="btn text-primary"><i class="bi bi-arrow-left-short me-2"></i>Back</a>
+    </div>
     <div class="m-5 row ">
         <!-- sidebar -->
 
@@ -62,6 +66,7 @@
             $collection = $db->manager;
             $record = $collection->findOne( ["d_unid" => $ass] );
         ?>
+
         <div class="col-md-12 d-book-content my-4">
             <div class="doc-head mx-5">
                 <div class="left d-flex mb-4">
@@ -146,7 +151,7 @@
                                                     foreach($crecord['datetime'] as $did=>$dval) {
                                                         if($did == $ass) {
                                                             foreach($dval as $date_key=>$val2) {
-                                                                if($date_key == $premon) {
+                                                                if($date_key <= $premon) {
                                                                     foreach($val2 as $index=>$v) {
                                                                         $flag2 = false;
                                                                         if($v[0] == $val[0] && $v[1] == $val[1]){
@@ -226,11 +231,9 @@
 
                 <!-- procced to pay -->
                 <div class="container protopay d-flex justify-content-end">
-                    <!-- <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HpPd6WQ6mPUBwA" async> </script> </form> -->
-                    <button class="btn btn-primary px-5 py-3 mx-3" onclick="proccedtopay()" id="proccedtopay">Proceed to
-                        Pay
-                        <i class="bi bi-arrow-right my-auto mx-3 "></i></button>
-
+                    <!-- rzp_test_LgM8FDF7mkv5gD -->
+                    <!-- <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="rzp_test_LgM8FDF7mkv5gD" async> </script> </form> -->
+                    <button class="btn btn-primary px-5 py-3 mx-3" onclick="proccedtopay()" id="proccedtopay">Proceed to Pay<i class="bi bi-arrow-right my-auto mx-3 "></i></button>
                 </div>
             </div>
         </div>

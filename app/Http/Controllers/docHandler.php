@@ -61,6 +61,32 @@ class docHandler extends Controller {
 
     }
 
+    function videoCallLinkSend(Request $req) {
+        $con = new mongo;
+        $db = $con->php_mongo;
+
+        $pid = strval($req->input('pid'));
+        $date = strval($req->input('date'));
+        $date_ind = strval($req->input('date_ind'));
+        $link = strval($req->input('link'));
+
+        $e_collection = $db->employee;
+        $erecord = $e_collection->findOne(['p_unid' => $pid]);
+        $record = $e_collection->updateOne(
+            ['p_unid' => $pid],
+            ['$set' =>['datetime.'.$_SESSION['d_unid'].'.'.$date.'.'.$date_ind.'.video_link' => $link]]
+        );
+        include(app_path().'/email/video_link_send.php');
+        // include './email/cancel_app_email.php';
+        if($send == true) {
+            echo 'email sent';
+        }
+        else {
+            echo 'email not send';
+        }
+
+    }
+
     function showSlots(Request $req) {
         $con = new mongo;
         $db = $con->php_mongo;
@@ -75,12 +101,12 @@ class docHandler extends Controller {
             if ($index == $day) {
                 foreach ($value as $key => $val) {
                     if ($val[0] <= 12 && $val[1]) {
-                        echo '<div class="btn-group mx-2 my-1" role="group" aria-label="Basic mixed styles example">
+                        echo '<div class="btn-group mx-2 my-2" role="group" aria-label="Basic mixed styles example">
                                         <button type="button" class="btn btn-danger px-2">' . date('h:i', strtotime($val[0])) . ' AM - ' . date('h:i', strtotime($val[1])) . ' AM</button>';
 
                         echo '</div>';
                     } else {
-                        echo '<div class="btn-group mx-2" role="group" aria-label="Basic mixed styles example">
+                        echo '<div class="btn-group mx-2 my-2" role="group" aria-label="Basic mixed styles example">
                                         <button type="button" class="btn btn-danger px-2">' . date('h:i', strtotime($val[0])) . ' PM - ' . date('h:i', strtotime($val[1])) . ' PM</button>';
 
                         echo '</div>';
@@ -89,7 +115,6 @@ class docHandler extends Controller {
                 break;
             }
         }
-
     }
 
     function scheduleTimings(Request $req) {
@@ -507,6 +532,7 @@ class docHandler extends Controller {
 
         // return print_r($r['writeResult']['nModified']);
     }
+
     // function displayPrescription(Request $req) {
         //     $con = new mongo;
     //     $db = $con->php_mongo;

@@ -44,6 +44,10 @@
         </div>
     </nav>
 
+
+    <div class="d-flex justify-content-start ms-4">
+        <a href="/p" class="btn text-primary"><i class="bi bi-arrow-left-short me-2"></i>Back</a>
+    </div>
     <div class="container my-5">
         <div class="p-2 d-flex doc_block justify-content-between">
             <div class="left d-flex">

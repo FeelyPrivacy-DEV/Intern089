@@ -85,6 +85,25 @@ function cancel(pid, date, date_ind, i) {
     });
 }
 
+// video call link sending
+function link_send(pid, date, date_ind, i) {
+    let link = $(`#video_call_link${i}`).val();
+
+    $.ajax({
+        url: "/videoCallLinkSend",
+        type: "POST",
+        data: {
+            pid: pid,
+            date: date,
+            date_ind: date_ind,
+            link: link
+        },
+        success: function(data) {
+            // console.log(data);
+            $('.modal_warn').html(`<h6 class="text-primary">Link has been sent !</p>`)
+        }
+    });
+}
 
 
 $(document).on('click', '.nav button', function() {

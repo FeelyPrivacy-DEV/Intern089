@@ -25,13 +25,13 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <?php echo $_SESSION['fname']; ?>
                         </a>
-                        <ul class="dropdown-menu dropdown-right" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="#">Profile</a></li>
                             <li><a class="dropdown-item" href="#">Account Setting</a></li>
                             <hr>
                             <li>
                                 <form action="/logout" method="POST">
-                                
+
                                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                                 <button type='submit' name='logout' class='btn btn-sm fw-bold text-danger px-3'>Log Out</button>
                                 </form>

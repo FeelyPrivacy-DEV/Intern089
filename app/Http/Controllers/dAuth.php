@@ -16,6 +16,8 @@ class dAuth extends Controller {
 
         $fname = $req->input('doctor_register_fname');
         $email = $req->input('doctor_register_email');
+        $mobileNumber = $req->input('doctor_register_mn');
+        $medicalNumber = $req->input('doctor_register_ml');
         $d_unid = strval( rand() );
         // print_r($req->input('h-captcha-response'));
 
@@ -32,97 +34,102 @@ class dAuth extends Controller {
         // curl_setopt( $verify, CURLOPT_POSTFIELDS, http_build_query( $data ) );
         // curl_setopt( $verify, CURLOPT_RETURNTRANSFER, true );
         // $response = curl_exec( $verify );
-        // print_r( $response );
-        // echo "<br>";
-        // echo "<br>";
-
         // $responseData = json_decode( $response );
-        // print_r($responseData);
-        // echo "<br>";
-        // echo "<br>";
+        // return print_r($responseData);
 
-        // if ( $responseData->success) {
-            $collection = $db->admin;
-            $collection->updateOne(
-                ['username' => 'admin'],
-                ['$push' =>['pendingDoc_ids' => $d_unid]]
-            );
-            include(app_path().'/email/doc_reg_email.php');
-            // include './email/doc_reg_email.php';
-            if($send == true) {
-                $collection = $db->manager;
-                $pass = $req->input('doctor_register_pass');
-                $datetime = ( Object )[];
-                $hash = password_hash( $pass, PASSWORD_DEFAULT );
-                $p_unid = [];
+        // if ( $responseData) {
+            $collection = $db->manager;
+            $r = $collection->findOne(['email' => $email]);
+            if($r == '') {
+                include(app_path().'/email/doc_reg_email.php');
+                if($send == true) {
+                    // include './email/doc_reg_email.php';
+                    $collection = $db->admin;
+                    $collection->updateOne(
+                        ['username' => 'admin'],
+                        ['$push' =>['pendingDoc_ids' => $d_unid]]
+                    );
+                    $collection = $db->manager;
+                    $pass = $req->input('doctor_register_pass');
+                    $datetime = ( Object )[];
+                    $hash = password_hash( $pass, PASSWORD_DEFAULT );
+                    $p_unid = [];
 
-                $collection->insertOne( [
-                    'd_unid' => $d_unid,
-                    'p_unid' => $p_unid,
-                    'password' =>$hash,
-                    'fname' =>$fname,
-                    'sname' =>$req->input('doctor_register_sname'),
-                    'email' =>$email,
-                    'gen_info' => [
-                        'phone_no' => '',
-                        'gender' => '',
-                        'DOB' => '',
-                        'biography' => '',
-                        'member_since' => date( 'Y-m-d h:i' ),
-                        'reset_token' => [
-                            'token' => 'null',
-                            'time' => 'null'
+                    $collection->insertOne( [
+                        'd_unid' => $d_unid,
+                        'p_unid' => $p_unid,
+                        'password' =>$hash,
+                        'fname' =>$fname,
+                        'sname' =>$req->input('doctor_register_sname'),
+                        'email' =>$email,
+                        'gen_info' => [
+                            'phone_no' => $mobileNumber,
+                            'medical_licence_number' => $medicalNumber,
+                            'gender' => '',
+                            'DOB' => '',
+                            'biography' => '',
+                            'member_since' => date( 'Y-m-d h:i' ),
+                            'reset_token' => [
+                                'token' => 'null',
+                                'time' => 'null'
+                            ],
                         ],
-                    ],
-                    'clinic_info' => [
-                        'clinic_name' => '',
-                        'clinic_addrs' => '',
-                        'clinic_image' => [],
-                    ],
-                    'contact_detail' => [
-                        'addressLine' => '',
-                        'clinic_addrs' => '',
-                        'city' => '',
-                        'state' => '',
-                        'country' => '',
-                        'postal_code' => '',
-                    ],
-                    'servicesAndSpec' => [
-                        'services' => '',
-                        'spec' => '',
-                    ],
-                    'education' => [
-                        'degree' => [],
-                        'college' => [],
-                        'year_of_comp' => [],
-                    ],
-                    'experience' => [
-                        'hospital_name' => [],
-                        'hos_from' => [],
-                        'hos_to' => [],
-                        'designation' => [],
-                    ],
-                    'awards' => [
-                        'aw_name' => [],
-                        'aw_year' => [],
-                    ],
-                    'memberships' => [],
-                    'reg_name' => [],
-                    'custom_price'=> '',
-                    'profile_image'=> '',
-                    'approved'=> false,
-                    'login_able'=> false,
-                    'total_earn'=> '',
-                    'datetime'=> $datetime
-                ] );
-                return 'true';
+                        'clinic_info' => [
+                            'clinic_name' => '',
+                            'clinic_addrs' => '',
+                            'clinic_image' => [],
+                        ],
+                        'contact_detail' => [
+                            'addressLine' => '',
+                            'clinic_addrs' => '',
+                            'city' => '',
+                            'state' => '',
+                            'country' => '',
+                            'postal_code' => '',
+                        ],
+                        'servicesAndSpec' => [
+                            'services' => '',
+                            'spec' => '',
+                        ],
+                        'education' => [
+                            'degree' => [],
+                            'college' => [],
+                            'year_of_comp' => [],
+                        ],
+                        'experience' => [
+                            'hospital_name' => [],
+                            'hos_from' => [],
+                            'hos_to' => [],
+                            'designation' => [],
+                        ],
+                        'awards' => [
+                            'aw_name' => [],
+                            'aw_year' => [],
+                        ],
+                        'memberships' => [],
+                        'reg_name' => [],
+                        'custom_price'=> '',
+                        'profile_image'=> '',
+                        'approved'=> false,
+                        'login_able'=> false,
+                        'under_review'=> false,
+                        'reject_doc'=> false,
+                        'total_earn'=> '',
+                        'datetime'=> $datetime
+                    ] );
+                    return 'true';
+                }
+                else {
+                    return 'emailError';
+                }
             }
             else {
-                return 'emailError';
+                return 'emailExist';
             }
+
         // }
         // else {
-            // return 'captchaError';
+        //     return 'captchaError';
         // }
 
 

@@ -87,7 +87,7 @@
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li> -->
                     <!-- <li class="px-4"><a href="http://127.0.0.1/s/s/view/p/profile-settings"><i
                                 class="bi bi-gear-fill"></i>Profile Setting</a></li> -->
-                    <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
+                    <li class="px-4"><a href="/p/change-password"><i class="bi bi-lock-fill"></i>Change Password</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
                 </ul>
             </div>

@@ -96,14 +96,10 @@ $bodyHtml = '
                 </a>
                 <h3 style="font-size: 2rem !important; color: #fff !important;">Congragulations '.$fname.',</h3>
                 <span><p style="color: #fff !important; margin: 20px !important;">
-                    You are approved by our administrator <br />
-                    you are now able to login to your account and schedule meetings with your patients. <br />
-                    Click on below button and go to your dashboard and do your stuff
+                    '.$msg.' <br />
+
                     </p>
                 </span>
-                <div class="btn">
-                    <a href="https://test.feelyprivacy.com/l" class="buttonA" >Go to Dashboard</a>
-                </div>
                 <div class="address" style="margin-top: 100px !important;">
                     <span><p style="color: rgb(214, 214, 214);">Beed, Maharashtra, INDIA</p></span><br>
                     <span><p style="margin: 0px !important; color: #fff !important;">+919754625871 | <span style="color: #fff !important;"> hello@feelyprivacy.com </span></p></span><br>

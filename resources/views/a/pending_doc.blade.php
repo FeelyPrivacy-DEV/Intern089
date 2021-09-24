@@ -1,6 +1,6 @@
 <?php
 
-    error_reporting(0);
+    // error_reporting(0);
     session_start();
     if($_SESSION['aid'] == '') {
         header('location: https://test.feelyprivacy.com/s/admin/index');
@@ -25,7 +25,7 @@
 </head>
 
 <body>
-<div class="loading">
+    <div class="loading">
         <div class="spinner-border text-center" style="width: 3rem; height: 3rem;" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
@@ -65,10 +65,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/a/pending-doctor" class="nav-link text-nowrap active-sn"
-                        aria-current="page">
+                    <a href="/a/pending-doctor" class="nav-link text-nowrap active-sn" aria-current="page">
                         <i class="bi bi-person-dash-fill  bi me-2"></i>
-                        Pending Doc  <span class="text-end text-danger"><?php echo count($record['pendingDoc_ids']); ?></span>
+                        Pending Doc <span
+                            class="text-end text-danger"><?php echo count($record['pendingDoc_ids']); ?></span>
                     </a>
                 </li>
                 <li>
@@ -99,7 +99,7 @@
                         <li><a class="dropdown-item" href="#">Settings</a></li>
                         <li>
                             <form action='/logout' method='POST'>
-                            @csrf
+                                @csrf
                                 <button type='submit' name='logout'
                                     class='btn btn-sm  text-nowrap text-danger px-4 mx-1'>Logout</button>
                             </form>
@@ -116,6 +116,7 @@
                 <h3 class="h3">Pending Approval Doctor</h3>
                 <p>Dashboard / Pending Approval Doctor</p>
             </div>
+            <div class="pend_warn"></div>
             <div class="col-md-12">
                 <table class="table table-hover table-responsive mb-0" id="doc_table">
                     <thead>
@@ -124,28 +125,83 @@
                             <th>Member Since</th>
                             <th>Contact Email</th>
                             <th>Approval Status</th>
+                            <th>Under Review</th>
+                            <th>Reject</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="pend_docs">
                         <?php
                             $collection = $db->manager;
                             $record_doc = $collection->find();
-
+                            $c = 0;
                             foreach($record_doc as $each) {
                                 if($each['approved'] == false) {
                                     echo '<tr class="py-3" id="trid'.$each['d_unid'].'">';
-                                    echo '<td class="d-flex justify-content-start text-left">Dr. '.$each['fname'].' '.$each['sname'].'</td>
-                                            <td>'.$each['gen_info']['member_since'].'</td>
-                                            <td>'.$each['email'].'</td>';
+                                    echo '<td class="d-flex justify-content-start text-start">
+                                            <button class="btn d-flex justify-content-start text-danger" type="button" data-bs-toggle="modal" data-bs-target="#name'.$c.'">
+                                                Dr. '.$each['fname'].' '.$each['sname'].'
+                                            </button>
+                                        </td>
 
-                                                echo '<td>
-                                                        <div class="switch_box box_1">
-                                                            <input type="checkbox" class="switch_1"  onchange="AllowIt(\''.$each['d_unid'].'\')" id="checkAllow'.$each['d_unid'].'"  value="0">
-                                                        </div>
-                                                    </td>';
+                                        <td>'.$each['gen_info']['member_since'].'</td>
+                                        <td>'.$each['email'].'</td>';
 
-
+                                    echo '<td>
+                                            <div class="switch_box box_1">
+                                                <input type="checkbox" class="switch_1"  onchange="AllowIt(\''.$each['d_unid'].'\')" id="checkAllow'.$each['d_unid'].'" value="0">
+                                            </div>
+                                        </td>';
+                                        if($each['under_review'] == false) {
+                                            echo '<td>
+                                                    <div class="switch_box box_1">
+                                                        <input type="checkbox" class="switch_2"  onchange="UnderReview(\''.$each['d_unid'].'\')" id="UnderReview'.$each['d_unid'].'">
+                                                    </div>
+                                                </td>';
+                                        }else {
+                                            echo '<td>
+                                                    <div class="switch_box box_1">
+                                                        <input type="checkbox" class="switch_2"  onchange="removeUnderReview(\''.$each['d_unid'].'\')" id="removeUnderReview'.$each['d_unid'].'" checked>
+                                                    </div>
+                                                </td>';
+                                        }
+                                        if($each['reject_doc'] == false) {
+                                            echo '<td>
+                                                <div class="switch_box box_1">
+                                                        <input type="checkbox" class="switch_3"  onchange="Reject(\''.$each['d_unid'].'\')" id="checkReject'.$each['d_unid'].'" value="0">
+                                                    </div>
+                                                </td>';
+                                            }
+                                            else {
+                                            echo '<td>
+                                                <div class="switch_box box_1">
+                                                        <input type="checkbox" class="switch_3"  onchange="Reject(\''.$each['d_unid'].'\')" id="checkReject'.$each['d_unid'].'"checked>
+                                                    </div>
+                                                </td>';
+                                        }
                                     echo '</tr>';
+
+
+                                    echo '<div class="modal fade" id="name'.$c.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered ">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title">Doctor Info</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="p-3 d-flex flex-column ">
+                                                            <h6 class=""><strong>Mobile No :- </strong>'.$each['gen_info']['phone_no'].'</h6>
+                                                            <h6 class=""><strong>Medical Id :- </strong></h6>
+                                                            <h6 class=""><strong>Address :- </strong>'.$each['contact_detail']['addressLine'].'</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>';
+                                        $c++;
                                 }
                             }
                         ?>

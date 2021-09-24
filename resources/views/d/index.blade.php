@@ -239,7 +239,7 @@
                                                                             </a>
                                                                         </td>';
                                                                 echo '<td class="">
-                                                                            <p class="m-0 text-nowrap">'.$date.'</p>';
+                                                                            <p class="m-0 text-nowrap">'.date('d M Y', strtotime($date)).'</p>';
                                                                         if($v['book_t'][0] <= 12) {
                                                                             echo '<p class="m-0 text-primary">'.date('h:i', strtotime($v['book_t'][0])).' AM</p>';
                                                                         }
@@ -276,10 +276,11 @@
                                                                             <div class="modal-dialog modal-dialog-centered ">
                                                                                 <div class="modal-content">
                                                                                     <div class="modal-header">
-                                                                                    <h5 class="modal-title">Modal title</h5>
+                                                                                    <h5 class="modal-title">Appoinment Info</h5>
                                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                     </div>
                                                                                     <div class="modal-body p-5">
+                                                                                        <div class="modal_warn"></div>
                                                                                         <div class="p-3 d-flex justify-content-between my-2 ">
                                                                                             <div class="d-flex pet-info">
                                                                                                 <div class="pat-img">
@@ -287,12 +288,24 @@
                                                                                                         alt="" srcset="">
                                                                                                 </div>
                                                                                                 <div class="pat-det mx-4">
-                                                                                                    <h5 class=""><a href="#">'.$perticular_pat['fname'].' '.$perticular_pat['sname'].'</a></h5>
-                                                                                                    <p class="m-0 "><i class="bi bi-clock-fill"></i> '.date('Y M d', strtotime($key)).', '.$v['book_t'][0].' AM</p>
-                                                                                                    <p class="m-0 "><i class="bi bi-geo-alt-fill"></i> Newyork, United States</p>
+                                                                                                    <h5 class=""><a href="#">'.$perticular_pat['fname'].' '.$perticular_pat['sname'].'</a></h5>';
+                                                                                                    if($v['book_t'][0] <= 12) {
+                                                                                                        echo '<p class="m-0 "><i class="bi bi-clock-fill"></i> '.date('d M Y', strtotime($date)).', '.date('h:i', strtotime($v['book_t'][0])).' AM</p>';
+                                                                                                    }
+                                                                                                    else {
+                                                                                                        echo '<p class="m-0 "><i class="bi bi-clock-fill"></i> '.date('d M Y', strtotime($date)).', '.date('h:i', strtotime($v['book_t'][0])).' PM</p>';
+                                                                                                    }
+                                                                                                    echo '<p class="m-0 "><i class="bi bi-geo-alt-fill"></i> Newyork, United States</p>
                                                                                                     <p class="m-0 "><i class="bi bi-chat-left-text-fill"></i> '.$perticular_pat['email'].'</p>
                                                                                                     <p class="m-0 "><i class="bi bi-telephone-fill"></i> +1 923 782 4575</p>
                                                                                                 </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="my-3 ">
+                                                                                            <h6>Send video call Link to Patient</h6>
+                                                                                            <div class="d-flex justify-content-between">
+                                                                                                <input type="text" class="form-control me-2" id="video_call_link'.$c.'" placeholder="Paste link here" required value="'.$v['video_link'].'">
+                                                                                                <button class="btn btn-sm btn-primary" onclick="link_send(\''.$punid_key.'\', \''.$date.'\', \''.$k.'\', '.$c.')">Send</button>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>

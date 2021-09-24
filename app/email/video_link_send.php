@@ -3,22 +3,21 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-
 $sender = env('MAIL_FROM_ADDRESS');
 $senderName = env('MAIL_FROM_NAME');
 $usernameSmtp = env('MAIL_USERNAME');
 $passwordSmtp = env('MAIL_PASSWORD');
 $host = env('MAIL_HOST');
 $port = env('MAIL_PORT');
-$recipient = $email;
-
+$recipient = $erecord['email'];
+// $configurationSet = 'ConfigSet';
 
 $subject = '
-    Welcome Dr. '.$fname.'
-';
+    Video call link !
+    ';
 
-$bodyText =  '
-    doc sign up test successful...
+    $bodyText =  '
+    Video call link !
 ';
 
 $bodyHtml = '
@@ -90,11 +89,15 @@ $bodyHtml = '
                     <img src="https://test.feelyprivacy.com/image/logo.jpg" alt="" height="50"
                     style="display: flex;justify-content: center;margin: 10px auto !important;" />
                 </a>
-                <h3 style="font-size: 2rem !important; color: #fff !important;">Hello '.$fname.',</h3>
+                <h3 style="font-size: 2rem !important; color: #fff !important;">Hi, '.$erecord['fname'].'</h3>
                 <span><p style="color: #fff !important;">
-                    Thanks for being a "Jeev60"
-                    Doctor!<br />&nbsp; your account has been created successfully.<br /> We\'d appreciate you but before that till verify you, <br />please be patient ,
-                    so we can improve our contents and services !</p>
+                    We are sorry about this,<br> for some reason
+                    Your Dcotor Dr. '.$_SESSION['fname'].' '.$_SESSION['sname'].' sends a video call link to you<br>
+                     !</p>
+
+                     <br>
+                     <br>
+                     <p style="color: #fff !important;">Video call Link : '.$link.' </p>
                 </span>
                 <div class="address" style="margin-top: 100px !important;">
                     <span><p style="color: rgb(214, 214, 214);">Beed, Maharashtra, INDIA</p></span><br>

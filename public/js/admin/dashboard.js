@@ -33,10 +33,10 @@ function disableIt(i) {
 
 }
 
-// allow it
-
+// allow the doctor
 function AllowIt(i) {
     $(`#checkAllow${i}`).val('1');
+    $(`#removeUnderReview${i}`).removeAttr('checked');
     $(`#trid${i}`).fadeOut(2000, function() {
         $(`#trid${i}`).remove();
         // $(".pend_doc_table").load(location.href + " .pend_doc_table");
@@ -50,11 +50,97 @@ function AllowIt(i) {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            $('#warn').text(xhr.responseText);
+            pend_doc()
         }
     };
     xhr.send(`id=${i}`);
 }
+
+// under review the doctor
+function UnderReview(i) {
+    var xhr = new XMLHttpRequest();
+    var url = "/UnderReviewDoctor";
+
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            pend_doc();
+        }
+    };
+    xhr.send(`id=${i}`);
+}
+
+// remove under review the doctor
+function removeUnderReview(i) {
+    var xhr = new XMLHttpRequest();
+    var url = "/removeUnderReview";
+
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            pend_doc();
+        }
+    };
+    xhr.send(`id=${i}`);
+}
+
+// reject the doctor
+function Reject(i) {
+    $(`#checkAllow${i}`).val('1');
+    $(`#removeUnderReview${i}`).removeAttr('checked');
+    $('.pend_warn').html(`<h6 class="text-center text-primary">Added to reject list</h6>`)
+    $(`.pend_warn`).fadeOut(2000, function() {
+        // $(`#trid${i}`).remove();
+        // $(".pend_doc_table").load(location.href + " .pend_doc_table");
+    });
+
+    var xhr = new XMLHttpRequest();
+    var url = "/RejectDoctor";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            pend_doc()
+        }
+    };
+    xhr.send(`id=${i}`);
+}
+
+
+
+
+
+
+
+//* displaying *//
+function pend_doc() {
+    let get_doc = true;
+    var xhr = new XMLHttpRequest();
+    var url = "/get_pend_doc";
+
+    xhr.open("GET", url, true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            $('#pend_docs').html(xhr.responseText);
+        }
+    };
+    xhr.send();
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 function del(i) {

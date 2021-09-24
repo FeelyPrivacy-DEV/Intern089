@@ -186,7 +186,7 @@
                                                                                             </div>
                                                                                             <div class="d-flex flex-column text-end">
                                                                                                 <p class="m-0 p-0 text-nowrap"><strong>Invoice To </strong></p>
-                                                                                                <p class="m-0 p-0 text-nowrap text-muted">'.$perticular_pat['name'].'</p>
+                                                                                                <p class="m-0 p-0 text-nowrap text-muted">'.$perticular_pat['fname'].'</p>
                                                                                                 <p class="m-0 p-0 text-nowrap text-muted">299 Star Trek Drive, Panama City,</p>
                                                                                                 <p class="m-0 p-0 text-nowrap text-muted">Florida, 32405, USA</p>
                                                                                             </div>

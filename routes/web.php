@@ -64,6 +64,18 @@ use GuzzleHttp\Middleware;
         // approve the doctor account
         Route::post('/approveDoctor', [aHandler::class, 'approveDoctor']);
 
+        // Under Review the doctor account
+        Route::post('/UnderReviewDoctor', [aHandler::class, 'UnderReviewDoctor']);
+
+        // /remove Under Review  the doctor account
+        Route::post('/removeUnderReview', [aHandler::class, 'removeUnderReview']);
+
+        // get_pend_doc account
+        Route::get('/get_pend_doc', [aHandler::class, 'get_pend_doc']);
+
+        // Reject the doctor account
+        Route::post('/RejectDoctor', [aHandler::class, 'RejectDoctor']);
+
         //admin patient
         Route::get('/a/patient', function () {
             return view('/a/patient');
@@ -149,6 +161,7 @@ use GuzzleHttp\Middleware;
 
             // doctor profile-settings
             Route::view('/d/profile-settings', '/d/profile-settings');
+            Route::view('/d/change-password', '/d/change-password');
 
             // doctor profile-settings form submit
             Route::post('/UpdateDoctorProfileSettings', [docHandler::class, 'UpdateDoctorProfileSettings']);
@@ -158,6 +171,9 @@ use GuzzleHttp\Middleware;
 
             // doctor's dashboard upcoming appoinment
             Route::get('/upcomingAppoinment', [docHandler::class, 'upcomingAppoinments']);
+
+            // videoCallLinkSend appoinment
+            Route::post('/videoCallLinkSend', [docHandler::class, 'videoCallLinkSend']);
 
             // doctor accept appoinment
             Route::post('/acceptAppoinment', [docHandler::class, 'acceptAppoinment']);
@@ -187,6 +203,7 @@ use GuzzleHttp\Middleware;
 
             // patient dashboard
             Route::view('/p/dashboard', 'p/dashboard');
+            Route::view('/p/change-password', 'p/change-password');
 
             // patient doctor-profile
             Route::get('/p/doctor-profile/{id}', function ($id) {
@@ -200,6 +217,7 @@ use GuzzleHttp\Middleware;
 
             // proccedToPay action (booking page)
             Route::post('/proccedToPay', [patHandler::class, 'proToPay']);
+            Route::post('/chPasswordPat', [patHandler::class, 'chPasswordPat']);
 
             // patient chechout page
             Route::get('/p/checkout/{id}/{date}/{time}', function ($id, $date, $time) {

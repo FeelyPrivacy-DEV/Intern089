@@ -57,6 +57,7 @@
 
 
     <!-- main content -->
+
     <div class="m-2 row">
         <!-- sidebar -->
         <div class="col-md-3 side-profile p-2 border">
@@ -80,7 +81,7 @@
                     <!-- <li class="px-4"><a href="http://127.0.0.1/s/s/view/p/booking"><i class="bi bi-chat-left-dots-fill"></i>Booking</a></li> -->
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li> -->
                     <!-- <li class="px-4"><a href="http://127.0.0.1/s/s/view/p/profile-settings"><i class="bi bi-gear-fill"></i>Profile Setting</a></li> -->
-                    <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
+                    <li class="px-4"><a href="/p/change-password"><i class="bi bi-lock-fill"></i>Change Password</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
                 </ul>
             </div>
@@ -88,6 +89,7 @@
 
         <!-- body content -->
         <div class="col-md-9 d-dash-content pl-5">
+
             <div class="my-4">
                 <nav class="nav d-flex justify-content-around ">
                     <button class="btn text-dark px-4 pb-3 active ">Appointments</button>
@@ -175,34 +177,50 @@
                                                         </tr>';
                                                         // information modal
                                                         echo '<div class="modal fade" id="info'.$c.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-centered">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                        <h5 class="modal-title">Modal title</h5>
-                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <p>'.$doc_detail['fname'].'</p>';
-
-                                                                            if($v['status'] == 'confirmed') {
-                                                                                echo '<div class="d-flex fun">
-                                                                                            <button class="btn btn-sm border mx-1  bookmark" type="button"><i
-                                                                                                    class="bi bi-bookmark"></i></button>
-                                                                                            <button class="btn btn-sm border mx-1  call" type="button"><i
-                                                                                                    class="bi bi-telephone-fill"></i></button>
-                                                                                            <button class="btn btn-sm border mx-1  video" type="button"><i
-                                                                                                    class="bi bi-camera-video-fill"></i></button>
-                                                                                        </div>';
-                                                                            }
-
-                                                                        echo '</div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                                        <div class="modal-dialog modal-dialog-centered ">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                <h5 class="modal-title">Appoinment Info</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body p-5">
+                                                                    <div class="modal_warn"></div>
+                                                                    <div class="p-3 d-flex justify-content-between my-2 ">
+                                                                        <div class="d-flex pet-info">
+                                                                            <div class="pat-img">
+                                                                                <img src="/image/pat-img/default_user.png" height="110" width="110"
+                                                                                    alt="" srcset="">
+                                                                            </div>
+                                                                            <div class="pat-det mx-4">
+                                                                                <h5 class=""><a> Dr. '.$doc_detail['fname'].' '.$doc_detail['sname'].'</a></h5>';
+                                                                                if($v['book_t'][0] <= 12) {
+                                                                                    echo '<p class="m-0 "><i class="bi bi-clock-fill"></i> '.date('d M Y', strtotime($key)).', '.date('h:i', strtotime($v['book_t'][0])).' AM</p>';
+                                                                                }
+                                                                                else {
+                                                                                    echo '<p class="m-0 "><i class="bi bi-clock-fill"></i> '.date('d M Y', strtotime($key)).', '.date('h:i', strtotime($v['book_t'][0])).' PM</p>';
+                                                                                }
+                                                                                echo '
+                                                                                <p class="m-0 text-nowrap"><i class="bi bi-chat-left-text-fill"></i> '.$doc_detail['email'].'</p>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
+                                                                    <div class="my-3 ">
+                                                                        <h6>Video call Link with doctor :</h6>';
+                                                                        if($v['video_link'] == '') {
+                                                                            echo '<p class="text-danger">Doctor not send link yet !</p>';
+                                                                        }
+                                                                        else {
+                                                                            echo '<a class="btn btn-danger px-3" href="'.$v['video_link'].'"><i class="bi bi-camera-video-fill me-2"></i> Join Video call</a>';
+                                                                        }
+                                                                echo '</div>
                                                                 </div>
-                                                            </div>';
+                                                                </div>
+                                                                <div class="modal-footer">
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>';
                                                         $c++;
                                                 }
                                             }
@@ -227,29 +245,100 @@
                         <thead>
                             <tr>
                                 <th scope="col">Date</th>
-                                <th scope="col">Name</th>
+                                <th scope="col">Title</th>
                                 <th scope="col">Created by</th>
-                                <th></th>
+                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="py-5">
-                                <td class="text-nowrap">14 Nov 2019 </td>
-                                <td class="text-f">Prescription 1</td>
-                                <td class="d-flex pat">
-                                    <img src="http://127.0.0.1/s/s/public/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40" alt="" srcset="">
-                                    <a href="" class="px-2 my-auto text-nowrap">
-                                            Dr. Ruby Perrin
-                                        <p class="text-muted my-auto">Dental</p>
-                                    </a>
-                                </td>
-                                <td class="">
-                                    <div class="d-flex action">
-                                        <button class="btn btn2 btn-sm mx-1"><i class="bi bi-printer"></i> Print</button>
-                                        <button class="btn btn1 btn-sm "><i class="bi bi-eye-fill"></i> View</button>
-                                    </div>
-                                </td>
-                            </tr>
+                            <?php
+                                $flag = 1;
+                                $collection = $db->employee;
+                                $patinet_result = $collection->findOne(['p_unid' => strval($_SESSION['p_unid'])]);
+
+                                foreach($patinet_result['prescription'] as $doctor_id => $doc_id_obj) {
+                                    $collection = $db->manager;
+                                    $doctor_result = $collection->findOne(['d_unid' => strval($doctor_id)]);
+                                    foreach($doc_id_obj as $date => $date_obj) {
+                                        foreach($date_obj as $prescription_id => $prescription_id_array) {
+                                            echo '<tr class="py-5">
+                                                    <td class="text-nowrap">'.date('d M Y', strtotime($date)).'</td>
+                                                    <td class="text-f">'.$prescription_id.'</td>';
+                                                echo'<td class="d-flex">
+                                                        <img src="/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40">
+                                                        <div class="d-flex flex-column m-0 px-2">
+                                                            <p class="text-nowrap m-0">Dr. '.$doctor_result['fname'].' '.$doctor_result['sname'].'</p>
+                                                            <p class="text-muted m-0">Dental</p>
+                                                        </div>
+                                                    </td>';
+                                                echo'<td>
+                                                        <div class="d-flex justify-content-start action">
+                                                            <button class="btn btn2 btn-sm text-nowrap mx-1"><i class="bi bi-printer mx-1"></i>Print</button>
+                                                            <button class="btn btn1 btn-sm text-nowrap mx-1" data-bs-toggle="modal" data-bs-target="#view'.$flag.'"><i class="bi bi-eye-fill mx-1"></i>View</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>';
+
+
+
+                                            // View prescription modal
+                                            echo'<div class="modal fade" id="view'.$flag.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Prescription Details</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="view-prescription border rounded m-2">
+                                                                <div class="m-3">
+                                                                    <div class="d-flex justify-content-center my-3">
+                                                                        <img src="/image/logo.png" height="40" alt="">
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <h6>Patient Name : '.$patinet_result['fname'].' '.$patinet_result['sname'].'</h6>
+                                                                        <h6>Date : '.date('d M Y', strtotime($date)).'</h6>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <h6>Phone : </h6>
+                                                                        <h6>ID : '.$prescription_id.'</h6>
+                                                                    </div>
+                                                                    <hr class="mx-2">
+                                                                    <h1 class="text-success m-1">&#8478;</h1>
+                                                                    <div class="pres m-3">
+                                                                        <div class="d-flex justify-content-between my-2">
+                                                                            <h6 class="text-danger">Name</h6>
+                                                                            <h6 class="text-danger">Quantity</h6>
+                                                                            <h6 class="text-danger">Days</h6>
+                                                                        </div>
+                                                                    ';
+                                                                        $count = 1;
+                                                                        foreach($prescription_id_array as $value) {
+                                                                            echo '<div class="d-flex justify-content-between">
+                                                                                    <h6 class="text-primary text-nowrap"><span class="text-dark">'.$count.'.</span> '.$value['med_name'].'</h6>
+                                                                                    <p class="m-0 text-center">'.$value['med_qty'].'</p>
+                                                                                    <p class="m-0 text-center">'.$value['med_day'].'</p>
+                                                                                </div>';
+                                                                                $count++;
+                                                                        }
+
+                                                                echo '</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>';
+
+                                            $flag++;
+                                        }
+                                    }
+                                }
+
+                            ?>
                         </tbody>
                     </table>
                 </div>

@@ -7,41 +7,6 @@
     $con = new mongo;
     $db = $con->php_mongo;
 
-    $auth_msg = '';
-
-    if($auth == 'false') {
-        $auth_msg = '<div class="alert alert-danger alert-dismissible fade show " role="alert">
-                        <strong>Wrong Credentials !</strong> Please try again.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>';
-    }
-    else if($auth == 'wait') {
-        $auth_msg = '<div class="alert alert-success alert-dismissible fade show " role="alert">
-                        <strong>Your account created </strong> and under review ! Please check email.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>';
-    }
-    if($auth == 'notApproved') {
-        $auth_msg = '<div class="alert alert-danger alert-dismissible fade show " role="alert">
-                        <strong>Your Account is not verified yet !</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>';
-    }
-    else if($auth == 'disable') {
-        $auth_msg = '<div class="alert alert-danger alert-dismissible fade show " role="alert">
-                        <strong>Your account has been disbaled by admin !</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>';
-    }
-    else if($auth == 'captcha') {
-        $auth_msg = '<div class="alert alert-danger alert-dismissible fade show " role="alert">
-                        <strong>Pleace verify captcha !</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>';
-    }
-
-echo $auth;
-
 ?>
 
 
@@ -143,25 +108,35 @@ echo $auth;
                                     placeholder="First Name" required>
                             </div>
                             <div class="mb-4 mx-1">
-                                <!-- <label for="email" class="form-label">Last Name</label> -->
                                 <input type="text" class="form-control py-2" name="sname" id="doctor_register_sname"
                                     placeholder="Last Name" required>
                             </div>
                         </div>
                         <div class="mb-4">
-                            <!-- <label for="email" class="form-label">Email Address</label> -->
                             <input type="email" class="form-control py-2" name="email" id="doctor_register_email"
                                 aria-describedby="email" placeholder="Email Address" required>
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
                             </div>
                         </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="mb-3 mx-1">
+                                <!-- <label for="email" class="form-label">First Name</label> -->
+                                <input type="number" class="form-control py-2" maxlength="10" name="fname" id="doctor_register_mn"
+                                    placeholder="mobile Number" required>
+                            </div>
+                            <div class="mb-4 mx-1">
+                                <input type="text" class="form-control py-2" name="sname" id="doctor_register_ml"
+                                    placeholder="Medical Licence" required>
+                            </div>
+                        </div>
                         <div class="mb-4">
-                            <!-- <label for="password" class="form-label">Password</label> -->
                             <input type="password" class="form-control py-2" name="pass" id="doctor_register_pass"
                                 placeholder="Create Password " required aria-describedby="password">
+                            <small class="text-danger" id="pass_warn"><i></i></small>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <div class="h-captcha" data-sitekey="8840d1d7-bfeb-4979-b86b-5223d5ad79f9" required>
+                            <div class="h-captcha" data-sitekey="e4054920-6588-4c22-9f83-19a1585bd86a"
+                                data-size="invisible" required>
                             </div>
                         </div>
 

@@ -6,26 +6,6 @@ session_start();
 use MongoDB\Client as mongo;
 $con = new mongo;
 $db = $con->php_mongo;
-$auth_msg = '';
-
-if($_GET['auth'] == 'failed') {
-    $auth_msg = '<div class="alert alert-danger alert-dismissible fade show " role="alert">
-                    <strong>Wrong Credentials !</strong> Please try again.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>';
-}
-else if($_GET['login'] == 'now') {
-    $auth_msg = '<div class="alert alert-success alert-dismissible fade show " role="alert">
-                    <strong>Your account created successfully !</strong> Login Now !
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>';
-}
-else if($_GET['c'] == 'e') {
-    $auth_msg = '<div class="alert alert-danger alert-dismissible fade show " role="alert">
-                    <strong>Pleace verify captcha !</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>';
-}
 
 ?>
 
@@ -113,9 +93,10 @@ else if($_GET['c'] == 'e') {
                             <!-- <label for="password" class="form-label">Password</label> -->
                             <input type="password" name="pass" class="form-control py-2" id="patient_registration_pass"
                                 placeholder="Create Password" required aria-describedby="password">
+                                <small class="text-danger" id="pass_warn"><i></i></small>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <div class="h-captcha" data-sitekey="8840d1d7-bfeb-4979-b86b-5223d5ad79f9" required></div>
+                            <div class="h-captcha" data-sitekey="e4054920-6588-4c22-9f83-19a1585bd86a" required></div>
                         </div>
                         <button class="btn m-0 fw-bold p-0 text-primary" id="p_log" type="button">Login </button>
                         <div class="d-grid gap-2 my-1">
