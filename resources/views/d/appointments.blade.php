@@ -2,29 +2,13 @@
 
     error_reporting(0);
     session_start();
-    // require '../../vendor/autoload.php';
-    if($_SESSION['docid'] == '') {
-        header('location: /');
-    }
+
     $con = new MongoDB\Client( 'mongodb://127.0.0.1:27017' );
     $db = $con->php_mongo;
     $collection = $db->manager;
-    // $msg = '';
 
 
     $record = $collection->findOne( [ '_id' =>$_SESSION['docid']] );
-    // $datetime = iterator_to_array( $record['datetime'] );
-
-    // $date_arr = [];
-    // $time_arr = [];
-
-    // foreach($datetime as $date_key=>$val) {
-    //     $date_arr[] = $date_key;
-    //     foreach($val as $index=>$v) {
-    //         $time_arr[$date_key][] = $v;
-    //     }
-    // }
-    // $k = count( $date_arr );
 
 ?>
 
@@ -45,7 +29,7 @@
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
-    
+
     @include('assest/navbar')
 
     <!-- breadcrumb -->
@@ -95,7 +79,7 @@
                     <!-- <li class="px-4"><a href="/d/profile-settings"><i
                                 class="bi bi-gear-fill"></i>Profile Setting</a></li> -->
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-share-fill"></i>Social Media</a></li> -->
-                    <li class="px-4"><a href="#"><i class="bi bi-lock-fill"></i>Change Password</a></li>
+                    <li class="px-4"><a href="/d/forgot-password"><i class="bi bi-lock-fill"></i>Change Password</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
                 </ul>
             </div>

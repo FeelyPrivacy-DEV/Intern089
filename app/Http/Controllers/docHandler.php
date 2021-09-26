@@ -12,6 +12,7 @@ session_start();
 
 class docHandler extends Controller {
 
+    // accepting appoinment
     function acceptAppoinment(Request $req) {
         $con = new mongo;
         $db = $con->php_mongo;
@@ -36,6 +37,7 @@ class docHandler extends Controller {
         }
     }
 
+    // cancelling appoinment
     function cancelAppoinment(Request $req) {
         $con = new mongo;
         $db = $con->php_mongo;
@@ -61,6 +63,7 @@ class docHandler extends Controller {
 
     }
 
+    // sending video call link to patient
     function videoCallLinkSend(Request $req) {
         $con = new mongo;
         $db = $con->php_mongo;
@@ -87,6 +90,7 @@ class docHandler extends Controller {
 
     }
 
+    //  booking slots displaying to doctor
     function showSlots(Request $req) {
         $con = new mongo;
         $db = $con->php_mongo;
@@ -117,6 +121,7 @@ class docHandler extends Controller {
         }
     }
 
+    // creating  Timings slots
     function scheduleTimings(Request $req) {
         $con = new mongo;
         $db = $con->php_mongo;
@@ -135,6 +140,7 @@ class docHandler extends Controller {
         return redirect('/d/schedule-timings');
     }
 
+    // filtering only today's appoinment
     function todaysAppoinment(Request $req) {
         // print_r($req->input());
 
@@ -243,6 +249,7 @@ class docHandler extends Controller {
 
     }
 
+    // displaying all appoinment
     function upcomingAppoinments() {
         $con = new mongo;
         $db = $con->php_mongo;
@@ -347,6 +354,7 @@ class docHandler extends Controller {
 
     }
 
+    // Update Doctor Profile Settings
     function UpdateDoctorProfileSettings(Request $req) {
         $con = new mongo;
         $db = $con->php_mongo;
@@ -428,6 +436,31 @@ class docHandler extends Controller {
 
     }
 
+    // doctor forgot password when doctor is login
+    function page_forgot_password(Request $req) {
+        $con = new mongo;
+        $db = $con->php_mongo;
+        $collection = $db->manager;
+
+        $old = $req->input('old');
+        $newPass = $req->input('newPass');
+
+        $r = $collection->findOne(['d_unid' => $_SESSION['d_unid']]);
+        $p = password_verify($old, $r['password']);
+        if($p) {
+            $hash = password_hash( $newPass, PASSWORD_DEFAULT );
+            $r = $collection->updateOne(
+                ['d_unid' => $_SESSION['d_unid']],
+                ['$set' =>['password' => $hash]]
+            );
+            return 'true';
+        }
+        else {
+            return 'false';
+        }
+    }
+
+    // adding prescriptions and email sending that patient
     function prescriptionSave(Request $req) {
         $con = new mongo;
         $db = $con->php_mongo;
@@ -470,6 +503,7 @@ class docHandler extends Controller {
         // return print_r($r['writeResult']['nModified']);
     }
 
+    // editing the existing prescrtption
     function editPrescriptionSave(Request $req) {
         $con = new mongo;
         $db = $con->php_mongo;
@@ -510,75 +544,7 @@ class docHandler extends Controller {
 
     }
 
-    function deletePrescription(Request $req) {
-        $con = new mongo;
-        $db = $con->php_mongo;
-        $collection = $db->employee;
-        $prescription_id = $req->input('pre_id');
-        $response = false;
-        $r = $collection->deleteOne(
-            ['p_unid' => strval($req->input('pat_id'))],
-            ['prescription.'.$_SESSION['d_unid'].'.'.$prescription_id]
-        );
-        $response = true;
 
 
-        if($response == true) {
-                return 'true';
-        }
-        else {
-            return 'false';
-        }
-
-        // return print_r($r['writeResult']['nModified']);
-    }
-
-    // function displayPrescription(Request $req) {
-        //     $con = new mongo;
-    //     $db = $con->php_mongo;
-    //     echo $doc_id = $_SESSION['d_unid'];
-    //     $result = true;
-    //     $collection = $db->employee;
-    //     $patinet_result = $collection->findOne(['p_unid' => strval($req->input('pat_id'))]);
-
-    //     $collection = $db->manager;
-    //     $doctor_result = $collection->findOne(['d_unid' => strval($doc_id)]);
-
-    //     // return print_r($req->input());
-    //     foreach($patinet_result['prescription'] as $doctor_id => $doc_id_obj) {
-    //         if($doctor_id == $doc_id) {
-    //             foreach($doc_id_obj as $date => $date_obj) {
-    //                 foreach($date_obj as $prescription_id => $prescription_id_array) {
-    //                     // $result = true;
-    //                     echo '<tr class="py-5">
-    //                             <td class="text-nowrap">'.date('d M Y', strtotime($date)).'</td>
-    //                             <td class="text-f">'.$prescription_id.'</td>
-    //                             <td class="d-flex">
-    //                                 <img src="/image/doc-img/doc-img/default-doc.jpg" class="my-auto" height="40">
-    //                                 <div class="d-flex flex-column m-0 px-2">
-    //                                     <p class="text-nowrap m-0">Dr. '.$doctor_result['fname'].' '.$doctor_result['sname'].'</p>
-    //                                     <p class="text-muted m-0">Dental</p>
-    //                                 </div>
-    //                             </td>
-    //                             <td>
-    //                                 <div class="d-flex justify-content-between action">
-    //                                     <button class="btn print btn-sm text-nowrap mx-1"><i class="bi bi-printer mx-1"></i>Print</button>
-    //                                     <button class="btn view btn-sm text-nowrap mx-1"><i class="bi bi-eye-fill mx-1"></i>View</button>
-    //                                     <button class="btn edit btn-sm text-nowrap mx-1"><i class="bi bi-pencil-fill mx-1"></i>Edit</button>
-    //                                     <button class="btn delete btn-sm text-nowrap mx-1"><i class="bi bi-trash-fill mx-1"></i>Delete</button>
-    //                                 </div>
-    //                             </td>
-    //                         </tr>';
-    //                     print_r($prescription_id_array);
-    //                 }
-    //             }
-    //         }
-    //     }
-
-    //     // if($result == false) {
-    //     //     return 'false';
-    //     // }
-
-    // }
 
 }

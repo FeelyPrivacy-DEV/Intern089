@@ -108,24 +108,9 @@
                         <?php
                                 $flag2 = false;
 
-                                // $datetime = iterator_to_array( $record['datetime'] );
-
-                                // $date_arr = [];
-                                // $time_arr = [];
-
-                                // foreach($datetime as $date_key=>$val) {
-                                //     $date_arr[] = $date_key;
-                                //     foreach($val as $index=>$v) {
-                                //         $time_arr[$date_key][] = $v;
-                                //     }
-                                // }
-
-                                // $k = count( $date_arr );
-
                                 $collection = $db->check;
                                 $crecord = $collection->findOne( ['fname' => 'check_datetime'], );
-                                // $datetime = iterator_to_array( $record['datetime'] );
-
+    
                                 for($i = 0; $i < 7; $i++) {
                                     $date = strtotime("+$i day", strtotime("this week"));
                                     $premon = date("Y-m-d", $date);

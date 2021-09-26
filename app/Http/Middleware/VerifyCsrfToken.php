@@ -37,6 +37,7 @@ class VerifyCsrfToken extends Middleware
         '/edit-prescription-save',
         '/delete-prescription',
         '/display-prescription',
+        '/page-forgot-password',
         '/doctor-forgot-password',
         '/patient-forgot-password',
         '/chPasswordPat',

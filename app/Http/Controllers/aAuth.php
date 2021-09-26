@@ -7,6 +7,8 @@ use MongoDB\Client as mongo;
 
 class aAuth extends Controller
 {
+
+    // admin login 
     function logAdmin(Request $req) {
         $con = new mongo;
         $db = $con->php_mongo;
@@ -37,6 +39,6 @@ class aAuth extends Controller
     }
 
     // function newAdmin(Request $req) {
-
+    //
     // }
 }

@@ -1,4 +1,6 @@
 
+
+// disabling account of doctor (login disable)
 function disableIt(i) {
     if($(`#check${i}`).val() == 1) {
         $(`#check${i}`).val('0');
@@ -56,7 +58,7 @@ function AllowIt(i) {
     xhr.send(`id=${i}`);
 }
 
-// under review the doctor
+// adding under review the doctor
 function UnderReview(i) {
     $(`#removeReject${i}`).removeAttr('checked');
     var xhr = new XMLHttpRequest();
@@ -72,7 +74,7 @@ function UnderReview(i) {
     xhr.send(`id=${i}`);
 }
 
-// remove under review the doctor
+// removing doctor from under_review
 function removeUnderReview(i) {
     var xhr = new XMLHttpRequest();
     var url = "/removeUnderReview";
@@ -87,7 +89,7 @@ function removeUnderReview(i) {
     xhr.send(`id=${i}`);
 }
 
-// reject the doctor
+// adding to the reject list
 function Reject(i) {
     $(`#checkAllow${i}`).val('1');
     $(`#removeUnderReview${i}`).removeAttr('checked');
@@ -111,7 +113,7 @@ function Reject(i) {
 }
 
 
-// reject the doctor
+// doctor remove from reject list
 function removeReject(i) {
     $(`#checkAllow${i}`).val('1');
     $(`#removeUnderReview${i}`).removeAttr('checked');
@@ -135,41 +137,8 @@ function removeReject(i) {
 }
 
 
-
-
-
-
-
-//* displaying *//
-// function pend_doc() {
-//     let get_doc = true;
-//     var xhr = new XMLHttpRequest();
-//     var url = "/get_pend_doc";
-
-//     xhr.open("GET", url, true);
-//     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//     xhr.onreadystatechange = function () {
-//         if (this.readyState == 4 && this.status == 200) {
-//             $('#pend_docs').html(xhr.responseText);
-//         }
-//     };
-//     xhr.send();
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
+// testing that  doctor record can be deletable or not
 function del(i) {
-
     let delt = true;
     var xhr = new XMLHttpRequest();
     var url = "https://test.feelyprivacy.com/s/admin/controller/php/dashboard.php";
@@ -185,10 +154,7 @@ function del(i) {
 }
 
 
-$(document).on('click', '#btn_side', function() {
-
-})
-
+// applying dataTable library to every table
 $(document).ready(function(){
     $('#app_table').DataTable();
     $('#doc_table').DataTable();

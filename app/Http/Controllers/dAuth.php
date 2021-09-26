@@ -10,7 +10,9 @@ use MongoDB\Client as mongo;
 
 class dAuth extends Controller {
 
-    public function newDoc(Request $req) {
+
+    // New doctor registration
+    function newDoc(Request $req) {
         $con = new mongo;
         $db = $con->php_mongo;
 
@@ -135,7 +137,8 @@ class dAuth extends Controller {
 
     }
 
-    public function logDoc(Request $req) {
+    // doctor login
+    function logDoc(Request $req) {
         // print_r($req->input());
         $con = new mongo;
         $db = $con->php_mongo;
@@ -180,6 +183,7 @@ class dAuth extends Controller {
 
     }
 
+    // doctor forgot password sending link
     function forgotDoc(Request $req) {
         $con = new mongo;
         $db = $con->php_mongo;
@@ -202,6 +206,7 @@ class dAuth extends Controller {
         }
     }
 
+    // doctor forgot password page
     function changePasswordDoc(Request $req) {
         $con = new mongo;
         $db = $con->php_mongo;

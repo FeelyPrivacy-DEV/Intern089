@@ -9,6 +9,7 @@ session_start();
 
 class aHandler extends Controller
 {
+    // get pending doctor list from database
     function get_pend_doc(Request $req) {
         $con = new mongo;
         $db = $con->php_mongo;
@@ -52,6 +53,7 @@ class aHandler extends Controller
         }
     }
 
+    // adding doctor to under review
     function UnderReviewDoctor(Request $req) {
         // return $req->input();
         $con = new mongo;
@@ -78,6 +80,7 @@ class aHandler extends Controller
 
     }
 
+    // removing doctor from under review
     function removeUnderReview(Request $req) {
         // return $req->input();
         $con = new mongo;
@@ -105,6 +108,7 @@ class aHandler extends Controller
 
     }
 
+    // adding doctor to reject list
     function RejectDoctor(Request $req) {
         // return $req->input();
         $con = new mongo;
@@ -144,6 +148,7 @@ class aHandler extends Controller
 
     }
 
+    // removing doctor from reject list
     function removeRejectDoctor(Request $req) {
         // return $req->input();
         $con = new mongo;
@@ -183,6 +188,7 @@ class aHandler extends Controller
 
     }
 
+    // doctor approval
     function approveDoctor(Request $req) {
         // return $req->input();
         $con = new mongo;
@@ -220,6 +226,7 @@ class aHandler extends Controller
 
     }
 
+    // doctor login enablig
     function loginEnable(Request $req) {
         // return $req->input();
         $con = new mongo;
@@ -235,6 +242,7 @@ class aHandler extends Controller
 
     }
 
+    // doctor login disabling
     function loginDisable(Request $req) {
         // return $req->input();
         $con = new mongo;
