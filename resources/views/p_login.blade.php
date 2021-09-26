@@ -96,7 +96,7 @@ $db = $con->php_mongo;
                                 <small class="text-danger" id="pass_warn"><i></i></small>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <div class="h-captcha" data-sitekey="e4054920-6588-4c22-9f83-19a1585bd86a" required></div>
+                            <div class="h-captcha" data-sitekey="e4054920-6588-4c22-9f83-19a1585bd86a" data-size="invisible" required></div>
                         </div>
                         <button class="btn m-0 fw-bold p-0 text-primary" id="p_log" type="button">Login </button>
                         <div class="d-grid gap-2 my-1">

@@ -170,11 +170,11 @@
                                                         <input type="checkbox" class="switch_3"  onchange="Reject(\''.$each['d_unid'].'\')" id="checkReject'.$each['d_unid'].'" value="0">
                                                     </div>
                                                 </td>';
-                                            }
-                                            else {
+                                        }
+                                        else {
                                             echo '<td>
                                                 <div class="switch_box box_1">
-                                                        <input type="checkbox" class="switch_3"  onchange="Reject(\''.$each['d_unid'].'\')" id="checkReject'.$each['d_unid'].'"checked>
+                                                        <input type="checkbox" class="switch_3"  onchange="removeReject(\''.$each['d_unid'].'\')" id="removeReject'.$each['d_unid'].'" checked>
                                                     </div>
                                                 </td>';
                                         }
@@ -190,9 +190,9 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <div class="p-3 d-flex flex-column ">
-                                                            <h6 class=""><strong>Mobile No :- </strong>'.$each['gen_info']['phone_no'].'</h6>
-                                                            <h6 class=""><strong>Medical Id :- </strong></h6>
-                                                            <h6 class=""><strong>Address :- </strong>'.$each['contact_detail']['addressLine'].'</h6>
+                                                            <h6 class=""><strong class="text-info">Mobile No :- </strong>'.$each['gen_info']['phone_no'].'</h6>
+                                                            <h6 class=""><strong class="text-info">Medical Id :- </strong>'.$each['gen_info']['medical_licence_number'].'</h6>
+                                                            <h6 class=""><strong class="text-info">Address :- </strong>'.$each['contact_detail']['addressLine'].'</h6>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">

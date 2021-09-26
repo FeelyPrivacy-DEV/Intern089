@@ -18,6 +18,7 @@ class aAuth extends Controller
             if(password_verify( $pass, $record['password'])) {
                 session_start();
                 $req->session()->put('aemail', $record['email']);
+                $req->session()->put('a_unid', $record['a_unid']);
                 $_SESSION['aid'] = $record['_id'];
                 $_SESSION['a_unid'] = $record['a_unid'];
                 $_SESSION['fname'] = $record['fname'];

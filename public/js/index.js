@@ -114,6 +114,7 @@ $(document).on('click', '#doctor_register_btn', function() {
     doctor_register_email = $('#doctor_register_email').val();
     doctor_register_mn = $('#doctor_register_mn').val();
     doctor_register_ml = $('#doctor_register_ml').val();
+    doctor_register_addr = $('#doctor_register_addr').val();
     doctor_register_pass = $('#doctor_register_pass').val();
     doc_captcha = $('[name=h-captcha-response]').val();
     if(doctor_register_ml == '' || doctor_register_mn == '' || doctor_register_fname == '' || doctor_register_sname == '' || doctor_register_email == '' || doctor_register_pass == '') {
@@ -153,20 +154,14 @@ $(document).on('click', '#doctor_register_btn', function() {
                 $('#doctor_register_btn').text(`Create Account`);
             }
             else {
+                console.log(xhr.responseText);
                 $('#doctor_register_warn').html(`<h6 class="text-center text-primary">${xhr.responseText}</h6>`)
                 $('#doctor_register_btn').text(`Create Account`);
                 $('#doctor_register_btn').attr('disabled', false);
             }
           }
         };
-        xhr.send(`
-            doctor_register_fname=${doctor_register_fname}&
-            doctor_register_sname=${doctor_register_sname}&
-            doctor_register_email=${doctor_register_email}&
-            doctor_register_mn=${doctor_register_mn}&
-            doctor_register_ml=${doctor_register_ml}&
-            doctor_register_pass=${doctor_register_pass}&
-            doc_captcha=${doc_captcha}`);
+        xhr.send(`fname=${doctor_register_fname}&sname=${doctor_register_sname}&email=${doctor_register_email}&mn=${doctor_register_mn}&addr=${doctor_register_addr}&ml=${doctor_register_ml}&pass=${doctor_register_pass}&doc_captcha=${doc_captcha}`);
     }
 
 });

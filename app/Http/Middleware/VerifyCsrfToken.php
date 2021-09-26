@@ -25,6 +25,7 @@ class VerifyCsrfToken extends Middleware
         '/UnderReviewDoctor',
         '/removeUnderReview',
         '/RejectDoctor',
+        '/removeRejectDoctor',
         '/todaysAppoinment',
         '/upcomingAppoinment',
         '/acceptAppoinment',

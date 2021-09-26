@@ -36,41 +36,41 @@ class pAuth extends Controller {
                 $collection = $db->employee;
                 $r = $collection->findOne(['email' => $email]);
                 if($r == '') {
-                    $collection = $db->admin;
-                    $collection->updateOne(
-                        ['username' => 'admin'],
-                        ['$push' =>['pat_ids' => $p_unid]]
-                    );
+                    // $collection = $db->admin;
+                    // $collection->updateOne(
+                    //     ['username' => 'admin'],
+                    //     ['$push' =>['pat_ids' => $p_unid]]
+                    // );
                     include(app_path().'/email/pat_reg_email.php');
                     // include './email/pat_reg_email.php';
                     if($send == true) {
-                        $collection = $db->employee;
-                        $pass = $req->input('patient_registration_pass');
-                        $datetime = ( Object )[];
-                        $prescription = ( Object )[];
-                        $hash = password_hash( $pass, PASSWORD_DEFAULT );
-                        $d_unid = [];
+                        // $collection = $db->employee;
+                        // $pass = $req->input('patient_registration_pass');
+                        // $datetime = ( Object )[];
+                        // $prescription = ( Object )[];
+                        // $hash = password_hash( $pass, PASSWORD_DEFAULT );
+                        // $d_unid = [];
 
-                        $r =$collection->insertOne( [
-                            'd_unid' => $d_unid,
-                            'p_unid' => $p_unid,
-                            'fname' =>$fname,
-                            'sname' =>$req->input('patient_registration_sname'),
-                            'email' =>$email,
-                            'gen_info' => [
-                                'phone_no' => '',
-                                'gender' => '',
-                                'DOB' => '',
-                                'member_since' => date( 'Y-m-d h:i' ),
-                                'reset_token' => [
-                                    'token' => 'null',
-                                    'time' => 'null'
-                                ],
-                            ],
-                            'password' =>$hash,
-                            'datetime'=>$datetime,
-                            'prescription'=>$prescription
-                        ] );
+                        // $r =$collection->insertOne( [
+                        //     'd_unid' => $d_unid,
+                        //     'p_unid' => $p_unid,
+                        //     'fname' =>$fname,
+                        //     'sname' =>$req->input('patient_registration_sname'),
+                        //     'email' =>$email,
+                        //     'gen_info' => [
+                        //         'phone_no' => '',
+                        //         'gender' => '',
+                        //         'DOB' => '',
+                        //         'member_since' => date( 'Y-m-d h:i' ),
+                        //         'reset_token' => [
+                        //             'token' => 'null',
+                        //             'time' => 'null'
+                        //         ],
+                        //     ],
+                        //     'password' =>$hash,
+                        //     'datetime'=>$datetime,
+                        //     'prescription'=>$prescription
+                        // ] );
 
                         return 'true';
                     }

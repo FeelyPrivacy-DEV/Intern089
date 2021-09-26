@@ -58,6 +58,7 @@ function AllowIt(i) {
 
 // under review the doctor
 function UnderReview(i) {
+    $(`#removeReject${i}`).removeAttr('checked');
     var xhr = new XMLHttpRequest();
     var url = "/UnderReviewDoctor";
 
@@ -65,7 +66,7 @@ function UnderReview(i) {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            pend_doc();
+            // pend_doc();
         }
     };
     xhr.send(`id=${i}`);
@@ -80,7 +81,7 @@ function removeUnderReview(i) {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            pend_doc();
+            // pend_doc();
         }
     };
     xhr.send(`id=${i}`);
@@ -90,11 +91,12 @@ function removeUnderReview(i) {
 function Reject(i) {
     $(`#checkAllow${i}`).val('1');
     $(`#removeUnderReview${i}`).removeAttr('checked');
-    $('.pend_warn').html(`<h6 class="text-center text-primary">Added to reject list</h6>`)
-    $(`.pend_warn`).fadeOut(2000, function() {
-        // $(`#trid${i}`).remove();
-        // $(".pend_doc_table").load(location.href + " .pend_doc_table");
-    });
+    $('.pend_warn').html(`<h6 class="text-center text-danger">Added to reject list</h6>`)
+    setTimeout(() => {
+        $(`.pend_warn`).hide(() => {
+            $(this).animate(2000)
+        });
+    }, 4000);
 
     var xhr = new XMLHttpRequest();
     var url = "/RejectDoctor";
@@ -102,7 +104,31 @@ function Reject(i) {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            pend_doc()
+            // pend_doc()
+        }
+    };
+    xhr.send(`id=${i}`);
+}
+
+
+// reject the doctor
+function removeReject(i) {
+    $(`#checkAllow${i}`).val('1');
+    $(`#removeUnderReview${i}`).removeAttr('checked');
+    $('.pend_warn').html(`<h6 class="text-center text-success">remove from reject list</h6>`)
+    setTimeout(() => {
+        $(`.pend_warn`).hide(() => {
+            $(this).animate(2000)
+        });
+    }, 4000);
+
+    var xhr = new XMLHttpRequest();
+    var url = "/removeRejectDoctor";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            // pend_doc()
         }
     };
     xhr.send(`id=${i}`);
@@ -115,21 +141,20 @@ function Reject(i) {
 
 
 //* displaying *//
-function pend_doc() {
-    let get_doc = true;
-    var xhr = new XMLHttpRequest();
-    var url = "/get_pend_doc";
+// function pend_doc() {
+//     let get_doc = true;
+//     var xhr = new XMLHttpRequest();
+//     var url = "/get_pend_doc";
 
-    xhr.open("GET", url, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            $('#pend_docs').html(xhr.responseText);
-        }
-    };
-    xhr.send();
-
-}
+//     xhr.open("GET", url, true);
+//     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//     xhr.onreadystatechange = function () {
+//         if (this.readyState == 4 && this.status == 200) {
+//             $('#pend_docs').html(xhr.responseText);
+//         }
+//     };
+//     xhr.send();
+// }
 
 
 

@@ -59,6 +59,12 @@ class Kernel extends HttpKernel
         'admin_check_login' => [
             \App\Http\Middleware\adminCheckLogin::class,
         ],
+        'crossPat' => [
+            \App\Http\Middleware\crossPat::class,
+        ],
+        'crossDoc' => [
+            \App\Http\Middleware\crossDoc::class,
+        ],
     ];
 
     /**
@@ -69,6 +75,8 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+
+        'afterLogin' => \App\Http\Middleware\afterLogin::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

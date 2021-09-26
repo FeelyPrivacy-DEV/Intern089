@@ -139,18 +139,18 @@ $k = count( $date_arr );
                                 if($index == date('Y-m-d')) {
                                     foreach ( $value as $key=>$val ) {
                                         if($val[0] <= 12 && $val[1]) {
-                                            echo '<div class="btn-group my-2" role="group"">
+                                            echo '<div class="btn-group m-2" role="group"">
                                                     <button type="button" class="btn btn-danger px-2 my-2">'.date('h:i', strtotime($val[0])).' AM - '.date('h:i', strtotime($val[1])).' AM</button>';
                                             ?>
-                                                    <button type="button" class="btn btn-danger" onclick="slotdelete('<?php echo $index; ?>', <?php echo $key; ?>)"><i class="bi bi-x"></i></button>
+                                                    <!-- <button type="button" class="btn btn-danger" onclick="slotdelete('<?php echo $index; ?>', <?php echo $key; ?>)"><i class="bi bi-x"></i></button> -->
                                             <?php
                                             echo '</div>';
                                         }
                                         else {
-                                            echo '<div class="btn-group my-2" role="group">
+                                            echo '<div class="btn-group m-2" role="group">
                                                     <button type="button" class="btn btn-danger px-2 my-2">'.date('h:i', strtotime($val[0])).' PM - '.date('h:i', strtotime($val[1])).' PM</button>';
                                             ?>
-                                                    <button type="button" class="btn btn-danger" onclick="slotdelete('<?php echo $index; ?>', <?php echo $key; ?>)"><i class="bi bi-x"></i></button>
+                                                    <!-- <button type="button" class="btn btn-danger" onclick="slotdelete('<?php echo $index; ?>', <?php echo $key; ?>)"><i class="bi bi-x"></i></button> -->
                                             <?php
                                             echo '</div>';
                                         }

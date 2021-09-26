@@ -121,13 +121,17 @@
                         <div class="d-flex justify-content-between">
                             <div class="mb-3 mx-1">
                                 <!-- <label for="email" class="form-label">First Name</label> -->
-                                <input type="number" class="form-control py-2" maxlength="10" name="fname" id="doctor_register_mn"
+                                <input type="number" class="form-control py-2" maxlength="10" name="mobileNumber" id="doctor_register_mn"
                                     placeholder="mobile Number" required>
                             </div>
                             <div class="mb-4 mx-1">
-                                <input type="text" class="form-control py-2" name="sname" id="doctor_register_ml"
+                                <input type="text" class="form-control py-2" name="medicalId" id="doctor_register_ml"
                                     placeholder="Medical Licence" required>
                             </div>
+                        </div>
+                        <div class="mb-4">
+                            <input type="text" class="form-control py-2" name="addr" id="doctor_register_addr"
+                                placeholder="Address Line" required aria-describedby="">
                         </div>
                         <div class="mb-4">
                             <input type="password" class="form-control py-2" name="pass" id="doctor_register_pass"

@@ -109,7 +109,7 @@ class aHandler extends Controller
         // return $req->input();
         $con = new mongo;
         $db = $con->php_mongo;
-        $msg = 'for some reason you are rejected, and your accound will be deleted !';
+        $msg = 'for some reason you are rejected !';
         $id = $req->input('id');
 
         $collection = $db->manager;
@@ -133,6 +133,45 @@ class aHandler extends Controller
             $collection->updateOne(
                 ['d_unid' => strval($id)],
                 ['$set' =>['reject_doc' => true]]
+            );
+            echo 'true';
+        }
+        else {
+            echo 'false';
+        }
+
+
+
+    }
+
+    function removeRejectDoctor(Request $req) {
+        // return $req->input();
+        $con = new mongo;
+        $db = $con->php_mongo;
+        $msg = 'you are remove from reject list !';
+        $id = $req->input('id');
+
+        $collection = $db->manager;
+        $r = $collection->findOne(['d_unid' => strval($id)]);
+        $fname = $r['fname'];
+        $email = $r['email'];
+        include(app_path().'/email/doc_approval_email.php');
+        // include '../../../controller/php/email/doc_approval_email.php';
+        if($send == true) {
+            $collection = $db->admin;
+            $collection->updateOne(
+                ['a_unid' => strval($_SESSION['a_unid'])],
+                ['$pull' => ['reject_doc' => strval($id) ]]
+            );
+            $collection->updateOne(
+                ['a_unid' => strval($_SESSION['a_unid'])],
+                ['$push' => ['pendingDoc_ids' => strval($id) ]]
+            );
+
+            $collection = $db->manager;
+            $collection->updateOne(
+                ['d_unid' => strval($id)],
+                ['$set' =>['reject_doc' => false]]
             );
             echo 'true';
         }

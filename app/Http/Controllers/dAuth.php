@@ -14,13 +14,14 @@ class dAuth extends Controller {
         $con = new mongo;
         $db = $con->php_mongo;
 
-        $fname = $req->input('doctor_register_fname');
-        $email = $req->input('doctor_register_email');
-        $mobileNumber = $req->input('doctor_register_mn');
-        $medicalNumber = $req->input('doctor_register_ml');
+        $fname = $req->input('fname');
+        $email = $req->input('email');
+        $mobileNumber = $req->input('mn');
+        $medicalNumber = $req->input('ml');
+        $addr = $req->input('addr');
         $d_unid = strval( rand() );
         // print_r($req->input('h-captcha-response'));
-
+        // print_r($email);
         // echo "<br>";
         // echo "<br>";
 
@@ -43,14 +44,13 @@ class dAuth extends Controller {
             if($r == '') {
                 include(app_path().'/email/doc_reg_email.php');
                 if($send == true) {
-                    // include './email/doc_reg_email.php';
                     $collection = $db->admin;
                     $collection->updateOne(
                         ['username' => 'admin'],
                         ['$push' =>['pendingDoc_ids' => $d_unid]]
                     );
                     $collection = $db->manager;
-                    $pass = $req->input('doctor_register_pass');
+                    $pass = $req->input('pass');
                     $datetime = ( Object )[];
                     $hash = password_hash( $pass, PASSWORD_DEFAULT );
                     $p_unid = [];
@@ -60,7 +60,7 @@ class dAuth extends Controller {
                         'p_unid' => $p_unid,
                         'password' =>$hash,
                         'fname' =>$fname,
-                        'sname' =>$req->input('doctor_register_sname'),
+                        'sname' =>$req->input('sname'),
                         'email' =>$email,
                         'gen_info' => [
                             'phone_no' => $mobileNumber,
@@ -80,7 +80,7 @@ class dAuth extends Controller {
                             'clinic_image' => [],
                         ],
                         'contact_detail' => [
-                            'addressLine' => '',
+                            'addressLine' => $addr,
                             'clinic_addrs' => '',
                             'city' => '',
                             'state' => '',

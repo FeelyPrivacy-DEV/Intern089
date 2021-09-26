@@ -23,6 +23,7 @@ class logout extends Controller {
         unset($_SESSION['loggedin']);
         $req->session()->forget('aemail');
         $req->session()->forget('email');
+        $req->session()->forget('a_unid');
         $req->session()->forget('d_unid');
         $req->session()->forget('p_unid');
         $req->session()->flush();
