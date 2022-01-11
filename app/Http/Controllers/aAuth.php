@@ -38,7 +38,31 @@ class aAuth extends Controller
         }
     }
 
-    // function newAdmin(Request $req) {
-    //
-    // }
+    function newAdmin(Request $req) {
+        $con = new mongo;
+        $db = $con->php_mongo;
+        $collection = $db->admin;
+
+        $email = $req->input('admin_login_email');
+        echo $email;
+        $pass = $req->input('admin_login_pass'); 
+        $record = $collection->findOne( [ 'email' =>$email ]);
+        if(!$record) {
+           
+            $collection->insertOne([
+                'username' => 'admin',
+                'email' => $email,
+                'password' => password_hash( $pass, PASSWORD_DEFAULT ),
+                'pendingDoc_ids' => array(),
+                'pat_ids' => array(),
+
+            ]);
+
+            return 'true'; 
+        }
+        else {
+            return 'emailExist';
+            die();
+        }
+    }
 }

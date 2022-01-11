@@ -477,7 +477,7 @@ $(document).on('click', '#change_pass_doc', function() {
 
 
 
-//* admin *//
+//******************************************    ADMIN   ******************************************//
 
 // admin login
 $(document).on('click', '#admin_login_btn', function() {
@@ -504,17 +504,17 @@ $(document).on('click', '#admin_login_btn', function() {
             }
             else if(xhr.responseText == 'pfalse') {
                 $('#admin_login_warn').html('<h6 class="text-center text-danger">Wrong credentials !</h6>')
-                $('#admin_login_btn').text(`Log as in`);
+                $('#admin_login_btn').text(`Log as admin`);
                 $('#admin_login_btn').attr('disabled', false);
             }
             else if(xhr.responseText == 'efalse') {
                 $('#admin_login_warn').html('<h6 class="text-center text-danger">Account not found !</h6>')
-                $('#admin_login_btn').text(`Log as in`);
+                $('#admin_login_btn').text(`Log as admin`);
                 $('#admin_login_btn').attr('disabled', false);
             }
             else {
                 $('#admin_login_warn').html(`<h6 class="text-center text-primary">${xhr.responseText}</h6>`)
-                $('#admin_login_btn').text(`Log as in`);
+                $('#admin_login_btn').text(`Log as admin`);
                 $('#admin_login_btn').attr('disabled', false);
             }
           }
@@ -546,21 +546,16 @@ $(document).on('click', '#admin_register_btn', function() {
         xhr.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
             if(xhr.responseText == 'true') {
-                window.location.href = '/a/dashboard';
-            }
-            else if(xhr.responseText == 'pfalse') {
-                $('#admin_register_warn').html('<h6 class="text-center text-danger">Wrong credentials !</h6>')
-                $('#admin_register_btn').text(`Log as in`);
-                $('#admin_register_btn').attr('disabled', false);
-            }
-            else if(xhr.responseText == 'efalse') {
-                $('#admin_register_warn').html('<h6 class="text-center text-danger">Account not found !</h6>')
-                $('#admin_register_btn').text(`Log as in`);
+                // window.location.href = '/a-login';
+            } 
+            else if(xhr.responseText == 'emailExist') {
+                $('#admin_register_warn').html('<h6 class="text-center text-danger">Eamil already exist !</h6>')
+                $('#admin_register_btn').text(`Register for Admin`);
                 $('#admin_register_btn').attr('disabled', false);
             }
             else {
                 $('#admin_register_warn').html(`<h6 class="text-center text-primary">${xhr.responseText}</h6>`)
-                $('#admin_register_btn').text(`Log as in`);
+                $('#admin_register_btn').text(`Register for Admin`);
                 $('#admin_register_btn').attr('disabled', false);
             }
           }

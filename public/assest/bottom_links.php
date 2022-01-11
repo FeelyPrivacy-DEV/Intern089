@@ -20,7 +20,7 @@
 
   
   <!-- watson assistant -->
-  <script>
+  <!-- <script>
         window.watsonAssistantChatOptions = {
             integrationID: "55fef16e-0a3b-4f00-82ac-45a62eeb8618", // The ID of this integration.
             region: "kr-seo", // The region your integration is hosted in.
@@ -32,5 +32,5 @@
             t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js"
             document.head.appendChild(t);
         });
-    </script>
+    </script> -->
 

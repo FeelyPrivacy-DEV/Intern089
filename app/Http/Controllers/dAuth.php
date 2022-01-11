@@ -44,8 +44,8 @@ class dAuth extends Controller {
             $collection = $db->manager;
             $r = $collection->findOne(['email' => $email]);
             if($r == '') {
-                include(app_path().'/email/doc_reg_email.php');
-                if($send == true) {
+                // include(app_path().'/email/doc_reg_email.php');
+                // if($send == true) {
                     $collection = $db->admin;
                     $collection->updateOne(
                         ['username' => 'admin'],
@@ -120,10 +120,10 @@ class dAuth extends Controller {
                         'datetime'=> $datetime
                     ] );
                     return 'true';
-                }
-                else {
-                    return 'emailError';
-                }
+                // }
+                // else {
+                //     return 'emailError';
+                // }
             }
             else {
                 return 'emailExist';

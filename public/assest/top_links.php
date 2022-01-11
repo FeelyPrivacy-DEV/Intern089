@@ -16,7 +16,7 @@
                                                     "> -->
 
 <!-- hCaptcha -->
-<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+<!-- <script src="https://js.hcaptcha.com/1/api.js" async defer></script> -->
 
 
 <link rel="shortcut icon" href="http://127.0.0.1/s/l/public/image/favicon.ico" type="image/x-icon">

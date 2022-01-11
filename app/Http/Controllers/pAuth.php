@@ -42,8 +42,8 @@ class pAuth extends Controller {
                         ['username' => 'admin'],
                         ['$push' =>['pat_ids' => $p_unid]]
                     );
-                    include(app_path().'/email/pat_reg_email.php');
-                    if($send == true) {
+                    // include(app_path().'/email/pat_reg_email.php');
+                    // if($send == true) {
                         $collection = $db->employee;
                         $pass = $req->input('patient_registration_pass');
                         $datetime = ( Object )[];
@@ -73,10 +73,10 @@ class pAuth extends Controller {
                         ] );
 
                         return 'true';
-                    }
-                    else {
-                        return 'emailError';
-                    }
+                    // }
+                    // else {
+                        // return 'emailError';
+                    // }
                 }
                 else {
                     return 'emailExist';

@@ -115,7 +115,7 @@ $bodyHtml = '
 $mail = new PHPMailer(true);
 
 try {
-    // $mail->SMTPDebug = 2;
+    $mail->SMTPDebug = 2;
     $mail->isSMTP();
     $mail->setFrom($sender, $senderName);
     $mail->Username   = $usernameSmtp;

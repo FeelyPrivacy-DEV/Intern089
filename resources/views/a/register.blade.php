@@ -55,7 +55,7 @@
                             </div>
 
                             <!-- /Social Login -->
-                            <div class="text-center dont-have" >Already have an account? <a href="https://test.feelyprivacy.com/s/admin/index">Login</a>
+                            <div class="text-center dont-have" >Already have an account? <a href="http://127.0.0.1:8000/a-login">Login</a>
                             </div>
                         </div>
                     </div>
