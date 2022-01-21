@@ -42,5 +42,7 @@ class VerifyCsrfToken extends Middleware
         '/patient-forgot-password',
         '/chPasswordPat',
         '/chPasswordDoc',
+        '/updateProfileImg',
+        '/emailTest',
     ];
 }

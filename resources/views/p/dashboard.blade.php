@@ -12,19 +12,7 @@
 
 
     $collection = $db->employee;
-    $record = $collection->findOne( [ '_id' =>$_SESSION['eid']] );
-    // $datetime = iterator_to_array( $record['datetime'] );
-
-    // $date_arr = [];
-    // $time_arr = [];
-
-    // foreach($datetime as $date_key=>$val) {
-    //     $date_arr[] = $date_key;
-    //     foreach($val as $index=>$v) {
-    //         $time_arr[$date_key][] = $v;
-    //     }
-    // }
-    // $k = count( $date_arr );
+    $record = $collection->findOne( [ '_id' =>$_SESSION['eid']] ); 
 
 ?>
 
@@ -73,7 +61,7 @@
             <div class="d-grid gap-2">
                 <button class="btn btn-sm btn-outline-primary sidebtn fw-bold px-4 my-3"><i class="bi bi-list"></i></button>
             </div>
-            <div class="side-nav my-4">
+            <div class="side-nav my-4"> 
                 <ul class="px-0">
                     <li class="px-4"><a href="/p" ><i class="bi bi-person-bounding-box"></i>Select Doctor</a></li>
                     <li class="px-4"><a href="/p/dashboard"  class="s-active"><i class="bi bi-speedometer"></i>Dashboard</a></li>

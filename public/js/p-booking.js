@@ -33,7 +33,7 @@ function prodtopay(i, j, s_t, e_t, did) {
     date = i;
     timeslot = $(`#btn${j}${j}`).text();
 }
-
+    
 function proccedtopay() {
     $('#proccedtopay').html(`
         <span class="spinner-border mx-2 spinner-border-sm" role="status" aria-hidden="true"></span>Loading...

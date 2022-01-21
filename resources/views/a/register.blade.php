@@ -38,10 +38,8 @@
                             <div class="container">
                                 <!-- @csrf -->
                                 <div class="text-center my-4" id="admin_register_warn"></div>
-                                <div class="form-group my-3">
-                                    <div class="form-group">
-                                        <input class="form-control py-3" type="text" name="fname" id="admin_register_fname" placeholder="Full Name">
-                                    </div>
+                                <div class="form-group my-3"> 
+                                    <input class="form-control py-3" type="text" name="fname" id="admin_register_fname" placeholder="Full Name">
                                 </div>
                                 <div class="form-group my-3">
                                     <input class="form-control py-3" type="email" name="email" id="admin_register_email" placeholder="Email Address">

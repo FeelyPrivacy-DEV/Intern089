@@ -125,9 +125,14 @@
                 ?>
                 <div class="summary">
                     <h4 class="card-title">Booking Summary</h4>
-                    <div class="d-flex justify-content-start my-3">
-                        <img src="/image/doc-img/doc-img/default-doc.jpg" height="70"
-                            alt="User Image">
+                    <div class="d-flex justify-content-start my-3"> 
+                            <?php
+                                if ($record['profile_image'] != '') {
+                                    echo '<img src="/image/doc-img/doc-img/' . $record['profile_image'] . '" class="rounded"  height="70" alt="User Image">';
+                                } else {
+                                    echo '<img src="/image/doc-img/doc-img/default-doc.jpg"  height="70" alt="User Image">';
+                                }
+                            ?>
                         <div class="mx-2">
                             <h5 class="card-title">Dr. <?php echo $record['fname'].' '.$record['sname']; ?></h5>
                             <div class="d-flex">

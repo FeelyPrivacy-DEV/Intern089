@@ -75,25 +75,7 @@ function delete_item(i) {
 
 
 //** getting medical names by openFDA **//
-$(document).on('keyup', '.med-name', function() {
-    var med_name = $(this).val();
-    var xhr = new XMLHttpRequest();
-    var url = `https://api.fda.gov/drug/label.json`;
-    xhr.open('GET', url, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            let res = xhr.responseText
 
-            // Array.res.results.forEach(re => {
-                // $('#pr').text(res);
-
-            // })
-        }
-    }
-    xhr.send(`search=${med_name}&limit=5`);
-
-})
 
 
 //* prescription details

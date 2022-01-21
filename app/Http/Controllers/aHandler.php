@@ -198,11 +198,11 @@ class aHandler extends Controller
 
         $collection = $db->admin;
         $collection->updateOne(
-            ['a_unid' => strval($_SESSION['a_unid'])],
+            ['username' => 'admin'],
             ['$pull' => ['pendingDoc_ids' => strval($id) ]]
         );
         $collection->updateOne(
-            ['a_unid' => strval($_SESSION['a_unid'])],
+            ['username' => 'admin'],
             ['$push' => ['doc_ids' => strval($id) ]]
         );
 
@@ -215,14 +215,14 @@ class aHandler extends Controller
         $r = $collection->findOne(['d_unid' => strval($id)]);
         $fname = $r['fname'];
         $email = $r['email'];
-        include(app_path().'/email/doc_approval_email.php');
+        // include(app_path().'/email/doc_approval_email.php');
         // include '../../../controller/php/email/doc_approval_email.php';
-        if($send == true) {
+        // if($send == true) {
             echo 'true';
-        }
-        else {
-            echo 'false';
-        }
+        // }
+        // else {
+        //     echo 'false';
+        // }
 
     }
 

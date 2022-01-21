@@ -12,6 +12,7 @@ use App\Http\Controllers\docHandler;
 use App\Http\Controllers\patHandler;
 use App\Http\Controllers\logout;
 use App\Http\Controllers\temp;
+use App\Http\Controllers\testHandler;
 // middlewares
 use App\Http\Middleware\Authenticate as check_auth;
 use GuzzleHttp\Middleware;
@@ -125,6 +126,14 @@ Route::group(['middleware' => ['check_login']], function () { // This middleware
         Route::view('/d/profile-settings', '/d/profile-settings');
         Route::view('/d/change-password', '/d/change-password');
 
+        // from here all doctor profile setting routes
+
+        Route::post('/updateProfileImg', [docHandler::class, 'updateProfileImg']);
+        Route::post('/updateAboutMeInfo', [docHandler::class, 'updateAboutMeInfo']);
+        Route::post('/updateClinic', [docHandler::class, 'updateClinic']);
+        Route::post('/updateOtherDetails', [docHandler::class, 'updateOtherDetails']);
+
+
         Route::post('/UpdateDoctorProfileSettings', [docHandler::class, 'UpdateDoctorProfileSettings']);
         Route::get('/todaysAppoinment', [docHandler::class, 'todaysAppoinment']);
         Route::get('/upcomingAppoinment', [docHandler::class, 'upcomingAppoinments']);
@@ -166,5 +175,15 @@ Route::group(['middleware' => ['check_login']], function () { // This middleware
 
 // logout route
 Route::post('/logout', [logout::class, 'logout']);
+
+
+
+
+//****************************TEST ROUTES******************************//
+
+
+// email testing
+Route::post('/emailTest', [testHandler::class, 'emailTest']);
+
 
 

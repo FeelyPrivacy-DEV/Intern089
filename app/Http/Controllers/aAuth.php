@@ -20,10 +20,10 @@ class aAuth extends Controller
             if(password_verify( $pass, $record['password'])) {
                 session_start();
                 $req->session()->put('aemail', $record['email']);
-                $req->session()->put('a_unid', $record['a_unid']);
+                // $req->session()->put('a_unid', $record['a_unid']);
                 $_SESSION['aid'] = $record['_id'];
-                $_SESSION['a_unid'] = $record['a_unid'];
-                $_SESSION['fname'] = $record['fname'];
+                // $_SESSION['a_unid'] = $record['a_unid'];
+                $_SESSION['fullname'] = $record['fullname'];
                 return 'true';
                 die();
             }
@@ -43,22 +43,23 @@ class aAuth extends Controller
         $db = $con->php_mongo;
         $collection = $db->admin;
 
-        $email = $req->input('admin_login_email');
-        echo $email;
-        $pass = $req->input('admin_login_pass'); 
+        $fullname = $req->input('admin_register_fname');
+        $email = $req->input('admin_register_email'); 
+        $pass = $req->input('admin_register_pass'); 
         $record = $collection->findOne( [ 'email' =>$email ]);
         if(!$record) {
            
             $collection->insertOne([
                 'username' => 'admin',
+                'fullname' => $fullname,
                 'email' => $email,
                 'password' => password_hash( $pass, PASSWORD_DEFAULT ),
                 'pendingDoc_ids' => array(),
                 'pat_ids' => array(),
+                'doc_ids' => array(),
 
             ]);
-
-            return 'true'; 
+            return 'true';
         }
         else {
             return 'emailExist';

@@ -15,7 +15,7 @@ $db = $con->php_mongo;
 
 <head>
     @include('assest/top_links')
-    <title>Scheduld yourself !</title>
+    <title>FeelyPrivacy | Patient</title>
 </head>
 
 <body>

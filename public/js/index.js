@@ -117,6 +117,7 @@ $(document).on('click', '#doctor_register_btn', function() {
     doctor_register_addr = $('#doctor_register_addr').val();
     doctor_register_pass = $('#doctor_register_pass').val();
     doc_captcha = $('[name=h-captcha-response]').val();
+ 
     if(doctor_register_ml == '' || doctor_register_mn == '' || doctor_register_fname == '' || doctor_register_sname == '' || doctor_register_email == '' || doctor_register_pass == '') {
         $('#doctor_register_warn').html('<h6 class="text-center text-warning">Everything should be filled</h6>')
     }
@@ -134,9 +135,11 @@ $(document).on('click', '#doctor_register_btn', function() {
         xhr.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
             if(xhr.responseText == 'true') {
-                $('#doctor_register_warn').html('<h6 class="text-center text-success">Your account is created, please check email !</h6>')
+                $('#doctor_register_warn').html('<h6 class="text-center text-success">Account created! please check your email !</h6>')
                 $('#doctor_register_btn').attr('disabled', false);
                 $('#doctor_register_btn').text(`Create Account`);
+                
+                $('#doctor_register_fname, #doctor_register_sname, #doctor_register_email, #doctor_register_mn, #doctor_register_ml, #doctor_register_addr, #doctor_register_pass').val('')
             }
             else if(xhr.responseText == 'emailError') {
                 $('#doctor_register_warn').html('<h6 class="text-center text-danger">This email is not working !</h6>')
@@ -256,9 +259,11 @@ $(document).on('click', '#patient_registration_btn', function(e) {
         xhr.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
             if(xhr.responseText == 'true') {
-                $('#patient_register_warn').html('<h6 class="text-center text-success">Your account is created, please log in now !</h6>')
+                $('#patient_register_warn').html('<h6 class="text-center text-success">Account created! please login now !</h6>')
                 $('#patient_registration_btn').attr('disabled', false);
                 $('#patient_registration_btn').text(`Create Account`);
+
+                $('#patient_registration_fname, #patient_registration_sname, #patient_registration_email, #patient_registration_pass').val('');
             }
             else if(xhr.responseText == 'emailError') {
                 $('#patient_register_warn').html('<h6 class="text-center text-danger">This email is not working !</h6>')
@@ -545,8 +550,8 @@ $(document).on('click', '#admin_register_btn', function() {
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
-            if(xhr.responseText == 'true') {
-                // window.location.href = '/a-login';
+            if(xhr.responseText == 'true') { 
+                window.location.href = '/a-login';
             } 
             else if(xhr.responseText == 'emailExist') {
                 $('#admin_register_warn').html('<h6 class="text-center text-danger">Eamil already exist !</h6>')
@@ -556,10 +561,42 @@ $(document).on('click', '#admin_register_btn', function() {
             else {
                 $('#admin_register_warn').html(`<h6 class="text-center text-primary">${xhr.responseText}</h6>`)
                 $('#admin_register_btn').text(`Register for Admin`);
-                $('#admin_register_btn').attr('disabled', false);
+                $('#admin_register_btn').attr('disabled', false); 
             }
           }
         };
         xhr.send(`admin_register_fname=${admin_register_fname}&admin_register_email=${admin_register_email}&admin_register_pass=${admin_register_pass}`);
     }
 });
+
+
+
+
+
+
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    // dark mode
+}
+
+
+
+
+
+// email test with send grid
+
+$(document).on('click', '.sendgridTestBtn', function() {
+    var sender = 'pavankumartidke@gmail.com';
+
+    var xhr = new XMLHttpRequest();
+    var url = "/emailTest";
+
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        // if (this.readyState == 4 && this.status == 200) {
+            console.log(JSON.parse(xhr.response));
+        // }
+    };
+    xhr.send(`sender=${sender}`);
+}); 

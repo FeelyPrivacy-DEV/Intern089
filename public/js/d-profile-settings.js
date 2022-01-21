@@ -26,19 +26,19 @@ $(document).on('click', '#add-more-edu-btn', function() {
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="my-2">Degree</label>
-                    <input type="text" name="degree[]" class="form-control p-2 ">
+                    <input type="text" name="edu_degree[]" class="form-control p-2 ">
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="my-2">College / Institute</label>
-                    <input type="text" name="college[]" class="form-control p-2 ">
+                    <input type="text" name="edu_college[]" class="form-control p-2 ">
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="my-2">Year of Completion</label>
-                    <input type="number" name="year[]" class="form-control p-2 ">
+                    <input type="number" name="edu_year[]" class="form-control p-2 ">
                 </div>
             </div>
             <div class="col-md-3 my-auto ">
@@ -62,25 +62,25 @@ $(document).on('click', '#add-more-exp-btn', function() {
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="my-2">Hospital Name</label>
-                    <input type="text" name="hospital_name[]" class="form-control p-2 ">
+                    <input type="text" name="experi_hospital_name[]" class="form-control p-2 ">
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="my-2">From</label>
-                    <input type="date" name="hos_from[]" class="form-control p-2">
+                    <input type="date" name="experi_hos_from[]" class="form-control p-2">
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="my-2">To</label>
-                    <input type="date" name="hos_to[]" class="form-control p-2">
+                    <input type="date" name="experi_hos_to[]" class="form-control p-2">
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="my-2">Designation</label>
-                    <input type="text" name="designation[]" class="form-control p-2">
+                    <input type="text" name="experi_designation[]" class="form-control p-2">
                 </div>
             </div>
             <div class="col-md-3 my-auto ">
@@ -180,4 +180,115 @@ function deleteReg(i) {
 }
 
 
-// * update profile * //
+// ******************** update profile image ******************** //
+$('.update-img-btn').hide();
+$(document).on('change', '#select_file', function(e) {
+    $('.update-img-btn').show().animate(500);
+});
+$('#profile-form').on('submit', function(e) {  
+    $('.update-img-btn').val('Loading...');
+    e.preventDefault();
+    $.ajax({    
+        url: "/updateProfileImg",
+        method: "POST",
+        data: new FormData(this),
+        dataTyep: "JSON",
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function(data) {   
+            $(".profile-img-setting").removeAttr("src");
+            $('.profile-img-setting').attr('src', `${data.uploaded_image_src}`); 
+            $('.update-img-btn').val('Done');
+            setTimeout(function() {
+                $('.update-img-btn').hide();
+                $('.update-img-btn').val('Upload');
+            }, 1500);
+        }
+    });
+});
+
+
+//*********************** About information ***************************//
+$('#aboutMeForm').on('submit', function(e) {  
+    $('#updateAboutMeBtn').val('Loading...');
+    e.preventDefault();
+    $.ajax({        
+        url: "/updateAboutMeInfo",
+        method: "POST",
+        data: new FormData(this),
+        dataTyep: "JSON",
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function(data) {
+            $('#updateAboutMeBtn').val('Update My Info');
+        }
+    });
+});
+
+
+//*********************** Clinic information ***************************//
+$('#clinicForm').on('submit', function(e) { 
+    e.preventDefault(); 
+    $('#clinicUpdateBtn').val('Loading...');
+     
+    // var fdata = new FormData(this);
+    // console.log(fdata);
+
+    $.ajax({        
+        url: "/updateClinic",
+        method: "POST",
+        data: new FormData(this),
+        dataTyep: "JSON",
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function(data) {    
+            // $('.update-img-btn').val('Done'); 
+            console.log(data);
+            $('#clinicUpdateBtn').val('Update Clinic');
+        }
+    });
+});
+
+
+//*********************** other information ***************************//
+$('#otherDetails').on('submit', function(e) {  
+    $('#otherDetailsBtn').val('Loading...');
+    e.preventDefault();
+    $.ajax({        
+        url: "/updateOtherDetails",
+        method: "POST",
+        data: new FormData(this),
+        dataTyep: "JSON",
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function(data) {
+            // console.log(JSON.parse(data));
+            console.log(data);
+            $('#otherDetailsBtn').val('Update Other Details');
+            
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+// if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+//     // dark mode
+// }
+// window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+//     const newColorScheme = event.matches ? "dark" : "light";
+// });

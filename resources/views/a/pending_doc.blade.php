@@ -92,7 +92,7 @@
                 <div class="btn-group dropdown">
                     <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <?php echo $_SESSION['fname']; ?>
+                        <?php echo $_SESSION['fullname']; ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item" href="#">My Profile</a></li>

@@ -54,6 +54,7 @@
         </div>
     </nav>
 
+    
 
     <!-- main content -->
     <div class="m-3 row">
@@ -538,6 +539,7 @@
                                 <tr>
                                     <td>
                                         <input class="form-control med-name" type="text" name="med-name[]" required>
+                                        <ul id="search_result"></ul>
                                     </td>
                                     <td>
                                         <input class="form-control med-qty" type="number" name="med-qty[]" required>
@@ -594,6 +596,7 @@
 
     @include('/assest/bottom_links')
     <script src="{{ URL::asset('/js/d-patient-profile.js?ver=1.3') }}"></script>
+    <script src="{{ URL::asset('/js/med-search.js?ver=1.3') }}"></script>
 
 </body>
 

@@ -7,6 +7,7 @@ use MongoDB\Client as mongo;
 use Illuminate\Http\Request;
 
 
+
 class pAuth extends Controller {
 
     // new patient registration

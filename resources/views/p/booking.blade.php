@@ -69,8 +69,14 @@
 
         <div class="col-md-12 d-book-content my-4">
             <div class="doc-head mx-5">
-                <div class="left d-flex mb-4">
-                    <img src="/image/doc-img/doc-img/default-doc.jpg" class="rounded" height="90" alt="User Image">
+                <div class="left d-flex mb-4"> 
+                    <?php
+                        if ($record['profile_image'] != '') {
+                            echo '<img src="/image/doc-img/doc-img/' . $record['profile_image'] . '" class="rounded"  height="90" alt="User Image">';
+                        } else {
+                            echo '<img src="/image/doc-img/doc-img/default-doc.jpg"  height="90" alt="User Image">';
+                        }
+                    ?>
                     <div class="mx-3">
                         <h5>Dr. <?php echo $record['fname'].' '.$record['sname'] ?></h5>
                         <div class="d-flex my-1">

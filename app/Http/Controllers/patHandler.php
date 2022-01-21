@@ -23,10 +23,10 @@ class patHandler extends Controller {
 
         $collection = $db->manager;
         $drecord = $collection->findOne(['d_unid' => $doc_id]);
-        include(app_path().'/email/pat_doc_book_email.php');
-        if($send == true) {
-            include(app_path().'/email/pat_book_email.php');
-            if($send == true) {
+        // include(app_path().'/email/pat_doc_book_email.php');
+        // if($send == true) {
+            // include(app_path().'/email/pat_book_email.php');
+            // if($send == true) {
                 $collection = $db->employee;
                 $r = $collection->updateMany(
                     ['p_unid' => $_SESSION['p_unid']],
@@ -46,16 +46,16 @@ class patHandler extends Controller {
                 );
 
                 return url('/p/checkout', ['doc_id'=>$doc_id, 'date'=>$date, 'time'=>date('h-i', strtotime($s_time))]);
-            }
-            else {
-                $msg = 'email not send to patient';
-                return  $msg;
-            }
-        }
-        else {
-            $msg = 'email not send to anyone';
-            return  $msg;
-        }
+            // }
+            // else {
+                // $msg = 'email not send to patient';
+                // return  $msg;
+            // }
+        // }
+        // else {
+            // $msg = 'email not send to anyone';
+            // return  $msg;
+        // }
 
 
     }

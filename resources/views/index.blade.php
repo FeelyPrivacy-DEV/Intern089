@@ -16,7 +16,7 @@
 <head>
 
     @include('assest/top_links')
-    <title>Feely | Register</title>
+    <title>FeelyPrivacy | Doctor</title>
 
 </head>
 
@@ -284,6 +284,15 @@
                         </div>
                     </div>
                 </div> -->
+
+
+
+                <!-- email testing with sendgrid -->
+                <div class="">
+                    <button class="btn btn-primary sendgridTestBtn">Send Email</button>
+
+                </div>
+
             </div>
         </div>
     </div>

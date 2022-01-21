@@ -135,3 +135,52 @@ input, button, a {
     padding: 11px 15px;
     border-radius: 6px !important;
 }
+
+/****************************************************/
+
+.update-btns {
+    background: #20c0f3 !important;
+    border-color: #20c0f3 !important;
+}
+
+
+.progress {
+    /* display: flex; */
+    height: 1.5px;
+    overflow: auto;
+    font-size: .75rem;
+    background: #dccbe9;
+    border-radius: 50px !important;
+}
+.progress-bar {
+    /* display: flex;
+    flex-direction: column; */
+    justify-content: center;
+    overflow: auto;
+    color: #fff;
+    white-space: nowrap;
+    background-color: var(--text-color-purple-darkTheam);
+    transition: width .6s ease;
+}
+
+.pre-status-text {
+    color: #0167ff !important;
+}
+.pre-status-error-text {
+    color: #f3db00 !important;
+}
+.success-status-text {
+    color: #00ad0e !important; 
+}
+.file-status p {
+    font-size: 13px;
+    font-weight: 500;
+}
+.file-status .progress-file-name {
+    white-space: nowrap;
+    width: 10rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+

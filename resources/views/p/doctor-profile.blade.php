@@ -50,9 +50,14 @@
     </div>
     <div class="container my-5">
         <div class="p-2 d-flex doc_block justify-content-between">
-            <div class="left d-flex">
-                <img src="/image/doc-img/doc-img/default-doc.jpg" class="rounded doc_img"
-                    height="160" alt="User Image">
+            <div class="left d-flex"> 
+                    <?php
+                        if ($record['profile_image'] != '') {
+                            echo '<img src="/image/doc-img/doc-img/' . $record['profile_image'] . '" class="rounded"  height="160" alt="User Image">';
+                        } else {
+                            echo '<img src="/image/doc-img/doc-img/default-doc.jpg"  height="160" alt="User Image">';
+                        }
+                    ?>
                 <div class="mx-3">
                     <h5 class="text-nowrap">Dr. <?php echo $record['fname'].' '.$record['sname'] ?></h5>
                     <p class="text-nowrap">BDS, MDS - Oral</p>

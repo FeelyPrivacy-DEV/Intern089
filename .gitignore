@@ -16,3 +16,6 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+med.csv
+CSVtoJSON.py
+med.json

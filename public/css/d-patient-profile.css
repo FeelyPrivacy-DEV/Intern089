@@ -44,6 +44,10 @@ body {
     color: #fff !important;
     background: rgb(0, 226, 215) !important;
 }
+#search_result {
+    background: rgb(219, 219, 219) !important;
+    z-index: 9999 !important;
+}
 .save {
     background: rgb(1, 204, 194) !important;
     border: none !important;

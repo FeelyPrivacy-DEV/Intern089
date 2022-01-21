@@ -1,17 +1,17 @@
 <?php
 
-    error_reporting(0);
-    session_start();
-    // require '../../vendor/autoload.php';
-    if($_SESSION['eid'] == '') {
-        header('location: /');
-    }
-    $con = new MongoDB\Client( 'mongodb://127.0.0.1:27017' );
-    $db = $con->php_mongo;
+error_reporting(0);
+session_start();
+// require '../../vendor/autoload.php';
+if ($_SESSION['eid'] == '') {
+    header('location: /');
+}
+$con = new MongoDB\Client('mongodb://127.0.0.1:27017');
+$db = $con->php_mongo;
 
 
-    $collection = $db->manager;
-    $record = $collection->findOne( [ 'd_unid' =>$_SESSION['d_unid']] );
+$collection = $db->manager;
+$record = $collection->findOne(['d_unid' => $_SESSION['d_unid']]);
 
 
 ?>
@@ -26,7 +26,7 @@
 </head>
 
 <body>
-<div class="loading">
+    <div class="loading">
         <div class="spinner-border text-center" style="width: 3rem; height: 3rem;" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
@@ -50,11 +50,20 @@
         <!-- sidebar -->
         <div class="col-md-3 side-profile p-2 border">
             <div class="">
-                <div class="d-flex justify-content-center mb-4">
-                    <img src="/image/pat-img/default_user.png" height="150" class="rounded-circle"
-                        alt="">
+                <div class="d-flex justify-content-center ">
+                    <div class="change-avatar">
+                        <div class="profile-img">
+                            <?php
+                            if ($record['profile_image'] != '') {
+                                echo '<img src="/image/doc-img/doc-img/' . $record['profile_image'] . '"  height="90" alt="User Image">';
+                            } else {
+                                echo '<img src="/image/doc-img/doc-img/default-doc.jpg"  height="70" alt="User Image">';
+                            }
+                            ?>
+                        </div>
+                    </div>
                 </div>
-                <h4 class="text-center"><a href="#"><?php echo $record['fname'].' '.$record['sname']; ?></a></h4>
+                <h4 class="text-center"><a href="#"><?php echo $record['fname'] . ' ' . $record['sname']; ?></a></h4>
                 <p class="text-center">24 Jul 1983, 38 years</p>
                 <p class="text-center"> Newyork, USA</p>
             </div>
@@ -63,21 +72,17 @@
             </div>
             <div class="side-nav my-4">
                 <ul class="px-0">
-                    <li class="px-4"><a href="/d"  ><i
-                                class="bi bi-speedometer"></i>Dashboard</a></li>
-                    <li class="px-4"><a href="/d/appointments"><i
-                                class="bi bi-calendar-check-fill"></i>Appointments</a></li>
+                    <li class="px-4"><a href="/d"><i class="bi bi-speedometer"></i>Dashboard</a></li>
+                    <li class="px-4"><a href="/d/appointments"><i class="bi bi-calendar-check-fill"></i>Appointments</a></li>
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-person-lines-fill"></i>My Patients</a></li> -->
-                    <li class="px-4"><a href="/d/schedule-timings"><i
-                                class="bi bi-hourglass-split"></i>Schedule Timimg</a></li>
+                    <li class="px-4"><a href="/d/schedule-timings"><i class="bi bi-hourglass-split"></i>Schedule Timimg</a></li>
                     <li class="px-4"><a href="/d/invoice"><i class="bi bi-receipt-cutoff"></i>Invoice</a></li>
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-star-fill"></i>Review</a></li> -->
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li> -->
-                    <li class="px-4"><a href="/d/profile-settings" ><i
-                                class="bi bi-gear-fill"></i>Profile Setting</a></li>
+                    <li class="px-4"><a href="/d/profile-settings"><i class="bi bi-gear-fill"></i>Profile Setting</a></li>
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-share-fill"></i>Social Media</a></li> -->
                     <li class="px-4"><a href="/d/forgot-password" class="s-active"><i class="bi bi-lock-fill"></i>Change Password</a></li>
-                    <li class="px-4"><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
+                    
                 </ul>
             </div>
         </div>

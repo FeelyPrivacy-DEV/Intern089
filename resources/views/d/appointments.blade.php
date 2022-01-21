@@ -111,7 +111,11 @@
                                                                 alt="" srcset="">
                                                         </div>
                                                         <div class="pat-det mx-4">
-                                                            <h5 class=""><a href="#">'.$v['p_name'].'</a></h5>
+                                                            <h5 class=""><a href="#">'.$v['p_name'].'</a></h5>';
+                                                            ?>
+                                                                <a href="{{route('patient-profile', ['id'=> $v['p_unid']])}}" class="btn px-2 my-auto text-nowrap text-left" id="pat_profile">
+                                                            <?php 
+                                                            echo '<h5 class=""><a href="#">'.$v['p_name'].'</a></h5>
                                                             <p class="m-0"><i class="bi bi-clock-fill"></i> '.date('Y M d', strtotime($key)).', '.$v['book_t'][0].' AM</p>
                                                             <p class="m-0"><i class="bi bi-geo-alt-fill"></i> Newyork, United States</p>
                                                             <p class="m-0"><i class="bi bi-chat-left-text-fill"></i> '.$pert_doc['email'].'</p>

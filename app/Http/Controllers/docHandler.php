@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Http\File;
 use MongoDB\Client as mongo;
 
+use Illuminate\Support\Facades\Validator;
+ 
 
 session_start();
 
 
 class docHandler extends Controller {
+
 
     // accepting appoinment
     function acceptAppoinment(Request $req) {
@@ -354,6 +357,161 @@ class docHandler extends Controller {
 
     }
 
+    // profile image update
+    function updateProfileImg(Request $req) {
+        $con = new mongo;
+        $db = $con->php_mongo; 
+        $collection = $db->manager;
+
+        $validation = Validator::make($req->all(), [
+            'profile_image' => 'required|image|mimes:jpeg,png,gif|max:10000'
+        ]);
+         
+        if(!$validation->fails()) {
+            $image = $req->file('profile_image');
+            $new_name = rand().'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('image/doc-img/doc-img/'), $new_name);
+            $collection->updateOne(
+                ['_id' => $_SESSION['docid']],
+                ['$set' =>['profile_image' => $new_name]]
+            );
+            return response()->json([
+                'message' => 'Image Upload Successfully',
+                'uploaded_image_src' => '/image/doc-img/doc-img/'.$new_name ,
+                'class_name' => 'alert-success',
+
+            ]);
+        } 
+        else {
+            return response()->json([
+                'message' => $validation->errors()->all(),
+                'uploaded_image' => '',
+                'class_name' => 'alert-danger'
+            ]);
+        }
+
+        
+    }
+
+    function updateAboutMeInfo(Request $req) {
+        $con = new mongo;
+        $db = $con->php_mongo; 
+        $collection = $db->manager;
+
+        $r = $collection->updateMany(
+            ['_id' => $_SESSION['docid']],
+            ['$set' => [
+                'fname' => $req['fname'], 'sname' => $req['sname'],
+                'gen_info.phone_no' => $req['phone_no'],
+                'gen_info.gender' => $req['gender'],
+                'gen_info.DOB' => $req['DOB'],
+                'gen_info.biography' => $req['bio'], 
+                'contact_detail.addressLine' => $req['addressLine1'],
+                'contact_detail.city' => $req['city'],
+                'contact_detail.state' => $req['state'],
+                'contact_detail.state' => $req['state'],
+                'contact_detail.country' => $req['country'],
+                'contact_detail.postal_code' => $req['postal_code'], 
+                ]
+            ]
+        );
+
+        return  json_encode($r);
+ 
+    }
+
+    function updateClinic(Request $req) {
+        $con = new mongo;
+        $db = $con->php_mongo; 
+        $collection = $db->manager;
+
+
+        $collection->updateMany(
+            ['_id' => $_SESSION['docid']],  
+            ['$set' => [ 
+                'clinic_info.clinic_name' => $req['clinic_name'],
+                'clinic_info.clinic_addrs' => $req['clinic_addrs'], 
+                'custom_price' => $req['custom_price'],
+                ]
+            ]
+        );
+
+        foreach($req['services'] as $val) { 
+            $collection->updateMany(
+                ['_id' => $_SESSION['docid']],  
+                ['$set' => [ 
+                    'servicesAndSpec.services' => $req['services'], 
+                    ]
+                ]
+            );
+        }
+        foreach($req['spec'] as $val) { 
+            $collection->updateMany(
+                ['_id' => $_SESSION['docid']],  
+                ['$set' => [ 
+                    'servicesAndSpec.spec' => $req['spec'], 
+                    ]
+                ]
+            );
+        }
+
+
+    }
+
+    function updateOtherDetails(Request $req) {
+        $con = new mongo;
+        $db = $con->php_mongo; 
+        $collection = $db->manager;
+
+        for($i = 0; $i < count($req['edu_degree']); $i++) {
+            $collection->updateMany(
+                ['_id' => $_SESSION['docid']],  
+                ['$addToSet' => [
+                    // 'education' => array($val, $req['edu_college'][0], $req['edu_year'])   
+                    'education.degree' => $req['edu_degree'][$i], 
+                    'education.college' => $req['edu_college'][$i],
+                    'education.comp_year' => $req['edu_year'][$i],
+                    ]
+                ]
+            );
+        }
+
+        for($i = 0; $i < count($req['edu_degree']); $i++) {
+            $collection->updateMany(
+                ['_id' => $_SESSION['docid']],  
+                ['$addToSet' => [
+                    // 'education' => array($val, $req['edu_college'][0], $req['edu_year'])   
+                    'education.degree' => $req['edu_degree'][$i], 
+                    'education.college' => $req['edu_college'][$i],
+                    'education.comp_year' => $req['edu_year'][$i],
+                    ]
+                ]
+            );
+        }   
+
+        // foreach($req['edu_degree'] as $val) { 
+        //     $collection->updateMany(
+        //         ['_id' => $_SESSION['docid']],  
+        //         ['$set' => [
+        //             'education' => array($val, $req['edu_college'][0], $req['edu_year'])   
+        //             'education.degree' => $req['edu_degree'], 
+        //             'education.college' => $req['edu_college'],
+        //             'education.year_of_comp' => $req['edu_year'], 
+        //             ]
+        //         ]
+        //     );
+        // }
+
+        // return count($req['edu_degree']);
+    }
+
+
+
+
+
+
+
+
     // Update Doctor Profile Settings
     function UpdateDoctorProfileSettings(Request $req) {
         $con = new mongo;
@@ -361,7 +519,7 @@ class docHandler extends Controller {
 
         $collection = $db->manager;
 
-        return $fileName = $req->file('profile_image')->store('{{ url }}/image/docss/');
+        // $fileName = $req->file('profile_image')->store('/image/doc-img/doc-img/');
 
         // $fileSize = $$file->file('profile_image')['size'];
         // $fileType = $$file->file('profile_image')['type'];
