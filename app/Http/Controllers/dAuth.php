@@ -159,6 +159,7 @@ class dAuth extends Controller {
                         $_SESSION['email'] = $record['email'];
                         $_SESSION['d_unid'] = $record['d_unid'];
                         $_SESSION['fname'] = $record['fname'];
+                        $_SESSION['profile_image'] = $record['profile_image'];
                         $_SESSION['sname'] = $record['sname'];
                         return 'true';
                         exit();

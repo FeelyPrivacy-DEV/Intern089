@@ -76,8 +76,8 @@
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-receipt-cutoff"></i>Invoice</a></li> -->
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-star-fill"></i>Review</a></li> -->
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-chat-left-dots-fill"></i>Message</a></li> -->
-                    <!-- <li class="px-4"><a href="/d/profile-settings"><i
-                                class="bi bi-gear-fill"></i>Profile Setting</a></li> -->
+                    <li class="px-4"><a href="/d/profile-settings"><i
+                                class="bi bi-gear-fill"></i>Profile Setting</a></li>
                     <!-- <li class="px-4"><a href="#"><i class="bi bi-share-fill"></i>Social Media</a></li> -->
                     <li class="px-4"><a href="/d/forgot-password"><i class="bi bi-lock-fill"></i>Change Password</a></li>
                     <li class="px-4"><a href="#"><i class="bi bi-box-arrow-right"></i>Logout</a></li>

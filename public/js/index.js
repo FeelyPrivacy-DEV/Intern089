@@ -1,35 +1,55 @@
 
 
 $('#docreg, #docforgot').hide();
-$('#patreg, #patforgot').hide();
+$('#patreg, #patforgot, .patientAuthContainer').hide();
 
+
+$(document).on('click', '.patientAuthBtn', ()=>{
+    $('.doctorAuthContainer').hide();
+    $('body').css('background-color', '#ffcf52'); 
+    $('.patientAuthContainer').show();
+});
+
+$(document).on('click', '.doctorAuthBtn', ()=>{
+    $('.patientAuthContainer').hide(); 
+    $('body').css('background-color', '#4d69fa ');
+    $('.doctorAuthContainer').show(); 
+});
+  
+$('#d_log').css({'background-color': 'white', 'color': 'black'});
 
 $(document).on('click', '#d_log', function() {
+    $(this).css({'background-color': 'white', 'color': 'black'}).siblings().css({'background-color': '#6c757d', 'color': 'white'});
     $('#docreg, #docforgot').hide();
     $('#doclog').show()
-})
+});
 $(document).on('click', '#d_ca', function() {
+    $(this).css({'background-color': 'white', 'color': 'black'}).siblings().css({'background-color': '#6c757d', 'color': 'white'});
     $('#doclog, #docforgot').hide();
     $('#docreg').show()
-})
+});
 $(document).on('click', '#d_for', function() {
+    $(this).css({'background-color': 'white', 'color': 'black'}).siblings().css({'background-color': '#6c757d', 'color': 'white'});
     $('#docreg, #doclog').hide();
     $('#docforgot').show()
-})
+});
 
-
-$(document).on('click', '#p_log', function() {
+$('#p_log').css({'background-color': 'white', 'color': 'black'});
+$(document).on('click', '#p_log', function() { 
+    $(this).css({'background-color': 'white', 'color': 'black'}).siblings().css({'background-color': '#6c757d', 'color': 'white'});
     $('#patreg, #patforgot').hide();
     $('#patlog').show()
-})
+});
 $(document).on('click', '#p_ca', function() {
+    $(this).css({'background-color': 'white', 'color': 'black'}).siblings().css({'background-color': '#6c757d', 'color': 'white'});
     $('#patlog, #patforgot').hide();
     $('#patreg').show()
-})
+});
 $(document).on('click', '#p_for', function() {
+    $(this).css({'background-color': 'white', 'color': 'black'}).siblings().css({'background-color': '#6c757d', 'color': 'white'});
     $('#patreg, #patlog').hide();
     $('#patforgot').show()
-})
+});
 
 
 

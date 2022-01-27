@@ -9,6 +9,7 @@
 <script src='/assest/payment.js'></script>
 <script src="/assest/dropzone/dropzone.min.js"></script>
 <script src="/js/temp.js?ver=1.5"></script>
+<script src="/js/sidebar.js"></script>
     <!--[if IE 8]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/ie8/0.2.5/ie8.js"></script>
   <![endif]-->

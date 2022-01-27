@@ -10,7 +10,7 @@ session_start();
 class patHandler extends Controller {
 
     // booking appoinment slots and sending emails and storing in the database
-    function proToPay(Request $req) {
+    function proccedToPay(Request $req) {
         $con = new mongo;
         $db = $con->php_mongo;
 

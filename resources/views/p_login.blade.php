@@ -25,7 +25,7 @@ $db = $con->php_mongo;
         </div>
     </div>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class='navbar-brand text-light mx-4' href='/'>
                 <img src="{{URL::to('/')}}/image/logo.png" height="60" alt="" srcset="">
@@ -52,7 +52,7 @@ $db = $con->php_mongo;
                     SIGNUP</a>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
     <?php echo $auth_msg; ?>
 

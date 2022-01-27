@@ -3,22 +3,73 @@ body {
 }
 
 
+
+
+/* ======= doctor select page ========== */
+
+.mainDoctorDisplayDiv {
+    background: var(--bg-blue);
+    margin: 3% 1% 0 0; 
+    padding: 22px 15px;
+    border-radius: 20px !important;
+    box-shadow: 0 -0.5rem 3rem rgb(0 0 0 / 10%);
+}
+
+.mainDoctorDisplayDiv .subDiv2 {
+    background: var(--bg-light);
+    margin: 1% 1% ; 
+    padding: 10px 15px;
+    border-radius: 20px !important;
+    box-shadow: 0 -0.5rem 3rem rgb(0 0 0 / 10%);
+}
+
+
+
+
+
+
+/* ============== Patient dashboard ================= */
+
 /* nav */
 .nav .active {
-    color: #20c0f3 !important;
-    border-bottom: 4px solid #20c0f3 !important;
-    background-color: transparent !important;
+    color: var(--text-light) ; 
+    background: var(--bg-success-dark);
 }
 .nav button {
     font-size: 15px !important;
     font-weight: 600 !important;
-    border-radius: none !important;
+    border-radius: 13px !important;
 }
 
 /* table */ 
-.table {
+.tableNav {
+    margin: 1% 1% 0 0;
+    border-radius: 20px !important;
+    box-shadow: 0 -0.5rem 3rem rgb(0 0 0 / 10%);
+}
+.docDetailsTable {
+    /* background: var(--bg-purple); */
+    margin: 1% 1% 0 0; 
+    padding: 22px 15px;
+    border-radius: 20px !important;
+    box-shadow: 0 -0.5rem 3rem rgb(0 0 0 / 10%);
+}
+.table { 
     overflow-x: auto !important;
 }
+.docDetailsTable .timingText {
+    font-size: small;
+}
+.docDetailsTable .nav {
+    background: var(--bg-success);
+    margin: 2% 2% 0 2%; 
+    border-radius: 20px !important;
+    box-shadow: 0 -0.5rem 3rem rgb(0 0 0 / 10%);
+}
+.docDetailsTable table td {
+    border-style: none !important;
+}
+ 
 .table .pat img {
     border-radius: 50% !important;
 }
@@ -63,30 +114,7 @@ body {
     display: none !important;
 }
 
-@media screen and (max-width: 900px) { 
-    .row {
-        margin: 0px 0px !important;
-    }
-    .side-profile .sidebtn {
-        display: block;
-    }
-    .side-profile .side-nav {
-        display: none;
-    }
-    .all_doc_img {
-        height: 120px !important;
-        width: 110px !important;
-    }
-    .doc_block {
-        flex-direction: column !important;
-    }
-    .right p:nth-child(1), .right p:nth-child(2), .right p:nth-child(3), .right p:nth-child(4) {
-        display: none !important;
-    }
-    .d-dash-content .container {
-        padding: 0px 0px !important;
-    }
-}
+
 .sidebtn {
     display: none;
 }
@@ -97,7 +125,7 @@ body {
 
 /* select doctor */
 .d-dash-content {
-    height: 600px !important;
+    /* height: 600px  ; */
     overflow: hidden !important;
     overflow-y: scroll !important;
 }
@@ -132,3 +160,37 @@ body {
     color: #fff !important;
 }
 
+
+@media screen and (max-width: 500px) { 
+    .left .profile-img {
+        height: 65px;
+        width: 50px;
+        border-radius: 10px;
+        transition:.5s ease-in-out;
+    }
+}
+
+@media screen and (max-width: 900px) { 
+    .row {
+        margin: 0px 0px !important;
+    }
+    .side-profile .sidebtn {
+        display: block;
+    }
+    .side-profile .side-nav {
+        display: none;
+    }
+    .all_doc_img {
+        height: 120px !important;
+        width: 110px !important;
+    }
+    .doc_block {
+        flex-direction: column !important;
+    }
+    .right p:nth-child(1), .right p:nth-child(2), .right p:nth-child(3), .right p:nth-child(4) {
+        display: none !important;
+    }
+    .d-dash-content .container {
+        padding: 0px 0px !important;
+    }
+}

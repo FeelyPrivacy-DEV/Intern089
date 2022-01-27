@@ -164,7 +164,7 @@ Route::group(['middleware' => ['check_login']], function () { // This middleware
             return view('p/booking', ['id'=>$id]);
         })->name('booking');
 
-        Route::post('/proccedToPay', [patHandler::class, 'proToPay']);
+        Route::post('/proccedToPay', [patHandler::class, 'proccedToPay']);
         Route::post('/chPasswordPat', [patHandler::class, 'chPasswordPat']);
 
         Route::get('/p/checkout/{id}/{date}/{time}', function ($id, $date, $time) {

@@ -1,4 +1,23 @@
 .navbar {
-    background-color: #f8f9fa !important;
-    /* background-color: #a7d3ff !important; */
+    background-color: var(--bg-light-fade); 
+    color: var(--text-dark);
+    border-radius: 1rem;
+    box-shadow: 0 1.6rem 3rem rgb(0 0 0 / 10%);
+    margin: 1% 1% 0 0;
+    backdrop-filter: blur(0.5rem);
+    will-change: backdrop-filter;
+    height: 4rem;
+    z-index: 1020;
 }
+
+.profileBtnDrop a img {
+    height: 45px;
+    width: 45px;
+    border-radius: 20px;
+}
+
+.navbar .search input { 
+    border: none;
+    background: var(--bg-light-fade);
+}
+

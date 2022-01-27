@@ -1,8 +1,80 @@
 
+.theme-dark {
+    --bg: #1f2128;
+    --text: #ffffff;
+}
+.theme-light {
+    --bg: #ffffff;
+    --text: #242731;
+}   
+:root {
+    --bg-index-page: #4d69fa;
+    
+    /* theams */
+    --theam-bg-dark: #1f2128;
+    --theam-bg-light: #ffffff;
+
+    /* text colors */
+    --text-light: #fafafa;
+    --text-dark: #181818;
+    --text-gery: #626b74;
+    --text-success: #46bcaa;
+    --text-danger: #f35421;  
+    --text-pink: #ffa2c0;
+    --text-primary: #4d69fa;
+    --text-purple: #6c5dd3;
+    --text-warning: #ffcf52;
+
+    /* background colors */
+    --bg-dark: #242731;
+    --bg-grey: #ececec;
+    --bg-pink: #f3dfe5 !important;
+    --bg-light: #fff;
+    --bg-purple: #dad7f4;
+    --bg-danger: #fff3d4;
+    --bg-success: #d1eeea;
+    --bg-blue: #edf0ff;
+    --bg-success-dark: #46bcaa;
+    --bg-light-fade: #ffffff6f;
+    --bg-dark-fade: #0000006f;
+
+
+
+}
+
+
+
+
 body .btn-close, .btn, .form-control, .form-select, .form-check-input {
     outline: none !important;
     box-shadow: none !important;
 }
+
+body {
+    /* background-color: var(--theam-bg-dark);  */
+}
+
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(107, 0, 255);
+    background: linear-gradient( 60deg, rgba(107, 0, 255, 1) 0%, rgba(219, 6, 237, 1) 100%);
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8400ffb4;
+}
+
+
 /* body {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -151,34 +223,6 @@ input[type=number] {
 
 
 
-.navbar {
-    box-shadow: 2px 3px 15px #cccccc !important;
-}
-.navbar .btn-outline-primary {
-    color: rgb(0, 180, 180) !important;
-    background: transparent !important;
-    font-weight: 500 !important;
-    border:  1px solid rgb(0, 180, 180) !important;
-}
-.navbar .btn-outline-primary:hover {
-    color: rgb(255, 255, 255) !important;
-    background: rgb(0, 180, 180) !important;
-}
-.navbar ul li a {
-    color: #000 !important;
-    font-weight: 500 !important;
-    font-size: medium !important;
-}
-.navbar ul li {
-    padding: 0 5px !important;
-}
-@media screen and (max-width: 900px) {
-    .navbar img {
-        width: 90px !important;
-        height: 40px !important;
-    }
-}
-
 
 @media screen and (max-width: 900px) {
     .row {
@@ -200,12 +244,19 @@ input[type=number] {
 
 /* breadcrumb */
 .breadc {
-    padding: 10px 0 !important;
-    height: auto !important;
-    background-color: #000 !important;
+    border-radius: 1rem;
+    padding: 10px 0 !important; 
+    box-shadow: 0 1.6rem 3rem rgb(0 0 0 / 10%);
+    background-color: var(--bg-light-fade);
+    will-change: backdrop-filter; 
+    backdrop-filter: blur(0.5rem);
+    margin: 1% 1% 0 0;  
+    height: 3rem;
+    z-index: 1019;
+
 }
 .breadc .breadcrumb p {
-    color: #fff !important;
+    color: var(--text-dark);
     font-size: 12px !important;
     font-weight: 600 !important;
 }
@@ -215,10 +266,7 @@ input[type=number] {
 }
 
 
-.navbar .nav-btn-modal {
-    background: none !important;
-}
-
+ 
 /* .e_log_form {
     max-width: 235px !important;
 } */
@@ -233,13 +281,56 @@ input[type=number] {
 
 /* registration */
 
+.patientAuthBtn {
+    color: #ffcf52 !important;
+}
+.auth-action-btn-pat-color {
+    background: #ffcf52;
+}
+.doctorAuthBtn {
+   color: #4d69fa !important; 
+}
 .reg_cont {
     margin: 40px 0 !important;
 }
 .reg_cont .forms {
-    padding: 30px 5px !important;
-    border: 2px solid #a0a0a0 !important;
-    border-radius: 5px !important;
+    padding: 30px 5px !important; 
+    border-radius: 25px !important;
+    background: var(--bg-dark); 
+    box-shadow: 0px 18px 0px -7px #00083754, 0px 32px 0px -12px #021fb859;
+}
+  
+.reg_cont .forms .role-doc { 
+    color: #4d69fa;
+    font-size: x-large;
+    font-weight: 700 !important;
+}
+.reg_cont .forms .role-pat { 
+    color: #ffcf52;
+    font-size: x-large;
+    font-weight: 700 !important;
+}
+.reg_cont .forms .authBtns {
+    background: #14141469 !important;
+    border-radius: 20px !important; 
+}
+.reg_cont .forms .authBtns button { 
+    color: #ffffff;
+}
+
+.reg_cont .forms  button { 
+    border-radius: 10px;
+}
+
+.mainAuthContainer .forms input { 
+    font-weight: 600 !important;
+    font-size: small;
+    font-family: 'Nunito', sans-serif;
+    border-radius: 10px !important;
+    border: 1px solid #464646 !important;
+    background: var(--bg-black) !important;
+    color: #fff;
+    /* padding: 0px 0px 0px 0px; */
 }
 .reg_cont .forms .reg, .log, .forgot {
     width: 400px !important;
@@ -254,17 +345,9 @@ input[type=number] {
     color: rgb(0, 212, 212);
     font-weight: 500 !important;
 } */
-.reg_cont  .img {
-    margin-top: 65px !important;
-}
-
+ 
 @media screen and (max-width: 900px) {
-    .reg_cont .bnar {
-        display: none !important;
-    }
-    .reg_cont  .img {
-        margin: 0px 0px !important;
-    }
+ 
     .reg_cont .forms {
         margin: 0px 0px !important;
     }
@@ -280,29 +363,10 @@ input[type=number] {
         /* width: 10px !important; */
         margin: 0px auto !important;
         width: fit-content !important;
-    }
-    #patlog, #patreg, #doclog, #docreg, #docforgot, #patforgot {
-        width: fit-content !important;
-    }
-
-    .cf {
-        flex-direction: column !important;
-    }
-    .formcont {
-        margin: 0px auto !important;
-        padding: 0px 0px !important;
-        width: fit-content !important;
-    }
+    } 
+ 
 }
-
-@media screen and (max-width: 900px) {
-
-}
-
-
-
-
-
+ 
 /* slider */
 
 

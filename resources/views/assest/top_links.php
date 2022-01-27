@@ -17,6 +17,8 @@
 
 
 
+<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="shortcut icon" href="/image/favicon.ico" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,6 +29,7 @@
 <link rel="stylesheet" href="/assest/dropzone/dropzone.min.css">
 <link rel="stylesheet" href="/css/style.css?ver=4.2">
 <link rel="stylesheet" href="/css/navbar.css?ver=1.1">
+<link rel="stylesheet" href="/css/sidebar.css?ver=1.1">
 <link rel="stylesheet" href="/css/footer.css?ver=3.5">
 <link rel="stylesheet" href="/assest/bootstrap/jquery-ui/jquery-ui/jquery-ui.css">
 <link rel="stylesheet" href="/assest/bootstrap/jquery-ui/jquery-ui/jquery-ui.min.css">
