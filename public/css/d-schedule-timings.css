@@ -1,3 +1,24 @@
+ 
+
+.sidebtn {
+    display: none;
+}
+.side-nav {
+    display: block;
+}
+
+.row {
+    margin: 0px 0px !important;
+}
+
+.setScheduleTimings {
+    margin: 1% 1% 0 0; 
+    padding: 22px 15px;
+    border-radius: 20px !important;
+    box-shadow: 0 -0.5rem 3rem rgb(0 0 0 / 10%);
+}
+
+
 
 
 @media screen and (max-width: 900px) { 
@@ -10,14 +31,4 @@
     .side-profile .side-nav {
         display: none;
     }   
-}
-.sidebtn {
-    display: none;
-}
-.side-nav {
-    display: block;
-}
-
-.row {
-    margin: 0px 0px !important;
 }

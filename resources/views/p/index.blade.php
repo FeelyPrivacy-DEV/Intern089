@@ -53,12 +53,11 @@
 
         <!-- sidebar -->
         @include('/assest/patient-sidebar') 
- 
+         
         
-
         <div class="d-dash-content">
             <!-- navbar -->
-            @include('assest/navbar')
+            @include('assest/patient-navbar')
 
             <!-- breadcrumb -->
             <nav class='breadc navbar-expand-lg'>

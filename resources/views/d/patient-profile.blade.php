@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    @include('assest/navbar')
+    @include('assest/doctor-navbar')
 
     <!-- breadcrumb -->
     <nav class='breadc navbar-expand-lg'>

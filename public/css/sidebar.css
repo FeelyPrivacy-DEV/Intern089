@@ -313,3 +313,44 @@ body.dark .switch::before{
 body.dark .home .text{
     color: var(--text-color);
 }
+
+/* ===== mobile view sidebar ===== */
+
+
+
+
+@media screen and (max-width: 500px) { 
+    .d-dash-content { 
+        padding-left: 0;
+        transition: var(--tran-05);
+    }
+    .sideCollapseBtnPat, .sideCollapseBtnDoc {
+        display: block;
+        transition: var(--tran-05);
+    }
+    #toggleSidebar {
+        display: none;
+        transition: var(--tran-05);
+    } 
+    .sidebar {
+        position: fixed; 
+        top: 0;
+        left: 0;
+        height: 100%; 
+        border-radius: 0;
+        width: 200px;
+        padding: 10px 0;
+        background: #191919;
+        backdrop-filter: blur(0.5rem);
+        will-change: backdrop-filter;
+        transition: var(--tran-05);
+        z-index: 2000;  
+    }
+    .sidebar header {
+        display: none;
+    }
+    .sidebar.close{
+        width: 0;
+        transition: var(--tran-05);
+    }
+}

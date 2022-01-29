@@ -1,4 +1,4 @@
-<nav class="sidebar close">
+<nav class="sidebar  close ">
     <header>
         <div class="image-text">
             <span class="image">
@@ -42,6 +42,34 @@
         </div>
 
         <div class="bottom-content">
+            <!-- <div class="btn-group dropdown profileBtnDrop">
+                <a class="nav-link text-dark  " href="#" id="navbarDarkDropdownMenuLink" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <?php echo $_SESSION['fname']; ?>
+                    <img src="/image/doc-img/doc-img/<?php echo $_SESSION['profile_image']; ?>" class="rounded-circle mx-2"  alt="" />
+                </a> 
+                <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item" href="#"></a></li>
+                    <li><a class="dropdown-item" href="/d/profile-settings">Profile</a></li>
+                    <hr>
+                    <li>
+                        <form action="/logout" method="POST">
+
+                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                        <button type='submit' name='logout' class='btn btn-sm fw-bold text-danger px-3'>Log Out</button>
+                        </form>
+                    </li>
+                </ul>
+            </div> -->
+            <ul class="menu-links">
+                <li class="nav-links">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <form action="/logout" method="POST"> 
+                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                        <button type='submit' name='logout' class='btn btn-sm fw-bold text-danger px-3'>Log Out</button>
+                    </form>
+                </li>
+            </ul>
 
         </div>
     </div>

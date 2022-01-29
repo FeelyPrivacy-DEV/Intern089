@@ -35,10 +35,18 @@ $(document).on('click', '.themeBtn', function() {
             '--theam-bg-dark': '#ffffff',
             '--text-light': '#ffffff', 
         });
-    }
-
-
-
-
-    $()
+    } 
 })
+
+ 
+    $(document).on('click', '.sideCollapseBtnPat, .sideCollapseBtnDoc', function() {
+        $('.sidebar').removeClass("close");
+    });
+
+
+if(window.screen.width < 500) {
+    $(document).on('click', '.mainDoctorDisplayDiv, .docDetailsTable, .doctorBookingPage, .checkoutSummary, .kuGYKG, .setScheduleTimings, .invoiceTables, .doctorProfileProfile, .doctorForgotPassword, .doctorAppoinmentsPage', function() {
+        $('.sidebar').addClass("close");
+    });
+}
+ 

@@ -2,11 +2,14 @@ body {
     background-color: #f8f9fa !important;
 }
 
-.d-appo-content {
-    height: 600px !important;
-    overflow: hidden !important;
-    overflow-y: scroll !important;
+ .perticularPatientCard {
+    margin: 1% 1% 0 0; 
+    padding: 5px 15px;
+    border-radius: 20px !important;
+    box-shadow: 0 3.5rem 3rem rgb(0 0 0 / 10%);
 }
+
+ 
 .d-appo-content .pat_card {
     border-radius: 10px !important;
     background: #fff !important;

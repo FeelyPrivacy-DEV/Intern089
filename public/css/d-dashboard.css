@@ -52,14 +52,17 @@
 
 /* patient details table */
 
-.patDetailsTable {
+.patDetailsTable, .invoiceTables {
     margin: 1% 1% 0 0; 
     padding: 5px 5px;
     border-radius: 20px !important;
     box-shadow: 0 -0.5rem 3rem rgb(0 0 0 / 10%);
 }
 
- table td {
+    
+
+
+table td {
     border-style: none !important; 
 }
 table tbody th {
@@ -121,9 +124,7 @@ table tbody th {
 }
 .invoice-table {
     width: 100% !important;
-    overflow-x: auto !important;
-    height: 600px !important;
-    overflow-y: scroll !important;
+    overflow-x: auto !important; 
 }
 .invoice-table .modal-dialog {
     max-width: 50rem !important;

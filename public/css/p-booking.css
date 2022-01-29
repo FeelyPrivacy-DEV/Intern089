@@ -24,6 +24,39 @@ svg.svelte-ekc7fv.svelte-ekc7fv {
     background: rgba(0, 132, 255, 0.233) !important;
 }
 
+ 
+#select_active {
+    width: fit-content !important;
+}
+.slider-main {
+    width: fit-content !important;
+    /* overflow: scroll !important; */
+    overflow-x: scroll !important;
+}
+
+.doctorBookingPage {
+    margin: 1% 1% 0 0; 
+    padding: 22px 15px;
+    border-radius: 20px !important;
+    box-shadow: 0 -0.5rem 3rem rgb(0 0 0 / 10%);
+}
+.doc-head {
+    margin: 1% 1% 0 0; 
+    padding: 22px 15px;
+    border-radius: 20px !important;
+    box-shadow: 0 -0.5rem 3rem rgb(0 0 0 / 10%);
+}
+.bookingDates {
+    margin: 1% 1% 0 0; 
+    padding: 22px 15px;
+    border-radius: 20px !important;
+    box-shadow: 0 -0.5rem 3rem rgb(0 0 0 / 10%);
+}
+
+/* pro to pay */
+.protopay button {
+    font-size: 13px ;
+}
 
 
 @media screen and (max-width: 900px) {
@@ -39,20 +72,4 @@ svg.svelte-ekc7fv.svelte-ekc7fv {
     .doc-head {
         margin: 20px 1px !important;
     }
-}
-
-.sidebtn {
-    display: none;
-}
-.side-nav {
-    display: block;
-}
-
-#select_active {
-    width: fit-content !important;
-}
-.slider-main {
-    width: fit-content !important;
-    /* overflow: scroll !important; */
-    overflow-x: scroll !important;
 }

@@ -41,7 +41,7 @@ $record = $collection->findOne(['_id' => $_SESSION['eid']]);
         <div class="col-md-9 d-dash-content pl-5">
 
             <!-- Navbar  -->
-            @include('/assest/navbar')
+            @include('assest/patient-navbar') 
 
             <!-- breadcrumb -->
             <nav class='breadc navbar-expand-lg  '>
