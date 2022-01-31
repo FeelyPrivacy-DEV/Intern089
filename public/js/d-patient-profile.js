@@ -19,14 +19,14 @@ $(document).on("click", ".nav button", function () {
 
 // add-prescription-btn
 $(document).on("click", "#add-prescription-btn", function () {
-    $('#d-dash-content').hide();
+    $('#allTablesWithNav').hide();
     $("#add-prescription").show();
 });
 
 // back-btn
 $(document).on("click", "#back-btn", function () {
     $("#add-prescription").hide();
-    $('#d-dash-content').show();
+    $('#allTablesWithNav').show();
 });
 
 // add-item event

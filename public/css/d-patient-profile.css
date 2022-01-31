@@ -3,15 +3,19 @@ body {
 }
 
 /* nav */
+.patientDetailsTable .nav {
+    background: var(--bg-success);
+    padding: 9px 0;
+    border-radius: 13px !important;
+}
 .nav .active {
-    color: #20c0f3 !important;
-    border-bottom: 4px solid #20c0f3 !important;
-    background-color: transparent !important;
+    color: var(--text-light) !important; 
+    background: var(--bg-success-dark);
 }
 .nav button {
     font-size: 15px !important;
     font-weight: 600 !important;
-    border-radius: none !important;
+    border-radius: 13px !important;
 }
 
 .back-btn, .add-item {
@@ -27,11 +31,22 @@ body {
 
 
 /* table  .Prescriptions*/
+ 
+.patientDetailsTable {
+    
+    margin: 1% 1% 0 0; 
+    padding: 5px 15px;
+    border-radius: 20px !important;
+    box-shadow: 0 0.5rem 3rem rgb(0 0 0 / 10%);
+}
+.patientSideProfile {   
+    margin: 1% 1% 0 0; 
+    padding: 5px 15px;
+    border-radius: 20px !important;
+    box-shadow: 0 0.5rem 3rem rgb(0 0 0 / 10%);
+}
 .Appointments, .prescription-input-table {
-    max-height: 500px !important;
-    width: 100% !important;
-    overflow-x: scroll !important;
-    overflow-y: scroll !important;
+    
 }
 /* #Prescription-input {
     width: 100% !important;
